@@ -311,7 +311,7 @@ chemin complet du dossier courant.
 
 .. parsed-literal::
 
-    Le dossier courant est : ``C:\Users\martienne_e``.
+    Le dossier courant est : C:\Users\martienne_e.
     
 
 Lorsqu’un programme traite des fichiers, **ceux-ci doivent
@@ -346,8 +346,8 @@ dossier ``'C:\Users\martienne_e\data'`` comme nouveau dossier courant.
 
 .. parsed-literal::
 
-    Le dossier courant est : ``C:\Users\martienne_e``
-    Le nouveau dossier courant est : ``C:\Users\martienne_e\data``
+    Le dossier courant est : C:\Users\martienne_e
+    Le nouveau dossier courant est : C:\Users\martienne_e\data
     
 
 Ouverture d’un fichier : la fonction **open()**
@@ -600,7 +600,7 @@ par une.
 .. parsed-literal::
 
     Liste des chaînes lues dans le fichier : 
-    ``['Souvent, pour s’amuser, les hommes d’équipage\n', 'Prennent des albatros, vastes oiseaux des mers,\n', 'Qui suivent, indolents compagnons de voyage,\n', 'Le navire glissant sur les gouffres amers.\n', '\n', 'A peine les ont-ils déposés sur les planches,\n', 'Que ces rois de l’azur, maladroits et honteux,\n', 'Laissent piteusement leurs grandes ailes blanches\n', 'Comme des avirons traîner à côté d’eux.\n', '\n', 'Ce voyageur ailé, comme il est gauche et veule !\n', 'Lui, naguère si beau, qu’il est comique et laid !\n', 'L’un agace son bec avec un brûle-gueule,\n', 'L’autre mime, en boitant, l’infirme qui volait !\n', '\n', 'Le Poète est semblable au prince des nuées\n', 'Qui hante la tempête et se rit de l’archer ;\n', 'Exilé sur le sol au milieu des huées,\n', 'Ses ailes de géant l’empêchent de marcher.\n', '\n', 'Charles Baudelaire']``
+    ['Souvent, pour s’amuser, les hommes d’équipage\n', 'Prennent des albatros, vastes oiseaux des mers,\n', 'Qui suivent, indolents compagnons de voyage,\n', 'Le navire glissant sur les gouffres amers.\n', '\n', 'A peine les ont-ils déposés sur les planches,\n', 'Que ces rois de l’azur, maladroits et honteux,\n', 'Laissent piteusement leurs grandes ailes blanches\n', 'Comme des avirons traîner à côté d’eux.\n', '\n', 'Ce voyageur ailé, comme il est gauche et veule !\n', 'Lui, naguère si beau, qu’il est comique et laid !\n', 'L’un agace son bec avec un brûle-gueule,\n', 'L’autre mime, en boitant, l’infirme qui volait !\n', '\n', 'Le Poète est semblable au prince des nuées\n', 'Qui hante la tempête et se rit de l’archer ;\n', 'Exilé sur le sol au milieu des huées,\n', 'Ses ailes de géant l’empêchent de marcher.\n', '\n', 'Charles Baudelaire']
     
     Affichage ligne par ligne :
     
@@ -1005,3 +1005,5 @@ formatage :
    numériques.
 
 .. image:: ImagesNotebook/dialecte_CSV.PNG
+
+To be continued…
