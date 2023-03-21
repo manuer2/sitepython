@@ -1,0 +1,320 @@
+Les instructions conditionnelles
+================================
+
+Un programme est une suite d’instructions exécutées dans un ordre précis
+pour aboutir à la production d’un résultat. L’ordre dans lequel les
+instructions s’exécutent s’appelle le **flux d’exécution**. Dans la
+plupart des langages de programmation, le contrôle du flux d’exécution
+s’effectue à l’aide de trois **structures de contrôle** : \* la
+**séquence** \* l’\ **instruction conditionnelle** \* l’\ **instruction
+répétitive**
+
+Nous aborderons dans ce chapitre la séquence et les instructions
+conditionnelles. Les instructions répétitives feront l’objet d’un autre
+chapitre.
+
+La séquence
+-----------
+
+Dans un programme, la séquence est la structure de contrôle la plus
+simple (cf. figure ci-dessous) : les instructions sont exécutées une par
+une, de la première à la dernière, dans l’ordre où elles ont été codées.
+
+.. figure:: ImagesNotebook/Sequence.PNG
+   :alt: La séquence
+
+   La séquence
+
+Le programmeur doit donc faire attention à l’ordre dans lequel il place
+les instructions, puisqu’une simple inversion de deux instructions peut
+modifier complètement le résultat. Considérons par exemple le programme
+suivant et exécutons-le en saisissant les valeurs ``5`` pour ``x`` et
+``7`` pour ``y`` :
+
+.. code:: ipython3
+
+    x = int(input("Saisissez la valeur de x : "))
+    y = int(input("Saisissez la valeur de y : "))
+    x = y
+    y = x
+    print(f"La valeur de est x est {x} et celle de y est {y}.")
+
+
+.. parsed-literal::
+
+    Saisissez la valeur de x :  5
+    Saisissez la valeur de y :  7
+    
+
+.. parsed-literal::
+
+    La valeur de est x est 7 et celle de y est 7.
+    
+
+Considérons maintenant le même programme, avec juste une inversion de
+l’ordre des instructions ``x = y`` et ``y = x``. Que constatez-vous en
+l’exécutant et en saisissant les mêmes valeurs que précédemment pour
+``x`` et ``y`` ?
+
+.. code:: ipython3
+
+    x = int(input("Saisissez la valeur de x : "))
+    y = int(input("Saisissez la valeur de y : "))
+    y = x
+    x = y
+    print(f"La valeur de est x est {x} et celle de y est {y}.")
+
+
+.. parsed-literal::
+
+    Saisissez la valeur de x :  5
+    Saisissez la valeur de y :  7
+    
+
+.. parsed-literal::
+
+    La valeur de est x est 5 et celle de y est 5.
+    
+
+Les valeurs finales de ``x`` et ``y`` sont différentes.
+
+L’instruction conditionnelle ``if``
+-----------------------------------
+
+Dans un programme, on doit pouvoir adapter les traitements réalisés en
+fonction du contexte dans lequel on se trouve. Une **instruction
+conditionnelle** ``if`` permet (cf. figure ci-dessous) : \* de tester si
+une condition est vérifiée (c’est-à-dire vraie) ou pas (c’est-à-dire
+fausse) \* d’effectuer des instructions différentes selon que la
+condition est vérifiée (bloc d’instructions 1) ou non (bloc
+d’instructions 2).
+
+.. figure:: ImagesNotebook/InstructionConditionnelle.PNG
+   :alt: L’instruction conditionnelle if
+
+   L’instruction conditionnelle if
+
+En python, la syntaxe d’une instruction ``if`` est la suivante :
+
+.. code:: ipython3
+
+    if exp_cond :
+        bloc_instructions 1
+    else:
+        bloc_instructions 2
+
+Il s’agit d’une **instruction composée** comportant :
+
+-  deux lignes d’en-tête terminées par le caractère ``:``
+
+   -  ``if exp_cond :``
+   -  ``else :``
+
+-  deux blocs d’instructions
+
+Les blocs doivent obligatoirement être indentés par rapport aux lignes
+d’en-tête. Cette indentation s’effectue de préférence avec quatre
+espaces consécutifs, ou bien avec un caractère de tabulation. Elle est
+souvent effectuée automatiquement par les éditeurs de code Python.
+
+Voici ce qui se passe lors de l’exécution d’une instruction ``if`` :
+
+-  la valeur de la condition (``exp_cond``) est évaluée
+-  si cette valeur est vraie, le bloc d’instructions 1 est effectué
+-  si cette valeur est fausse, le bloc d’instructions 2 est effectué
+-  l’exécution séquentielle du programme se poursuit après l’exécution
+   du bloc (1 ou 2).
+
+Le programme ci-dessous est un exemple d’utilisation d’une instruction
+``if``, avec deux traces d’exécution.
+
+.. code:: ipython3
+
+    age = int(input("Quel est votre âge ?"))
+    if age>=18:
+        print("Vous êtes majeur(e).")
+    else:
+        print("Vous êtes mineur(e).")
+
+
+.. parsed-literal::
+
+    Quel est votre âge ? 14
+    
+
+.. parsed-literal::
+
+    Vous êtes mineur(e).
+    
+
+.. code:: ipython3
+
+    age = int(input("Quel est votre âge ?"))
+    if age>=18:
+        print("Vous êtes majeur(e).")
+    else:
+        print("Vous êtes mineur(e).")
+
+
+.. parsed-literal::
+
+    Quel est votre âge ? 24
+    
+
+.. parsed-literal::
+
+    Vous êtes majeur(e).
+    
+
+Il existe une version «réduite» de l’instruction ``if`` dans laquelle la
+partie ``else`` est omise. Dans ce cas, lorsque la condition est fausse,
+aucun bloc d’instructions particulier n’est effectué avant la poursuite
+de l’exécution du programme. Voici un exemple de ce cas de figure avec
+deux traces d’exécution.
+
+.. code:: ipython3
+
+    age = int(input("Quel est votre âge ?"))
+    if age>=18:
+        print("Vous êtes majeur(e).")
+    print("Au revoir et à bientôt !!")
+
+
+.. parsed-literal::
+
+    Quel est votre âge ? 19
+    
+
+.. parsed-literal::
+
+    Vous êtes majeur(e).
+    Au revoir et à bientôt !!
+    
+
+.. code:: ipython3
+
+    age = int(input("Quel est votre âge ?"))
+    if age>=18:
+        print("Vous êtes majeur(e).")
+    print("Au revoir et à bientôt !!")
+
+
+.. parsed-literal::
+
+    Quel est votre âge ? 15
+    
+
+.. parsed-literal::
+
+    Au revoir et à bientôt !!
+    
+
+Un bloc d’instructions appartenant à une instruction ``if`` peut
+lui-même contenir une autre instruction ``if``. On dit alors que les
+deux instructions ``if`` sont **imbriquées**. L’exemple suivant illustre
+ce cas de figure.
+
+.. code:: ipython3
+
+    monentier = int(input("Saisissez un nombre entier : "))
+    if monentier<0:
+        print("Il s'agit d'un nombre négatif.")
+    else:
+        if monentier>0:
+            print("Il s'agit d'un nombre positif.")
+        else:
+            print("Il s'agit d'un nombre nul.")
+
+
+.. parsed-literal::
+
+    Saisissez un nombre entier :  -6
+    
+
+.. parsed-literal::
+
+    Il s'agit d'un nombre négatif.
+    
+
+.. code:: ipython3
+
+    monentier = int(input("Saisissez un nombre entier : "))
+    if monentier<0:
+        print("Il s'agit d'un nombre négatif.")
+    else:
+        if monentier>0:
+            print("Il s'agit d'un nombre positif.")
+        else:
+            print("Il s'agit d'un nombre nul.")
+
+
+.. parsed-literal::
+
+    Saisissez un nombre entier :  0
+    
+
+.. parsed-literal::
+
+    Il s'agit d'un nombre nul.
+    
+
+.. code:: ipython3
+
+    monentier = int(input("Saisissez un nombre entier : "))
+    if monentier<0:
+        print("Il s'agit d'un nombre négatif.")
+    else:
+        if monentier>0:
+            print("Il s'agit d'un nombre positif.")
+        else:
+            print("Il s'agit d'un nombre nul.")
+
+
+.. parsed-literal::
+
+    Saisissez un nombre entier :  8
+    
+
+.. parsed-literal::
+
+    Il s'agit d'un nombre positif.
+    
+
+La simplification avec ``elif``
+-------------------------------
+
+L’exemple précédent contient deux instructions ``if`` imbriquées sur
+deux niveaux. E pratique, les possibilités d’imbrication sont multiples,
+et il n’existe pas de limitation du nombre de niveaux. Lorsque plusieurs
+instructions ``if`` sont imbriquées sur plusieurs niveaux, il est
+possible de simplifier l’écriture du code en utilisant l’instruction
+``elif`` (contraction de ``else`` et ``if``). Ainsi, le code suivant :
+
+.. code:: ipython3
+
+    if exp_cond1:
+        bloc 1
+    else:
+        if exp_cond2:
+            bloc 2
+        else:
+            if exp_cond3:
+                bloc 3
+            else:
+                bloc 4
+
+peut se simplifier de la manière suivante :
+
+.. code:: ipython3
+
+    if exp_cond1:
+        bloc 1
+    elif exp_cond2:
+        bloc 2
+    elif exp_cond3:
+        bloc 3
+    else:
+        bloc 4
+
+L’usage de l’instruction ``elif`` permet notamment d’avoir un seul
+niveau d’indentation des différents blocs.

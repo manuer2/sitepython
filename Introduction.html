@@ -1,0 +1,952 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Introduction &#8212; Université Rennes 2 - Cours de Python - L1 MIASHS</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="2. Les bases du langage Python" href="LesbasesdulangagePython.html" />
+    <link rel="prev" title="Structures de données en Python I" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/ILovePython.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Université Rennes 2 - Cours de Python - L1 MIASHS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Structures de données en Python I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Table des matières
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="LesbasesdulangagePython.html">
+   2. Les bases du langage Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="InstructionsConditionnelles.html">
+   3. Les instructions conditionnelles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Booleens.html">
+   4. Booléens et expressions booléennes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="InstructionsRepetitives.html">
+   5. Les instructions répétitives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ListesEtTuples.html">
+   6. Les listes et les tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dictionnaires.html">
+   7. Les dictionnaires
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Introduction.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contenu de la page
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectifs">
+   1.1. Objectifs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modalites-pedagogiques">
+   1.2. Modalités pédagogiques
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliographie-webographie">
+   1.3. Bibliographie - Webographie
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quest-ce-que-la-programmation">
+   1.4. Qu’est-ce que la programmation ?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition">
+     1.4.1. Définition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemple-de-tache-simple">
+     1.4.2. Exemple de tâche simple
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-etapes-de-la-mise-au-point-dun-programme">
+   1.5. Les étapes de la mise au point d’un programme
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-conception">
+     1.5.1. La conception
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-codage">
+     1.5.2. Le codage
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-transformation-du-programme-source">
+     1.5.3. La transformation du programme source
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#la-compilation">
+       1.5.3.1. La compilation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linterpretation">
+       1.5.3.2. L’interprétation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-test-du-programme">
+     1.5.4. Le test du programme
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-differents-types-derreurs">
+     1.5.5. Les différents types d’erreurs
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#erreur-de-syntaxe">
+       1.5.5.1. Erreur de syntaxe
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#erreur-semantique">
+       1.5.5.2. Erreur sémantique
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#erreur-a-lexecution-ou-a-linterpretation">
+       1.5.5.3. Erreur à l’exécution ou à l’interprétation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenu de la page </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectifs">
+   1.1. Objectifs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modalites-pedagogiques">
+   1.2. Modalités pédagogiques
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliographie-webographie">
+   1.3. Bibliographie - Webographie
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quest-ce-que-la-programmation">
+   1.4. Qu’est-ce que la programmation ?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition">
+     1.4.1. Définition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemple-de-tache-simple">
+     1.4.2. Exemple de tâche simple
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-etapes-de-la-mise-au-point-dun-programme">
+   1.5. Les étapes de la mise au point d’un programme
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-conception">
+     1.5.1. La conception
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-codage">
+     1.5.2. Le codage
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-transformation-du-programme-source">
+     1.5.3. La transformation du programme source
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#la-compilation">
+       1.5.3.1. La compilation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linterpretation">
+       1.5.3.2. L’interprétation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-test-du-programme">
+     1.5.4. Le test du programme
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-differents-types-derreurs">
+     1.5.5. Les différents types d’erreurs
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#erreur-de-syntaxe">
+       1.5.5.1. Erreur de syntaxe
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#erreur-semantique">
+       1.5.5.2. Erreur sémantique
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#erreur-a-lexecution-ou-a-linterpretation">
+       1.5.5.3. Erreur à l’exécution ou à l’interprétation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="introduction">
+<h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre"></a></h1>
+<section id="objectifs">
+<h2><span class="section-number">1.1. </span>Objectifs<a class="headerlink" href="#objectifs" title="Lien permanent vers ce titre"></a></h2>
+<p>Ce cours est la continuité du cours de <strong>« Culture Numérique et
+Programmation »</strong> du semestre 1. La réflexion algorithmique en reste
+l’un des objectifs, mais nous y ajoutons en plus l’apprentissage de la
+syntaxe et des concepts de base de la programmation en langage Python.
+Tous les documents nécessaires (PDF des cours et des sujets de travaux
+dirigés, corrigés des programmes demandés) sont téléchargeables à partir
+de l’<strong>espace-cours Cursus « Structures de données en Python I »</strong> :
+<a class="reference external" href="https://cursus.univ-rennes2.fr/course/view.php?id=5679">https://cursus.univ-rennes2.fr/course/view.php?id=5679</a>.</p>
+</section>
+<section id="modalites-pedagogiques">
+<h2><span class="section-number">1.2. </span>Modalités pédagogiques<a class="headerlink" href="#modalites-pedagogiques" title="Lien permanent vers ce titre"></a></h2>
+<p>Le cours est composé essentiellement de séances de Travaux Dirigés, à
+raison de deux heures par semaine. Quatre intervenants assureront les
+TDs :</p>
+<ul class="simple">
+<li><p>Haïscam ABDALLAH</p></li>
+<li><p>Xavier ANDRÉ</p></li>
+<li><p>Emmanuelle MARTIENNE</p></li>
+<li><p>Fabienne MOREAU</p></li>
+</ul>
+<p>L’évaluation du cours s’effectue à l’aide de deux contrôles continus
+(deux épreuves individuelles sur machine d’une durée d’une heure),
+comptant chacun pour 50% de la note finale.</p>
+</section>
+<section id="bibliographie-webographie">
+<h2><span class="section-number">1.3. </span>Bibliographie - Webographie<a class="headerlink" href="#bibliographie-webographie" title="Lien permanent vers ce titre"></a></h2>
+<ul class="simple">
+<li><p><strong>Apprendre à programmer avec Python 3</strong> - G. Swinnen - <em>Éditions
+Eyrolles</em> (version PDF disponible dans l’espace-cours Cursus
+mentionné plus haut).</p></li>
+<li><p><strong>Page Wikipédia sur Python</strong> -
+<a class="reference external" href="https://fr.wikipedia.org/wiki/Python_(langage">https://fr.wikipedia.org/wiki/Python_(langage</a>)</p></li>
+<li><p><strong>Page Wikipédia sur la programmation informatique</strong> -
+<a class="reference external" href="https://fr.wikipedia.org/wiki/Programmation_informatique">https://fr.wikipedia.org/wiki/Programmation_informatique</a></p></li>
+</ul>
+</section>
+<section id="quest-ce-que-la-programmation">
+<h2><span class="section-number">1.4. </span>Qu’est-ce que la programmation ?<a class="headerlink" href="#quest-ce-que-la-programmation" title="Lien permanent vers ce titre"></a></h2>
+<section id="definition">
+<h3><span class="section-number">1.4.1. </span>Définition<a class="headerlink" href="#definition" title="Lien permanent vers ce titre"></a></h3>
+<p>On peut définir la programmation comme une activité destinée à faire
+réaliser par un ordinateur une tâche qu’il n’était pas en mesure
+d’accomplir auparavant. Plus concrètement, elle consiste à <strong>coder des
+programmes</strong> que l’ordinateur sera capable d’exécuter, à l’aide d’un
+<strong>langage de programmation</strong>. La programmation occupe une part très
+importante dans tout le processus de développement des logiciels
+informatiques.</p>
+</section>
+<section id="exemple-de-tache-simple">
+<h3><span class="section-number">1.4.2. </span>Exemple de tâche simple<a class="headerlink" href="#exemple-de-tache-simple" title="Lien permanent vers ce titre"></a></h3>
+<p>On considère par exemple une tâche assez qu’il est possible d’effectuer
+avec juste un crayon, une feuille de papier… et le souvenir de ses
+leçons de mathématiques du lycée : le calcul des racines réelles d’une
+équation du second degré à une inconnue de la forme :
+<span class="math notranslate nohighlight">\(ax^2+bx+c=0\)</span>. Pour automatiser cette tâche à l’aide d’un
+ordinateur et d’un programme, quatre étapes sont nécessaires :</p>
+<ul class="simple">
+<li><p>la conception ;</p></li>
+<li><p>le codage ;</p></li>
+<li><p>la compilation ou l’interprétation du programme source ;</p></li>
+<li><p>le test du programme source.</p></li>
+</ul>
+</section>
+</section>
+<section id="les-etapes-de-la-mise-au-point-dun-programme">
+<h2><span class="section-number">1.5. </span>Les étapes de la mise au point d’un programme<a class="headerlink" href="#les-etapes-de-la-mise-au-point-dun-programme" title="Lien permanent vers ce titre"></a></h2>
+<section id="la-conception">
+<h3><span class="section-number">1.5.1. </span>La conception<a class="headerlink" href="#la-conception" title="Lien permanent vers ce titre"></a></h3>
+<p>La conception est une analyse préalable, sur papier, du programme que
+l’on souhaite écrire. Cela suppose de se poser, et aussi de répondre, à
+un certain nombre de questions de manière non ambigüe. Voici pêle-mêle
+quelques exemples de ces questions (la liste n’est pas exhaustive !).</p>
+<p>À l’origine d’un programme, il y généralement les données qu’il va
+traiter, qui sont souvent appelées les <strong>entrées</strong>. Quelles sont ces
+entrées ? Dans quel format se présentent-elles ? Comment sont-elles
+fournies au programme (saisie au clavier, lecture dans un ou plusieurs
+fichiers) ?</p>
+<p>Un programme traite des données pour produire des résultats, aussi
+appelés <strong>sorties</strong>. Quelles sont ces sorties ? Dans quel format se
+présentent-elles ? Comment sont-elles fournies à l’utilisateur
+(affichage à l’écran ou création de fichier) ?</p>
+<p>Une fois les entrées et sorties clairement formalisées, vient la
+question centrale : comment le programme va-t-il produire les sorties à
+partir des entrées ? Répondre à cette question consiste à écrire un
+<strong>algorithme</strong>, c’est-à-dire une suite d’actions, que l’ordinateur doit
+réaliser séquentiellement pour obtenir les sorties à partir des entrées.
+À titre de comparaison avec la vie quotidienne, un algorithme en
+informatique est équivalent à une recette de cuisine. Les entrées sont
+les ingrédients, les sorties sont le plat à confectionner, et la recette
+(l’algorithme) vous indique pas à pas comment mélanger les ingrédients
+(les entrées) pour obtenir le plat (les sorties).</p>
+<p>Voici ci-dessous un document qui pourrait tout à fait être le résultat
+de la phase de conception de notre programme de calcul des racines d’une
+équation.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Entrées : trois variables réelles correspondant aux coefficients</span>
+<span class="c1">#            de l&#39;équation.</span>
+<span class="c1">#            Les valeurs de ces variables sont saisies au clavier.</span>
+<span class="c1">#            - coeff_a est la valeur du coefficient a</span>
+<span class="c1">#            - coeff_b est la valeur du coefficient b</span>
+<span class="c1">#            - coeff_c est la valeur du coefficient c</span>
+<span class="c1">#            Aucun contrôle de validité n&#39;est effectué sur les valeurs</span>
+<span class="c1">#            saisies au clavier.</span>
+<span class="c1">## Sorties : deux (une) variable(s) réelle(s) correspondant aux racines</span>
+<span class="c1">#            (à la racine unique) de l&#39;équation si elle(s) existe(nt).</span>
+<span class="c1">#            Les valeurs de ces variables sont affichées à l&#39;écran.</span>
+<span class="c1">#            - racine1 est la valeur de la première racine</span>
+<span class="c1">#              (ou de la racine unique selon le cas</span>
+<span class="c1">#            - racine2 est la valeur de la seconde racine</span>
+<span class="c1">#            si l&#39;équation n&#39;admet aucune racine réelle, un message</span>
+<span class="c1">#            l&#39;indiquant est affiché à l&#39;écran.</span>
+<span class="c1"># Autres données calculées dans le programme :</span>
+<span class="c1">#            - variable réelle delta contenant la valeur du discriminant</span>
+<span class="c1">#              de l&#39;équation.</span>
+
+<span class="c1"># Algorithme (séquence d&#39;instructions à réaliser)</span>
+
+    <span class="n">Afficher</span> <span class="n">à</span> <span class="n">l</span><span class="s1">&#39;écran le message :</span>
+    <span class="s2">&quot; Saisissez au clavier les valeurs des 3 coefficients de l&#39;équation : &quot;</span>
+    <span class="n">Saisir</span> <span class="n">au</span> <span class="n">clavier</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">de</span> <span class="n">coeff_a</span>
+    <span class="n">Saisir</span> <span class="n">au</span> <span class="n">clavier</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">de</span> <span class="n">coeff_b</span>
+    <span class="n">Saisir</span> <span class="n">au</span> <span class="n">clavier</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">de</span> <span class="n">coeff_c</span>
+    <span class="n">Calculer</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">du</span> <span class="n">discriminant</span> <span class="n">delta</span>
+    <span class="n">Si</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">alors</span> <span class="n">Si</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+                    <span class="n">alors</span> <span class="n">calculer</span> <span class="n">les</span> <span class="n">valeurs</span> <span class="n">des</span> <span class="mi">2</span> <span class="n">racines</span> <span class="n">racine1</span> <span class="n">et</span> <span class="n">racine2</span>
+                          <span class="n">afficher</span> <span class="n">à</span> <span class="n">l</span><span class="s1">&#39;écran les valeurs de racine1 et racine2</span>
+                    <span class="n">sinon</span> <span class="n">calculer</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">de</span> <span class="n">la</span> <span class="n">racine</span> <span class="n">unique</span> <span class="n">racine1</span>
+                          <span class="n">afficher</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">de</span> <span class="n">racine1</span>
+        <span class="n">sinon</span> <span class="n">afficher</span> <span class="n">à</span> <span class="n">l</span><span class="s1">&#39;écran un message indiquant qu&#39;</span><span class="n">il</span> <span class="n">n</span><span class="s1">&#39;y a aucune racine</span>
+</pre></div>
+</div>
+</section>
+<section id="le-codage">
+<h3><span class="section-number">1.5.2. </span>Le codage<a class="headerlink" href="#le-codage" title="Lien permanent vers ce titre"></a></h3>
+<p>L’étape de codage consiste à traduire l’algorithme résultant de la phase
+de conception en un <strong>programme source</strong>, codé dans un langage de
+programmation. Voici ci-dessous le programme source obtenu en traduisant
+l’algorithme précédent en langage Python.</p>
+<p>Même si le langage de programmation est généralement de haut niveau et
+donc non compréhensible directement par un ordinateur, cette étape est
+un pas de plus vers l’exécution de l’algorithme par la machine.</p>
+</section>
+<section id="la-transformation-du-programme-source">
+<h3><span class="section-number">1.5.3. </span>La transformation du programme source<a class="headerlink" href="#la-transformation-du-programme-source" title="Lien permanent vers ce titre"></a></h3>
+<p>La transformation du programme source consiste à rendre ce dernier
+exécutable par l’ordinateur. Pour ce faire, il existe deux techniques :</p>
+<ul class="simple">
+<li><p>la compilation</p></li>
+<li><p>l’interprétation.</p></li>
+</ul>
+<section id="la-compilation">
+<h4><span class="section-number">1.5.3.1. </span>La compilation<a class="headerlink" href="#la-compilation" title="Lien permanent vers ce titre"></a></h4>
+<p>Le principe de la compilation est d’utiliser un programme spécifique,
+appelé <strong>compilateur</strong>, pour transformer un programme source :</p>
+<ul class="simple">
+<li><p>soit en un programme directement compréhensible et exécutable par la
+machine (les fichiers portant l’extension .exe sont des programmes
+exécutables directement par la machine)</p></li>
+<li><p>soit en un <strong>bytecode</strong> directement compréhensible et exécutable par
+une <strong>machine virtuelle</strong> (les fichiers portant l’extension .class
+sont des bytecodes). Dans ce second cas, cette machine virtuelle doit
+être installée sur l’ordinateur pour qu’il puisse exécuter le
+bytecode.</p></li>
+</ul>
+<p>Parmi les langages de programmation pouvant être compilés, on peut citer
+par exemple :</p>
+<ul class="simple">
+<li><p>Pascal, C et C++ où le résultat de la compilation est un programme
+exécutable</p></li>
+<li><p>Java et Python où le résultat de la compilation est un bytecode.</p></li>
+</ul>
+</section>
+<section id="linterpretation">
+<h4><span class="section-number">1.5.3.2. </span>L’interprétation<a class="headerlink" href="#linterpretation" title="Lien permanent vers ce titre"></a></h4>
+<p>Le principe de l’interprétation est d’utiliser un programme spécifique,
+appelé <strong>interpréteur</strong>, qui va lire le programme source
+séquentiellement, instruction par instruction. Il traduit chaque
+instruction en <strong>langage machine</strong> avant de la transmettre à
+l’ordinateur pour que celui-ci l’exécute. Parmi les langages de
+programmation pouvant être interprétés, on peut citer par exemple :</p>
+<ul class="simple">
+<li><p>Perl</p></li>
+<li><p>PHP</p></li>
+<li><p>Python (il est à noter que les programmes Python peuvent aussi être
+compilés).</p></li>
+</ul>
+<p>Voici ci-dessous le programme source Python (on utilise généralement le
+terme de <strong>script Python</strong>) prêt à être interprété (avec un exemple
+d’exécution).</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="c1"># Saisie des données au clavier</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saisissez les valeurs des 3 coefficients a, b et c dans cet ordre : &quot;</span><span class="p">)</span>
+<span class="c1"># Saisie et mémorisation des coefficients (conversion des chaînes saisies en nombres réels)</span>
+<span class="n">coeff_a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">coeff_b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">coeff_c</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="c1"># Calcul et mémorisation du discriminant de l&#39;équation</span>
+
+<span class="n">delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">coeff_b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">coeff_a</span> <span class="o">*</span> <span class="n">coeff_c</span><span class="p">)</span>
+
+<span class="c1"># Calcul des racines réelles (ou pas) en fonction de la valeur du discriminant</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">racine1</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">coeff_b</span><span class="p">)</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">coeff_a</span><span class="p">)</span>
+        <span class="n">racine2</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">coeff_b</span><span class="p">)</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">coeff_a</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;équation admet deux racines réelles égales à </span><span class="si">{</span><span class="n">racine1</span><span class="si">}</span><span class="s2"> et </span><span class="si">{</span><span class="n">racine2</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">racine1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">coeff_b</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">coeff_a</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;équation admet une racine réelle double égale à : </span><span class="si">{</span><span class="n">racine1</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cette équation n&#39;admet pas de racine réelle.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">les</span> <span class="n">valeurs</span> <span class="n">des</span> <span class="mi">3</span> <span class="n">coefficients</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="n">et</span> <span class="n">c</span> <span class="n">dans</span> <span class="n">cet</span> <span class="n">ordre</span> <span class="p">:</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span>
+<span class="mi">4</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="s1">&#39;équation admet une racine réelle double égale à : -0.5.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="le-test-du-programme">
+<h3><span class="section-number">1.5.4. </span>Le test du programme<a class="headerlink" href="#le-test-du-programme" title="Lien permanent vers ce titre"></a></h3>
+<p>Cette dernière étape de la conception d’un programme consiste à vérifier
+que celui-ci fonctionne correctement, et qu’il est conforme à ce qui a
+été défini lors de la phase de conception. Pour ce faire, il est
+nécessaire de constituer des <strong>jeux d’essai</strong>, c’est-à-dire des exemples
+d’entrées possibles avec les sorties attendues du programme. Ces jeux
+d’essai doivent être exhaustifs, dans le sens où ils doivent permettre
+de tester le comportement du programme dans tous les cas de figures
+possibles. Le programme est ensuite exécuté sur ces jeux d’essai. Si
+toutes les exécutions se déroulent normalement (une exécution normale
+est une exécution du début à la fin sans plantage du programme) et que
+les sorties produites sont conformes à celles attendues, on peut alors
+considérer que le programme est terminé. Si des erreurs sont constatées,
+il sera nécessaire de revoir le travail en amont afin de corriger le
+programme. La correction se fera à une étape différente (généralement au
+niveau de la conception ou du codage) en fonction du type d’erreur
+constaté. Si on considère le programme précédent, en fonction des
+coefficients de l’équation (les valeurs des variables <strong>coeff_a</strong>,
+<strong>coeff_b</strong> et <strong>coeff_c</strong>), il existe trois cas de figure possibles :</p>
+<ul class="simple">
+<li><p>l’équation admet deux racines réelles</p></li>
+<li><p>l’équation admet une seule racine réelle</p></li>
+<li><p>l’équation n’admet pas de racine réelle.</p></li>
+</ul>
+<p>Pour tester complètement ce programme, il faut donc trouver au minimum
+trois jeux d’essai (un jeu d’essai pas cas). Voici des propositions de
+jeux d’essai que vous pouvez tester en interprétant le programme
+ci-dessus :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x^2+3x+2=0\)</span> soit les valeurs respectives de 1, 3 et 2 pour les
+variables saisies <strong>coeff_a</strong>, <strong>coeff_b</strong> et <strong>coeff_c</strong>. Le
+programme doit afficher les valeurs des deux racines réelles : -2 et
+-1.</p></li>
+<li><p><span class="math notranslate nohighlight">\(4x^2+4x+1=0\)</span> soit les valeurs respectives de 4, 4 et 1 pour
+les variables saisies <strong>coeff_a</strong>, <strong>coeff_b</strong> et <strong>coeff_c</strong>. Le
+programme doit afficher la valeur de l’unique racine réelle : -1/2.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^2+x+1=0\)</span> soit les valeurs respectives de 1, 1 et 1 pour les
+variables saisies <strong>coeff_a</strong>, <strong>coeff_b</strong> et <strong>coeff_c</strong>. Le
+programme doit afficher un message indiquant qu’il n’existe pas de
+racine réelle.</p></li>
+</ul>
+</section>
+<section id="les-differents-types-derreurs">
+<h3><span class="section-number">1.5.5. </span>Les différents types d’erreurs<a class="headerlink" href="#les-differents-types-derreurs" title="Lien permanent vers ce titre"></a></h3>
+<section id="erreur-de-syntaxe">
+<h4><span class="section-number">1.5.5.1. </span>Erreur de syntaxe<a class="headerlink" href="#erreur-de-syntaxe" title="Lien permanent vers ce titre"></a></h4>
+<p>Comme tout langage, un langage de programmation se base sur des règles
+précises qui doivent être respectées. Une erreur de syntaxe dans un
+programme source correspond à un non respect des règles de syntaxe et de
+structure du langage choisi. C’est en quelque sorte une faute
+d’orthographe dans le programme. On ne peut pas énumérer toutes les
+erreurs de syntaxe possibles, mais en voici quelques-unes assez
+courantes :</p>
+<ul class="simple">
+<li><p>erreur sur un mot réservé du langage, par exemple <strong>imput</strong> à la
+place de <strong>input</strong></p></li>
+<li><p>oubli d’une parenthèse (ouvrante ou fermante) dans une expression de
+calcul</p></li>
+<li><p>erreur dans l’écriture d’un nom de variable</p></li>
+<li><p>oubli d’un guillemet ou d’une apostrophe autout d’une chaîne de
+caractères</p></li>
+<li><p>etc.</p></li>
+</ul>
+<p>Une erreur de syntaxe est toujours signalée lors de la phase de
+compilation ou d’interprétation du programme. Pour la corriger, il faut
+retourner à l’étape de codage. Vous trouverez ci-dessous deux exemples
+de scripts Python (toujours notre programme de l’équation !) dont
+l’interprétation indique des erreurs de syntaxe. Quelles sont ces
+erreurs ? Notez bien que le message d’erreur fourni par l’interpréteur,
+ainsi que parfois la ligne où est censée se trouver l’erreur, ne sont
+pas toujours exacts. Avant d’exécuter les scripts, n’oubliez pas de
+réinitialiser la mémoire de l’interpréteur en cliquant sur la flèche
+circulaire “Restart the kernel”.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="c1"># Saisie des données au clavier</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saisissez les valeurs des 3 coefficients a, b et c dans cet ordre : &quot;</span><span class="p">)</span>
+<span class="c1"># Saisie et mémorisation des coefficients (conversion des chaînes saisies en nombres réels)</span>
+<span class="n">coeff_a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">coeff_b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">coeff_c</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="c1"># Calcul et mémorisation du discriminant de l&#39;équation</span>
+
+<span class="n">delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">coeff_b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">coeff_a</span> <span class="o">*</span> <span class="n">coeff_c</span><span class="p">)</span>
+
+<span class="c1"># Calcul des racines réelles (ou pas) en fonction de la valeur du discriminant</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">racine1</span> <span class="o">==</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">coeff_b</span><span class="p">)</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">coeff_a</span><span class="p">)</span>
+        <span class="n">racine2</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">coeff_b</span><span class="p">)</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">coeff_a</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;équation admet deux racines réelles égales à </span><span class="si">{</span><span class="n">racine1</span><span class="si">}</span><span class="s2"> et </span><span class="si">{</span><span class="n">racine2</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">racine1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">coeff_b</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">coeff_a</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;équation admet une racine réelle double égale à : </span><span class="si">{</span><span class="n">racine1</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cette équation n&#39;admet pas de racine réelle.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">les</span> <span class="n">valeurs</span> <span class="n">des</span> <span class="mi">3</span> <span class="n">coefficients</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="n">et</span> <span class="n">c</span> <span class="n">dans</span> <span class="n">cet</span> <span class="n">ordre</span> <span class="p">:</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+
+<span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">17</span><span class="o">&gt;</span><span class="p">()</span>
+     <span class="mi">17</span> <span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
+     <span class="mi">18</span>     <span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+<span class="o">---&gt;</span> <span class="mi">19</span>         <span class="n">racine1</span> <span class="o">==</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">coeff_b</span><span class="p">)</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">coeff_a</span><span class="p">)</span>
+     <span class="mi">20</span>         <span class="n">racine2</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">coeff_b</span><span class="p">)</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">coeff_a</span><span class="p">)</span>
+     <span class="mi">21</span>         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;équation admet deux racines réelles égales à </span><span class="si">{</span><span class="n">racine1</span><span class="si">}</span><span class="s2"> et </span><span class="si">{</span><span class="n">racine2</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;racine1&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="c1"># Saisie des données au clavier</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saisissez les valeurs des 3 coefficients a, b et c dans cet ordre : &quot;</span><span class="p">)</span>
+<span class="c1"># Saisie et mémorisation des coefficients (conversion des chaînes saisies en nombres réels)</span>
+<span class="n">coeff_a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">coeff_b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">coeff_c</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="c1"># Calcul et mémorisation du discriminant de l&#39;équation</span>
+
+<span class="n">delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">coeff_b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">coeff_a</span> <span class="o">*</span> <span class="n">coeff_c</span><span class="p">)</span>
+
+<span class="c1"># Calcul des racines réelles (ou pas) en fonction de la valeur du discriminant</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">racine1</span> <span class="o">==</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">coeff_b</span><span class="p">)</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">coeff_a</span><span class="p">)</span>
+        <span class="n">racine2</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">coeff_b</span><span class="p">)</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">coeff_a</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;équation admet deux racines réelles égales à </span><span class="si">{</span><span class="n">racine1</span><span class="si">}</span><span class="s2"> et </span><span class="si">{</span><span class="n">racine2</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">racine1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">coeff_b</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">coeff_a</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;équation admet une racine réelle double égale à : </span><span class="si">{</span><span class="n">racine1</span><span class="o">.</span><span class="s2">&quot;)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cette équation n&#39;admet pas de racine réelle.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;équation admet une racine réelle double égale à : </span><span class="si">{</span><span class="n">racine1</span><span class="o">.</span><span class="s2">&quot;)</span>
+                                                                          <span class="o">^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">f</span><span class="o">-</span><span class="n">string</span><span class="p">:</span> <span class="n">expecting</span> <span class="s1">&#39;}&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="erreur-semantique">
+<h4><span class="section-number">1.5.5.2. </span>Erreur sémantique<a class="headerlink" href="#erreur-semantique" title="Lien permanent vers ce titre"></a></h4>
+<p>Un programme contient une erreur de sémantique lorsqu’il ne produit pas
+le(s) résultat(s) attendu(s). Une telle erreur se détecte lors de la
+phase de test et nécessite de retourner à la phase de conception pour
+corriger l’algorithme, puis le programme source. Il faudra ensuite
+refaire les étapes d’interprétation (ou de compilation) puis de test.</p>
+</section>
+<section id="erreur-a-lexecution-ou-a-linterpretation">
+<h4><span class="section-number">1.5.5.3. </span>Erreur à l’exécution ou à l’interprétation<a class="headerlink" href="#erreur-a-lexecution-ou-a-linterpretation" title="Lien permanent vers ce titre"></a></h4>
+<p>Une erreur à l’exécution ou à l’interprétation se produit lors de
+situations exceptionnelles (on parle aussi d’<strong>exception</strong>) :</p>
+<ul class="simple">
+<li><p>mémoire vive de la machine insuffisante</p></li>
+<li><p>accès à des données dans un fichier qui n’existe pas</p></li>
+<li><p>mauvaise saisie de l’utilisateur (par exemple, une chaîne de
+caractères alors qu’un nombre est attendu)</p></li>
+<li><p>problème matériel sur la machine</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="index.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Structures de données en Python I</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="LesbasesdulangagePython.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Les bases du langage Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By E. Martienne-Ughetto<br/>
+  
+      &copy; Copyright 2023, E. Martienne-Ughetto.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

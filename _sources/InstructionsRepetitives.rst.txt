@@ -1,0 +1,406 @@
+Les instructions répétitives
+============================
+
+Dans un programme, on doit pouvoir répéter plusieurs fois (voire
+indéfiniment !) les mêmes traitements. Une **instruction répétitive** ou
+**boucle** permet de répéter un certain nombre de fois le même bloc
+d’instructions. Il existe deux instructions répétitives en Python : la
+boucle **while** et la boucle **for in**.
+
+La boucle **while**
+-------------------
+
+La boucle ``while`` (cf. figure ci-dessous) permet de répéter
+l’exécution d’un bloc d’instructions tant qu’une condition est vérifiée.
+En revanche, dès que la condition devient fausse, l’exécution du bloc
+d’instructions cesse et le programme se poursuit normalement en
+séquence.
+
+.. figure:: ImagesNotebook/BoucleWhile.PNG
+   :alt: La boucle while
+
+   La boucle while
+
+Sa syntaxe en Python est la suivante :
+
+.. code:: ipython3
+
+    while exp_cond:
+        bloc_instructions
+
+Il s’agit d’une **instruction composée** comportant :
+
+-  une ligne d’en-tête terminée par le caractère ``:``
+
+   -  ``while exp_cond :``
+
+-  un bloc d’instruction
+
+   -  ``bloc_instructions``
+
+Le bloc doit obligatoirement être indenté par rapport à la ligne
+d’en-tête. Cette indentation s’effectue de préférence avec quatre
+espaces consécutifs, ou bien avec un caractère de tabulation. Elle est
+souvent effectuée automatiquement par les éditeurs de code Python.
+
+Littéralement, le fonctionnement d’une boucle ``while`` peut s’énoncer à
+l’aide de la phrase : « Tant que la condition est vraie, exécuter le
+bloc d’instructions ». Plus concrètement, voici ce qui se passe lors de
+l’exécution d’une boucle ``while`` :
+
+-  la valeur de la condition ``exp_cond`` est évaluée
+-  si la condition est fausse, l’exécution du programme reprend en
+   séquence après la boucle (``bloc_instructions`` n’est pas exécuté)
+-  si la condition est vraie, ``bloc_instructions`` est exécuté, puis
+   l’exécution du programme reprend sur la ligne d’en-tête où la valeur
+   de la condition sera évaluée à nouveau, et ainsi de suite.
+
+Généralement, le nombre d’exécutions du bloc qui seront réalisées ne
+peut être connu à l’avance, mais dépend de la condition. Le programme
+ci-dessous implémente un compte à rebours très basique en utilisant une
+boucle ``while``.
+
+.. code:: ipython3
+
+    compteur = 10
+    print(f"Compte à rebours basique :")
+    while compteur>=0:
+        print(f"{compteur}")
+        compteur = compteur - 1
+    print("Terminé !!")
+
+
+.. parsed-literal::
+
+    Compte à rebours basique :
+    10
+    9
+    8
+    7
+    6
+    5
+    4
+    3
+    2
+    1
+    0
+    Terminé !!
+    
+
+Le programme ci-dessous calcule le résultat de la factorielle d’un
+nombre.
+
+.. code:: ipython3
+
+    n = int(input("Saisissez un nombre entier positif ou nul : "))
+    if n==0 or n==1:
+        facto = 1
+    else:
+        facto = n
+        mult = n-1
+        while mult>=1:
+            facto = facto*mult
+            mult = mult-1
+    print(f"Factorielle de {n} est égal à {facto}.")
+
+
+.. parsed-literal::
+
+    Saisissez un nombre entier positif ou nul :  5
+    
+
+.. parsed-literal::
+
+    Factorielle de 5 est égal à 120.
+    
+
+La boucle **for**
+-----------------
+
+La boucle ``for`` est une instruction répétitive qui est
+particulièrement adaptée aux deux cas de figure suivants :
+
+-  pour parcourir des séquences de valeurs entières et répéter le même
+   traitement autant de fois qu’il y a de valeurs dans la séquence (ce
+   traitement peut utiliser les valeurs de la séquence ou bien être
+   totalement indépendant)
+-  pour parcourir des objets **itérables** (c’est-à-dire des objets
+   comprenant plusieurs éléments auxquels on peut accéder
+   individuellement) et appliquer le même traitement sur chacun de leurs
+   éléments.
+
+Parcours de séquences de valeurs entières
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Dans ce cas de figure, la syntaxe de la boucle ``for`` est la suivante :
+
+.. code:: ipython3
+
+    for var in seq_val:
+        bloc_instructions
+
+Il s’agit d’une **instruction composée** dans laquelle :
+
+-  ``var`` est une variable
+-  ``seq_val`` est une séquence de nombres entiers générée par la
+   fonction ``range()`` (voir plus loin dans ce chapitre)
+-  ``bloc_instructions`` est un bloc d’instructions
+
+Le bloc d’instructions doit obligatoirement être indenté par rapport à
+la ligne d’en-tête ``for var in seq_val:``. Cette indentation s’effectue
+de préférence avec quatre espaces consécutifs, ou bien avec un caractère
+de tabulation. Elle est souvent effectuée automatiquement par les
+éditeurs de code Python.
+
+Littéralement, on peut énoncer le fonctionnement d’une telle boucle de
+la manière suivante : « Pour chaque valeur entière ``var`` contenue dans
+``seq_val`` exécuter le bloc d’instructions ». Plus concrètement, la
+variable ``var`` va prendre successivement pour valeur chacune des
+valeurs de ``seq_val``, de la première à la dernière. Pour chaque
+valeur, le bloc d’instructions est exécuté. La boucle s’arrête
+lorsqu’une exécution du bloc a été réalisée pour chaque valeur de
+``seq_val``.
+
+La fonction **range()**
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Comment générer cette fameuse séquence de valeurs ``seq_val`` ? C’est le
+rôle de la fonction ``range()``. Cette fonction prend une, deux ou trois
+valeurs entières en paramètres et retourne une séquence ordonnée de
+valeurs entières.
+
+Syntaxe à un seul paramètre : ``range(n)``
+''''''''''''''''''''''''''''''''''''''''''
+
+Lorsqu’un seul paramètre ``n`` est fourni, il correspond au nombre de
+valeurs entières que doit contenir la séquence retournée. ``range(n)``
+retourne alors la séquence de ``n`` valeurs entières consécutives
+commençant par 0. Par exemple  :
+
+-  ``range(6)`` retourne la séquence : 0, 1, 2, 3, 4, 5
+-  ``range(2)`` retourne la séquence : 0, 1
+
+Syntaxe à deux paramètres : ``range(deb, fin)``
+'''''''''''''''''''''''''''''''''''''''''''''''
+
+Lorsque deux paramètres ``deb`` et ``fin`` sont fournis (tels que
+``deb``\ ≤\ ``fin``) :
+
+-  ``deb`` est la valeur débutant la séquence
+-  ``fin`` est la première valeur non comprise dans la séquence
+
+``range(deb, fin)`` retourne alors la séquence de valeurs consécutives
+commençant par ``deb`` et se terminant par ``fin-1``. Par exemple  :
+
+-  ``range(3, 8)`` retourne la séquence : 3, 4, 5, 6, 7
+-  ``range(-2, 5)`` retourne la séquence : -2, -1, 0, 1, 2, 3, 4
+-  ``range(-10, -2)`` retourne la séquence : -10, -9, -8, -7, -6, -5,
+   -4, -3
+
+Syntaxe à trois paramètres : ``range(deb, fin, pas)``
+'''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+Lorsqu’un troisième paramètre ``pas`` est fourni, celui-ci correspond à
+l’écart qu’il devra y avoir entre deux valeurs adjacentes de la séquence
+retournée (en informatique, on appelle cela le **pas**).
+``range(deb, fin, pas)`` retourne alors la séquence de valeurs
+commençant par ``deb`` et se terminant par ``fin-1``, avec un écart de
+``pas`` entre deux valeurs. Par exemple  :
+
+-  ``range(3, 9, 2)`` retourne la séquence : 3, 5, 7
+-  ``range(3, 10, 2)`` retourne la séquence : 3, 5, 7, 9
+-  ``range(3, 10, 3)`` retourne la séquence : 3, 6, 9
+-  ``range(10, -1, -1)`` retourne la séquence : 10, 9, 8, 7, 6, 5, 4, 3,
+   2, 1, 0
+-  ``range(-15, 1, 5)`` retourne la séquence : -15, -10, -5, 0
+
+Premier exemple : affichage d’une suite de caractères identiques sur une même ligne
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Maintenant que le fonctionnement de ``range()`` a été vu, voici un
+premier exemple de programme basique utilisant la boucle ``for`` sur des
+séquences de valeurs entières. Celui-ci saisit au clavier un nombre
+entier ``nb``, puis affiche sur la même ligne ``nb`` fois le caractère «
+? ».
+
+.. code:: ipython3
+
+    nb = int(input("Saisissez le nombre de symboles souhaité : "))
+    for i in range(nb):
+        print("?", end="")
+
+
+.. parsed-literal::
+
+    Saisissez le nombre de symboles souhaité :  10
+    
+
+.. parsed-literal::
+
+    ??????????
+
+Notons que sur cet exemple, l’instruction réalisée dans le bloc :
+``print("?", end="")`` n’utilise pas les valeurs de la séquence
+retournée par ``range(nb)`` (i.e., les valeurs successives de ``i``).
+Ces dernières ne servent donc qu’à compter le nombre de fois où
+l’instruction doit être exécutée.
+
+Deuxième exemple : calcul de la somme des n premiers entiers positifs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Dans ce deuxième exemple, le programme saisit au clavier un nombre
+entier ``n``, puis calcule et affiche la somme des ``n`` premiers
+entiers positifs.
+
+.. code:: ipython3
+
+    print("Calcul de la somme des n premiers entiers positifs.")
+    n = int(input("Saisissez la valeur de n :"))
+    somme = 0
+    for i in range(1, n+1):
+        somme = somme+i
+    print(f"La somme des {n} premiers entiers positifs est {somme}.")
+
+
+.. parsed-literal::
+
+    Calcul de la somme des n premiers entiers positifs.
+    
+
+.. parsed-literal::
+
+    Saisissez la valeur de n : 15
+    
+
+.. parsed-literal::
+
+    La somme des 15 premiers entiers positifs est 120.
+    
+
+Cette fois-ci, l’instruction réalisée dans le bloc : ``somme = somme+i``
+va s’exécuter pour chaque valeur ``i`` de la séquence retournée par
+``range(1, n+1)``.
+
+Troisième exemple : calcul de la somme des n premiers entiers positifs pairs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Voici pour finir une variante du programme précédent calculant la somme
+des entiers positifs pairs uniquement.
+
+.. code:: ipython3
+
+    print("Calcul de la somme des n premiers entiers positifs pairs.")
+    n = int(input("Saisissez la valeur de n :"))
+    somme = 0
+    for i in range(2, n+1, 2):
+        somme = somme+i
+    print(f"La somme des {n} premiers entiers positifs pairs est {somme}.")
+
+
+.. parsed-literal::
+
+    Calcul de la somme des n premiers entiers positifs pairs.
+    
+
+.. parsed-literal::
+
+    Saisissez la valeur de n : 15
+    
+
+.. parsed-literal::
+
+    La somme des 15 premiers entiers positifs pairs est 56.
+    
+
+Parcours d’objets **itérables** - Cas des chaînes de caractères
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En Python, les chaînes sont des séquences de caractères et sont de ce
+fait des objets **itérables** : cela signifie qu’on peut parcourir un
+par un les caractères d’une chaîne, du premier jusqu’au dernier. La
+boucle ``for`` est particulièrement adaptée pour parcourir les objets
+itérables du premier jusqu’au dernier élément. Lorsqu’il s’agit d’une
+chaîne, la syntaxe est la suivante :
+
+.. code:: ipython3
+
+    for car in ch:
+        bloc_instructions
+
+-  ``car`` est une variable
+-  ``ch`` est une chaîne ou une variable contenant une chaîne
+-  ``bloc_instructions`` est un bloc d’instructions indenté par rapport
+   à la ligne ``for car in ch:``
+
+Littéralement : « Pour chaque caractère ``car`` contenu dans la chaîne
+``ch`` exécuter le bloc d’instructions ». Concrètement, la variable
+``car`` va contenir successivement chacun des caractères de la chaîne
+``ch``, du premier jusqu’au dernier. Pour chaque caractère, le bloc est
+exécuté. Voici un exemple de programme qui saisit au clavier une chaîne,
+puis qui affiche un par un les caractères qu’elle contient.
+
+.. code:: ipython3
+
+    myname = input("Quel est votre prénom ?")
+    for car in myname:
+        print(car)
+    print(f"Au revoir {myname} !!")
+
+
+.. parsed-literal::
+
+    Quel est votre prénom ? Anatole
+    
+
+.. parsed-literal::
+
+    A
+    n
+    a
+    t
+    o
+    l
+    e
+    Au revoir Anatole !!
+    
+
+Notons qu’une variante de ce programme consiste à parcourir la chaîne à
+l’aide des indices de ses caractères, en utilisant la boucle ``for`` de
+parcours de séquences de valeurs entières. Dans ce cas, la séquence de
+valeurs à parcourir commence à l’indice 0 (indice du premier caractère)
+et se termine à l’indice égal à la longueur de la chaîne moins 1 (indice
+du dernier caractère). Voici ci-dessous cette variante.
+
+.. code:: ipython3
+
+    myname = input("Quel est votre prénom ?")
+    for ind in range(0, len(myname)):
+        print(myname[ind])
+    print(f"Au revoir {myname} !!")
+
+
+.. parsed-literal::
+
+    Quel est votre prénom ? Hippolyte
+    
+
+.. parsed-literal::
+
+    H
+    i
+    p
+    p
+    o
+    l
+    y
+    t
+    e
+    Au revoir Hippolyte !!
+    
+
+Nous venons de voir l’utilisation de la boucle ``for`` pour le parcours
+caractère par caractère d’une chaîne. Il existe d’autres types objets
+itérables, qui peuvent être parcourus intégralement à l’aide d’une
+boucle ``for`` : listes, tuples, dictionnaires, etc. Ces types d’objets,
+ainsi que la boucle ``for`` qui leur est associée, feront l’objet de
+prochains chapitres.

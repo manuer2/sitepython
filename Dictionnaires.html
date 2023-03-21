@@ -1,0 +1,1175 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>7. Les dictionnaires &#8212; Université Rennes 2 - Cours de Python - L1 MIASHS</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="6. Les listes et les tuples" href="ListesEtTuples.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/ILovePython.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Université Rennes 2 - Cours de Python - L1 MIASHS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Structures de données en Python I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Table des matières
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="LesbasesdulangagePython.html">
+   2. Les bases du langage Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="InstructionsConditionnelles.html">
+   3. Les instructions conditionnelles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Booleens.html">
+   4. Booléens et expressions booléennes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="InstructionsRepetitives.html">
+   5. Les instructions répétitives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ListesEtTuples.html">
+   6. Les listes et les tuples
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. Les dictionnaires
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Dictionnaires.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contenu de la page
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition">
+   7.1. Définition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caracteristiques-dun-dictionnaire">
+   7.2. Caractéristiques d’un dictionnaire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notation-et-creation-dun-dictionnaire">
+   7.3. Notation et création d’un dictionnaire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acces-aux-valeurs-dun-dictionnaire">
+   7.4. Accès aux valeurs d’un dictionnaire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operations-usuelles-sur-les-dictionnaires">
+   7.5. Opérations usuelles sur les dictionnaires
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequence-des-cles-la-methode-keys">
+     7.5.1. Séquence des clés : la méthode
+     <strong>
+      keys()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequence-des-valeurs-la-methode-values">
+     7.5.2. Séquence des valeurs : la méthode
+     <strong>
+      values()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequence-des-tuples-cle-valeur-la-methode-items">
+     7.5.3. Séquence des tuples (clé, valeur) : la méthode
+     <strong>
+      items()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#valeur-associee-a-une-cle-les-methodes-get-et-setdefault">
+     7.5.4. Valeur associée à une clé : les méthodes
+     <strong>
+      get()
+     </strong>
+     et
+     <strong>
+      setdefault()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#insertion-ou-modification-delements-la-methode-update">
+     7.5.5. Insertion ou modification d’éléments : la méthode
+     <strong>
+      update()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nombre-delements-la-fonction-len">
+     7.5.6. Nombre d’éléments : la fonction
+     <strong>
+      len()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#suppression-dun-element-linstruction-del-et-la-methode-pop">
+     7.5.7. Suppression d’un élément : l’instruction
+     <strong>
+      del
+     </strong>
+     et la méthode
+     <strong>
+      pop()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operateur-dappartenance-a-un-dictionnaire">
+     7.5.8. Opérateur d’appartenance à un dictionnaire
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copie-la-methode-copy">
+     7.5.9. Copie : la méthode
+     <strong>
+      copy()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reinitialisation-la-methode-clear">
+     7.5.10. Réinitialisation : la méthode
+     <strong>
+      clear()
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parcours-complet-dun-dictionnaire">
+   7.6. Parcours complet d’un dictionnaire
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parcours-sur-la-sequence-des-cles">
+     7.6.1. Parcours sur la séquence des clés
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parcours-sur-la-sequence-des-valeurs">
+     7.6.2. Parcours sur la séquence des valeurs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parcours-sur-la-sequence-des-couples-cle-valeur">
+     7.6.3. Parcours sur la séquence des couples clé, valeur
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comprehension-de-dictionnaire">
+   7.7. Compréhension de dictionnaire
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Les dictionnaires</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenu de la page </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition">
+   7.1. Définition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caracteristiques-dun-dictionnaire">
+   7.2. Caractéristiques d’un dictionnaire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notation-et-creation-dun-dictionnaire">
+   7.3. Notation et création d’un dictionnaire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acces-aux-valeurs-dun-dictionnaire">
+   7.4. Accès aux valeurs d’un dictionnaire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operations-usuelles-sur-les-dictionnaires">
+   7.5. Opérations usuelles sur les dictionnaires
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequence-des-cles-la-methode-keys">
+     7.5.1. Séquence des clés : la méthode
+     <strong>
+      keys()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequence-des-valeurs-la-methode-values">
+     7.5.2. Séquence des valeurs : la méthode
+     <strong>
+      values()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequence-des-tuples-cle-valeur-la-methode-items">
+     7.5.3. Séquence des tuples (clé, valeur) : la méthode
+     <strong>
+      items()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#valeur-associee-a-une-cle-les-methodes-get-et-setdefault">
+     7.5.4. Valeur associée à une clé : les méthodes
+     <strong>
+      get()
+     </strong>
+     et
+     <strong>
+      setdefault()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#insertion-ou-modification-delements-la-methode-update">
+     7.5.5. Insertion ou modification d’éléments : la méthode
+     <strong>
+      update()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nombre-delements-la-fonction-len">
+     7.5.6. Nombre d’éléments : la fonction
+     <strong>
+      len()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#suppression-dun-element-linstruction-del-et-la-methode-pop">
+     7.5.7. Suppression d’un élément : l’instruction
+     <strong>
+      del
+     </strong>
+     et la méthode
+     <strong>
+      pop()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operateur-dappartenance-a-un-dictionnaire">
+     7.5.8. Opérateur d’appartenance à un dictionnaire
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copie-la-methode-copy">
+     7.5.9. Copie : la méthode
+     <strong>
+      copy()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reinitialisation-la-methode-clear">
+     7.5.10. Réinitialisation : la méthode
+     <strong>
+      clear()
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parcours-complet-dun-dictionnaire">
+   7.6. Parcours complet d’un dictionnaire
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parcours-sur-la-sequence-des-cles">
+     7.6.1. Parcours sur la séquence des clés
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parcours-sur-la-sequence-des-valeurs">
+     7.6.2. Parcours sur la séquence des valeurs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parcours-sur-la-sequence-des-couples-cle-valeur">
+     7.6.3. Parcours sur la séquence des couples clé, valeur
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comprehension-de-dictionnaire">
+   7.7. Compréhension de dictionnaire
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="les-dictionnaires">
+<h1><span class="section-number">7. </span>Les dictionnaires<a class="headerlink" href="#les-dictionnaires" title="Lien permanent vers ce titre"></a></h1>
+<p>Dans ce chapitre, nous abordons un autre type de structures de données
+utilisé en Python : les <strong>dictionnaires</strong>.</p>
+<section id="definition">
+<h2><span class="section-number">7.1. </span>Définition<a class="headerlink" href="#definition" title="Lien permanent vers ce titre"></a></h2>
+<p>Un dictionnaire est un objet structuré permettant d’associer des
+<strong>valeurs</strong> à des <strong>clés</strong>. On peut comparer un dictionnaire à une liste
+dont les positions des éléments peuvent être autre chose que des nombres
+entiers : chaînes, réels, etc. Les dictionnaires sont particulièrement
+adaptés à la représentation de données contenant des associations, comme
+par exemple :</p>
+<ul class="simple">
+<li><p>un carnet d’adresses (associations entre des noms et des adresses
+électroniques ou postales)</p></li>
+<li><p>un glossaire (associations entre des termes et leurs définitions).</p></li>
+</ul>
+<p>Dans d’autres langages comme PHP, les dictionnaires sont appelés des «
+tableaux associatifs ».</p>
+</section>
+<section id="caracteristiques-dun-dictionnaire">
+<h2><span class="section-number">7.2. </span>Caractéristiques d’un dictionnaire<a class="headerlink" href="#caracteristiques-dun-dictionnaire" title="Lien permanent vers ce titre"></a></h2>
+<p>En Python, un dictionnaire est une <strong>collection d’éléments muable</strong>, ce
+qui signifie qu’on peut le modifier directement sans utiliser
+d’affectation. Chaque élément d’un dictionnaire est un couple
+<code class="docutils literal notranslate"><span class="pre">clé</span> <span class="pre">:</span> <span class="pre">valeur</span></code>, où la clé peut être  :</p>
+<ul class="simple">
+<li><p>un nombre entier</p></li>
+<li><p>un nombre réel</p></li>
+<li><p>une chaîne</p></li>
+<li><p>un tuple contenant des entiers, des réels ou des chaînes</p></li>
+</ul>
+<p>et la valeur peut être :</p>
+<ul class="simple">
+<li><p>un objet de type simple (entier, réel, chaîne, booléen)</p></li>
+<li><p>un objet structuré (liste, tuple, dictionnaire ensemble, etc).</p></li>
+</ul>
+<p>La duplication de clé n’est pas autorisée : à une clé ne peut
+correspondre qu’un seul couple <code class="docutils literal notranslate"><span class="pre">clé</span> <span class="pre">:</span> <span class="pre">valeur</span></code> et donc une seule
+valeur. À la différence d’une liste, un dictionnaire n’est pas une
+séquence. Par conséquent, ses éléments ne sont pas ordonnés. Il est
+impossible d’accéder à un élément d’un dictionnaire à l’aide de sa
+position (ce qui est logique, puisque la notion d’ordre et donc de
+position n’existe pas). Il est également impossible d’accéder à un
+sous-dictionnaire à l’aide de la technique de « slicing ».</p>
+</section>
+<section id="notation-et-creation-dun-dictionnaire">
+<h2><span class="section-number">7.3. </span>Notation et création d’un dictionnaire<a class="headerlink" href="#notation-et-creation-dun-dictionnaire" title="Lien permanent vers ce titre"></a></h2>
+<p>La notation d’un dictionnaire s’effectue à l’aide des accolades :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{</span></code> pour indiquer le début du dictionnaire</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">}</span></code> pour indiquer la fin.</p></li>
+</ul>
+<p>À l’intérieur des accolades, les différents éléments sont séparés pas
+des virgules. Par exemple :
+<code class="docutils literal notranslate"><span class="pre">{'entrée':'crudités',</span> <span class="pre">'plat':'lasagnes',</span> <span class="pre">'dessert':'fruit'}</span></code>. Il
+existe un cas particulier de dictionnaire : le dictionnaire vide ne
+contenant aucun élément. Dans ce cas, la notation s’effectue avec
+uniquement les accolades : <code class="docutils literal notranslate"><span class="pre">{}</span></code>. Dans un programme, la création d’un
+dictionnaire peut se faire de deux façons :</p>
+<ul class="simple">
+<li><p>soit par une simple affectation du dictionnaire complet dans une
+variable structurée, comme dans l’exemple ci-dessous. Le nom de la
+variable est alors appelé son identifiant et permet de le référencer
+dans le programme.</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">repas</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;entrée&#39;</span><span class="p">:</span><span class="s1">&#39;crudités&#39;</span><span class="p">,</span> <span class="s1">&#39;plat&#39;</span><span class="p">:</span><span class="s1">&#39;lasagnes&#39;</span><span class="p">,</span> <span class="s1">&#39;dessert&#39;</span><span class="p">:</span><span class="s1">&#39;fruit&#39;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">repas</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;entrée&#39;</span><span class="p">:</span> <span class="s1">&#39;crudités&#39;</span><span class="p">,</span> <span class="s1">&#39;plat&#39;</span><span class="p">:</span> <span class="s1">&#39;lasagnes&#39;</span><span class="p">,</span> <span class="s1">&#39;dessert&#39;</span><span class="p">:</span> <span class="s1">&#39;fruit&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>soit en partant d’un dictionnaire vide, auquel on ajoute des éléments
+un par un. L’ajout d’un élément dans un dictionnaire s’effectue à
+l’aide d’une affectation de la forme :</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">id_dict</span><span class="p">[</span><span class="n">cle</span><span class="p">]</span> <span class="o">=</span> <span class="n">valeur</span>
+</pre></div>
+</div>
+<p>où <code class="docutils literal notranslate"><span class="pre">id_dict</span></code> est l’identifiant du dictionnaire, <code class="docutils literal notranslate"><span class="pre">cle</span></code> est la clé de
+l’élément et <code class="docutils literal notranslate"><span class="pre">valeur</span></code> la valeur qu’on lui associe. Si la clé est déjà
+présente dans le dictionnaire, il n’y aura pas de création d’un nouvel
+élément (la duplication de clé est interdite) mais remplacement de la
+valeur associée à la clé. Le programme ci-dessous crée un dictionnaire
+associant à certains numéros de départements (sous forme de chaînes) les
+noms des départements correspondants (sous forme de chaînes également),
+puis modifie l’un des éléments.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dpt</span> <span class="o">=</span> <span class="p">{}</span>   <span class="c1"># Au départ, le dictionnaire est vide</span>
+<span class="n">dpt</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span><span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span><span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span><span class="s1">&#39;Allier&#39;</span><span class="p">}</span>  <span class="c1"># On crée les 3 premiers éléments en une seule affectation</span>
+<span class="c1"># Puis on ajoute un par un 3 autres éléments</span>
+<span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;04&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span>
+<span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;05&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Hautes Alpes&#39;</span>
+<span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;06&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Alpes maritimes&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dpt</span><span class="p">)</span>
+<span class="c1"># On modifie la valeur associée à la clé &#39;05&#39; en ajoutant à la valeur le nom du chef-lieu du département correspondant</span>
+<span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;05&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dpt</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">:</span> <span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">}</span>
+<span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">),</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Notons que cet exemple permet d’illuster le fait qu’au sein d’un même
+dictionnaire, le type des valeurs (mais également celui des clés !) peut
+varier.</p>
+</section>
+<section id="acces-aux-valeurs-dun-dictionnaire">
+<h2><span class="section-number">7.4. </span>Accès aux valeurs d’un dictionnaire<a class="headerlink" href="#acces-aux-valeurs-dun-dictionnaire" title="Lien permanent vers ce titre"></a></h2>
+<p>L’accès à une valeur d’un dictionnaire s’effectue à l’aide de sa clé,
+selon la syntaxe générale suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">id_dict</span><span class="p">[</span><span class="n">cle</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Si la valeur de la clé indiquée n’existe pas, cela provoque une erreur.
+Le programme suivant affiche les valeurs associées à certaines clés du
+dictionnaire créé précédemment.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le numéro 04 correspond au département </span><span class="si">{</span><span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;04&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le numéro 06 correspond au département </span><span class="si">{</span><span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;06&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le numéro 01 correspond au département </span><span class="si">{</span><span class="n">dpt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Le</span> <span class="n">numéro</span> <span class="mi">04</span> <span class="n">correspond</span> <span class="n">au</span> <span class="n">département</span> <span class="n">Alpes</span> <span class="n">de</span> <span class="n">Haute</span> <span class="n">Provence</span><span class="o">.</span>
+<span class="n">Le</span> <span class="n">numéro</span> <span class="mi">06</span> <span class="n">correspond</span> <span class="n">au</span> <span class="n">département</span> <span class="n">Alpes</span> <span class="n">maritimes</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+
+<span class="ne">KeyError</span>                                  <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">3</span><span class="o">&gt;</span><span class="p">()</span>
+      <span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le numéro 04 correspond au département </span><span class="si">{</span><span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;04&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+      <span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le numéro 06 correspond au département </span><span class="si">{</span><span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;06&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="o">----&gt;</span> <span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le numéro 01 correspond au département </span><span class="si">{</span><span class="n">dpt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+
+<span class="ne">KeyError</span><span class="p">:</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Notons que si un dictionnaire permet d’accéder à une valeur à partir de
+sa clé, l’inverse n’est pas vrai : il n’existe pas de mécanisme natif de
+Python permettant d’accéder à une clé à partir d’une valeur.</p>
+</section>
+<section id="operations-usuelles-sur-les-dictionnaires">
+<h2><span class="section-number">7.5. </span>Opérations usuelles sur les dictionnaires<a class="headerlink" href="#operations-usuelles-sur-les-dictionnaires" title="Lien permanent vers ce titre"></a></h2>
+<section id="sequence-des-cles-la-methode-keys">
+<h3><span class="section-number">7.5.1. </span>Séquence des clés : la méthode <strong>keys()</strong><a class="headerlink" href="#sequence-des-cles-la-methode-keys" title="Lien permanent vers ce titre"></a></h3>
+<p>La méthode <strong>keys()</strong> retourne une séquence contenant toutes les clés
+d’un dictionnaire. Cette séquence peut être convertie en liste ou en
+tuple selon les besoins, à l’aide des fonctions <strong>list()</strong> et
+<strong>tuple()</strong>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seq_cles</span> <span class="o">=</span> <span class="n">dpt</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="n">seq_cles_liste</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dpt</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">seq_cles_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">dpt</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Séquence des clés : </span><span class="si">{</span><span class="n">seq_cles</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Liste des clés : </span><span class="si">{</span><span class="n">seq_cles_liste</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tuple des clés : </span><span class="si">{</span><span class="n">seq_cles_tuple</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Séquence</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">:</span> <span class="n">dict_keys</span><span class="p">([</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">])</span>
+<span class="n">Liste</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">]</span>
+<span class="n">Tuple</span> <span class="n">des</span> <span class="n">clés</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="sequence-des-valeurs-la-methode-values">
+<h3><span class="section-number">7.5.2. </span>Séquence des valeurs : la méthode <strong>values()</strong><a class="headerlink" href="#sequence-des-valeurs-la-methode-values" title="Lien permanent vers ce titre"></a></h3>
+<p>La méthode <strong>values()</strong> retourne une séquence contenant toutes les
+valeurs d’un dictionnaire. Tout comme la séquence de clés, cette
+séquence peut être convertie en liste ou en tuple selon les besoins.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seq_val</span> <span class="o">=</span> <span class="n">dpt</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<span class="n">seq_val_liste</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dpt</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">seq_val_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">dpt</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Séquence des valeurs : </span><span class="si">{</span><span class="n">seq_val</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Liste des valeurs : </span><span class="si">{</span><span class="n">seq_val_liste</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tuple des valeurs : </span><span class="si">{</span><span class="n">seq_val_tuple</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Séquence</span> <span class="n">des</span> <span class="n">valeurs</span> <span class="p">:</span> <span class="n">dict_values</span><span class="p">([</span><span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">),</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">])</span>
+<span class="n">Liste</span> <span class="n">des</span> <span class="n">valeurs</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">),</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">]</span>
+<span class="n">Tuple</span> <span class="n">des</span> <span class="n">valeurs</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">),</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="sequence-des-tuples-cle-valeur-la-methode-items">
+<h3><span class="section-number">7.5.3. </span>Séquence des tuples (clé, valeur) : la méthode <strong>items()</strong><a class="headerlink" href="#sequence-des-tuples-cle-valeur-la-methode-items" title="Lien permanent vers ce titre"></a></h3>
+<p>La méthode <strong>items()</strong> retourne une séquence contenant tous les tuples
+(clé, valeur) présents dans un dictionnaire (autrement dit, tous les
+éléments d’un dictionnaire). Tout comme la séquence de clés, cette
+séquence peut être convertie en liste ou en tuple selon les besoins.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seq_elem</span> <span class="o">=</span> <span class="n">dpt</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="n">seq_elem_liste</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dpt</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="n">seq_elem_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">dpt</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Séquence des tuples (clé, valeur) : </span><span class="si">{</span><span class="n">seq_elem</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Liste des tuples (clé, valeur) : </span><span class="si">{</span><span class="n">seq_elem_liste</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tuple des tuples (clé, valeur) : </span><span class="si">{</span><span class="n">seq_elem_tuple</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Séquence</span> <span class="n">des</span> <span class="n">tuples</span> <span class="p">(</span><span class="n">clé</span><span class="p">,</span> <span class="n">valeur</span><span class="p">)</span> <span class="p">:</span> <span class="n">dict_items</span><span class="p">([(</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;Ain&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;03&#39;</span><span class="p">,</span> <span class="s1">&#39;Allier&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">)),</span> <span class="p">(</span><span class="s1">&#39;06&#39;</span><span class="p">,</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">)])</span>
+<span class="n">Liste</span> <span class="n">des</span> <span class="n">tuples</span> <span class="p">(</span><span class="n">clé</span><span class="p">,</span> <span class="n">valeur</span><span class="p">)</span> <span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;Ain&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;03&#39;</span><span class="p">,</span> <span class="s1">&#39;Allier&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">)),</span> <span class="p">(</span><span class="s1">&#39;06&#39;</span><span class="p">,</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">)]</span>
+<span class="n">Tuple</span> <span class="n">des</span> <span class="n">tuples</span> <span class="p">(</span><span class="n">clé</span><span class="p">,</span> <span class="n">valeur</span><span class="p">)</span> <span class="p">:</span> <span class="p">((</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;Ain&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;03&#39;</span><span class="p">,</span> <span class="s1">&#39;Allier&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">)),</span> <span class="p">(</span><span class="s1">&#39;06&#39;</span><span class="p">,</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="valeur-associee-a-une-cle-les-methodes-get-et-setdefault">
+<h3><span class="section-number">7.5.4. </span>Valeur associée à une clé : les méthodes <strong>get()</strong> et <strong>setdefault()</strong><a class="headerlink" href="#valeur-associee-a-une-cle-les-methodes-get-et-setdefault" title="Lien permanent vers ce titre"></a></h3>
+<p>La méthode <strong>get()</strong> prend en paramètre une clé et retourne en résultat
+la valeur associée à cette clé. Si la clé n’est pas présente dans le
+dictionnaire, la méthode retourne la valeur <code class="docutils literal notranslate"><span class="pre">None</span></code> pour signifier que
+le résultat est indéfini.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Valeur associée à la clé &#39;03&#39; : </span><span class="si">{</span><span class="n">dpt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;03&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Valeur associée à la clé &#39;12&#39; : </span><span class="si">{</span><span class="n">dpt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;12&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Valeur</span> <span class="n">associée</span> <span class="n">à</span> <span class="n">la</span> <span class="n">clé</span> <span class="s1">&#39;03&#39;</span> <span class="p">:</span> <span class="n">Allier</span>
+<span class="n">Valeur</span> <span class="n">associée</span> <span class="n">à</span> <span class="n">la</span> <span class="n">clé</span> <span class="s1">&#39;12&#39;</span> <span class="p">:</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<p>La méthode <strong>setdefault()</strong> prend en paramètres une clé et une valeur.
+Si la clé existe dans le dictionnaire, elle retourne la valeur associée.
+Si la clé n’existe pas, elle ajoute dans le dictionnaire un nouvel
+élément dont la clé et la valeur sont celles passées en paramètres… et
+retourne la valeur passée en paramètre.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dictionnaire avant setdefault() : </span><span class="si">{</span><span class="n">dpt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">val</span> <span class="o">=</span> <span class="n">dpt</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;12&#39;</span><span class="p">,</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Valeur retournée par setdefault() : </span><span class="si">{</span><span class="n">val</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dictionnaire après setdefault() : </span><span class="si">{</span><span class="n">dpt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dictionnaire</span> <span class="n">avant</span> <span class="n">setdefault</span><span class="p">()</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">),</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">}</span>
+<span class="n">Valeur</span> <span class="n">retournée</span> <span class="n">par</span> <span class="n">setdefault</span><span class="p">()</span> <span class="p">:</span> <span class="n">Aveyron</span>
+<span class="n">Dictionnaire</span> <span class="n">après</span> <span class="n">setdefault</span><span class="p">()</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">),</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="insertion-ou-modification-delements-la-methode-update">
+<h3><span class="section-number">7.5.5. </span>Insertion ou modification d’éléments : la méthode <strong>update()</strong><a class="headerlink" href="#insertion-ou-modification-delements-la-methode-update" title="Lien permanent vers ce titre"></a></h3>
+<p>La méthode <strong>update()</strong> prend en paramètre un dictionnaire et ajoute
+tous les éléments de ce dictionnaire dans le dictionnaire sur lequel
+s’applique la méthode. Si une clé existe déjà, sa valeur associée est
+remplacée par celle figurant dans le dictionnaire passé en paramètre. La
+méthode ne retourne pas de valeur et peut être utilisée comme une
+instruction.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dpt</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;15&#39;</span><span class="p">:</span><span class="s1">&#39;Aube&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span> <span class="p">:</span> <span class="s1">&#39;Var&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span> <span class="p">:</span> <span class="s1">&#39;Vendée&#39;</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dpt</span><span class="p">)</span>
+<span class="n">dpt</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;15&#39;</span><span class="p">:</span><span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span> <span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span> <span class="p">:</span> <span class="s1">&#39;Charente-maritime&#39;</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dpt</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">),</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Aube&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Var&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">:</span> <span class="s1">&#39;Vendée&#39;</span><span class="p">}</span>
+<span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">),</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente-maritime&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="nombre-delements-la-fonction-len">
+<h3><span class="section-number">7.5.6. </span>Nombre d’éléments : la fonction <strong>len()</strong><a class="headerlink" href="#nombre-delements-la-fonction-len" title="Lien permanent vers ce titre"></a></h3>
+<p>La fonction <strong>len()</strong>, vue dans les chapitres précédents sur les chaînes
+et les listes, retourne également la longueur (c’est-à-dire le nombre
+d’éléments) d’un dictionnaire.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le dictionnaire contient </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dpt</span><span class="p">)</span><span class="si">}</span><span class="s2"> éléments.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Le</span> <span class="n">dictionnaire</span> <span class="n">contient</span> <span class="mi">10</span> <span class="n">éléments</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="suppression-dun-element-linstruction-del-et-la-methode-pop">
+<h3><span class="section-number">7.5.7. </span>Suppression d’un élément : l’instruction <strong>del</strong> et la méthode <strong>pop()</strong><a class="headerlink" href="#suppression-dun-element-linstruction-del-et-la-methode-pop" title="Lien permanent vers ce titre"></a></h3>
+<p>L’instruction <strong>del</strong> permet de supprimer un élément d’un dictionnaire à
+partir de sa clé. La syntaxe est la suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">id_dict</span><span class="p">[</span><span class="n">cle</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>où <code class="docutils literal notranslate"><span class="pre">id_dict</span></code> et <code class="docutils literal notranslate"><span class="pre">cle</span></code> sont respectivement l’identifiant du
+dictionnaire et la clé de l’élément à supprimer. Si la clé n’existe pas,
+une exception est levée et un message d’erreur s’affiche.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dictionnaire avant suppression : </span><span class="si">{</span><span class="n">dpt</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;17&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dictionnaire après suppression : </span><span class="si">{</span><span class="n">dpt</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;32&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dictionnaire</span> <span class="n">avant</span> <span class="n">suppression</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">),</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente-maritime&#39;</span><span class="p">}</span><span class="o">.</span>
+<span class="n">Dictionnaire</span> <span class="n">après</span> <span class="n">suppression</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">),</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">}</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+
+<span class="ne">KeyError</span>                                  <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">()</span>
+      <span class="mi">2</span> <span class="k">del</span> <span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;17&#39;</span><span class="p">]</span>
+      <span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dictionnaire après suppression : </span><span class="si">{</span><span class="n">dpt</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="o">----&gt;</span> <span class="mi">4</span> <span class="k">del</span> <span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;32&#39;</span><span class="p">]</span>
+
+
+<span class="ne">KeyError</span><span class="p">:</span> <span class="s1">&#39;32&#39;</span>
+</pre></div>
+</div>
+<p>La méthode <strong>pop()</strong> prend en paramètre la clé de l’élément à supprimer.
+Si la clé existe, elle supprime l’élément correspondant dans le
+dictionnaire et retourne la valeur associée à l’élément supprimé. Si la
+clé n’existe pas ou qu’aucun paramètre n’est fourni, une exception est
+levée et un message d’erreur s’affiche.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dictionnaire avant suppression : </span><span class="si">{</span><span class="n">dpt</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="n">val05</span> <span class="o">=</span> <span class="n">dpt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;05&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dictionnaire après suppression : </span><span class="si">{</span><span class="n">dpt</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Valeur de l&#39;élément supprimé : </span><span class="si">{</span><span class="n">val05</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">valinconnu</span> <span class="o">=</span> <span class="n">dpt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;25&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dictionnaire après suppression : </span><span class="si">{</span><span class="n">dpt</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Valeur de l&#39;élément supprimé : </span><span class="si">{</span><span class="n">valinconnu</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dictionnaire</span> <span class="n">avant</span> <span class="n">suppression</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">),</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">}</span><span class="o">.</span>
+<span class="n">Dictionnaire</span> <span class="n">après</span> <span class="n">suppression</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">}</span><span class="o">.</span>
+<span class="n">Valeur</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;élément supprimé : (&#39;</span><span class="n">Hautes</span> <span class="n">Alpes</span><span class="s1">&#39;, &#39;</span><span class="n">Briançon</span><span class="s1">&#39;)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+
+<span class="ne">KeyError</span>                                  <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">5</span><span class="o">&gt;</span><span class="p">()</span>
+      <span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dictionnaire après suppression : </span><span class="si">{</span><span class="n">dpt</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+      <span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Valeur de l&#39;élément supprimé : </span><span class="si">{</span><span class="n">val05</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="o">----&gt;</span> <span class="mi">5</span> <span class="n">valinconnu</span> <span class="o">=</span> <span class="n">dpt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;25&#39;</span><span class="p">)</span>
+      <span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dictionnaire après suppression : </span><span class="si">{</span><span class="n">dpt</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+      <span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Valeur de l&#39;élément supprimé : </span><span class="si">{</span><span class="n">valinconnu</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="ne">KeyError</span><span class="p">:</span> <span class="s1">&#39;25&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="operateur-dappartenance-a-un-dictionnaire">
+<h3><span class="section-number">7.5.8. </span>Opérateur d’appartenance à un dictionnaire<a class="headerlink" href="#operateur-dappartenance-a-un-dictionnaire" title="Lien permanent vers ce titre"></a></h3>
+<p>L’opérateur <strong>in</strong> permet de tester si une clé est présente ou non dans
+un dictionnaire. Sa syntaxe est la suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cle</span> <span class="ow">in</span> <span class="n">id_dict</span>
+</pre></div>
+</div>
+<p>où <code class="docutils literal notranslate"><span class="pre">cle</span></code> est la clé à tester et <code class="docutils literal notranslate"><span class="pre">id_dict</span></code> l’identifiant du
+dictionnaire. L’opérateur retourne <code class="docutils literal notranslate"><span class="pre">True</span></code> si la clé est présente et
+<code class="docutils literal notranslate"><span class="pre">False</span></code> sinon.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le département n°16 est-il dans le dictionnaire ? Réponse : </span><span class="si">{</span><span class="s1">&#39;16&#39;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">dpt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le département n°85 est-il dans le dictionnaire ? Réponse : </span><span class="si">{</span><span class="s1">&#39;85&#39;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">dpt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Le département n°16 est-il dans le dictionnaire ? Réponse : True
+Le département n°85 est-il dans le dictionnaire ? Réponse : False
+</pre></div>
+</div>
+</section>
+<section id="copie-la-methode-copy">
+<h3><span class="section-number">7.5.9. </span>Copie : la méthode <strong>copy()</strong><a class="headerlink" href="#copie-la-methode-copy" title="Lien permanent vers ce titre"></a></h3>
+<p>La méthode <strong>copy()</strong> permet d’effectuer une copie d’un dictionnaire.
+Cette copie est retournée en résultat.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Affichage du dictionnaire : </span><span class="si">{</span><span class="n">dpt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">copie_dpt</span> <span class="o">=</span> <span class="n">dpt</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Affichage de la copie du dictionnaire : </span><span class="si">{</span><span class="n">copie_dpt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Affichage</span> <span class="n">du</span> <span class="n">dictionnaire</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">}</span>
+<span class="n">Affichage</span> <span class="n">de</span> <span class="n">la</span> <span class="n">copie</span> <span class="n">du</span> <span class="n">dictionnaire</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="reinitialisation-la-methode-clear">
+<h3><span class="section-number">7.5.10. </span>Réinitialisation : la méthode <strong>clear()</strong><a class="headerlink" href="#reinitialisation-la-methode-clear" title="Lien permanent vers ce titre"></a></h3>
+<p>La méthode <strong>clear()</strong> permet de réinitialiser un dictionnaire,
+c’est-à-dire de supprimer tous les éléments qu’il contient. Elle ne
+retourne aucune valeur et peut être utilisée comme une instruction.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Affichage avant suppression : </span><span class="si">{</span><span class="n">copie_dpt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">copie_dpt</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Affichage après suppression : </span><span class="si">{</span><span class="n">copie_dpt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Affichage</span> <span class="n">avant</span> <span class="n">suppression</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">}</span>
+<span class="n">Affichage</span> <span class="n">après</span> <span class="n">suppression</span> <span class="p">:</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="parcours-complet-dun-dictionnaire">
+<h2><span class="section-number">7.6. </span>Parcours complet d’un dictionnaire<a class="headerlink" href="#parcours-complet-dun-dictionnaire" title="Lien permanent vers ce titre"></a></h2>
+<p>Un dictionnaire est une collection d’objets, et est de ce fait un objet
+« itérable ». Cela signifie qu’on peut parcourir un à un ses éléments à
+l’aide d’une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> pour leur appliquer un traitement. Il existe
+trois manières d’effectuer un parcours complet d’un dictionnaire :</p>
+<ul class="simple">
+<li><p>sur la séquence des clés</p></li>
+<li><p>sur la séquence des valeurs</p></li>
+<li><p>sur la séquences des couples clé, valeur</p></li>
+</ul>
+<p>L’ordre dans lequel seront traités les éléments est imprévisible et peut
+être différent d’un parcours à l’autre.</p>
+<section id="parcours-sur-la-sequence-des-cles">
+<h3><span class="section-number">7.6.1. </span>Parcours sur la séquence des clés<a class="headerlink" href="#parcours-sur-la-sequence-des-cles" title="Lien permanent vers ce titre"></a></h3>
+<p>Il existe deux syntaxes générales possibles pour la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> de
+parcours sur la séquence des clés  :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cle</span> <span class="ow">in</span> <span class="n">id_dict</span><span class="p">:</span>
+    <span class="n">bloc_instructions</span>
+</pre></div>
+</div>
+<p>et</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cle</span> <span class="ow">in</span> <span class="n">id_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">bloc_instructions</span>
+</pre></div>
+</div>
+<p>Quelle que soit la syntaxe utilisée, le fonctionnement des deux boucles
+est le même : la variable <code class="docutils literal notranslate"><span class="pre">cle</span></code> va prendre successivement pour valeur
+toutes les clés présentes dans le dictionnaire. Pour chaque valeur de
+<code class="docutils literal notranslate"><span class="pre">cle</span></code>, une exécution de <code class="docutils literal notranslate"><span class="pre">bloc_instructions</span></code> est réalisée. Le
+programme suivant effectue deux parcours complets d’un dictionnaire sur
+la séquence des clés, en affichant pour chaque élément sa clé et sa
+valeur.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Premier parcours&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">dpt</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le département n°</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s2"> est : </span><span class="si">{</span><span class="n">dpt</span><span class="p">[</span><span class="n">num</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Second parcours&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">dpt</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le département n°</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s2"> est : </span><span class="si">{</span><span class="n">dpt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Premier parcours
+Le département n°01 est : Ain
+Le département n°02 est : Aisne
+Le département n°03 est : Allier
+Le département n°04 est : Alpes de Haute Provence
+Le département n°06 est : Alpes maritimes
+Le département n°12 est : Aveyron
+Le département n°15 est : Cantal
+Le département n°16 est : Charente
+Second parcours
+Le département n°01 est : Ain
+Le département n°02 est : Aisne
+Le département n°03 est : Allier
+Le département n°04 est : Alpes de Haute Provence
+Le département n°06 est : Alpes maritimes
+Le département n°12 est : Aveyron
+Le département n°15 est : Cantal
+Le département n°16 est : Charente
+</pre></div>
+</div>
+<p>Notons que ce type de parcours permet d’effectuer des traitements
+utilisant à la fois les clés et les valeurs des éléments.</p>
+</section>
+<section id="parcours-sur-la-sequence-des-valeurs">
+<h3><span class="section-number">7.6.2. </span>Parcours sur la séquence des valeurs<a class="headerlink" href="#parcours-sur-la-sequence-des-valeurs" title="Lien permanent vers ce titre"></a></h3>
+<p>La syntaxe de la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> de parcours sur la séquence des valeurs
+est la suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">id_dict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="n">bloc_instructions</span>
+</pre></div>
+</div>
+<p>La variable <code class="docutils literal notranslate"><span class="pre">val</span></code> va prendre successivement pour valeur toutes les
+valeurs des éléments du dictionnaire. Pour chaque valeur de <code class="docutils literal notranslate"><span class="pre">val</span></code>, une
+exécution de <code class="docutils literal notranslate"><span class="pre">bloc_instructions</span></code> est réalisée. Le programme suivant
+effectue un parcours complet d’un dictionnaire sur la séquence des
+valeurs, en affichant chaque valeur.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">nom_dpt</span> <span class="ow">in</span> <span class="n">dpt</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le département est : </span><span class="si">{</span><span class="n">nom_dpt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="n">Ain</span>
+<span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="n">Aisne</span>
+<span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="n">Allier</span>
+<span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="n">Alpes</span> <span class="n">de</span> <span class="n">Haute</span> <span class="n">Provence</span>
+<span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="n">Alpes</span> <span class="n">maritimes</span>
+<span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="n">Aveyron</span>
+<span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="n">Cantal</span>
+<span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="n">Charente</span>
+</pre></div>
+</div>
+<p>Notons que ce type de parcours permet d’effectuer des traitements
+nécessitant d’accéder uniquement aux valeurs des éléments et pas aux
+clés.</p>
+</section>
+<section id="parcours-sur-la-sequence-des-couples-cle-valeur">
+<h3><span class="section-number">7.6.3. </span>Parcours sur la séquence des couples clé, valeur<a class="headerlink" href="#parcours-sur-la-sequence-des-couples-cle-valeur" title="Lien permanent vers ce titre"></a></h3>
+<p>La syntaxe de la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> de parcours sur la séquence des couples
+clé, valeur est la suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cle</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">dpt</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">bloc_instructions</span>
+</pre></div>
+</div>
+<p>Les variables <code class="docutils literal notranslate"><span class="pre">cle</span></code> et <code class="docutils literal notranslate"><span class="pre">val</span></code> vont prendre successivement pour
+valeurs toutes les valeurs des clés et des valeurs. Puis pour chaque
+couple <code class="docutils literal notranslate"><span class="pre">cle</span></code>, <code class="docutils literal notranslate"><span class="pre">val</span></code>, une exécution de <code class="docutils literal notranslate"><span class="pre">bloc_instructions</span></code> est
+réalisée. Le programme suivant effectue un parcours complet d’un
+dictionnaire sur la séquence des couples clé, valeur.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">nom</span> <span class="ow">in</span> <span class="n">dpt</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le département n°</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s2"> est : </span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Le département n°01 est : Ain
+Le département n°02 est : Aisne
+Le département n°03 est : Allier
+Le département n°04 est : Alpes de Haute Provence
+Le département n°06 est : Alpes maritimes
+Le département n°12 est : Aveyron
+Le département n°15 est : Cantal
+Le département n°16 est : Charente
+</pre></div>
+</div>
+<p>Notons que ce type de parcours permet d’effectuer des traitements
+utilisant à la fois les clés et les valeurs des éléments.</p>
+</section>
+</section>
+<section id="comprehension-de-dictionnaire">
+<h2><span class="section-number">7.7. </span>Compréhension de dictionnaire<a class="headerlink" href="#comprehension-de-dictionnaire" title="Lien permanent vers ce titre"></a></h2>
+<p>Comme pour les listes, le mécanisme de compréhension existe pour la
+création de dictionnaire. Les deux syntaxes (avec et sans
+conditionnelle) sont les suivantes :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">cle</span><span class="p">:</span><span class="n">val</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">}</span>
+<span class="p">{</span><span class="n">cle</span><span class="p">:</span><span class="n">val</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">seq</span> <span class="k">if</span> <span class="n">exp_cond</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>où :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cle:val</span></code> est une expression qui va permettre de générer tous les
+éléments du dictionnaire</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">elem</span></code> est une variable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seq</span></code> est une séquence de valeurs (liste, résultat d’une fonction
+range(), etc)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exp_cond</span></code> est une expression conditionnelle que doivent vérifier
+tous les éléments du dictionnaire</p></li>
+</ul>
+<p>Le résultat est un dictionnaire contenant un élément <code class="docutils literal notranslate"><span class="pre">cle:val</span></code>, pour
+chaque exécution de la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>. En cas de compréhension avec
+conditionnelle, seuls les éléments <code class="docutils literal notranslate"><span class="pre">cle:val</span></code> vérifiant <code class="docutils literal notranslate"><span class="pre">exp_cond</span></code>
+seront insérés dans le dictionnaire. Le premier programme ci-dessous
+crée un dictionnaire qui associe à plusieurs objets contenus dans une
+liste (les clés) leurs types respectifs (les valeurs).</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vrac</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">,</span> <span class="s1">&#39;Bienvenue&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;Lundi&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="kc">False</span><span class="p">]</span>
+<span class="n">dico_type</span> <span class="o">=</span> <span class="p">{</span><span class="n">elem</span><span class="p">:</span><span class="nb">type</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">vrac</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dico_type</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{5: &lt;class &#39;int&#39;&gt;, 3.9: &lt;class &#39;float&#39;&gt;, &#39;Bienvenue&#39;: &lt;class &#39;str&#39;&gt;, 12: &lt;class &#39;int&#39;&gt;, &#39;Lundi&#39;: &lt;class &#39;str&#39;&gt;, (1, 3): &lt;class &#39;tuple&#39;&gt;, False: &lt;class &#39;bool&#39;&gt;}
+</pre></div>
+</div>
+<p>Le second programme crée un dictionnaire ayant la même structure que le
+précédent, mais contenant uniquement les objets numériques (entiers ou
+réels).</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vrac</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">,</span> <span class="s1">&#39;Bienvenue&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;Lundi&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="kc">False</span><span class="p">]</span>
+<span class="n">dico_num</span> <span class="o">=</span> <span class="p">{</span><span class="n">elem</span><span class="p">:</span><span class="nb">type</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">vrac</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span><span class="o">==</span><span class="nb">int</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span><span class="o">==</span><span class="nb">float</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dico_num</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{5: &lt;class &#39;int&#39;&gt;, 3.9: &lt;class &#39;float&#39;&gt;, 12: &lt;class &#39;int&#39;&gt;}
+</pre></div>
+</div>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ListesEtTuples.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Les listes et les tuples</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By E. Martienne-Ughetto<br/>
+  
+      &copy; Copyright 2023, E. Martienne-Ughetto.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

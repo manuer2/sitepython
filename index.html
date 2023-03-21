@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Structures de données en Python I &#8212; Université Rennes 2 - Cours de Python - L1 MIASHS</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="1. Introduction" href="Introduction.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="#">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/ILovePython.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Université Rennes 2 - Cours de Python - L1 MIASHS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Structures de données en Python I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Table des matières
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="LesbasesdulangagePython.html">
+   2. Les bases du langage Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="InstructionsConditionnelles.html">
+   3. Les instructions conditionnelles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Booleens.html">
+   4. Booléens et expressions booléennes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="InstructionsRepetitives.html">
+   5. Les instructions répétitives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ListesEtTuples.html">
+   6. Les listes et les tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dictionnaires.html">
+   7. Les dictionnaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="FichiersTexte.html">
+   8. La manipulation des fichiers texte
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/index.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Structures de données en Python I</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="structures-de-donnees-en-python-i">
+<h1>Structures de données en Python I<a class="headerlink" href="#structures-de-donnees-en-python-i" title="Lien permanent vers ce titre"></a></h1>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Table des matières</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#objectifs">1.1. Objectifs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#modalites-pedagogiques">1.2. Modalités pédagogiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#bibliographie-webographie">1.3. Bibliographie - Webographie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#quest-ce-que-la-programmation">1.4. Qu’est-ce que la programmation ?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Introduction.html#definition">1.4.1. Définition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Introduction.html#exemple-de-tache-simple">1.4.2. Exemple de tâche simple</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#les-etapes-de-la-mise-au-point-dun-programme">1.5. Les étapes de la mise au point d’un programme</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Introduction.html#la-conception">1.5.1. La conception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Introduction.html#le-codage">1.5.2. Le codage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Introduction.html#la-transformation-du-programme-source">1.5.3. La transformation du programme source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Introduction.html#le-test-du-programme">1.5.4. Le test du programme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Introduction.html#les-differents-types-derreurs">1.5.5. Les différents types d’erreurs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LesbasesdulangagePython.html">2. Les bases du langage Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LesbasesdulangagePython.html#la-notion-de-variable">2.1. La notion de variable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LesbasesdulangagePython.html#nom-de-variable">2.1.1. Nom de variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LesbasesdulangagePython.html#valeur-dune-variable">2.1.2. Valeur d’une variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LesbasesdulangagePython.html#les-differents-types-dobjets">2.1.3. Les différents types d’objets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LesbasesdulangagePython.html#le-typage-dynamique">2.1.4. Le typage dynamique</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LesbasesdulangagePython.html#operateurs-et-expressions">2.1.5. Opérateurs et expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LesbasesdulangagePython.html#objets-muable-vs-objets-immuables">2.1.6. Objets « muable » vs. objets « immuables »</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LesbasesdulangagePython.html#le-ramasse-miettes">2.1.7. Le « ramasse-miettes »</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LesbasesdulangagePython.html#la-notion-de-fonction">2.2. La notion de fonction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LesbasesdulangagePython.html#la-fonction-print-affichage-dinformations-a-lecran">2.2.1. La fonction <code class="docutils literal notranslate"><span class="pre">print()</span></code> - Affichage d’informations à l’écran</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LesbasesdulangagePython.html#la-fonction-input-saisie-de-donnees-au-clavier">2.2.2. La fonction <code class="docutils literal notranslate"><span class="pre">input()</span></code> - Saisie de données au clavier</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LesbasesdulangagePython.html#manipulation-de-chaines">2.3. Manipulation de chaînes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LesbasesdulangagePython.html#notion-de-sequence-et-indicage-des-caracteres">2.3.1. Notion de séquence et indiçage des caractères</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LesbasesdulangagePython.html#referencement-dun-caractere">2.3.2. Référencement d’un caractère</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LesbasesdulangagePython.html#referencement-dune-sous-chaine-slicing">2.3.3. Référencement d’une sous-chaîne (« slicing »)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LesbasesdulangagePython.html#operateurs-fonctions-et-methodes-usuelles-sur-les-chaines">2.3.4. Opérateurs, fonctions et méthodes usuelles sur les chaînes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LesbasesdulangagePython.html#test-dappartenance-dun-caractere-a-une-chaine">2.3.5. Test d’appartenance d’un caractère à une chaîne</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InstructionsConditionnelles.html">3. Les instructions conditionnelles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="InstructionsConditionnelles.html#la-sequence">3.1. La séquence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstructionsConditionnelles.html#linstruction-conditionnelle-if">3.2. L’instruction conditionnelle <code class="docutils literal notranslate"><span class="pre">if</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstructionsConditionnelles.html#la-simplification-avec-elif">3.3. La simplification avec <code class="docutils literal notranslate"><span class="pre">elif</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Booleens.html">4. Booléens et expressions booléennes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Booleens.html#expression-booleenne-en-python-notion-de-predicat">4.1. Expression booléenne en Python (notion de <strong>prédicat</strong>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Booleens.html#les-predicats-usuels-en-python">4.1.1. Les prédicats usuels en Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Booleens.html#les-operateurs-booleens">4.1.2. Les opérateurs booléens</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Booleens.html#les-lois-de-de-morgan">4.2. Les lois de <strong>De Morgan</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Booleens.html#premiere-loi">4.2.1. Première loi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Booleens.html#seconde-loi">4.2.2. Seconde loi</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InstructionsRepetitives.html">5. Les instructions répétitives</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="InstructionsRepetitives.html#la-boucle-while">5.1. La boucle <strong>while</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="InstructionsRepetitives.html#la-boucle-for">5.2. La boucle <strong>for</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="InstructionsRepetitives.html#parcours-de-sequences-de-valeurs-entieres">5.2.1. Parcours de séquences de valeurs entières</a></li>
+<li class="toctree-l3"><a class="reference internal" href="InstructionsRepetitives.html#parcours-dobjets-iterables-cas-des-chaines-de-caracteres">5.2.2. Parcours d’objets <strong>itérables</strong> - Cas des chaînes de caractères</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ListesEtTuples.html">6. Les listes et les tuples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ListesEtTuples.html#pourquoi-utiliser-des-structures-de-donnees">6.1. Pourquoi utiliser des structures de données ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ListesEtTuples.html#les-listes">6.2. Les listes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ListesEtTuples.html#notation-et-creation-dune-liste">6.3. Notation et création d’une liste</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ListesEtTuples.html#acces-aux-elements-dune-liste">6.4. Accès aux éléments d’une liste</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ListesEtTuples.html#acces-a-une-sous-liste-list-slicing">6.5. Accès à une sous-liste (« list slicing »)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ListesEtTuples.html#operations-fonctions-et-instructions-usuelles-sur-les-listes">6.6. Opérations, fonctions et instructions usuelles sur les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#taille-dune-liste-la-fonction-len">6.6.1. Taille d’une liste : la fonction <strong>len()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#modification-dun-element-existant">6.6.2. Modification d’un élément existant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#suppression-delement-s-linstruction-del">6.6.3. Suppression d’élément(s) : l’instruction <strong>del</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#concatenation-de-listes-loperateur">6.6.4. Concaténation de listes : l’opérateur <strong>+</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ListesEtTuples.html#methodes-usuelles-sur-les-listes">6.7. Méthodes usuelles sur les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#ajout-dun-element-en-fin-de-liste-la-methode-append">6.7.1. Ajout d’un élément en fin de liste : la méthode <strong>append()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#extension-dune-liste-la-methode-extend">6.7.2. Extension d’une liste : la méthode <strong>extend()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#insertion-dun-element-a-une-position-precise-dans-une-liste-la-methode-insert">6.7.3. Insertion d’un élément à une position précise dans une liste : la méthode <strong>insert()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#suppression-dun-element-dans-une-liste-les-methodes-remove-et-pop">6.7.4. Suppression d’un élément dans une liste : les méthodes <strong>remove()</strong> et <strong>pop()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#position-dun-element-dans-une-liste-la-methode-index">6.7.5. Position d’un élément dans une liste : la méthode <strong>index()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#comptage-du-nombre-doccurrences-dun-element-la-methode-count">6.7.6. Comptage du nombre d’occurrences d’un élément : la méthode <strong>count()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#tri-des-elements-dune-liste-la-methode-sort">6.7.7. Tri des éléments d’une liste : la méthode <strong>sort()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#inversion-dune-liste-la-methode-reverse">6.7.8. Inversion d’une liste : la méthode <strong>reverse()</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ListesEtTuples.html#operateur-dappartenance-a-une-liste">6.8. Opérateur d’appartenance à une liste</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ListesEtTuples.html#parcours-dune-liste">6.9. Parcours d’une liste</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#parcours-par-element">6.9.1. Parcours <strong>par élément</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#parcours-par-indice-ou-parcours-par-position">6.9.2. Parcours <strong>par indice</strong> (ou parcours par position)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#parcours-partiel">6.9.3. Parcours partiel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ListesEtTuples.html#comprehension-de-liste">6.10. Compréhension de liste</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#comprehension-sans-conditionnelle">6.10.1. Compréhension sans conditionnelle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#comprehension-avec-conditionnelle">6.10.2. Compréhension avec conditionnelle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ListesEtTuples.html#les-tuples">6.11. Les tuples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#notation-creation">6.11.1. Notation, création</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ListesEtTuples.html#manipulation-de-tuples">6.11.2. Manipulation de tuples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Dictionnaires.html">7. Les dictionnaires</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Dictionnaires.html#definition">7.1. Définition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dictionnaires.html#caracteristiques-dun-dictionnaire">7.2. Caractéristiques d’un dictionnaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dictionnaires.html#notation-et-creation-dun-dictionnaire">7.3. Notation et création d’un dictionnaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dictionnaires.html#acces-aux-valeurs-dun-dictionnaire">7.4. Accès aux valeurs d’un dictionnaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dictionnaires.html#operations-usuelles-sur-les-dictionnaires">7.5. Opérations usuelles sur les dictionnaires</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Dictionnaires.html#sequence-des-cles-la-methode-keys">7.5.1. Séquence des clés : la méthode <strong>keys()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dictionnaires.html#sequence-des-valeurs-la-methode-values">7.5.2. Séquence des valeurs : la méthode <strong>values()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dictionnaires.html#sequence-des-tuples-cle-valeur-la-methode-items">7.5.3. Séquence des tuples (clé, valeur) : la méthode <strong>items()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dictionnaires.html#valeur-associee-a-une-cle-les-methodes-get-et-setdefault">7.5.4. Valeur associée à une clé : les méthodes <strong>get()</strong> et <strong>setdefault()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dictionnaires.html#insertion-ou-modification-delements-la-methode-update">7.5.5. Insertion ou modification d’éléments : la méthode <strong>update()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dictionnaires.html#nombre-delements-la-fonction-len">7.5.6. Nombre d’éléments : la fonction <strong>len()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dictionnaires.html#suppression-dun-element-linstruction-del-et-la-methode-pop">7.5.7. Suppression d’un élément : l’instruction <strong>del</strong> et la méthode <strong>pop()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dictionnaires.html#operateur-dappartenance-a-un-dictionnaire">7.5.8. Opérateur d’appartenance à un dictionnaire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dictionnaires.html#copie-la-methode-copy">7.5.9. Copie : la méthode <strong>copy()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dictionnaires.html#reinitialisation-la-methode-clear">7.5.10. Réinitialisation : la méthode <strong>clear()</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Dictionnaires.html#parcours-complet-dun-dictionnaire">7.6. Parcours complet d’un dictionnaire</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Dictionnaires.html#parcours-sur-la-sequence-des-cles">7.6.1. Parcours sur la séquence des clés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dictionnaires.html#parcours-sur-la-sequence-des-valeurs">7.6.2. Parcours sur la séquence des valeurs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dictionnaires.html#parcours-sur-la-sequence-des-couples-cle-valeur">7.6.3. Parcours sur la séquence des couples clé, valeur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Dictionnaires.html#comprehension-de-dictionnaire">7.7. Compréhension de dictionnaire</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FichiersTexte.html">8. La manipulation des fichiers texte</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FichiersTexte.html#generalites-sur-lutilisation-de-fichiers-en-programmation">8.1. Généralités sur l’utilisation de fichiers en programmation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FichiersTexte.html#pourquoi-utiliser-des-fichiers">8.1.1. Pourquoi utiliser des fichiers ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FichiersTexte.html#les-fichiers-texte">8.1.2. Les fichiers texte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FichiersTexte.html#les-fichiers-binaires">8.1.3. Les fichiers binaires</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FichiersTexte.html#manipulation-des-fichiers-texte-quelles-fonctionnalites">8.1.4. Manipulation des fichiers texte : quelles fonctionnalités ?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="FichiersTexte.html#manipulation-des-fichiers-texte-en-python">8.2. Manipulation des fichiers texte en Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FichiersTexte.html#recuperation-du-dossier-courant-la-fonction-getcwd-du-module-os">8.2.1. Récupération du <strong>dossier courant</strong> : la fonction <strong>getcwd()</strong> du module <strong>os</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="FichiersTexte.html#modification-du-dossier-courant-la-fonction-chdir-du-module-os">8.2.2. Modification du dossier courant : la fonction <strong>chdir()</strong> du module <strong>os</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="FichiersTexte.html#ouverture-dun-fichier-la-fonction-open">8.2.3. Ouverture d’un fichier : la fonction <strong>open()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="FichiersTexte.html#fermeture-dun-fichier-la-methode-close">8.2.4. Fermeture d’un fichier : la méthode <strong>close()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="FichiersTexte.html#lecture-integrale-dun-fichier-les-methodes-read-et-readlines">8.2.5. Lecture intégrale d’un fichier : les méthodes <strong>read()</strong> et <strong>readlines()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="FichiersTexte.html#ecriture-dans-un-fichier-la-methode-write">8.2.6. Écriture dans un fichier : la méthode <strong>write()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="FichiersTexte.html#linstruction-with-et-la-fermeture-automatique-de-fichier">8.2.7. L’instruction <strong>with</strong> et la fermeture automatique de fichier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FichiersTexte.html#parcours-dun-fichier-ligne-par-ligne-la-boucle-for-et-la-methode-readline-associee-a-une-boucle-while">8.2.8. Parcours d’un fichier ligne par ligne : la boucle <strong>for</strong> et la méthode <strong>readline()</strong> associée à une boucle <strong>while</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="FichiersTexte.html#utilisation-des-fichiers-au-format-csv-en-python-le-module-csv">8.3. Utilisation des fichiers au format CSV en Python : le module csv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FichiersTexte.html#quest-ce-que-le-format-csv">8.3.1. Qu’est-ce que le format CSV ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FichiersTexte.html#dialecte-dun-fichier-csv">8.3.2. Dialecte d’un fichier CSV</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="Introduction.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Introduction</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By E. Martienne-Ughetto<br/>
+  
+      &copy; Copyright 2023, E. Martienne-Ughetto.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,21 @@
+.. Bac a sable documentation master file, created by
+   sphinx-quickstart on Wed Jan 11 15:18:24 2023.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Structures de données en Python I
+=======================================
+
+.. toctree::
+   :maxdepth: 3
+   :numbered:
+   :caption: Table des matières
+
+   Introduction
+   LesbasesdulangagePython
+   InstructionsConditionnelles
+   Booleens
+   InstructionsRepetitives
+   ListesEtTuples
+   Dictionnaires
+   FichiersTexte

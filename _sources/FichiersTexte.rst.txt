@@ -1,0 +1,1007 @@
+La manipulation des fichiers texte
+==================================
+
+L’objectif de ce chapitre est d’expliquer comment s’effectue, en langage
+Python, la lecture et l’écriture de données dans des fichiers. Seul le
+cas des fichiers de texte est abordé.
+
+Généralités sur l’utilisation de fichiers en programmation
+----------------------------------------------------------
+
+Pourquoi utiliser des fichiers ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Jusqu’à présent, les données que nous avons traitées dans des programmes
+étaient :
+
+-  stockées dans des variables (simples ou structurées) grâce à des
+   affectations, directement dans le code source
+-  saisies au clavier puis stockées dans des variables au cours de
+   l’exécution.
+
+Ces deux méthodes sont très limitées et inadaptées pour traiter de
+grandes quantités de données. Prenons l’exemple d’un programme calculant
+la moyenne obtenue par 1500 élèves à un contrôle de maths. Il n’est pas
+envisageable de déclarer dans le programme 1500 variables pour stocker
+les 1500 notes. Il n’est pas non plus raisonnable de saisir au clavier
+les 1500 notes. En supposant qu’on puisse tout de même le faire, cela
+signifie que si les valeurs des notes ou leur nombre changent il faudra
+modifier le code source du programme. Or, un programme bien conçu doit
+être indépendant des données qu’il traite. La quantité de données ainsi
+que leurs valeurs doivent pouvoir changer sans qu’on ait besoin de
+modifier le programme.
+
+Jusqu’à présent également, les résultats produits par nos programmes
+étaient simplement affichés à l’écran. Or, les résultats produits sont
+souvent trop volumineux pour être simplement affichés. Ils ont aussi
+parfois besoin d’être conservés, ce que ne permet pas l’affichage à
+l’écran.
+
+L’intérêt des fichiers est de bien séparer les programmes des données
+qu’ils traitent et des résultats qu’ils produisent. L’utilisation de
+fichiers permet de stocker dans des fichiers séparés :
+
+-  le programme source
+-  les données à traiter, c’est-à-dire les **entrées** ou le **fichier
+   d’entrées**
+-  les données produites, c’est-à-dire les **sorties** ou le **fichier
+   de sorties**.
+
+Si on prend l’exemple d’un programme calculant les moyennes obtenues par
+des étudiants à trois examens (cf. figure ci-dessous), le fichier
+d’entrées contient la liste des étudiants, avec pour chacun les trois
+notes obtenues. Le fichier de sorties contient la même liste
+d’étudiants, avec pour chacun la moyenne obtenue.
+
+.. figure:: ImagesNotebook/EntreesSorties.PNG
+   :alt: Programme utilisant des fichiers
+
+   Programme utilisant des fichiers
+
+La seule contrainte imposée par l’utilisation de fichiers pour les
+entrées et les sorties est la définition précise et sans ambiguïté de la
+syntaxe (i.e., le format) de ces fichiers. Cette définition de la
+syntaxe doit précéder l’écriture du programme source, qui doit en tenir
+compte. Dans notre exemple, une syntaxe possible pour le fichier
+d’entrées est montrée sur la figure suivante. Dans cette syntaxe, chaque
+ligne contient les caractéristiques d’un étudiant(e) séparées par des
+virgules : nom, prénom, note obtenue au 1er examen, note obtenue au 2e
+examen, note obtenue au 3e examen.
+
+.. figure:: ImagesNotebook/SyntaxeEntrees.PNG
+   :alt: Syntaxe du fichier d’entrées
+
+   Syntaxe du fichier d’entrées
+
+Le fichier de sorties peut reprendre la même syntaxe que le fichier
+d’entrées, à ceci près que les 3 notes sont remplacées par la moyenne.
+
+.. figure:: ImagesNotebook/SyntaxeSorties.PNG
+   :alt: Syntaxe du fichier de sorties
+
+   Syntaxe du fichier de sorties
+
+Il existe principalement deux types de fichiers :
+
+-  les fichiers texte
+-  les fichiers binaires
+
+Les fichiers texte
+~~~~~~~~~~~~~~~~~~
+
+Contenu
+^^^^^^^
+
+Comme son nom l’indique, un fichier texte contient des données
+textuelles, lisibles grâce à l’utilisation d’un **éditeur de texte** tel
+que **Notepad++**, **Bloc-notes**, **Xemacs** ou **Sublime Text**. Ces
+données textuelles peuvent être :
+
+-  des caractères imprimables : lettres, chiffres, ponctuation,
+   symboles, etc
+-  des espaces
+-  des caractères de fin de paragraphe ou de fin de ligne.
+
+Tous les programmes sources, quel que soit le langage utilisé, sont
+mémorisés dans des fichiers texte. Un fichier texte peut également être
+utilisé pour conserver des données textuelles brutes, c’est-à-dire sans
+aucune mise en forme.
+
+Notion d’encodage
+^^^^^^^^^^^^^^^^^
+
+Dans la mémoire vive d’un ordinateur ou sur un support de stockage tel
+qu’un disque dur, toutes les données, quels que soient leurs types, sont
+codées à l’aide d’un **langage binaire**, dont l’alphabet se compose de
+deux symboles uniquement : **0** et **1**. Chaque caractère d’un fichier
+texte est donc mémorisé à l’aide d’une **suite de bits**, c’est-à-dire
+une suite de chiffres dont la valeur est 0 ou 1. La suite de bits
+représentant un caractère dépend de l’\ **encodage** utilisé. En
+informatique, un encodage est un processus permettant de traduire un
+caractère en une suite plus ou moins longue de bits qui correspond à sa
+représentation binaire. Il existe de nombreux encodages, parmi lesquels
+nous pouvons citer les plus couramment utilisés :
+
+-  ASCII : un des premiers encodages utilisés en informatique. Il n’est
+   quasiment plus utilisé aujourd’hui car il ne permet l’encodage que de
+   128 caractères différents.
+-  ISO-8859-1 ou ANSI : encodage dit « occidental » permettant de coder
+   tous les caractères latins.
+-  UTF-8 : encodage le plus répandu depuis 2016. Il permet de coder de
+   nombreux caractères issus de nombreux alphabets (latin, arabe,
+   cyrillique, etc).
+
+Le tableau suivant montre les représentations binaires des caractères «
+e » et « é » avec les trois encodages cités ci-dessus.
+
+========= ========== ======== ========
+Caractère ASCII      ANSI     UTF-8
+========= ========== ======== ========
+e         01100101   01100101 01100101
+é         non défini 11101001 11000011
+========= ========== ======== ========
+
+Nous pouvons remarquer que la représentation binaire de « e » est
+identique dans les trois encodages. En revanche, le « é » ne peut être
+codé en ASCII. De plus, sa représentation binaire est différente en ANSI
+et en UTF-8. Ces observations sont identiques pour tous les caractères
+accentués.
+
+Lorsqu’on travaille avec un fichier texte, il est primordial de savoir
+avec quel encodage il a été mémorisé. Supposons par exemple que nous
+créons un fichier texte, en utilisant l’encodage ANSI. Le contenu du
+fichier est le suivant :
+
+.. figure:: ImagesNotebook/Fichier_ANSI_Init.PNG
+   :alt: Fichier texte initial
+
+   Fichier texte initial
+
+Nous envoyons via la messagerie électronique ce fichier à deux amis A et
+B. Notre ami A récupère le fichier, puis l’ouvre dans son éditeur de
+texte en utilisant également l’encodage ANSI. Voici ce qui s’affiche sur
+l’écran de A :
+
+.. figure:: ImagesNotebook/Fichier_ANSI_Init.PNG
+   :alt: Fichier ouvert avec ANSI
+
+   Fichier ouvert avec ANSI
+
+Dans ce cas, tout se passe bien : l’encodage utilisé par A pour lire le
+fichier est le même que celui avec lequel nous l’avons créé.
+
+Notre ami B récupère également le fichier, mais l’ouvre dans son éditeur
+en utilisant l’encodage UTF-8. Voici ce qui s’affiche sur l’écran de B :
+
+.. figure:: ImagesNotebook/Fichier_UTF-8.PNG
+   :alt: Fichier ouvert avec UTF-8
+
+   Fichier ouvert avec UTF-8
+
+Dans ce cas, tous les caractères apparaissent normalement, sauf les
+caractères accentués ! Ce qui est normal puisque ces caractères ne sont
+pas codés de la même façon en ANSI et en UTF-8. Leur lecture avec un
+encodage UTF-8, alors qu’ils ont été mémorisés avec ANSI, ne peut donc
+pas s’effectuer correctement.
+
+Autre exemple illustrant l’importance de l’encodage pour le traitement
+des fichiers texte : voici ci-dessous un fichier texte encodé en UTF-8 :
+
+.. figure:: ImagesNotebook/Exemple2_utf-8.PNG
+   :alt: Fichier encodé avec UTF-8
+
+   Fichier encodé avec UTF-8
+
+Voici ci-dessous le même fichier ouvert avec un encodage ANSI :
+
+.. figure:: ImagesNotebook/Exemple2_ansi.PNG
+   :alt: Fichier lu avec ANSI
+
+   Fichier lu avec ANSI
+
+Tous les caractères accentués ont été mal décodés et apparaissent comme
+des suites de deux caractères telles que « Ã© » (à la place de « é ») ou
+« Ã¯ » (à la place de « ï »).
+
+L’encodage est donc une information essentielle lorsqu’on traite des
+fichiers texte. Dans la plupart des langages de programmation,
+l’encodage est une information qui doit être fournie aux différentes
+instructions/fonctions/méthodes qui lisent les données contenues dans
+les fichiers texte. Tous les éditeurs permettent généralement de
+paramétrer l’encodage utilisé pour créer un fichier, ou de modifier
+l’encodage d’un fichier existant. Lorsqu’on ne connaît pas l’encodage
+d’un fichier texte, une bonne méthode est d’ouvrir ce fichier avec un
+éditeur, et de tester plusieurs encodages jusqu’à obtenir celui avec
+lequel le contenu du fichier (en particulier les caractères accentués !)
+est lisible.
+
+Les fichiers binaires
+~~~~~~~~~~~~~~~~~~~~~
+
+Un **fichier binaire** est un fichier contenant des données non
+textuelles qui sont illisibles avec un éditeur de texte. Voici quelques
+exemples de fichiers binaires :
+
+-  une image (format, JPEG, GIF, PNG, etc)
+-  un son (format WAV, MP3, etc)
+-  une vidéo (format AVI, MOV, MP4, etc)
+-  un programme exécutable (fichier ayant l’extension .exe)
+-  un document Word, Excel, Libre Office, etc
+
+La plupart du temps (à l’exception des programmes exécutables), les
+fichiers binaires sont créés à l’aide de logiciele dédiés (Paint, Gimp,
+Word, Excel, etc). Seuls ces logiciels dédiés permettent d’en lire les
+contenus.
+
+Prenons l’exemple d’un fichier contenant une image au format PNG.
+Lorsqu’on ouvre ce fichier avec le logiciel de traitement d’images
+Irfanview, l’image s’affiche correctement :
+
+.. figure:: ImagesNotebook/png_irfanview.PNG
+   :alt: Image lue avec Irfanview
+
+   Image lue avec Irfanview
+
+Lorsqu’on essaie d’ouvrir le même fichier avec un éditeur de texte,
+voici ce qui s’affiche :
+
+.. figure:: ImagesNotebook/png_texte.PNG
+   :alt: Image lue avec éditeur
+
+   Image lue avec éditeur
+
+Voici ce que donne un diaporama Powerpoint… ouvert avec Powerpoint :
+
+.. figure:: ImagesNotebook/diapo_ppt.PNG
+   :alt: Diaporama lu avec Powerpoint
+
+   Diaporama lu avec Powerpoint
+
+et ouvert avec un éditeur de texte :
+
+.. figure:: ImagesNotebook/diapo_texte.PNG
+   :alt: Diaporama lu avec éditeur
+
+   Diaporama lu avec éditeur
+
+Manipulation des fichiers texte : quelles fonctionnalités ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Dans ce chapitre, nous nous intéresserons à la manipulation des fichiers
+texte uniquement. Pour pouvoir traiter correctement les fichiers texte,
+en tant que fichiers d’entrées ou de sorties, les programmes doivent
+être en mesure :
+
+-  d’ouvrir un fichier se trouvant sur un support de stockage
+-  de lire tout le contenu d’un fichier
+-  de créer un nouveau fichier
+-  d’écrire des données dans un fichier
+-  de modifier des données se trouvant dans un fichier
+-  de fermer un fichier
+
+La plupart des langages proposent toutes ces fonctionnalités.
+
+Manipulation des fichiers texte en Python
+-----------------------------------------
+
+Comme vous pourrez le constater dans la suite de cette section, un
+fichier en Python est considéré comme un objet. Voici donc les
+principales fonctions et méthodes permettant de traiter des fichiers
+texte.
+
+Récupération du **dossier courant** : la fonction **getcwd()** du module **os**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Le **dossier courant** est le dossier dans lequel s’exécute un
+programme. Ce dossier peut varier d’un environnement de programmation à
+un autre. Dans PyCharm, lorsqu’on exécute un programme Python, le
+dossier courant est celui où est stocké le programme. Dans VSCode, le
+dossier courant est le dossier qui a été ouvert pour travailler (qui
+n’est pas forcément celui où est stocké le programme qu’on exécute !).
+La fonction **getcwd()** permet de connaître le dossier courant dans
+lequel s’exécute un programme. Elle retourne une chaîne contenant le
+chemin complet du dossier courant.
+
+.. code:: ipython3
+
+    import os
+    courant = os.getcwd()
+    print(f"Le dossier courant est : {courant}.")
+
+
+.. parsed-literal::
+
+    Le dossier courant est : ``C:\Users\martienne_e``.
+    
+
+Lorsqu’un programme traite des fichiers, **ceux-ci doivent
+impérativement être stockés dans le dossier courant**.
+
+Modification du dossier courant : la fonction **chdir()** du module **os**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Il est possible de modifier le dossier courant avec la fonction
+**chdir()**. La syntaxe de cette fonction est la suivante :
+
+.. code:: ipython3
+
+    os.chdir(chemin)
+
+où ``chemin`` est une chaîne contenant le chemin complet du nouveau
+dossier courant (dossier dans lequel doivent impérativement figurer les
+fichiers à traiter !!). Le programme suivant est un exemple
+d’utilisation de la fonction **chdir()** permettant de paramétrer le
+dossier ``'C:\Users\martienne_e\data'`` comme nouveau dossier courant.
+
+.. code:: ipython3
+
+    import os
+    courant = os.getcwd()
+    print(f"Le dossier courant est : {courant}")
+    nouveau = courant + '\data'
+    os.chdir(nouveau)
+    courant = os.getcwd()
+    print(f"Le nouveau dossier courant est : {courant}")
+
+
+.. parsed-literal::
+
+    Le dossier courant est : ``C:\Users\martienne_e``
+    Le nouveau dossier courant est : ``C:\Users\martienne_e\data``
+    
+
+Ouverture d’un fichier : la fonction **open()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Pour traiter un fichier dans un programme, la première chose à faire est
+d’ouvrir le fichier (un fichier est comme un livre : il faut l’ouvrir
+avant de pouvoir le lire !). C’est la fonction **open()** qui permet
+d’ouvrir un fichier. Elle prend en paramètres :
+
+-  une chaîne (ou une variable de type chaîne) contenant le nom complet
+   du fichier à ouvrir
+-  une chaîne (ou une variable de type chaîne) représentant le **mode
+   d’ouverture** du fichier.
+
+Le **mode d’ouverture** d’un fichier va déterminer le type du fichier et
+la manière dont on va l’utiliser. Il est représenté par une chaîne
+pouvant contenir les caractères suivants :
+
+-  ``'t'`` pour un fichier de type texte (type par défaut).
+-  ``'b'`` pour un fichier de type binaire.
+-  ``'r'`` pour ouvrir un fichier en lecture seule, ce qui signifie
+   qu’il sera possible de lire les données qu’il contient mais pas d’y
+   écrire des données.
+-  ``'w'`` pour ouvrir un fichier en écriture. Dans ce mode, il sera
+   uniquement possible d’écrire dans le fichier. Si le fichier existe
+   déjà, tout son contenu sera remplacé par les nouvelles données
+   écrites par le programme. Si le fichier n’existe pas, il sera créé.
+-  ``'a'`` pour ouvrir un fichier en ajout. Dans ce mode, il sera
+   uniquement possible d’écrire dans le fichier. Si le fichier existe
+   déjà, les données écrites viendront s’ajouter au contenu du fichier.
+   Si le fichier n’existe pas, il sera créé.
+-  ``'x'`` pour ouvrir un fichier en écriture et en création exclusive.
+   Dans ce mode, le fichier ne doit pas exister sinon une erreur se
+   produit. Le programme va créer le fichier et écrire les données qu’il
+   produit dedans.
+
+Voici deux exemples de modes d’ouverture pouvant être fournis en
+paramètres de la fonction **open()** :
+
+-  ``'tr'`` : fichier texte à ouvrir en lecture seule
+-  ``'bw'`` : fichier binaire à ouvrir en écriture.
+
+Tout interpréteur Python considère par défaut que l’encodage des
+fichiers texte est celui du système utilisé (exemple : cp1252 sous
+Windows). Pour ouvrir un fichier texte en utilisant un encodage
+différent de celui par défaut, il faut ajouter à la fonction **open()**
+un troisième paramètre optionnel, nommé ``encoding``, dont la valeur est
+une chaîne correspondant au nom de l’encodage à utiliser.
+
+La fonction retourne en résultat un **objet fichier** (objet référençant
+un fichier) qui sera utilisé dans la suite du programme pour manipuler
+le fichier.
+
+Voici des exemples d’utilisation de la fonction **open()** :
+
+.. code:: ipython3
+
+    fichtxt = open('data.txt', 'rt', encoding='UTF-8')
+    print(f"Objet fichier : {fichtxt}")
+
+
+.. parsed-literal::
+
+    Objet fichier : <_io.TextIOWrapper name='data.txt' mode='rt' encoding='UTF-8'>
+    
+
+La fonction ouvre en lecture seule le fichier texte ``data.txt`` situé
+dans le dossier courant. L’encodage utilisé est UTF-8. Elle retourne
+l’objet référençant ce fichier dans la variable ``fichtxt``.
+
+.. code:: ipython3
+
+    fichdata = open('sample.txt', 'rt')
+    print(f"Objet fichier : {fichdata}")
+
+
+.. parsed-literal::
+
+    Objet fichier : <_io.TextIOWrapper name='sample.txt' mode='rt' encoding='cp1252'>
+    
+
+La fonction ouvre en lecture seule le fichier texte ``sample.txt`` situé
+dans le dossier courant. L’encodage utilisé est celui par défaut :
+cp1252 (Windows). Elle retourne l’objet référençant ce fichier dans la
+variable ``fichdata``.
+
+Fermeture d’un fichier : la méthode **close()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Dans un programme, dès qu’un fichier n’est plus utilisé il doit être
+fermé (comme un livre !!). La méthode **close()** permet de fermer un
+fichier. Elle ne prend aucun paramètre et s’applique à l’objet fichier à
+fermer (valeur de retour de la fonction **open()**).
+
+Voici les deux exemples précédents, dans lesquels ont été ajoutées les
+fermetures des deux fichiers.
+
+.. code:: ipython3
+
+    # Ouverture du fichier
+    fichtxt = open('data.txt', 'rt', encoding='UTF-8')
+    
+    # Affichage de l'objet référençant le fichier
+    print(f"Objet fichier : {fichtxt}")
+    
+    # Fermeture du fichier
+    fichtxt.close()
+
+
+.. parsed-literal::
+
+    Objet fichier : <_io.TextIOWrapper name='data.txt' mode='rt' encoding='UTF-8'>
+    
+
+.. code:: ipython3
+
+    # Ouverture du fichier
+    fichdata = open('sample.txt', 'rt')
+    
+    # Affichage de l'objet référençant le fichier
+    print(f"Objet fichier : {fichdata}")
+    
+    # Fermeture du fichier
+    fichdata.close()
+
+
+.. parsed-literal::
+
+    Objet fichier : <_io.TextIOWrapper name='sample.txt' mode='rt' encoding='cp1252'>
+    
+
+Un fichier ouvert dans un programme et non fermé avant la fin du
+programme risque d’être endommagé. Il faut donc bien penser à fermer un
+fichier dès qu’il n’est plus utilisé. L’instruction **with**, que nous
+aborderons plus loin dans ce chapitre, permet la fermeture implicite et
+donc l’utilisation sécurisée d’un fichier.
+
+Lecture intégrale d’un fichier : les méthodes **read()** et **readlines()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La méthode **read()** s’applique à un objet fichier, et permet de lire
+son contenu. Lorsqu’aucun paramètre ne lui est fourni, elle retourne une
+chaîne contenant tous les caractères contenus dans le fichier. Voici un
+exemple de lecture complète et d’affichage du contenu d’un fichier (pour
+info : le fichier ``data.txt`` contient un poème de Charles Baudelaire).
+
+.. code:: ipython3
+
+    # Ouverture du fichier
+    fichtxt = open('data.txt', 'rt', encoding='UTF-8')
+    
+    # Lecture de tous les caractères et stockage dans une chaîne
+    contenu = fichtxt.read()
+    
+    # Fermeture du fichier
+    fichtxt.close()
+    
+    # Affichage de la chaîne
+    print(contenu)
+
+
+.. parsed-literal::
+
+    Souvent, pour s’amuser, les hommes d’équipage
+    Prennent des albatros, vastes oiseaux des mers,
+    Qui suivent, indolents compagnons de voyage,
+    Le navire glissant sur les gouffres amers.
+    
+    A peine les ont-ils déposés sur les planches,
+    Que ces rois de l’azur, maladroits et honteux,
+    Laissent piteusement leurs grandes ailes blanches
+    Comme des avirons traîner à côté d’eux.
+    
+    Ce voyageur ailé, comme il est gauche et veule !
+    Lui, naguère si beau, qu’il est comique et laid !
+    L’un agace son bec avec un brûle-gueule,
+    L’autre mime, en boitant, l’infirme qui volait !
+    
+    Le Poète est semblable au prince des nuées
+    Qui hante la tempête et se rit de l’archer ;
+    Exilé sur le sol au milieu des huées,
+    Ses ailes de géant l’empêchent de marcher.
+    
+    Charles Baudelaire
+    
+
+Il est possible de fournir en paramètre de la fonction **read()** un
+nombre entier indiquant le nombre de caractères à lire (à partir du
+début du fichier). L’exemple suivant montre comment lire uniquement les
+15 premiers caractères d’un fichier.
+
+.. code:: ipython3
+
+    # Ouverture du fichier
+    fichtxt = open('data.txt', 'rt', encoding='UTF-8')
+    
+    # Lecture des 15 premiers caractères et stockage dans une chaîne
+    contenu = fichtxt.read(15)
+    
+    # Fermeture du fichier
+    fichtxt.close()
+    
+    # Affichage de la chaîne
+    print(contenu)
+
+
+.. parsed-literal::
+
+    Souvent, pour s
+    
+
+Tout comme la méthode **read()**, la méthode **readlines()** permet de
+lire le contenu d’un fichier. Elle s’applique à l’objet fichier, et
+retourne le contenu du fichier sous la forme d’une liste de chaînes, où
+chaque chaîne correspond à une ligne du fichier (1re chaîne = 1re ligne,
+2e chaîne = 2e ligne, etc). Il s’agit donc d’une méthode adaptée pour
+effectuer un traitement ligne par ligne du contenu d’un fichier.
+Lorsqu’aucun paramètre ne lui est fourni, elle retourne toutes les
+lignes du fichier. Il est possible de stopper la lecture des lignes
+lorsqu’un nombre de caractères (à partir du premier) a été atteint. Il
+suffit pour cela de fournir ce nombre en paramètre de la fonction. Dans
+ce cas, la lecture des lignes s’arrête lorsque le nombre de caractères
+souhaité a été atteint.
+
+Le programme suivant lit toutes les lignes du fichier ``data.txt``,
+affiche la liste de chaînes obtenues, puis chaque ligne du fichier une
+par une.
+
+.. code:: ipython3
+
+    # Ouverture du fichier
+    fichtxt = open('data.txt', 'rt', encoding='UTF-8')
+    
+    # Lecture des lignes et stockage dans une liste de chaînes
+    lignes = fichtxt.readlines()
+    
+    # Fermeture du fichier
+    fichtxt.close()
+    
+    # Affichage de la liste de chaînes
+    print(f"Liste des chaînes lues dans le fichier : \n{lignes}\n")
+    
+    # Affichage des lignes une par une
+    print("Affichage ligne par ligne :\n")
+    for l in lignes:
+        print(l, end="")
+
+
+.. parsed-literal::
+
+    Liste des chaînes lues dans le fichier : 
+    ``['Souvent, pour s’amuser, les hommes d’équipage\n', 'Prennent des albatros, vastes oiseaux des mers,\n', 'Qui suivent, indolents compagnons de voyage,\n', 'Le navire glissant sur les gouffres amers.\n', '\n', 'A peine les ont-ils déposés sur les planches,\n', 'Que ces rois de l’azur, maladroits et honteux,\n', 'Laissent piteusement leurs grandes ailes blanches\n', 'Comme des avirons traîner à côté d’eux.\n', '\n', 'Ce voyageur ailé, comme il est gauche et veule !\n', 'Lui, naguère si beau, qu’il est comique et laid !\n', 'L’un agace son bec avec un brûle-gueule,\n', 'L’autre mime, en boitant, l’infirme qui volait !\n', '\n', 'Le Poète est semblable au prince des nuées\n', 'Qui hante la tempête et se rit de l’archer ;\n', 'Exilé sur le sol au milieu des huées,\n', 'Ses ailes de géant l’empêchent de marcher.\n', '\n', 'Charles Baudelaire']``
+    
+    Affichage ligne par ligne :
+    
+    Souvent, pour s’amuser, les hommes d’équipage
+    Prennent des albatros, vastes oiseaux des mers,
+    Qui suivent, indolents compagnons de voyage,
+    Le navire glissant sur les gouffres amers.
+    
+    A peine les ont-ils déposés sur les planches,
+    Que ces rois de l’azur, maladroits et honteux,
+    Laissent piteusement leurs grandes ailes blanches
+    Comme des avirons traîner à côté d’eux.
+    
+    Ce voyageur ailé, comme il est gauche et veule !
+    Lui, naguère si beau, qu’il est comique et laid !
+    L’un agace son bec avec un brûle-gueule,
+    L’autre mime, en boitant, l’infirme qui volait !
+    
+    Le Poète est semblable au prince des nuées
+    Qui hante la tempête et se rit de l’archer ;
+    Exilé sur le sol au milieu des huées,
+    Ses ailes de géant l’empêchent de marcher.
+    
+    Charles Baudelaire
+
+Dans la liste de chaînes, on peut remarquer que chaque chaîne se termine
+par le caractère spécial de retour à la ligne ``\n``.
+
+Le programme suivant lit les lignes du fichier ``data.txt`` jusqu’à ce
+qu’une limite de 100 caractères soit atteinte. Il affiche ensuite une
+par une les lignes lues.
+
+.. code:: ipython3
+
+    # Ouverture du fichier
+    fichtxt = open('data.txt', 'rt', encoding='UTF-8')
+    
+    # Lecture des lignes et stockage dans une liste de chaînes, jusqu'au 100e caractère
+    lignes = fichtxt.readlines(100)
+    
+    # Fermeture du fichier
+    fichtxt.close()
+    
+    # Affichage des lignes une par une
+    print("Affichage ligne par ligne :\n")
+    for l in lignes:
+        print(l, end="")
+
+
+.. parsed-literal::
+
+    Affichage ligne par ligne :
+    
+    Souvent, pour s’amuser, les hommes d’équipage
+    Prennent des albatros, vastes oiseaux des mers,
+    Qui suivent, indolents compagnons de voyage,
+    
+
+On remarque que seules les 3 premières lignes du fichier ont été lues,
+ce qui signifie que le 100e caractère doit se trouver quelque part sur
+la 3e ligne.
+
+Écriture dans un fichier : la méthode **write()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La méthode **write()** s’applique à un objet fichier, prend en paramètre
+une chaîne, et permet d’écrire cette chaîne dans le fichier. Cela
+suppose donc que le fichier soit ouvert soit en écriture, soit en ajout,
+et que toutes les données à écrire dans le fichier soient converties au
+préalable en chaînes. Lorsque plusieurs appels à **write()** sont
+effectués successivement sur le même fichier, les chaînes sont écrites
+les unes à la suite des autres dans le fichier.
+
+Le programme suivant copie le contenu du fichier ``data.txt`` dans un
+fichier ``data_copie.txt``. La méthode **read()** est utilisée pour lire
+le contenu du fichier ``data.txt``.
+
+.. code:: ipython3
+
+    # Ouverture du fichier data.txt en lecture seule
+    original = open('data.txt', 'rt', encoding='UTF-8')
+    
+    # Lecture du contenu du fichier data.txt
+    contenu = original.read()
+    
+    # Fermeture du fichier data.txt
+    original.close()
+    
+    # Ouverture du fichier data_copie.txt en écriture
+    copie = open('data_copie.txt', 'wt', encoding='UTF-8')
+    
+    # Ecriture du contenu de data.txt dans data_copie.txt
+    copie.write(contenu)
+    
+    # Fermeture du fichier data_copie.txt
+    copie.close()
+
+Le programme suivant ajoute une chaîne à la fin du fichier
+``data_copie.txt`` créé précédemment, puis affiche le contenu de ce
+fichier.
+
+.. code:: ipython3
+
+    # Ouverture du fichier data_copie.txt en ajout
+    fich = open('data_copie.txt', 'at', encoding='UTF-8')
+    
+    # Ecriture de la chaîne à la fin du fichier
+    fich.write('\nNé le 9 avril 1821 à Paris, mort le 31 août 1867 à Paris.\n')
+    
+    # Ouverture du fichier data_copie.txt en lecture
+    fich = open('data_copie.txt', 'rt', encoding='UTF-8')
+    
+    # Lecture du contenu du fichier après ajout
+    contenu = fich.read()
+    
+    # Affichage du contenu
+    print(contenu)
+    
+    # Fermeture du fichier
+    fich.close()
+
+
+.. parsed-literal::
+
+    Souvent, pour s’amuser, les hommes d’équipage
+    Prennent des albatros, vastes oiseaux des mers,
+    Qui suivent, indolents compagnons de voyage,
+    Le navire glissant sur les gouffres amers.
+    
+    A peine les ont-ils déposés sur les planches,
+    Que ces rois de l’azur, maladroits et honteux,
+    Laissent piteusement leurs grandes ailes blanches
+    Comme des avirons traîner à côté d’eux.
+    
+    Ce voyageur ailé, comme il est gauche et veule !
+    Lui, naguère si beau, qu’il est comique et laid !
+    L’un agace son bec avec un brûle-gueule,
+    L’autre mime, en boitant, l’infirme qui volait !
+    
+    Le Poète est semblable au prince des nuées
+    Qui hante la tempête et se rit de l’archer ;
+    Exilé sur le sol au milieu des huées,
+    Ses ailes de géant l’empêchent de marcher.
+    
+    Charles Baudelaire
+    Né le 9 avril 1821 à Paris, mort le 31 août 1867 à Paris.
+    
+    
+
+L’instruction **with** et la fermeture automatique de fichier
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Nous avons évoqué précédemment l’importance de fermer les fichiers, dès
+que leurs utilisations sont terminées. Pour ne pas avoir à se soucier de
+la fermeture des fichiers (et accessoirement ne pas risquer de perdre
+les données qu’ils contiennent !), il est possible (voire même fortement
+recommandé !) d’utiliser l’instruction **with**. Sa syntaxe est la
+suivante :
+
+.. code:: ipython3
+
+    with open() as obj_fich:
+        bloc
+
+où :
+
+-  ``open()`` est un appel à la fonction du même nom permettant d’ouvrir
+   un fichier
+-  ``obj_fich`` est un objet fichier, dont la valeur est celle retournée
+   par l’appel à ``open()``
+-  ``bloc`` est un bloc d’instructions, contenant notamment des
+   opérations sur le fichier référencé par ``obj_fich``.
+
+L’intérêt de cette instruction **with** est qu’elle va **appliquer
+automatiquement la méthode close()** sur l’objet fichier ``obj_fich``,
+dès que l’exécution du bloc d’instructions sera terminée, et même si
+cette terminaison est dûe à une erreur. Utiliser **with**, c’est donc
+avoir l’assurance que les fichiers seront fermés quoi qu’il arrive.
+
+Le programme suivant lit le contenu intégral d’un fichier ``demo.txt``
+puis l’affiche, en utilisant l’instruction **with**.
+
+.. code:: ipython3
+
+    with open('demo.txt', 'rt', encoding='UTF-8') as fich:
+        contenu = fich.read()
+        print(contenu)
+
+
+.. parsed-literal::
+
+    Ligne 1
+    Ligne 2
+    Ligne 3
+    Ligne 4
+    Ligne 5
+    Ligne 6
+    Ligne 7
+    Ligne 8
+    Ligne 9
+    Ligne 10
+    
+
+Il est possible d’imbriquer deux instructions **with** (ou plus !),
+notamment dans un programme manipulant plusieurs fichiers texte. Le
+programme suivant copie le contenu du fichier ``demo.txt`` dans le
+fichier ``demo_copie.txt``. Deux instructions **with** sont utilisées :
+
+-  une première pour ouvrir le fichier ``demo.txt`` en lecture seule
+-  une seconde, imbriquée dans la première, pour l’ouverture du fichier
+   ``demo_copie.txt`` en écriture.
+
+.. code:: ipython3
+
+    with open('demo.txt', 'rt', encoding='UTF-8') as fich:
+        with open('demo_copie.txt', 'wt', encoding='UTF-8') as nouveau:
+            contenu = fich.read()
+            nouveau.write(contenu)
+
+Notons au passage que l’imbrication des instructions **with** aurait pu
+se faire « dans l’autre sens ».
+
+.. code:: ipython3
+
+    with open('demo_copie.txt', 'wt', encoding='UTF-8') as nouveau:
+        with open('demo.txt', 'rt', encoding='UTF-8') as fich:
+            contenu = fich.read()
+            nouveau.write(contenu)
+
+Parcours d’un fichier ligne par ligne : la boucle **for** et la méthode **readline()** associée à une boucle **while**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La boucle ``for`` permet d’effectuer un traitement ligne par ligne d’un
+fichier texte. Sa syntaxe est la suivante :
+
+.. code:: ipython3
+
+    for ligne in obj_fich:
+        bloc
+
+où :
+
+-  ``ligne`` est une variable de type chaîne
+-  ``obj_fich`` est un l’objet référençant le fichier à parcourir
+-  ``bloc`` est un bloc d’instructions
+
+La variable ``ligne`` va prendre pour valeurs successives, une par une,
+toutes les lignes du fichier (une ligne = une chaîne). Chaque ligne sera
+terminée par le caractère de retour à la ligne ``'\n'``. Pour chaque
+ligne du fichier, une exécution de ``bloc`` est réalisée.
+
+Le programme suivant effectue un parcours ligne par ligne du fichier
+``data_copie.txt``. Sur chaque ligne, l’application de la méthode
+``strip()`` permet de supprimer le caractère de retour à la ligne
+``'\n'``. Puis, le nombre de caractères de la ligne est affiché à
+l’écran.
+
+.. code:: ipython3
+
+    with open('data_copie.txt', 'rt', encoding='UTF-8') as fich:
+        # Parcours du fichier ligne par ligne, suppression du caractère de retour à la ligne \n et affichage du nombre de caractères de chaque ligne
+        for ligne in fich:
+            ligne = ligne.strip('\n')
+            print(len(ligne))
+
+
+.. parsed-literal::
+
+    45
+    47
+    44
+    42
+    0
+    45
+    46
+    49
+    39
+    0
+    48
+    49
+    40
+    48
+    0
+    42
+    44
+    37
+    42
+    0
+    18
+    57
+    
+
+On remarque que certaines lignes comportent 0 caractère. Ce sont les
+lignes vides qui ne contiennent que le caractère de retour à la ligne
+``'\n'`` (caractère que la méthode ``strip()`` permet de supprimer avant
+le calcul du nombre de caractères).
+
+La méthode **readline()** permet de lire une ligne dans un fichier, et
+de se positionner sur la ligne suivante. Elle retourne :
+
+-  le contenu de la ligne lue (sous la forme d’une chaîne terminée par
+   ``'\n'``), si la fin du fichier n’est pas encore atteinte
+-  une chaîne vide si la fin de fichier est atteinte.
+
+Le programme suivant lit puis affiche la première ligne du fichier nommé
+``demo.txt`` (après lui avoir retiré le caractère de fin de ligne).
+
+.. code:: ipython3
+
+    with open('demo.txt', 'rt', encoding='UTF-8') as fich:
+        premligne = fich.readline()   # Lecture de la première ligne
+        premligne = premligne.strip('\n')  # Suppression du caractère de fin de ligne
+        print(f"Voici le contenu de la première ligne du fichier : {premligne}.")
+
+
+.. parsed-literal::
+
+    Voici le contenu de la première ligne du fichier : Ligne 1.
+    
+
+Associée à une boucle **while**, la méthode **readline()** permet
+d’effectuer un parcours ligne par ligne d’un fichier, pour appliquer à
+chaque ligne le même traitement. Le programme ci-dessous parcourt toutes
+les lignes du fichier ``demo.txt`` en affichant pour chacune son contenu
+et son nombre de caractères.
+
+.. code:: ipython3
+
+    with open('demo.txt', 'rt', encoding='UTF-8') as fich:
+        premligne = fich.readline()    # Lecture de la première ligne
+        while premligne:               # Equivalent à while premligne != '':
+            premligne = premligne.strip('\n')   # Suppression du caractère de fin de ligne
+            print(f"Contenu : {premligne}, Nombre de caractères : {len(premligne)}")
+            premligne = fich.readline()  # Lecture de la ligne suivante
+
+
+.. parsed-literal::
+
+    Contenu : Ligne 1, Nombre de caractères : 7
+    Contenu : Ligne 2, Nombre de caractères : 7
+    Contenu : Ligne 3, Nombre de caractères : 7
+    Contenu : Ligne 4, Nombre de caractères : 7
+    Contenu : Ligne 5, Nombre de caractères : 7
+    Contenu : Ligne 6, Nombre de caractères : 7
+    Contenu : Ligne 7, Nombre de caractères : 7
+    Contenu : Ligne 8, Nombre de caractères : 7
+    Contenu : Ligne 9, Nombre de caractères : 7
+    Contenu : Ligne 10, Nombre de caractères : 8
+    
+
+Utilisation des fichiers au format CSV en Python : le module csv
+----------------------------------------------------------------
+
+Dans cette section, nous présentons les principales fonctions du module
+CSV de Python, permettant le traitement des fichiers texte au format
+CSV.
+
+Qu’est-ce que le format CSV ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**CSV** signifie **Comma-Separated Values**, autrement dit **valeurs
+séparées par des virgules**. Il s’agit d’un format de données textuelles
+permettant de stocker des données **tabulaires**, c’est-à-dire des
+données qui pourraient être représentées dans un tableau. Il est très
+utilisé dans les systèmes de gestion de bases de données, ainsi que dans
+les logiciels tableurs, pour faciliter l’échange de données d’un
+logiciel à l’autre.
+
+Dans un fichier au format CSV :
+
+-  chaque ligne correspond à une ligne d’un tableau, la première ligne
+   pouvant contenir les intitulés des différents colonnes (cette
+   première ligne d’intitulés n’est pas obligatoire)
+-  sur chaque ligne, les contenus des différentes colonnes sont séparés
+   à l’aide d’un **caractère séparateur**
+-  certaines colonnes peuvent avoir un contenu vide.
+
+Voici ci-dessous un exemple de fichier au format CSV. La première ligne
+est la ligne d’intitulés (7 intitulés, donc 7 colonnes). Le caractère
+séparateur est la virgule « , ». Aucune des lignes ne comporte de
+colonne vide.
+
+.. figure:: ImagesNotebook/Exemple_Fichier_CSV.PNG
+   :alt: Fichier au format CSV
+
+   Fichier au format CSV
+
+Dialecte d’un fichier CSV
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Le dialecte d’un fichier CSV désigne l’ensemble des principes utilisés
+pour formater les données qu’il contient. Le format CSV n’étant pas
+normalisé, il existe de nombreux dialectes différents. Dans l’exemple
+ci-dessous, le dialecte du fichier se compose de trois principes de
+formatage :
+
+-  l’utilisation du point-virgule « ; » comme caractère séparateur des
+   colonnes
+-  les guillemets doubles anglo-saxons « “” » autour des données
+   textuelles (pour les distinguer des données numériques)
+-  l’utilisation du point « . » comme séparateur décimal des données
+   numériques.
+
+.. image:: ImagesNotebook/dialecte_CSV.PNG

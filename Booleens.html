@@ -1,0 +1,769 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Booléens et expressions booléennes &#8212; Université Rennes 2 - Cours de Python - L1 MIASHS</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="5. Les instructions répétitives" href="InstructionsRepetitives.html" />
+    <link rel="prev" title="3. Les instructions conditionnelles" href="InstructionsConditionnelles.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/ILovePython.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Université Rennes 2 - Cours de Python - L1 MIASHS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Structures de données en Python I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Table des matières
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="LesbasesdulangagePython.html">
+   2. Les bases du langage Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="InstructionsConditionnelles.html">
+   3. Les instructions conditionnelles
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Booléens et expressions booléennes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="InstructionsRepetitives.html">
+   5. Les instructions répétitives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ListesEtTuples.html">
+   6. Les listes et les tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dictionnaires.html">
+   7. Les dictionnaires
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Booleens.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contenu de la page
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expression-booleenne-en-python-notion-de-predicat">
+   4.1. Expression booléenne en Python (notion de
+   <strong>
+    prédicat
+   </strong>
+   )
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-predicats-usuels-en-python">
+     4.1.1. Les prédicats usuels en Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-operateurs-booleens">
+     4.1.2. Les opérateurs booléens
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loperateur-and">
+       4.1.2.1. L’opérateur
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         and
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loperateur-or">
+       4.1.2.2. L’opérateur
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         or
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loperateur-not">
+       4.1.2.3. L’opérateur
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         not
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#negations-de-predicats-usuels-en-python">
+       4.1.2.4. Négations de prédicats usuels en Python
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-lois-de-de-morgan">
+   4.2. Les lois de
+   <strong>
+    De Morgan
+   </strong>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#premiere-loi">
+     4.2.1. Première loi
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seconde-loi">
+     4.2.2. Seconde loi
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Booléens et expressions booléennes</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenu de la page </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expression-booleenne-en-python-notion-de-predicat">
+   4.1. Expression booléenne en Python (notion de
+   <strong>
+    prédicat
+   </strong>
+   )
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-predicats-usuels-en-python">
+     4.1.1. Les prédicats usuels en Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-operateurs-booleens">
+     4.1.2. Les opérateurs booléens
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loperateur-and">
+       4.1.2.1. L’opérateur
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         and
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loperateur-or">
+       4.1.2.2. L’opérateur
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         or
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loperateur-not">
+       4.1.2.3. L’opérateur
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         not
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#negations-de-predicats-usuels-en-python">
+       4.1.2.4. Négations de prédicats usuels en Python
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-lois-de-de-morgan">
+   4.2. Les lois de
+   <strong>
+    De Morgan
+   </strong>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#premiere-loi">
+     4.2.1. Première loi
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seconde-loi">
+     4.2.2. Seconde loi
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="booleens-et-expressions-booleennes">
+<h1><span class="section-number">4. </span>Booléens et expressions booléennes<a class="headerlink" href="#booleens-et-expressions-booleennes" title="Lien permanent vers ce titre"></a></h1>
+<p>En informatique, et tout particulièrement en programmation, on a
+fréquemment besoin de savoir si une condition est vérifiée (vraie) ou
+non (fausse) pour définir les traitements appropriés (cf. cours
+précédent sur les instructions conditionnelles). Par exemple : * La
+valeur de la variable <code class="docutils literal notranslate"><span class="pre">x</span></code> est-elle négative ? * La valeur de la
+variable <code class="docutils literal notranslate"><span class="pre">x</span></code> est-elle supérieure à celle de la variable <code class="docutils literal notranslate"><span class="pre">y</span></code> ?</p>
+<p>En mathématiques, certaines fonctions sont définies en fonction de
+différentes conditions. C’est le cas par exemple de la fonction
+<strong>factorielle</strong> dont la définition est la suivante :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n! = 1\)</span> si <span class="math notranslate nohighlight">\(n = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n! = n \times (n-1)!\)</span> si <span class="math notranslate nohighlight">\(n \gt 0\)</span></p></li>
+</ul>
+<p>Les <strong>booléens</strong> (ou <strong>expressions booléennes</strong>) ont été introduits par
+le mathématicien Georges Boole (1815-1864) pour manipuler ces
+expressions qui sont soit vraies soit fausses. La partie des
+mathématiques qui traite des différentes opérations et fonctions sur les
+booléens s’appelle l’<strong>algèbre de Boole</strong>. Elle est très utilisée en
+électronique, informatique et logique.</p>
+<section id="expression-booleenne-en-python-notion-de-predicat">
+<h2><span class="section-number">4.1. </span>Expression booléenne en Python (notion de <strong>prédicat</strong>)<a class="headerlink" href="#expression-booleenne-en-python-notion-de-predicat" title="Lien permanent vers ce titre"></a></h2>
+<p>En Python, une expression booléenne simple est appelée un <strong>prédicat</strong>.
+Un prédicat est un opérateur ou une fonction dont le résultat peut avoir
+deux valeurs possibles : soit <code class="docutils literal notranslate"><span class="pre">True</span></code> (vrai) soit <code class="docutils literal notranslate"><span class="pre">False</span></code> (faux).
+Voici quelques exemples de prédicats :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">6</span> <span class="pre">&lt;</span> <span class="pre">7</span></code> (dont la valeur est <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3.14</span> <span class="pre">==</span> <span class="pre">12.5</span></code> (dont la valeur est <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span> <span class="pre">in</span> <span class="pre">&quot;où</span> <span class="pre">est</span> <span class="pre">ma</span> <span class="pre">clé</span> <span class="pre">usb</span> <span class="pre">?&quot;</span></code> (dont la valeur est <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+</ul>
+<section id="les-predicats-usuels-en-python">
+<h3><span class="section-number">4.1.1. </span>Les prédicats usuels en Python<a class="headerlink" href="#les-predicats-usuels-en-python" title="Lien permanent vers ce titre"></a></h3>
+<p>En Python, les prédicats usuels peuvent être définis à l’aide des
+opérateurs de comparaison. Dans ce cas, leur forme générale est
+<code class="docutils literal notranslate"><span class="pre">exp1</span> <span class="pre">opcomp</span> <span class="pre">exp2</span></code> où :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">exp1</span></code> et <code class="docutils literal notranslate"><span class="pre">exp2</span></code> sont des expressions numériques ou des chaînes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">opcomp</span></code> est un opérateur de comparaison tel que  :</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code> : infériorité stricte</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code> : supériorité stricte</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> : l’infériorité</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> : la supériorité</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">==</span></code> : l’égalité</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!=</span></code> : la différence</p></li>
+</ul>
+</li>
+</ul>
+<p>Ils peuvent également être définis avec le test d’appartenance <code class="docutils literal notranslate"><span class="pre">in</span></code>.
+Dans ce cas, leur forme générale est <code class="docutils literal notranslate"><span class="pre">objet</span> <span class="pre">in</span> <span class="pre">sequ_ens_dict</span></code> où :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">objet</span></code> est un objet ou une variable référençant un objet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seq_ens_dict</span></code> est soit une séquence (chaîne, liste, tuple), soit
+un ensemble, soit un dictionnaire (notion abordée plus tard dans ce
+cours).</p></li>
+</ul>
+<p>Un prédicat peut être utilisé comme condition dans une instruction
+conditionnelle <code class="docutils literal notranslate"><span class="pre">if</span></code>. La valeur du prédicat indique alors si la
+condition est vérifiée (valeur du prédicat à <code class="docutils literal notranslate"><span class="pre">True</span></code>) ou pas (valeur du
+prédicat à <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</section>
+<section id="les-operateurs-booleens">
+<h3><span class="section-number">4.1.2. </span>Les opérateurs booléens<a class="headerlink" href="#les-operateurs-booleens" title="Lien permanent vers ce titre"></a></h3>
+<p>Les <strong>opérateurs booléens</strong> permettent d’effectuer des calculs sur les
+prédicats. Le résultat d’un opérateur booléen est une valeur booléenne
+(<code class="docutils literal notranslate"><span class="pre">True</span></code> ou <code class="docutils literal notranslate"><span class="pre">False</span></code>). En Python, il existe trois opérateurs booléens
+: le <code class="docutils literal notranslate"><span class="pre">and</span></code>, le <code class="docutils literal notranslate"><span class="pre">or</span></code> et le <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p>
+<section id="loperateur-and">
+<h4><span class="section-number">4.1.2.1. </span>L’opérateur <code class="docutils literal notranslate"><span class="pre">and</span></code><a class="headerlink" href="#loperateur-and" title="Lien permanent vers ce titre"></a></h4>
+<p>L’opérateur <code class="docutils literal notranslate"><span class="pre">and</span></code> est un opérateur binaire également appelé le <strong>et
+logique</strong> ou la <strong>conjonction</strong>. Sa forme générale est <code class="docutils literal notranslate"><span class="pre">p1</span> <span class="pre">and</span> <span class="pre">p2</span></code> où
+<code class="docutils literal notranslate"><span class="pre">p1</span></code> et <code class="docutils literal notranslate"><span class="pre">p2</span></code> sont des prédicats. Il est commutatif. Son résultat est
+vrai si et seulement si les valeurs des deux prédicats <code class="docutils literal notranslate"><span class="pre">p1</span></code> et <code class="docutils literal notranslate"><span class="pre">p2</span></code>
+sont vraies, comme on peut le constater sur la table de vérité
+ci-dessous.</p>
+<table class="table">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>p1</p></th>
+<th class="head"><p>p2</p></th>
+<th class="head"><p>p1 and p2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="loperateur-or">
+<h4><span class="section-number">4.1.2.2. </span>L’opérateur <code class="docutils literal notranslate"><span class="pre">or</span></code><a class="headerlink" href="#loperateur-or" title="Lien permanent vers ce titre"></a></h4>
+<p>L’opérateur <code class="docutils literal notranslate"><span class="pre">or</span></code> est un opérateur binaire également appelé le <strong>ou
+logique</strong> ou la <strong>disjonction</strong>. Sa forme générale est <code class="docutils literal notranslate"><span class="pre">p1</span> <span class="pre">or</span> <span class="pre">p2</span></code> où
+<code class="docutils literal notranslate"><span class="pre">p1</span></code> et <code class="docutils literal notranslate"><span class="pre">p2</span></code> sont des prédicats. Il est commutatif. Son résultat est
+vrai lorsque au moins l’un des deux prédicats (<code class="docutils literal notranslate"><span class="pre">p1</span></code> ou <code class="docutils literal notranslate"><span class="pre">p2</span></code>) est
+vrai, comme on peut le constater sur la table de vérité ci-dessous.</p>
+<table class="table">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>p1</p></th>
+<th class="head"><p>p2</p></th>
+<th class="head"><p>p1 or p2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="loperateur-not">
+<h4><span class="section-number">4.1.2.3. </span>L’opérateur <code class="docutils literal notranslate"><span class="pre">not</span></code><a class="headerlink" href="#loperateur-not" title="Lien permanent vers ce titre"></a></h4>
+<p>L’opérateur <code class="docutils literal notranslate"><span class="pre">not</span></code> est un opérateur unaire également appelé le <strong>non
+logique</strong> ou la <strong>négation</strong>. Sa forme générale est <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">p1</span></code> où <code class="docutils literal notranslate"><span class="pre">p1</span></code>
+est un prédicat. Son résultat est vrai lorsque <code class="docutils literal notranslate"><span class="pre">p1</span></code> est faux et faux
+lorsque <code class="docutils literal notranslate"><span class="pre">p1</span></code> est vrai, comme on peut le constater sur la table de
+vérité ci-dessous.</p>
+<table class="table">
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>p1</p></th>
+<th class="head"><p>not p1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="negations-de-predicats-usuels-en-python">
+<h4><span class="section-number">4.1.2.4. </span>Négations de prédicats usuels en Python<a class="headerlink" href="#negations-de-predicats-usuels-en-python" title="Lien permanent vers ce titre"></a></h4>
+<p>Le tableau ci-dessous présente les négations de prédicats usuels formés
+à l’aide des opérateurs de comparaison.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>p1</p></th>
+<th class="head"><p>not p1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">!=</span> <span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">!=</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">==</span> <span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="les-lois-de-de-morgan">
+<h2><span class="section-number">4.2. </span>Les lois de <strong>De Morgan</strong><a class="headerlink" href="#les-lois-de-de-morgan" title="Lien permanent vers ce titre"></a></h2>
+<p>Les lois de De Morgan ont été formulées par le mathématicient
+britannique Augustus De Morgan (1806-1871). Elles définissent les
+équivalences existant entre des expressions logiques.</p>
+<section id="premiere-loi">
+<h3><span class="section-number">4.2.1. </span>Première loi<a class="headerlink" href="#premiere-loi" title="Lien permanent vers ce titre"></a></h3>
+<p>Selon la première loi, <strong>la négation de la conjonction (et logique) de
+deux prédicats est équivalente à la disjonction (ou logique) des
+négations des deux prédicats</strong>. En utilisant les opérateurs logiques du
+langage Python, cette loi peut s’énoncer de la manière suivante :</p>
+<p>not (P1 and P2) <span class="math notranslate nohighlight">\(\Leftrightarrow\)</span> (not P1) or (not P2).</p>
+<p>En français, cela signifie que « nier l’existence simultanée de P1 et
+P2, c’est nier P1 ou nier P2 ».</p>
+<p>Prenons un exemple concret pour illustrer cette loi. Soit l’énoncé
+suivant : « Dire que x n’est pas divisible par 2 et par 3 équivaut à
+dire que soit x n’est pas divisible par 2, soit x n’est pas divisible
+par 3 ». Cet énoncé semble correct a priori, mais vérifions-le à l’aide
+de la première loi. Transformons tout d’abord l’énoncé « x n’est pas
+divisible par 2 et par 3 » en une expression booléenne en langage
+Python. Nous obtenons :</p>
+<p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">((x</span> <span class="pre">%</span> <span class="pre">2</span> <span class="pre">==</span> <span class="pre">0)</span> <span class="pre">and</span> <span class="pre">(x</span> <span class="pre">%</span> <span class="pre">3</span> <span class="pre">==</span> <span class="pre">0))</span></code></p>
+<p>En appliquant la loi de De Morgan précédente, nous obtenons l’énoncé
+équivalent :</p>
+<p><code class="docutils literal notranslate"><span class="pre">(not</span> <span class="pre">(x</span> <span class="pre">%</span> <span class="pre">2</span> <span class="pre">==</span> <span class="pre">0))</span> <span class="pre">or</span> <span class="pre">(not</span> <span class="pre">(x</span> <span class="pre">%</span> <span class="pre">3</span> <span class="pre">==</span> <span class="pre">0))</span></code></p>
+<p>Que nous dit cet énoncé ? Que « soit x n’est pas divisible par 2, soit x
+n’est pas divisible par 3 ». CQFD.</p>
+</section>
+<section id="seconde-loi">
+<h3><span class="section-number">4.2.2. </span>Seconde loi<a class="headerlink" href="#seconde-loi" title="Lien permanent vers ce titre"></a></h3>
+<p>Selon la seconde loi, <strong>la négation de la disjonction (ou logique) de
+deux prédicats est équivalente à la conjonction (et logique) des
+négations des deux prédicats</strong>. En utilisant les opérateurs logiques du
+langage Python, cette loi peut s’énoncer de la manière suivante :</p>
+<p>not (P1 or P2) <span class="math notranslate nohighlight">\(\Leftrightarrow\)</span> (not P1) and (not P2).</p>
+<p>En français, cela signifie que « nier l’existence de P1 ou P2, c’est
+nier à la fois P1 et P2 ».</p>
+<p>Prenons un exemple concret pour illustrer cette loi. Soit l’énoncé
+suivant : « Dire que x n’est pas égal à 1 ou à -1 équivaut à dire que x
+n’est égal ni à 1 ni à -1 ». Cet énoncé semble correct a priori, mais
+vérifions-le à l’aide de la seconde loi. Transformons tout d’abord
+l’énoncé « x n’est pas égal à 1 ou à -1 » en une expression booléenne en
+langage Python. Nous obtenons :</p>
+<p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">((x</span> <span class="pre">==</span> <span class="pre">1)</span> <span class="pre">or</span> <span class="pre">(x</span> <span class="pre">==</span> <span class="pre">-1))</span></code></p>
+<p>En appliquant la loi de De Morgan précédente, nous obtenons l’énoncé
+équivalent :</p>
+<p><code class="docutils literal notranslate"><span class="pre">(not</span> <span class="pre">(x</span> <span class="pre">==</span> <span class="pre">1))</span> <span class="pre">and</span> <span class="pre">(not</span> <span class="pre">(x</span> <span class="pre">==</span> <span class="pre">-1))</span></code></p>
+<p>Que nous dit cet énoncé ? Que « x n’est égal ni à 1 ni à -1 ». CQFD.</p>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="InstructionsConditionnelles.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Les instructions conditionnelles</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="InstructionsRepetitives.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Les instructions répétitives</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By E. Martienne-Ughetto<br/>
+  
+      &copy; Copyright 2023, E. Martienne-Ughetto.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

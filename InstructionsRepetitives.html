@@ -1,0 +1,891 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>5. Les instructions répétitives &#8212; Université Rennes 2 - Cours de Python - L1 MIASHS</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="6. Les listes et les tuples" href="ListesEtTuples.html" />
+    <link rel="prev" title="4. Booléens et expressions booléennes" href="Booleens.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/ILovePython.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Université Rennes 2 - Cours de Python - L1 MIASHS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Structures de données en Python I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Table des matières
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="LesbasesdulangagePython.html">
+   2. Les bases du langage Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="InstructionsConditionnelles.html">
+   3. Les instructions conditionnelles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Booleens.html">
+   4. Booléens et expressions booléennes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Les instructions répétitives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ListesEtTuples.html">
+   6. Les listes et les tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dictionnaires.html">
+   7. Les dictionnaires
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/InstructionsRepetitives.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contenu de la page
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-boucle-while">
+   5.1. La boucle
+   <strong>
+    while
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-boucle-for">
+   5.2. La boucle
+   <strong>
+    for
+   </strong>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parcours-de-sequences-de-valeurs-entieres">
+     5.2.1. Parcours de séquences de valeurs entières
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#la-fonction-range">
+       5.2.1.1. La fonction
+       <strong>
+        range()
+       </strong>
+      </a>
+      <ul class="visible nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#syntaxe-a-un-seul-parametre-range-n">
+         5.2.1.1.1. Syntaxe à un seul paramètre :
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           range(n)
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#syntaxe-a-deux-parametres-range-deb-fin">
+         5.2.1.1.2. Syntaxe à deux paramètres :
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           range(deb,
+          </span>
+          <span class="pre">
+           fin)
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#syntaxe-a-trois-parametres-range-deb-fin-pas">
+         5.2.1.1.3. Syntaxe à trois paramètres :
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           range(deb,
+          </span>
+          <span class="pre">
+           fin,
+          </span>
+          <span class="pre">
+           pas)
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#premier-exemple-affichage-dune-suite-de-caracteres-identiques-sur-une-meme-ligne">
+       5.2.1.2. Premier exemple : affichage d’une suite de caractères identiques sur une même ligne
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#deuxieme-exemple-calcul-de-la-somme-des-n-premiers-entiers-positifs">
+       5.2.1.3. Deuxième exemple : calcul de la somme des n premiers entiers positifs
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#troisieme-exemple-calcul-de-la-somme-des-n-premiers-entiers-positifs-pairs">
+       5.2.1.4. Troisième exemple : calcul de la somme des n premiers entiers positifs pairs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parcours-dobjets-iterables-cas-des-chaines-de-caracteres">
+     5.2.2. Parcours d’objets
+     <strong>
+      itérables
+     </strong>
+     - Cas des chaînes de caractères
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Les instructions répétitives</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenu de la page </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-boucle-while">
+   5.1. La boucle
+   <strong>
+    while
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-boucle-for">
+   5.2. La boucle
+   <strong>
+    for
+   </strong>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parcours-de-sequences-de-valeurs-entieres">
+     5.2.1. Parcours de séquences de valeurs entières
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#la-fonction-range">
+       5.2.1.1. La fonction
+       <strong>
+        range()
+       </strong>
+      </a>
+      <ul class="visible nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#syntaxe-a-un-seul-parametre-range-n">
+         5.2.1.1.1. Syntaxe à un seul paramètre :
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           range(n)
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#syntaxe-a-deux-parametres-range-deb-fin">
+         5.2.1.1.2. Syntaxe à deux paramètres :
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           range(deb,
+          </span>
+          <span class="pre">
+           fin)
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#syntaxe-a-trois-parametres-range-deb-fin-pas">
+         5.2.1.1.3. Syntaxe à trois paramètres :
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           range(deb,
+          </span>
+          <span class="pre">
+           fin,
+          </span>
+          <span class="pre">
+           pas)
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#premier-exemple-affichage-dune-suite-de-caracteres-identiques-sur-une-meme-ligne">
+       5.2.1.2. Premier exemple : affichage d’une suite de caractères identiques sur une même ligne
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#deuxieme-exemple-calcul-de-la-somme-des-n-premiers-entiers-positifs">
+       5.2.1.3. Deuxième exemple : calcul de la somme des n premiers entiers positifs
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#troisieme-exemple-calcul-de-la-somme-des-n-premiers-entiers-positifs-pairs">
+       5.2.1.4. Troisième exemple : calcul de la somme des n premiers entiers positifs pairs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parcours-dobjets-iterables-cas-des-chaines-de-caracteres">
+     5.2.2. Parcours d’objets
+     <strong>
+      itérables
+     </strong>
+     - Cas des chaînes de caractères
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="les-instructions-repetitives">
+<h1><span class="section-number">5. </span>Les instructions répétitives<a class="headerlink" href="#les-instructions-repetitives" title="Lien permanent vers ce titre"></a></h1>
+<p>Dans un programme, on doit pouvoir répéter plusieurs fois (voire
+indéfiniment !) les mêmes traitements. Une <strong>instruction répétitive</strong> ou
+<strong>boucle</strong> permet de répéter un certain nombre de fois le même bloc
+d’instructions. Il existe deux instructions répétitives en Python : la
+boucle <strong>while</strong> et la boucle <strong>for in</strong>.</p>
+<section id="la-boucle-while">
+<h2><span class="section-number">5.1. </span>La boucle <strong>while</strong><a class="headerlink" href="#la-boucle-while" title="Lien permanent vers ce titre"></a></h2>
+<p>La boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> (cf. figure ci-dessous) permet de répéter
+l’exécution d’un bloc d’instructions tant qu’une condition est vérifiée.
+En revanche, dès que la condition devient fausse, l’exécution du bloc
+d’instructions cesse et le programme se poursuit normalement en
+séquence.</p>
+<figure class="align-default" id="id1">
+<img alt="La boucle while" src="_images/BoucleWhile.PNG" />
+<figcaption>
+<p><span class="caption-text">La boucle while</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Sa syntaxe en Python est la suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">exp_cond</span><span class="p">:</span>
+    <span class="n">bloc_instructions</span>
+</pre></div>
+</div>
+<p>Il s’agit d’une <strong>instruction composée</strong> comportant :</p>
+<ul class="simple">
+<li><p>une ligne d’en-tête terminée par le caractère <code class="docutils literal notranslate"><span class="pre">:</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">exp_cond</span> <span class="pre">:</span></code></p></li>
+</ul>
+</li>
+<li><p>un bloc d’instruction</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bloc_instructions</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>Le bloc doit obligatoirement être indenté par rapport à la ligne
+d’en-tête. Cette indentation s’effectue de préférence avec quatre
+espaces consécutifs, ou bien avec un caractère de tabulation. Elle est
+souvent effectuée automatiquement par les éditeurs de code Python.</p>
+<p>Littéralement, le fonctionnement d’une boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> peut s’énoncer à
+l’aide de la phrase : « Tant que la condition est vraie, exécuter le
+bloc d’instructions ». Plus concrètement, voici ce qui se passe lors de
+l’exécution d’une boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> :</p>
+<ul class="simple">
+<li><p>la valeur de la condition <code class="docutils literal notranslate"><span class="pre">exp_cond</span></code> est évaluée</p></li>
+<li><p>si la condition est fausse, l’exécution du programme reprend en
+séquence après la boucle (<code class="docutils literal notranslate"><span class="pre">bloc_instructions</span></code> n’est pas exécuté)</p></li>
+<li><p>si la condition est vraie, <code class="docutils literal notranslate"><span class="pre">bloc_instructions</span></code> est exécuté, puis
+l’exécution du programme reprend sur la ligne d’en-tête où la valeur
+de la condition sera évaluée à nouveau, et ainsi de suite.</p></li>
+</ul>
+<p>Généralement, le nombre d’exécutions du bloc qui seront réalisées ne
+peut être connu à l’avance, mais dépend de la condition. Le programme
+ci-dessous implémente un compte à rebours très basique en utilisant une
+boucle <code class="docutils literal notranslate"><span class="pre">while</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compteur</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Compte à rebours basique :&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">compteur</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">compteur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">compteur</span> <span class="o">=</span> <span class="n">compteur</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Terminé !!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Compte à rebours basique :
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+Terminé !!
+</pre></div>
+</div>
+<p>Le programme ci-dessous calcule le résultat de la factorielle d’un
+nombre.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Saisissez un nombre entier positif ou nul : &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+    <span class="n">facto</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">facto</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="n">mult</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+    <span class="k">while</span> <span class="n">mult</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">facto</span> <span class="o">=</span> <span class="n">facto</span><span class="o">*</span><span class="n">mult</span>
+        <span class="n">mult</span> <span class="o">=</span> <span class="n">mult</span><span class="o">-</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Factorielle de </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> est égal à </span><span class="si">{</span><span class="n">facto</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">un</span> <span class="n">nombre</span> <span class="n">entier</span> <span class="n">positif</span> <span class="n">ou</span> <span class="n">nul</span> <span class="p">:</span>  <span class="mi">5</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Factorielle</span> <span class="n">de</span> <span class="mi">5</span> <span class="n">est</span> <span class="n">égal</span> <span class="n">à</span> <span class="mf">120.</span>
+</pre></div>
+</div>
+</section>
+<section id="la-boucle-for">
+<h2><span class="section-number">5.2. </span>La boucle <strong>for</strong><a class="headerlink" href="#la-boucle-for" title="Lien permanent vers ce titre"></a></h2>
+<p>La boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> est une instruction répétitive qui est
+particulièrement adaptée aux deux cas de figure suivants :</p>
+<ul class="simple">
+<li><p>pour parcourir des séquences de valeurs entières et répéter le même
+traitement autant de fois qu’il y a de valeurs dans la séquence (ce
+traitement peut utiliser les valeurs de la séquence ou bien être
+totalement indépendant)</p></li>
+<li><p>pour parcourir des objets <strong>itérables</strong> (c’est-à-dire des objets
+comprenant plusieurs éléments auxquels on peut accéder
+individuellement) et appliquer le même traitement sur chacun de leurs
+éléments.</p></li>
+</ul>
+<section id="parcours-de-sequences-de-valeurs-entieres">
+<h3><span class="section-number">5.2.1. </span>Parcours de séquences de valeurs entières<a class="headerlink" href="#parcours-de-sequences-de-valeurs-entieres" title="Lien permanent vers ce titre"></a></h3>
+<p>Dans ce cas de figure, la syntaxe de la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> est la suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">seq_val</span><span class="p">:</span>
+    <span class="n">bloc_instructions</span>
+</pre></div>
+</div>
+<p>Il s’agit d’une <strong>instruction composée</strong> dans laquelle :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">var</span></code> est une variable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seq_val</span></code> est une séquence de nombres entiers générée par la
+fonction <code class="docutils literal notranslate"><span class="pre">range()</span></code> (voir plus loin dans ce chapitre)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bloc_instructions</span></code> est un bloc d’instructions</p></li>
+</ul>
+<p>Le bloc d’instructions doit obligatoirement être indenté par rapport à
+la ligne d’en-tête <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">var</span> <span class="pre">in</span> <span class="pre">seq_val:</span></code>. Cette indentation s’effectue
+de préférence avec quatre espaces consécutifs, ou bien avec un caractère
+de tabulation. Elle est souvent effectuée automatiquement par les
+éditeurs de code Python.</p>
+<p>Littéralement, on peut énoncer le fonctionnement d’une telle boucle de
+la manière suivante : « Pour chaque valeur entière <code class="docutils literal notranslate"><span class="pre">var</span></code> contenue dans
+<code class="docutils literal notranslate"><span class="pre">seq_val</span></code> exécuter le bloc d’instructions ». Plus concrètement, la
+variable <code class="docutils literal notranslate"><span class="pre">var</span></code> va prendre successivement pour valeur chacune des
+valeurs de <code class="docutils literal notranslate"><span class="pre">seq_val</span></code>, de la première à la dernière. Pour chaque
+valeur, le bloc d’instructions est exécuté. La boucle s’arrête
+lorsqu’une exécution du bloc a été réalisée pour chaque valeur de
+<code class="docutils literal notranslate"><span class="pre">seq_val</span></code>.</p>
+<section id="la-fonction-range">
+<h4><span class="section-number">5.2.1.1. </span>La fonction <strong>range()</strong><a class="headerlink" href="#la-fonction-range" title="Lien permanent vers ce titre"></a></h4>
+<p>Comment générer cette fameuse séquence de valeurs <code class="docutils literal notranslate"><span class="pre">seq_val</span></code> ? C’est le
+rôle de la fonction <code class="docutils literal notranslate"><span class="pre">range()</span></code>. Cette fonction prend une, deux ou trois
+valeurs entières en paramètres et retourne une séquence ordonnée de
+valeurs entières.</p>
+<section id="syntaxe-a-un-seul-parametre-range-n">
+<h5><span class="section-number">5.2.1.1.1. </span>Syntaxe à un seul paramètre : <code class="docutils literal notranslate"><span class="pre">range(n)</span></code><a class="headerlink" href="#syntaxe-a-un-seul-parametre-range-n" title="Lien permanent vers ce titre"></a></h5>
+<p>Lorsqu’un seul paramètre <code class="docutils literal notranslate"><span class="pre">n</span></code> est fourni, il correspond au nombre de
+valeurs entières que doit contenir la séquence retournée. <code class="docutils literal notranslate"><span class="pre">range(n)</span></code>
+retourne alors la séquence de <code class="docutils literal notranslate"><span class="pre">n</span></code> valeurs entières consécutives
+commençant par 0. Par exemple  :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range(6)</span></code> retourne la séquence : 0, 1, 2, 3, 4, 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(2)</span></code> retourne la séquence : 0, 1</p></li>
+</ul>
+</section>
+<section id="syntaxe-a-deux-parametres-range-deb-fin">
+<h5><span class="section-number">5.2.1.1.2. </span>Syntaxe à deux paramètres : <code class="docutils literal notranslate"><span class="pre">range(deb,</span> <span class="pre">fin)</span></code><a class="headerlink" href="#syntaxe-a-deux-parametres-range-deb-fin" title="Lien permanent vers ce titre"></a></h5>
+<p>Lorsque deux paramètres <code class="docutils literal notranslate"><span class="pre">deb</span></code> et <code class="docutils literal notranslate"><span class="pre">fin</span></code> sont fournis (tels que
+<code class="docutils literal notranslate"><span class="pre">deb</span></code>≤<code class="docutils literal notranslate"><span class="pre">fin</span></code>) :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">deb</span></code> est la valeur débutant la séquence</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fin</span></code> est la première valeur non comprise dans la séquence</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">range(deb,</span> <span class="pre">fin)</span></code> retourne alors la séquence de valeurs consécutives
+commençant par <code class="docutils literal notranslate"><span class="pre">deb</span></code> et se terminant par <code class="docutils literal notranslate"><span class="pre">fin-1</span></code>. Par exemple  :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range(3,</span> <span class="pre">8)</span></code> retourne la séquence : 3, 4, 5, 6, 7</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(-2,</span> <span class="pre">5)</span></code> retourne la séquence : -2, -1, 0, 1, 2, 3, 4</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(-10,</span> <span class="pre">-2)</span></code> retourne la séquence : -10, -9, -8, -7, -6, -5,
+-4, -3</p></li>
+</ul>
+</section>
+<section id="syntaxe-a-trois-parametres-range-deb-fin-pas">
+<h5><span class="section-number">5.2.1.1.3. </span>Syntaxe à trois paramètres : <code class="docutils literal notranslate"><span class="pre">range(deb,</span> <span class="pre">fin,</span> <span class="pre">pas)</span></code><a class="headerlink" href="#syntaxe-a-trois-parametres-range-deb-fin-pas" title="Lien permanent vers ce titre"></a></h5>
+<p>Lorsqu’un troisième paramètre <code class="docutils literal notranslate"><span class="pre">pas</span></code> est fourni, celui-ci correspond à
+l’écart qu’il devra y avoir entre deux valeurs adjacentes de la séquence
+retournée (en informatique, on appelle cela le <strong>pas</strong>).
+<code class="docutils literal notranslate"><span class="pre">range(deb,</span> <span class="pre">fin,</span> <span class="pre">pas)</span></code> retourne alors la séquence de valeurs
+commençant par <code class="docutils literal notranslate"><span class="pre">deb</span></code> et se terminant par <code class="docutils literal notranslate"><span class="pre">fin-1</span></code>, avec un écart de
+<code class="docutils literal notranslate"><span class="pre">pas</span></code> entre deux valeurs. Par exemple  :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range(3,</span> <span class="pre">9,</span> <span class="pre">2)</span></code> retourne la séquence : 3, 5, 7</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(3,</span> <span class="pre">10,</span> <span class="pre">2)</span></code> retourne la séquence : 3, 5, 7, 9</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(3,</span> <span class="pre">10,</span> <span class="pre">3)</span></code> retourne la séquence : 3, 6, 9</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(10,</span> <span class="pre">-1,</span> <span class="pre">-1)</span></code> retourne la séquence : 10, 9, 8, 7, 6, 5, 4, 3,
+2, 1, 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(-15,</span> <span class="pre">1,</span> <span class="pre">5)</span></code> retourne la séquence : -15, -10, -5, 0</p></li>
+</ul>
+</section>
+</section>
+<section id="premier-exemple-affichage-dune-suite-de-caracteres-identiques-sur-une-meme-ligne">
+<h4><span class="section-number">5.2.1.2. </span>Premier exemple : affichage d’une suite de caractères identiques sur une même ligne<a class="headerlink" href="#premier-exemple-affichage-dune-suite-de-caracteres-identiques-sur-une-meme-ligne" title="Lien permanent vers ce titre"></a></h4>
+<p>Maintenant que le fonctionnement de <code class="docutils literal notranslate"><span class="pre">range()</span></code> a été vu, voici un
+premier exemple de programme basique utilisant la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> sur des
+séquences de valeurs entières. Celui-ci saisit au clavier un nombre
+entier <code class="docutils literal notranslate"><span class="pre">nb</span></code>, puis affiche sur la même ligne <code class="docutils literal notranslate"><span class="pre">nb</span></code> fois le caractère «
+? ».</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nb</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Saisissez le nombre de symboles souhaité : &quot;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">le</span> <span class="n">nombre</span> <span class="n">de</span> <span class="n">symboles</span> <span class="n">souhaité</span> <span class="p">:</span>  <span class="mi">10</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>??????????
+</pre></div>
+</div>
+<p>Notons que sur cet exemple, l’instruction réalisée dans le bloc :
+<code class="docutils literal notranslate"><span class="pre">print(&quot;?&quot;,</span> <span class="pre">end=&quot;&quot;)</span></code> n’utilise pas les valeurs de la séquence
+retournée par <code class="docutils literal notranslate"><span class="pre">range(nb)</span></code> (i.e., les valeurs successives de <code class="docutils literal notranslate"><span class="pre">i</span></code>).
+Ces dernières ne servent donc qu’à compter le nombre de fois où
+l’instruction doit être exécutée.</p>
+</section>
+<section id="deuxieme-exemple-calcul-de-la-somme-des-n-premiers-entiers-positifs">
+<h4><span class="section-number">5.2.1.3. </span>Deuxième exemple : calcul de la somme des n premiers entiers positifs<a class="headerlink" href="#deuxieme-exemple-calcul-de-la-somme-des-n-premiers-entiers-positifs" title="Lien permanent vers ce titre"></a></h4>
+<p>Dans ce deuxième exemple, le programme saisit au clavier un nombre
+entier <code class="docutils literal notranslate"><span class="pre">n</span></code>, puis calcule et affiche la somme des <code class="docutils literal notranslate"><span class="pre">n</span></code> premiers
+entiers positifs.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Calcul de la somme des n premiers entiers positifs.&quot;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Saisissez la valeur de n :&quot;</span><span class="p">))</span>
+<span class="n">somme</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">somme</span> <span class="o">=</span> <span class="n">somme</span><span class="o">+</span><span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La somme des </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> premiers entiers positifs est </span><span class="si">{</span><span class="n">somme</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Calcul</span> <span class="n">de</span> <span class="n">la</span> <span class="n">somme</span> <span class="n">des</span> <span class="n">n</span> <span class="n">premiers</span> <span class="n">entiers</span> <span class="n">positifs</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">de</span> <span class="n">n</span> <span class="p">:</span> <span class="mi">15</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">La</span> <span class="n">somme</span> <span class="n">des</span> <span class="mi">15</span> <span class="n">premiers</span> <span class="n">entiers</span> <span class="n">positifs</span> <span class="n">est</span> <span class="mf">120.</span>
+</pre></div>
+</div>
+<p>Cette fois-ci, l’instruction réalisée dans le bloc : <code class="docutils literal notranslate"><span class="pre">somme</span> <span class="pre">=</span> <span class="pre">somme+i</span></code>
+va s’exécuter pour chaque valeur <code class="docutils literal notranslate"><span class="pre">i</span></code> de la séquence retournée par
+<code class="docutils literal notranslate"><span class="pre">range(1,</span> <span class="pre">n+1)</span></code>.</p>
+</section>
+<section id="troisieme-exemple-calcul-de-la-somme-des-n-premiers-entiers-positifs-pairs">
+<h4><span class="section-number">5.2.1.4. </span>Troisième exemple : calcul de la somme des n premiers entiers positifs pairs<a class="headerlink" href="#troisieme-exemple-calcul-de-la-somme-des-n-premiers-entiers-positifs-pairs" title="Lien permanent vers ce titre"></a></h4>
+<p>Voici pour finir une variante du programme précédent calculant la somme
+des entiers positifs pairs uniquement.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Calcul de la somme des n premiers entiers positifs pairs.&quot;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Saisissez la valeur de n :&quot;</span><span class="p">))</span>
+<span class="n">somme</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="n">somme</span> <span class="o">=</span> <span class="n">somme</span><span class="o">+</span><span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La somme des </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> premiers entiers positifs pairs est </span><span class="si">{</span><span class="n">somme</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Calcul</span> <span class="n">de</span> <span class="n">la</span> <span class="n">somme</span> <span class="n">des</span> <span class="n">n</span> <span class="n">premiers</span> <span class="n">entiers</span> <span class="n">positifs</span> <span class="n">pairs</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">de</span> <span class="n">n</span> <span class="p">:</span> <span class="mi">15</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">La</span> <span class="n">somme</span> <span class="n">des</span> <span class="mi">15</span> <span class="n">premiers</span> <span class="n">entiers</span> <span class="n">positifs</span> <span class="n">pairs</span> <span class="n">est</span> <span class="mf">56.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="parcours-dobjets-iterables-cas-des-chaines-de-caracteres">
+<h3><span class="section-number">5.2.2. </span>Parcours d’objets <strong>itérables</strong> - Cas des chaînes de caractères<a class="headerlink" href="#parcours-dobjets-iterables-cas-des-chaines-de-caracteres" title="Lien permanent vers ce titre"></a></h3>
+<p>En Python, les chaînes sont des séquences de caractères et sont de ce
+fait des objets <strong>itérables</strong> : cela signifie qu’on peut parcourir un
+par un les caractères d’une chaîne, du premier jusqu’au dernier. La
+boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> est particulièrement adaptée pour parcourir les objets
+itérables du premier jusqu’au dernier élément. Lorsqu’il s’agit d’une
+chaîne, la syntaxe est la suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">car</span> <span class="ow">in</span> <span class="n">ch</span><span class="p">:</span>
+    <span class="n">bloc_instructions</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">car</span></code> est une variable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ch</span></code> est une chaîne ou une variable contenant une chaîne</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bloc_instructions</span></code> est un bloc d’instructions indenté par rapport
+à la ligne <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">car</span> <span class="pre">in</span> <span class="pre">ch:</span></code></p></li>
+</ul>
+<p>Littéralement : « Pour chaque caractère <code class="docutils literal notranslate"><span class="pre">car</span></code> contenu dans la chaîne
+<code class="docutils literal notranslate"><span class="pre">ch</span></code> exécuter le bloc d’instructions ». Concrètement, la variable
+<code class="docutils literal notranslate"><span class="pre">car</span></code> va contenir successivement chacun des caractères de la chaîne
+<code class="docutils literal notranslate"><span class="pre">ch</span></code>, du premier jusqu’au dernier. Pour chaque caractère, le bloc est
+exécuté. Voici un exemple de programme qui saisit au clavier une chaîne,
+puis qui affiche un par un les caractères qu’elle contient.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myname</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Quel est votre prénom ?&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">car</span> <span class="ow">in</span> <span class="n">myname</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">car</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Au revoir </span><span class="si">{</span><span class="n">myname</span><span class="si">}</span><span class="s2"> !!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Quel est votre prénom ? Anatole
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A
+n
+a
+t
+o
+l
+e
+Au revoir Anatole !!
+</pre></div>
+</div>
+<p>Notons qu’une variante de ce programme consiste à parcourir la chaîne à
+l’aide des indices de ses caractères, en utilisant la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> de
+parcours de séquences de valeurs entières. Dans ce cas, la séquence de
+valeurs à parcourir commence à l’indice 0 (indice du premier caractère)
+et se termine à l’indice égal à la longueur de la chaîne moins 1 (indice
+du dernier caractère). Voici ci-dessous cette variante.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myname</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Quel est votre prénom ?&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">myname</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">myname</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Au revoir </span><span class="si">{</span><span class="n">myname</span><span class="si">}</span><span class="s2"> !!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Quel est votre prénom ? Hippolyte
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>H
+i
+p
+p
+o
+l
+y
+t
+e
+Au revoir Hippolyte !!
+</pre></div>
+</div>
+<p>Nous venons de voir l’utilisation de la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> pour le parcours
+caractère par caractère d’une chaîne. Il existe d’autres types objets
+itérables, qui peuvent être parcourus intégralement à l’aide d’une
+boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> : listes, tuples, dictionnaires, etc. Ces types d’objets,
+ainsi que la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> qui leur est associée, feront l’objet de
+prochains chapitres.</p>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Booleens.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title"><span class="section-number">4. </span>Booléens et expressions booléennes</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ListesEtTuples.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Les listes et les tuples</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By E. Martienne-Ughetto<br/>
+  
+      &copy; Copyright 2023, E. Martienne-Ughetto.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

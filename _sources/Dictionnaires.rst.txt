@@ -1,0 +1,689 @@
+Les dictionnaires
+=================
+
+Dans ce chapitre, nous abordons un autre type de structures de données
+utilisé en Python : les **dictionnaires**.
+
+Définition
+----------
+
+Un dictionnaire est un objet structuré permettant d’associer des
+**valeurs** à des **clés**. On peut comparer un dictionnaire à une liste
+dont les positions des éléments peuvent être autre chose que des nombres
+entiers : chaînes, réels, etc. Les dictionnaires sont particulièrement
+adaptés à la représentation de données contenant des associations, comme
+par exemple :
+
+-  un carnet d’adresses (associations entre des noms et des adresses
+   électroniques ou postales)
+-  un glossaire (associations entre des termes et leurs définitions).
+
+Dans d’autres langages comme PHP, les dictionnaires sont appelés des «
+tableaux associatifs ».
+
+Caractéristiques d’un dictionnaire
+----------------------------------
+
+En Python, un dictionnaire est une **collection d’éléments muable**, ce
+qui signifie qu’on peut le modifier directement sans utiliser
+d’affectation. Chaque élément d’un dictionnaire est un couple
+``clé : valeur``, où la clé peut être  :
+
+-  un nombre entier
+-  un nombre réel
+-  une chaîne
+-  un tuple contenant des entiers, des réels ou des chaînes
+
+et la valeur peut être :
+
+-  un objet de type simple (entier, réel, chaîne, booléen)
+-  un objet structuré (liste, tuple, dictionnaire ensemble, etc).
+
+La duplication de clé n’est pas autorisée : à une clé ne peut
+correspondre qu’un seul couple ``clé : valeur`` et donc une seule
+valeur. À la différence d’une liste, un dictionnaire n’est pas une
+séquence. Par conséquent, ses éléments ne sont pas ordonnés. Il est
+impossible d’accéder à un élément d’un dictionnaire à l’aide de sa
+position (ce qui est logique, puisque la notion d’ordre et donc de
+position n’existe pas). Il est également impossible d’accéder à un
+sous-dictionnaire à l’aide de la technique de « slicing ».
+
+Notation et création d’un dictionnaire
+--------------------------------------
+
+La notation d’un dictionnaire s’effectue à l’aide des accolades :
+
+-  ``{`` pour indiquer le début du dictionnaire
+-  ``}`` pour indiquer la fin.
+
+À l’intérieur des accolades, les différents éléments sont séparés pas
+des virgules. Par exemple :
+``{'entrée':'crudités', 'plat':'lasagnes', 'dessert':'fruit'}``. Il
+existe un cas particulier de dictionnaire : le dictionnaire vide ne
+contenant aucun élément. Dans ce cas, la notation s’effectue avec
+uniquement les accolades : ``{}``. Dans un programme, la création d’un
+dictionnaire peut se faire de deux façons :
+
+-  soit par une simple affectation du dictionnaire complet dans une
+   variable structurée, comme dans l’exemple ci-dessous. Le nom de la
+   variable est alors appelé son identifiant et permet de le référencer
+   dans le programme.
+
+.. code:: ipython3
+
+    repas = {'entrée':'crudités', 'plat':'lasagnes', 'dessert':'fruit'}
+    print(repas)
+
+
+.. parsed-literal::
+
+    {'entrée': 'crudités', 'plat': 'lasagnes', 'dessert': 'fruit'}
+    
+
+-  soit en partant d’un dictionnaire vide, auquel on ajoute des éléments
+   un par un. L’ajout d’un élément dans un dictionnaire s’effectue à
+   l’aide d’une affectation de la forme :
+
+.. code:: ipython3
+
+    id_dict[cle] = valeur
+
+où ``id_dict`` est l’identifiant du dictionnaire, ``cle`` est la clé de
+l’élément et ``valeur`` la valeur qu’on lui associe. Si la clé est déjà
+présente dans le dictionnaire, il n’y aura pas de création d’un nouvel
+élément (la duplication de clé est interdite) mais remplacement de la
+valeur associée à la clé. Le programme ci-dessous crée un dictionnaire
+associant à certains numéros de départements (sous forme de chaînes) les
+noms des départements correspondants (sous forme de chaînes également),
+puis modifie l’un des éléments.
+
+.. code:: ipython3
+
+    dpt = {}   # Au départ, le dictionnaire est vide
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier'}  # On crée les 3 premiers éléments en une seule affectation
+    # Puis on ajoute un par un 3 autres éléments
+    dpt['04'] = 'Alpes de Haute Provence'
+    dpt['05'] = 'Hautes Alpes'
+    dpt['06'] = 'Alpes maritimes'
+    print(dpt)
+    # On modifie la valeur associée à la clé '05' en ajoutant à la valeur le nom du chef-lieu du département correspondant
+    dpt['05'] = ('Hautes Alpes', 'Briançon')
+    print(dpt)
+
+
+.. parsed-literal::
+
+    {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': 'Hautes Alpes', '06': 'Alpes maritimes'}
+    {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes'}
+    
+
+Notons que cet exemple permet d’illuster le fait qu’au sein d’un même
+dictionnaire, le type des valeurs (mais également celui des clés !) peut
+varier.
+
+Accès aux valeurs d’un dictionnaire
+-----------------------------------
+
+L’accès à une valeur d’un dictionnaire s’effectue à l’aide de sa clé,
+selon la syntaxe générale suivante :
+
+.. code:: ipython3
+
+    id_dict[cle]
+
+Si la valeur de la clé indiquée n’existe pas, cela provoque une erreur.
+Le programme suivant affiche les valeurs associées à certaines clés du
+dictionnaire créé précédemment.
+
+.. code:: ipython3
+
+    print(f"Le numéro 04 correspond au département {dpt['04']}.")
+    print(f"Le numéro 06 correspond au département {dpt['06']}.")
+    print(f"Le numéro 01 correspond au département {dpt[1]}.")
+
+
+.. parsed-literal::
+
+    Le numéro 04 correspond au département Alpes de Haute Provence.
+    Le numéro 06 correspond au département Alpes maritimes.
+    
+
+::
+
+
+    ---------------------------------------------------------------------------
+
+    KeyError                                  Traceback (most recent call last)
+
+    Input In [15], in <cell line: 3>()
+          1 print(f"Le numéro 04 correspond au département {dpt['04']}.")
+          2 print(f"Le numéro 06 correspond au département {dpt['06']}.")
+    ----> 3 print(f"Le numéro 01 correspond au département {dpt[1]}.")
+    
+
+    KeyError: 1
+
+
+Notons que si un dictionnaire permet d’accéder à une valeur à partir de
+sa clé, l’inverse n’est pas vrai : il n’existe pas de mécanisme natif de
+Python permettant d’accéder à une clé à partir d’une valeur.
+
+Opérations usuelles sur les dictionnaires
+-----------------------------------------
+
+Séquence des clés : la méthode **keys()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La méthode **keys()** retourne une séquence contenant toutes les clés
+d’un dictionnaire. Cette séquence peut être convertie en liste ou en
+tuple selon les besoins, à l’aide des fonctions **list()** et
+**tuple()**.
+
+.. code:: ipython3
+
+    seq_cles = dpt.keys()
+    seq_cles_liste = list(dpt.keys())
+    seq_cles_tuple = tuple(dpt.keys())
+    print(f"Séquence des clés : {seq_cles}")
+    print(f"Liste des clés : {seq_cles_liste}")
+    print(f"Tuple des clés : {seq_cles_tuple}")
+
+
+.. parsed-literal::
+
+    Séquence des clés : dict_keys(['01', '02', '03', '04', '05', '06'])
+    Liste des clés : ['01', '02', '03', '04', '05', '06']
+    Tuple des clés : ('01', '02', '03', '04', '05', '06')
+    
+
+Séquence des valeurs : la méthode **values()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La méthode **values()** retourne une séquence contenant toutes les
+valeurs d’un dictionnaire. Tout comme la séquence de clés, cette
+séquence peut être convertie en liste ou en tuple selon les besoins.
+
+.. code:: ipython3
+
+    seq_val = dpt.values()
+    seq_val_liste = list(dpt.values())
+    seq_val_tuple = tuple(dpt.values())
+    print(f"Séquence des valeurs : {seq_val}")
+    print(f"Liste des valeurs : {seq_val_liste}")
+    print(f"Tuple des valeurs : {seq_val_tuple}")
+
+
+.. parsed-literal::
+
+    Séquence des valeurs : dict_values(['Ain', 'Aisne', 'Allier', 'Alpes de Haute Provence', ('Hautes Alpes', 'Briançon'), 'Alpes maritimes'])
+    Liste des valeurs : ['Ain', 'Aisne', 'Allier', 'Alpes de Haute Provence', ('Hautes Alpes', 'Briançon'), 'Alpes maritimes']
+    Tuple des valeurs : ('Ain', 'Aisne', 'Allier', 'Alpes de Haute Provence', ('Hautes Alpes', 'Briançon'), 'Alpes maritimes')
+    
+
+Séquence des tuples (clé, valeur) : la méthode **items()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La méthode **items()** retourne une séquence contenant tous les tuples
+(clé, valeur) présents dans un dictionnaire (autrement dit, tous les
+éléments d’un dictionnaire). Tout comme la séquence de clés, cette
+séquence peut être convertie en liste ou en tuple selon les besoins.
+
+.. code:: ipython3
+
+    seq_elem = dpt.items()
+    seq_elem_liste = list(dpt.items())
+    seq_elem_tuple = tuple(dpt.items())
+    print(f"Séquence des tuples (clé, valeur) : {seq_elem}")
+    print(f"Liste des tuples (clé, valeur) : {seq_elem_liste}")
+    print(f"Tuple des tuples (clé, valeur) : {seq_elem_tuple}")
+
+
+.. parsed-literal::
+
+    Séquence des tuples (clé, valeur) : dict_items([('01', 'Ain'), ('02', 'Aisne'), ('03', 'Allier'), ('04', 'Alpes de Haute Provence'), ('05', ('Hautes Alpes', 'Briançon')), ('06', 'Alpes maritimes')])
+    Liste des tuples (clé, valeur) : [('01', 'Ain'), ('02', 'Aisne'), ('03', 'Allier'), ('04', 'Alpes de Haute Provence'), ('05', ('Hautes Alpes', 'Briançon')), ('06', 'Alpes maritimes')]
+    Tuple des tuples (clé, valeur) : (('01', 'Ain'), ('02', 'Aisne'), ('03', 'Allier'), ('04', 'Alpes de Haute Provence'), ('05', ('Hautes Alpes', 'Briançon')), ('06', 'Alpes maritimes'))
+    
+
+Valeur associée à une clé : les méthodes **get()** et **setdefault()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La méthode **get()** prend en paramètre une clé et retourne en résultat
+la valeur associée à cette clé. Si la clé n’est pas présente dans le
+dictionnaire, la méthode retourne la valeur ``None`` pour signifier que
+le résultat est indéfini.
+
+.. code:: ipython3
+
+    print(f"Valeur associée à la clé '03' : {dpt.get('03')}")
+    print(f"Valeur associée à la clé '12' : {dpt.get('12')}")
+
+
+.. parsed-literal::
+
+    Valeur associée à la clé '03' : Allier
+    Valeur associée à la clé '12' : None
+    
+
+La méthode **setdefault()** prend en paramètres une clé et une valeur.
+Si la clé existe dans le dictionnaire, elle retourne la valeur associée.
+Si la clé n’existe pas, elle ajoute dans le dictionnaire un nouvel
+élément dont la clé et la valeur sont celles passées en paramètres… et
+retourne la valeur passée en paramètre.
+
+.. code:: ipython3
+
+    print(f"Dictionnaire avant setdefault() : {dpt}")
+    val = dpt.setdefault('12', 'Aveyron')
+    print(f"Valeur retournée par setdefault() : {val}")
+    print(f"Dictionnaire après setdefault() : {dpt}")
+
+
+.. parsed-literal::
+
+    Dictionnaire avant setdefault() : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes'}
+    Valeur retournée par setdefault() : Aveyron
+    Dictionnaire après setdefault() : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron'}
+    
+
+Insertion ou modification d’éléments : la méthode **update()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La méthode **update()** prend en paramètre un dictionnaire et ajoute
+tous les éléments de ce dictionnaire dans le dictionnaire sur lequel
+s’applique la méthode. Si une clé existe déjà, sa valeur associée est
+remplacée par celle figurant dans le dictionnaire passé en paramètre. La
+méthode ne retourne pas de valeur et peut être utilisée comme une
+instruction.
+
+.. code:: ipython3
+
+    dpt.update({'15':'Aube', '16' : 'Var', '17' : 'Vendée'})
+    print(dpt)
+    dpt.update({'15':'Cantal', '16' : 'Charente', '17' : 'Charente-maritime'})
+    print(dpt)
+
+
+.. parsed-literal::
+
+    {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Aube', '16': 'Var', '17': 'Vendée'}
+    {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente', '17': 'Charente-maritime'}
+    
+
+Nombre d’éléments : la fonction **len()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La fonction **len()**, vue dans les chapitres précédents sur les chaînes
+et les listes, retourne également la longueur (c’est-à-dire le nombre
+d’éléments) d’un dictionnaire.
+
+.. code:: ipython3
+
+    print(f"Le dictionnaire contient {len(dpt)} éléments.")
+
+
+.. parsed-literal::
+
+    Le dictionnaire contient 10 éléments.
+    
+
+Suppression d’un élément : l’instruction **del** et la méthode **pop()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+L’instruction **del** permet de supprimer un élément d’un dictionnaire à
+partir de sa clé. La syntaxe est la suivante :
+
+.. code:: ipython3
+
+    del id_dict[cle]
+
+où ``id_dict`` et ``cle`` sont respectivement l’identifiant du
+dictionnaire et la clé de l’élément à supprimer. Si la clé n’existe pas,
+une exception est levée et un message d’erreur s’affiche.
+
+.. code:: ipython3
+
+    print(f"Dictionnaire avant suppression : {dpt}.")
+    del dpt['17']
+    print(f"Dictionnaire après suppression : {dpt}.")
+    del dpt['32']
+
+
+.. parsed-literal::
+
+    Dictionnaire avant suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente', '17': 'Charente-maritime'}.
+    Dictionnaire après suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}.
+    
+
+::
+
+
+    ---------------------------------------------------------------------------
+
+    KeyError                                  Traceback (most recent call last)
+
+    Input In [23], in <cell line: 4>()
+          2 del dpt['17']
+          3 print(f"Dictionnaire après suppression : {dpt}.")
+    ----> 4 del dpt['32']
+    
+
+    KeyError: '32'
+
+
+La méthode **pop()** prend en paramètre la clé de l’élément à supprimer.
+Si la clé existe, elle supprime l’élément correspondant dans le
+dictionnaire et retourne la valeur associée à l’élément supprimé. Si la
+clé n’existe pas ou qu’aucun paramètre n’est fourni, une exception est
+levée et un message d’erreur s’affiche.
+
+.. code:: ipython3
+
+    print(f"Dictionnaire avant suppression : {dpt}.")
+    val05 = dpt.pop('05')
+    print(f"Dictionnaire après suppression : {dpt}.")
+    print(f"Valeur de l'élément supprimé : {val05}")
+    valinconnu = dpt.pop('25')
+    print(f"Dictionnaire après suppression : {dpt}.")
+    print(f"Valeur de l'élément supprimé : {valinconnu}")
+
+
+.. parsed-literal::
+
+    Dictionnaire avant suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}.
+    Dictionnaire après suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}.
+    Valeur de l'élément supprimé : ('Hautes Alpes', 'Briançon')
+    
+
+::
+
+
+    ---------------------------------------------------------------------------
+
+    KeyError                                  Traceback (most recent call last)
+
+    Input In [24], in <cell line: 5>()
+          3 print(f"Dictionnaire après suppression : {dpt}.")
+          4 print(f"Valeur de l'élément supprimé : {val05}")
+    ----> 5 valinconnu = dpt.pop('25')
+          6 print(f"Dictionnaire après suppression : {dpt}.")
+          7 print(f"Valeur de l'élément supprimé : {valinconnu}")
+    
+
+    KeyError: '25'
+
+
+Opérateur d’appartenance à un dictionnaire
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+L’opérateur **in** permet de tester si une clé est présente ou non dans
+un dictionnaire. Sa syntaxe est la suivante :
+
+.. code:: ipython3
+
+    cle in id_dict
+
+où ``cle`` est la clé à tester et ``id_dict`` l’identifiant du
+dictionnaire. L’opérateur retourne ``True`` si la clé est présente et
+``False`` sinon.
+
+.. code:: ipython3
+
+    print(f"Le département n°16 est-il dans le dictionnaire ? Réponse : {'16' in dpt}")
+    print(f"Le département n°85 est-il dans le dictionnaire ? Réponse : {'85' in dpt}")
+
+
+.. parsed-literal::
+
+    Le département n°16 est-il dans le dictionnaire ? Réponse : True
+    Le département n°85 est-il dans le dictionnaire ? Réponse : False
+    
+
+Copie : la méthode **copy()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La méthode **copy()** permet d’effectuer une copie d’un dictionnaire.
+Cette copie est retournée en résultat.
+
+.. code:: ipython3
+
+    print(f"Affichage du dictionnaire : {dpt}")
+    copie_dpt = dpt.copy()
+    print(f"Affichage de la copie du dictionnaire : {copie_dpt}")
+
+
+.. parsed-literal::
+
+    Affichage du dictionnaire : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}
+    Affichage de la copie du dictionnaire : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}
+    
+
+Réinitialisation : la méthode **clear()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La méthode **clear()** permet de réinitialiser un dictionnaire,
+c’est-à-dire de supprimer tous les éléments qu’il contient. Elle ne
+retourne aucune valeur et peut être utilisée comme une instruction.
+
+.. code:: ipython3
+
+    print(f"Affichage avant suppression : {copie_dpt}")
+    copie_dpt.clear()
+    print(f"Affichage après suppression : {copie_dpt}")
+
+
+.. parsed-literal::
+
+    Affichage avant suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}
+    Affichage après suppression : {}
+    
+
+Parcours complet d’un dictionnaire
+----------------------------------
+
+Un dictionnaire est une collection d’objets, et est de ce fait un objet
+« itérable ». Cela signifie qu’on peut parcourir un à un ses éléments à
+l’aide d’une boucle ``for`` pour leur appliquer un traitement. Il existe
+trois manières d’effectuer un parcours complet d’un dictionnaire :
+
+-  sur la séquence des clés
+-  sur la séquence des valeurs
+-  sur la séquences des couples clé, valeur
+
+L’ordre dans lequel seront traités les éléments est imprévisible et peut
+être différent d’un parcours à l’autre.
+
+Parcours sur la séquence des clés
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Il existe deux syntaxes générales possibles pour la boucle ``for`` de
+parcours sur la séquence des clés  :
+
+.. code:: ipython3
+
+    for cle in id_dict:
+        bloc_instructions
+
+et
+
+.. code:: ipython3
+
+    for cle in id_dict.keys():
+        bloc_instructions
+
+Quelle que soit la syntaxe utilisée, le fonctionnement des deux boucles
+est le même : la variable ``cle`` va prendre successivement pour valeur
+toutes les clés présentes dans le dictionnaire. Pour chaque valeur de
+``cle``, une exécution de ``bloc_instructions`` est réalisée. Le
+programme suivant effectue deux parcours complets d’un dictionnaire sur
+la séquence des clés, en affichant pour chaque élément sa clé et sa
+valeur.
+
+.. code:: ipython3
+
+    print("Premier parcours")
+    for num in dpt:
+        print(f"Le département n°{num} est : {dpt[num]}")
+    print("Second parcours")
+    for num in dpt.keys():
+        print(f"Le département n°{num} est : {dpt.get(num)}")
+
+
+.. parsed-literal::
+
+    Premier parcours
+    Le département n°01 est : Ain
+    Le département n°02 est : Aisne
+    Le département n°03 est : Allier
+    Le département n°04 est : Alpes de Haute Provence
+    Le département n°06 est : Alpes maritimes
+    Le département n°12 est : Aveyron
+    Le département n°15 est : Cantal
+    Le département n°16 est : Charente
+    Second parcours
+    Le département n°01 est : Ain
+    Le département n°02 est : Aisne
+    Le département n°03 est : Allier
+    Le département n°04 est : Alpes de Haute Provence
+    Le département n°06 est : Alpes maritimes
+    Le département n°12 est : Aveyron
+    Le département n°15 est : Cantal
+    Le département n°16 est : Charente
+    
+
+Notons que ce type de parcours permet d’effectuer des traitements
+utilisant à la fois les clés et les valeurs des éléments.
+
+Parcours sur la séquence des valeurs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La syntaxe de la boucle ``for`` de parcours sur la séquence des valeurs
+est la suivante :
+
+.. code:: ipython3
+
+    for val in id_dict.values():
+        bloc_instructions
+
+La variable ``val`` va prendre successivement pour valeur toutes les
+valeurs des éléments du dictionnaire. Pour chaque valeur de ``val``, une
+exécution de ``bloc_instructions`` est réalisée. Le programme suivant
+effectue un parcours complet d’un dictionnaire sur la séquence des
+valeurs, en affichant chaque valeur.
+
+.. code:: ipython3
+
+    for nom_dpt in dpt.values():
+        print(f"Le département est : {nom_dpt}")
+
+
+.. parsed-literal::
+
+    Le département est : Ain
+    Le département est : Aisne
+    Le département est : Allier
+    Le département est : Alpes de Haute Provence
+    Le département est : Alpes maritimes
+    Le département est : Aveyron
+    Le département est : Cantal
+    Le département est : Charente
+    
+
+Notons que ce type de parcours permet d’effectuer des traitements
+nécessitant d’accéder uniquement aux valeurs des éléments et pas aux
+clés.
+
+Parcours sur la séquence des couples clé, valeur
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La syntaxe de la boucle ``for`` de parcours sur la séquence des couples
+clé, valeur est la suivante :
+
+.. code:: ipython3
+
+    for cle, val in dpt.items():
+        bloc_instructions
+
+Les variables ``cle`` et ``val`` vont prendre successivement pour
+valeurs toutes les valeurs des clés et des valeurs. Puis pour chaque
+couple ``cle``, ``val``, une exécution de ``bloc_instructions`` est
+réalisée. Le programme suivant effectue un parcours complet d’un
+dictionnaire sur la séquence des couples clé, valeur.
+
+.. code:: ipython3
+
+    for num, nom in dpt.items():
+        print(f"Le département n°{num} est : {nom}")
+
+
+.. parsed-literal::
+
+    Le département n°01 est : Ain
+    Le département n°02 est : Aisne
+    Le département n°03 est : Allier
+    Le département n°04 est : Alpes de Haute Provence
+    Le département n°06 est : Alpes maritimes
+    Le département n°12 est : Aveyron
+    Le département n°15 est : Cantal
+    Le département n°16 est : Charente
+    
+
+Notons que ce type de parcours permet d’effectuer des traitements
+utilisant à la fois les clés et les valeurs des éléments.
+
+Compréhension de dictionnaire
+-----------------------------
+
+Comme pour les listes, le mécanisme de compréhension existe pour la
+création de dictionnaire. Les deux syntaxes (avec et sans
+conditionnelle) sont les suivantes :
+
+.. code:: ipython3
+
+    {cle:val for elem in seq}
+    {cle:val for elem in seq if exp_cond}
+
+où :
+
+-  ``cle:val`` est une expression qui va permettre de générer tous les
+   éléments du dictionnaire
+-  ``elem`` est une variable
+-  ``seq`` est une séquence de valeurs (liste, résultat d’une fonction
+   range(), etc)
+-  ``exp_cond`` est une expression conditionnelle que doivent vérifier
+   tous les éléments du dictionnaire
+
+Le résultat est un dictionnaire contenant un élément ``cle:val``, pour
+chaque exécution de la boucle ``for``. En cas de compréhension avec
+conditionnelle, seuls les éléments ``cle:val`` vérifiant ``exp_cond``
+seront insérés dans le dictionnaire. Le premier programme ci-dessous
+crée un dictionnaire qui associe à plusieurs objets contenus dans une
+liste (les clés) leurs types respectifs (les valeurs).
+
+.. code:: ipython3
+
+    vrac = [5, 3.9, 'Bienvenue', 12, 'Lundi', (1, 3), False]
+    dico_type = {elem:type(elem) for elem in vrac}
+    print(dico_type)
+
+
+.. parsed-literal::
+
+    {5: <class 'int'>, 3.9: <class 'float'>, 'Bienvenue': <class 'str'>, 12: <class 'int'>, 'Lundi': <class 'str'>, (1, 3): <class 'tuple'>, False: <class 'bool'>}
+    
+
+Le second programme crée un dictionnaire ayant la même structure que le
+précédent, mais contenant uniquement les objets numériques (entiers ou
+réels).
+
+.. code:: ipython3
+
+    vrac = [5, 3.9, 'Bienvenue', 12, 'Lundi', (1, 3), False]
+    dico_num = {elem:type(elem) for elem in vrac if type(elem)==int or type(elem)==float}
+    print(dico_num)
+
+
+.. parsed-literal::
+
+    {5: <class 'int'>, 3.9: <class 'float'>, 12: <class 'int'>}
+    

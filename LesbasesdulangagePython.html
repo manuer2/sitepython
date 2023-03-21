@@ -1,0 +1,1697 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Les bases du langage Python &#8212; Université Rennes 2 - Cours de Python - L1 MIASHS</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="3. Les instructions conditionnelles" href="InstructionsConditionnelles.html" />
+    <link rel="prev" title="1. Introduction" href="Introduction.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/ILovePython.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Université Rennes 2 - Cours de Python - L1 MIASHS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Structures de données en Python I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Table des matières
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Les bases du langage Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="InstructionsConditionnelles.html">
+   3. Les instructions conditionnelles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Booleens.html">
+   4. Booléens et expressions booléennes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="InstructionsRepetitives.html">
+   5. Les instructions répétitives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ListesEtTuples.html">
+   6. Les listes et les tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dictionnaires.html">
+   7. Les dictionnaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="FichiersTexte.html">
+   8. La manipulation des fichiers texte
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/LesbasesdulangagePython.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contenu de la page
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-notion-de-variable">
+   2.1. La notion de variable
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nom-de-variable">
+     2.1.1. Nom de variable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#valeur-dune-variable">
+     2.1.2. Valeur d’une variable
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#affectation">
+       2.1.2.1. Affectation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#affectation-multiple">
+       2.1.2.2. Affectation multiple
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#affectations-paralleles">
+       2.1.2.3. Affectations parallèles
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-differents-types-dobjets">
+     2.1.3. Les différents types d’objets
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-types-numeriques">
+       2.1.3.1. Les types numériques
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-types-alphanumeriques-pour-les-donnees-textuelles">
+       2.1.3.2. Les types alphanumériques (pour les données textuelles)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-booleens">
+       2.1.3.3. Les booléens
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-typage-dynamique">
+     2.1.4. Le typage dynamique
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operateurs-et-expressions">
+     2.1.5. Opérateurs et expressions
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#evaluation-dune-expression">
+       2.1.5.1. Évaluation d’une expression
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-principaux-operateurs-arithmetiques">
+       2.1.5.2. Les principaux opérateurs arithmétiques
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objets-muable-vs-objets-immuables">
+     2.1.6. Objets « muable » vs. objets « immuables »
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-ramasse-miettes">
+     2.1.7. Le « ramasse-miettes »
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-notion-de-fonction">
+   2.2. La notion de fonction
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-fonction-print-affichage-dinformations-a-lecran">
+     2.2.1. La fonction
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       print()
+      </span>
+     </code>
+     - Affichage d’informations à l’écran
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#affichage-formate-avec-les-f-strings">
+       2.2.1.1. Affichage formaté avec les
+       <strong>
+        f-strings
+       </strong>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-fonction-input-saisie-de-donnees-au-clavier">
+     2.2.2. La fonction
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       input()
+      </span>
+     </code>
+     - Saisie de données au clavier
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipulation-de-chaines">
+   2.3. Manipulation de chaînes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notion-de-sequence-et-indicage-des-caracteres">
+     2.3.1. Notion de séquence et indiçage des caractères
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#referencement-dun-caractere">
+     2.3.2. Référencement d’un caractère
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#referencement-dune-sous-chaine-slicing">
+     2.3.3. Référencement d’une sous-chaîne (« slicing »)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operateurs-fonctions-et-methodes-usuelles-sur-les-chaines">
+     2.3.4. Opérateurs, fonctions et méthodes usuelles sur les chaînes
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#la-concatenation">
+       2.3.4.1. La concaténation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#la-repetition">
+       2.3.4.2. La répétition
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#longueur-dune-chaine">
+       2.3.4.3. Longueur d’une chaîne
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#indice-dun-caractere-dans-une-chaine">
+       2.3.4.4. Indice d’un caractère dans une chaîne
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#la-suppression-de-caracteres-en-debut-ou-en-fin-de-chaine-la-methode-strip">
+       2.3.4.5. La suppression de caractères en début ou en fin de chaîne : la méthode
+       <strong>
+        strip()
+       </strong>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-dappartenance-dun-caractere-a-une-chaine">
+     2.3.5. Test d’appartenance d’un caractère à une chaîne
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Les bases du langage Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenu de la page </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-notion-de-variable">
+   2.1. La notion de variable
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nom-de-variable">
+     2.1.1. Nom de variable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#valeur-dune-variable">
+     2.1.2. Valeur d’une variable
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#affectation">
+       2.1.2.1. Affectation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#affectation-multiple">
+       2.1.2.2. Affectation multiple
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#affectations-paralleles">
+       2.1.2.3. Affectations parallèles
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-differents-types-dobjets">
+     2.1.3. Les différents types d’objets
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-types-numeriques">
+       2.1.3.1. Les types numériques
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-types-alphanumeriques-pour-les-donnees-textuelles">
+       2.1.3.2. Les types alphanumériques (pour les données textuelles)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-booleens">
+       2.1.3.3. Les booléens
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-typage-dynamique">
+     2.1.4. Le typage dynamique
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operateurs-et-expressions">
+     2.1.5. Opérateurs et expressions
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#evaluation-dune-expression">
+       2.1.5.1. Évaluation d’une expression
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-principaux-operateurs-arithmetiques">
+       2.1.5.2. Les principaux opérateurs arithmétiques
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objets-muable-vs-objets-immuables">
+     2.1.6. Objets « muable » vs. objets « immuables »
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-ramasse-miettes">
+     2.1.7. Le « ramasse-miettes »
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-notion-de-fonction">
+   2.2. La notion de fonction
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-fonction-print-affichage-dinformations-a-lecran">
+     2.2.1. La fonction
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       print()
+      </span>
+     </code>
+     - Affichage d’informations à l’écran
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#affichage-formate-avec-les-f-strings">
+       2.2.1.1. Affichage formaté avec les
+       <strong>
+        f-strings
+       </strong>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-fonction-input-saisie-de-donnees-au-clavier">
+     2.2.2. La fonction
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       input()
+      </span>
+     </code>
+     - Saisie de données au clavier
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipulation-de-chaines">
+   2.3. Manipulation de chaînes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notion-de-sequence-et-indicage-des-caracteres">
+     2.3.1. Notion de séquence et indiçage des caractères
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#referencement-dun-caractere">
+     2.3.2. Référencement d’un caractère
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#referencement-dune-sous-chaine-slicing">
+     2.3.3. Référencement d’une sous-chaîne (« slicing »)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operateurs-fonctions-et-methodes-usuelles-sur-les-chaines">
+     2.3.4. Opérateurs, fonctions et méthodes usuelles sur les chaînes
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#la-concatenation">
+       2.3.4.1. La concaténation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#la-repetition">
+       2.3.4.2. La répétition
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#longueur-dune-chaine">
+       2.3.4.3. Longueur d’une chaîne
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#indice-dun-caractere-dans-une-chaine">
+       2.3.4.4. Indice d’un caractère dans une chaîne
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#la-suppression-de-caracteres-en-debut-ou-en-fin-de-chaine-la-methode-strip">
+       2.3.4.5. La suppression de caractères en début ou en fin de chaîne : la méthode
+       <strong>
+        strip()
+       </strong>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-dappartenance-dun-caractere-a-une-chaine">
+     2.3.5. Test d’appartenance d’un caractère à une chaîne
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="les-bases-du-langage-python">
+<h1><span class="section-number">2. </span>Les bases du langage Python<a class="headerlink" href="#les-bases-du-langage-python" title="Lien permanent vers ce titre"></a></h1>
+<section id="la-notion-de-variable">
+<h2><span class="section-number">2.1. </span>La notion de variable<a class="headerlink" href="#la-notion-de-variable" title="Lien permanent vers ce titre"></a></h2>
+<p>Un programme manipule des données. Ce terme de <strong>données</strong>, certes un
+peu vague, désigne tout ce qui peut être numérisé et stocké dans la
+mémoire d’une machine, par exemple :</p>
+<ul class="simple">
+<li><p>les nombres (entiers, réels, etc)</p></li>
+<li><p>le texte (caractères, mots, documents, etc)</p></li>
+<li><p>le multimédia (images, audio, vidéo).</p></li>
+</ul>
+<p>La liste ci-dessus n’est bien sûr pas exhaustive. Pour stocker des
+données dans la mémoire d’une machine, la technique de base consiste à
+utiliser dans les programmes des <strong>variables</strong>. Une variable désigne une
+zone de la mémoire dans laquelle est mémorisée un objet. Elle possède :</p>
+<ul class="simple">
+<li><p>un <strong>nom de variable</strong> qui lui est propre (deux variables ne peuvent
+avoir le même nom) ;</p></li>
+<li><p>un <strong>type</strong> qui permet de préciser la nature de l’objet qu’elle
+contient ;</p></li>
+<li><p>une <strong>valeur</strong> qui est égale à l’objet qu’elle contient.</p></li>
+</ul>
+<p>On peut donc écrire un programme Python dans lequel on manipule :</p>
+<ul class="simple">
+<li><p>une variable de nom <code class="docutils literal notranslate"><span class="pre">jour</span></code>, de type
+<code class="docutils literal notranslate"><span class="pre">chaîne</span> <span class="pre">de</span> <span class="pre">caractères</span> <span class="pre">(string)</span></code>, ayant pour valeur l’objet chaîne
+<code class="docutils literal notranslate"><span class="pre">'lundi'</span></code> ;</p></li>
+<li><p>une variable de nom <code class="docutils literal notranslate"><span class="pre">mois</span></code>, de type <code class="docutils literal notranslate"><span class="pre">entier</span> <span class="pre">(int)</span></code>, ayant pour
+valeur le nombre (objet) entier <code class="docutils literal notranslate"><span class="pre">25</span></code>.</p></li>
+</ul>
+<section id="nom-de-variable">
+<h3><span class="section-number">2.1.1. </span>Nom de variable<a class="headerlink" href="#nom-de-variable" title="Lien permanent vers ce titre"></a></h3>
+<p>Conformément à ce qui est indiqué dans la PEP 8 (PEP 8 pour Python
+Extension Proposal est un ensemble de règles visant à homogénéiser le
+code, et à définir de bonnes pratiques de codage en Python), un nom de
+variable en Python doit respecter les règles suivantes :</p>
+<ul class="simple">
+<li><p>ne comporter que des lettres minuscules non accentuées, des chiffres
+ou le caractère “souligné” (ce caractère se situe sur la touche 8 du
+clavier) pour jouer le rôle de séparateur de mots ;</p></li>
+<li><p>débuter obligatoirement par une lettre minuscule.</p></li>
+</ul>
+<p>Les noms suivants : <code class="docutils literal notranslate"><span class="pre">abs</span></code>, <code class="docutils literal notranslate"><span class="pre">ord</span></code>, <code class="docutils literal notranslate"><span class="pre">alti</span></code>, <code class="docutils literal notranslate"><span class="pre">peri1</span></code> et
+<code class="docutils literal notranslate"><span class="pre">aire_triangle</span></code> sont des exemples de noms de variables conformes.</p>
+<p>L’utilisation de lettres majuscules pour les noms de variables n’est pas
+interdit, mais n’est pas recommandé. En particulier parce que la
+<strong>casse</strong> (En informatique, la casse est la distinction entre les
+caractères minuscules et majuscules) est bien prise en compte par les
+interpréteurs Python. Ainsi, <code class="docutils literal notranslate"><span class="pre">aire</span></code>, <code class="docutils literal notranslate"><span class="pre">Aire</span></code> et <code class="docutils literal notranslate"><span class="pre">AIRE</span></code> ne désignent
+pas tous la même variable, mais trois variables différentes. En fait,
+les lettres majuscules sont utilisées en Python pour les <strong>constantes</strong>,
+les noms de <strong>classes</strong> et les <strong>exceptions</strong>. Toutes ces notions ne
+font toutefois pas partie des bases et ne seront pas abordées dans ce
+chapitre.</p>
+<p>Pour terminer, il faut préciser que le langage Python comprend un
+certain nombre de <strong>mots réservés</strong>, qui ont une signification bien
+précise et qui ne peuvent donc être utilisés comme des noms de
+variables. Le tableau ci-dessous contient la liste de tous ces mots
+réservés.</p>
+<figure class="align-default" id="id1">
+<img alt="Mots réservés du langage Python" src="_images/MotsReserves.PNG" />
+<figcaption>
+<p><span class="caption-text">Mots réservés du langage Python</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="valeur-dune-variable">
+<h3><span class="section-number">2.1.2. </span>Valeur d’une variable<a class="headerlink" href="#valeur-dune-variable" title="Lien permanent vers ce titre"></a></h3>
+<section id="affectation">
+<h4><span class="section-number">2.1.2.1. </span>Affectation<a class="headerlink" href="#affectation" title="Lien permanent vers ce titre"></a></h4>
+<p>L’instruction permettant de stocker un objet dans une variable (on parle
+aussi de donner une valeur à une variable) s’appelle l’<strong>affectation</strong>
+ou l’<strong>assignation</strong>. Elle se code de la manière suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nomvariable</span> <span class="o">=</span> <span class="n">unobjet</span>
+</pre></div>
+</div>
+<p>Le signe <code class="docutils literal notranslate"><span class="pre">=</span></code> n’a rien à voir ici avec le test d’égalité couramment
+utilisé en mathématiques. En langage courant, on pourrait dire que
+l’affectation ci-dessus permet de stocker l’objet <code class="docutils literal notranslate"><span class="pre">unobjet</span></code> dans la
+variable <code class="docutils literal notranslate"><span class="pre">nomvariable</span></code>. Après l’instruction d’affectation, la variable
+référence l’objet qui lui a été affecté. Voici ci-dessous quelques
+exemples d’affectations :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coef</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello world !&quot;</span>
+<span class="n">valeurPi</span> <span class="o">=</span> <span class="mf">3.14159</span>
+</pre></div>
+</div>
+<p>Que se passe-t-il dans la mémoire de la machine lorsqu’une affectation
+d’une nouvelle variable est exécutée dans un programme ? On peut
+identifier quatre étapes :</p>
+<ol class="arabic simple">
+<li><p>Création d’un nouveau nom de variable dans l’<strong>espace des noms</strong> de
+la mémoire;</p></li>
+<li><p>Création d’un nouvel objet dans une zone de la mémoire;</p></li>
+<li><p>Attribution d’un type à la nouvelle variable (conforme au type de
+l’objet précédent);</p></li>
+<li><p>Création d’un lien entre la nouvelle variable et la zone où l’objet
+est stocké.</p></li>
+</ol>
+<p>Voici de manière très schématique l’état de la mémoire après les trois
+affectations précédentes :</p>
+<figure class="align-default" id="id2">
+<img alt="Schéma de la mémoire" src="_images/EtatMemoire.PNG" />
+<figcaption>
+<p><span class="caption-text">Schéma de la mémoire</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="affectation-multiple">
+<h4><span class="section-number">2.1.2.2. </span>Affectation multiple<a class="headerlink" href="#affectation-multiple" title="Lien permanent vers ce titre"></a></h4>
+<p>On peut affecter le même objet à plusieurs variables en une seule
+instruction. On parle alors d’<strong>affectation multiple</strong>. Voici
+ci-dessous un exemple d’affectation multiple :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">longueur</span> <span class="o">=</span> <span class="n">largeur</span> <span class="o">=</span> <span class="mf">6.5</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id3">
+<img alt="Exemple d’affectation multiple" src="_images/AffectationMultiple.PNG" />
+<figcaption>
+<p><span class="caption-text">Exemple d’affectation multiple</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="affectations-paralleles">
+<h4><span class="section-number">2.1.2.3. </span>Affectations parallèles<a class="headerlink" href="#affectations-paralleles" title="Lien permanent vers ce titre"></a></h4>
+<p>Il est possible également d’affecter des objets différents à plusieurs
+variables dans la même instruction. On parle alors d’<strong>affectations
+parallèles</strong>. Voici un exemple d’affectations parallèles :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coefA</span><span class="p">,</span> <span class="n">coefB</span><span class="p">,</span> <span class="n">coefC</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">2.4</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id4">
+<img alt="Exemple d’affectation multiple" src="_images/AffectationsParalleles.PNG" />
+<figcaption>
+<p><span class="caption-text">Exemple d’affectation multiple</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="les-differents-types-dobjets">
+<h3><span class="section-number">2.1.3. </span>Les différents types d’objets<a class="headerlink" href="#les-differents-types-dobjets" title="Lien permanent vers ce titre"></a></h3>
+<p>Il existe de nombreux types d’objets pouvant être manipulés dans des
+programmes Python. On ne parlera dans cette section que des types
+d’objets simples. D’autres types d’objets plus complexes, comme par
+exemple les listes ou les dictionnaires, seront abordés dans un chapitre
+ultérieur.</p>
+<section id="les-types-numeriques">
+<h4><span class="section-number">2.1.3.1. </span>Les types numériques<a class="headerlink" href="#les-types-numeriques" title="Lien permanent vers ce titre"></a></h4>
+<ul class="simple">
+<li><p><strong>entier</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code> en Python, par exemple : <code class="docutils literal notranslate"><span class="pre">5</span></code>)</p></li>
+<li><p><strong>réel</strong> ou à « virgule flottante » (<code class="docutils literal notranslate"><span class="pre">float</span></code> en Python, par exemple
+: <code class="docutils literal notranslate"><span class="pre">6.41</span></code>)</p></li>
+</ul>
+</section>
+<section id="les-types-alphanumeriques-pour-les-donnees-textuelles">
+<h4><span class="section-number">2.1.3.2. </span>Les types alphanumériques (pour les données textuelles)<a class="headerlink" href="#les-types-alphanumeriques-pour-les-donnees-textuelles" title="Lien permanent vers ce titre"></a></h4>
+<ul class="simple">
+<li><p><strong>chaîne</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code> en Python, par exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Bonjour&quot;</span></code>)</p></li>
+</ul>
+<p>Une chaîne est une suite de caractères quelconque entourée soit de
+guillemets ou doubles quotes (par exemple : <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">!&quot;</span></code>), soit
+d’apostrophes ou simples quotes (par exemple : <code class="docutils literal notranslate"><span class="pre">'Python</span> <span class="pre">3.10'</span></code>).</p>
+</section>
+<section id="les-booleens">
+<h4><span class="section-number">2.1.3.3. </span>Les booléens<a class="headerlink" href="#les-booleens" title="Lien permanent vers ce titre"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+</ul>
+<p>Un booléen est un objet dont la valeur est soit <strong>Vrai</strong> (<code class="docutils literal notranslate"><span class="pre">True</span></code>),
+soit <strong>Faux</strong> (<code class="docutils literal notranslate"><span class="pre">False</span></code>). Les booléens sont particulièrement utilisés
+lors de la manipulations d’<strong>expressions conditionnelles</strong>. Nous y
+reviendrons dans un cours ultérieur.</p>
+</section>
+</section>
+<section id="le-typage-dynamique">
+<h3><span class="section-number">2.1.4. </span>Le typage dynamique<a class="headerlink" href="#le-typage-dynamique" title="Lien permanent vers ce titre"></a></h3>
+<p>En Python, le type d’une variable est déterminé lors de l’exécution du
+programme, en fonction de l’objet qu’elle référence. Dans les exemples
+précédents, <code class="docutils literal notranslate"><span class="pre">coef</span></code>, <code class="docutils literal notranslate"><span class="pre">coefA</span></code> et <code class="docutils literal notranslate"><span class="pre">coefB</span></code> sont des entiers,
+<code class="docutils literal notranslate"><span class="pre">valeurPi</span></code>, <code class="docutils literal notranslate"><span class="pre">longueur</span></code>, <code class="docutils literal notranslate"><span class="pre">largeur</span></code> et <code class="docutils literal notranslate"><span class="pre">coefC</span></code> sont des réels,
+<code class="docutils literal notranslate"><span class="pre">message</span></code> est une chaîne. De plus, ce typage est <strong>dynamique</strong>. Cela
+signifie que le type de l’objet référencé par une variable peut changer
+au cours du programme, et que le type de la variable s’adapte. Ainsi,
+une même variable pourra contenir un entier, puis un réel et enfin une
+chaîne sans que cela pose problème. La fonction <code class="docutils literal notranslate"><span class="pre">type()</span></code> permet de
+connaître le type d’une variable. Le programme ci-dessous illustre ce
+typage dynamique des variables :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Une variable maVar dont le type varie dans le programme.</span>
+<span class="c1"># D&#39;abord un entier</span>
+
+<span class="n">maVar</span> <span class="o">=</span> <span class="mi">18</span>
+
+<span class="c1"># Vérification avec l&#39;affichage de son type</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">maVar</span><span class="p">))</span>
+
+<span class="c1"># Puis un réel</span>
+
+<span class="n">maVar</span> <span class="o">=</span> <span class="mf">5.21</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">maVar</span><span class="p">))</span>
+
+<span class="c1"># Et enfin une chaîne</span>
+
+<span class="n">maVar</span> <span class="o">=</span> <span class="s2">&quot;Il est 17h56.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">maVar</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt;
+&lt;class &#39;float&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</section>
+<section id="operateurs-et-expressions">
+<h3><span class="section-number">2.1.5. </span>Opérateurs et expressions<a class="headerlink" href="#operateurs-et-expressions" title="Lien permanent vers ce titre"></a></h3>
+<p>Les variables peuvent être utilisées dans des <strong>expressions</strong> de calcul
+contenant des <strong>opérateurs</strong>.</p>
+<section id="evaluation-dune-expression">
+<h4><span class="section-number">2.1.5.1. </span>Évaluation d’une expression<a class="headerlink" href="#evaluation-dune-expression" title="Lien permanent vers ce titre"></a></h4>
+<p>Pour évaluer une expression, l’interpréteur remplace chaque variable par
+l’objet qu’elle référence. Considérons par exemple le programme
+suivant :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
+<span class="n">rayon</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">airecercle</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">rayon</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La valeur de l&#39;aire du cercle est : &quot;</span><span class="p">,</span> <span class="n">airecercle</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">La</span> <span class="n">valeur</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;aire du cercle est :  113.09724</span>
+</pre></div>
+</div>
+<p>La variable <code class="docutils literal notranslate"><span class="pre">pi</span></code> est de type réel et sa valeur est <code class="docutils literal notranslate"><span class="pre">3.14159</span></code>. La
+variable <code class="docutils literal notranslate"><span class="pre">rayon</span></code> est de type entier et sa valeur est <code class="docutils literal notranslate"><span class="pre">6</span></code>. Pour
+déterminer la valeur de la variable <code class="docutils literal notranslate"><span class="pre">airecercle</span></code>, il faut évaluer
+l’expression <code class="docutils literal notranslate"><span class="pre">pi</span> <span class="pre">*</span> <span class="pre">(rayon</span> <span class="pre">**</span> <span class="pre">2)</span></code>. Pour évaluer cette expression,
+l’interpréteur remplace les variables par les objets qu’elles
+référencent. L’expression devient alors <code class="docutils literal notranslate"><span class="pre">3.14159</span> <span class="pre">*</span> <span class="pre">(6</span> <span class="pre">**</span> <span class="pre">2)</span></code> et son
+résultat est <code class="docutils literal notranslate"><span class="pre">113.09724</span></code> (<code class="docutils literal notranslate"><span class="pre">*</span></code> est l’opérateur de la multiplication
+et <code class="docutils literal notranslate"><span class="pre">**</span></code> celui de l’élévation à une puissance). La valeur de la
+variable <code class="docutils literal notranslate"><span class="pre">airecercle</span></code> est donc <code class="docutils literal notranslate"><span class="pre">113.09724</span></code> et son type est réel.</p>
+<figure class="align-default" id="id5">
+<img alt="Etat de la mémoire" src="_images/EtatMemoire2.PNG" />
+<figcaption>
+<p><span class="caption-text">Etat de la mémoire</span><a class="headerlink" href="#id5" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="les-principaux-operateurs-arithmetiques">
+<h4><span class="section-number">2.1.5.2. </span>Les principaux opérateurs arithmétiques<a class="headerlink" href="#les-principaux-operateurs-arithmetiques" title="Lien permanent vers ce titre"></a></h4>
+<p>Voici comment sont codés les principaux opérateurs de l’arithmétique en
+langage Python :</p>
+<ul class="simple">
+<li><p>addition : <code class="docutils literal notranslate"><span class="pre">+</span></code>. Par exemple, <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">+</span> <span class="pre">6</span></code> dont le résultat est <code class="docutils literal notranslate"><span class="pre">11</span></code>.</p></li>
+<li><p>soustraction : <code class="docutils literal notranslate"><span class="pre">-</span></code>. Par exemple, <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">-</span> <span class="pre">6</span></code> dont le résultat est
+<code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
+<li><p>multiplication : <code class="docutils literal notranslate"><span class="pre">*</span></code>. Par exemple, <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">*</span> <span class="pre">6</span></code> dont le résultat est
+<code class="docutils literal notranslate"><span class="pre">30</span></code>.</p></li>
+<li><p>division : <code class="docutils literal notranslate"><span class="pre">/</span></code>. Par exemple, <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">/</span> <span class="pre">6</span></code> dont le résultat est
+<code class="docutils literal notranslate"><span class="pre">0.8333333333...</span></code>.</p></li>
+<li><p>quotient de la division entière : <code class="docutils literal notranslate"><span class="pre">//</span></code>. Par exemple, <code class="docutils literal notranslate"><span class="pre">18</span> <span class="pre">//</span> <span class="pre">4</span></code>
+dont le résultat est <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p></li>
+<li><p>reste de la division entière (ou modulo) : <code class="docutils literal notranslate"><span class="pre">%</span></code>. Par exemple,
+<code class="docutils literal notranslate"><span class="pre">18</span> <span class="pre">%</span> <span class="pre">4</span></code> dont le résultat est <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
+<li><p>puissance : <code class="docutils literal notranslate"><span class="pre">**</span></code>. Par exemple, <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">3</span></code> dont le résultat est
+<code class="docutils literal notranslate"><span class="pre">8</span></code>.</p></li>
+</ul>
+<p>Les règles de priorité usuelles en arithmétique s’appliquent de la même
+façon dans un programme Python. Les expressions sont donc évaluées en
+respectant l’ordre suivant :</p>
+<ol class="arabic simple">
+<li><p>les expressions entre parenthèses (dans n’importe quel ordre)</p></li>
+<li><p>les exposants (puissances)</p></li>
+<li><p>les multiplications et divisions</p></li>
+<li><p>les additions et soustractions</p></li>
+</ol>
+<p>Lorsque deux opérateurs ont le même niveau de priorité, l’évaluation
+s’effectue de gauche à droite.</p>
+</section>
+</section>
+<section id="objets-muable-vs-objets-immuables">
+<h3><span class="section-number">2.1.6. </span>Objets « muable » vs. objets « immuables »<a class="headerlink" href="#objets-muable-vs-objets-immuables" title="Lien permanent vers ce titre"></a></h3>
+<p>Dans un programme Python, les données manipulées sont des objets.
+Certains objets sont modifiables. On parle alors d’objets <strong>« muables
+»</strong> (<strong>« mutable »</strong> en anglais). Les <strong>listes</strong>, <strong>dictionnaires</strong> et
+<strong>ensembles</strong> sont des exemples d’objets muables (ils feront l’objet
+d’un cours ultérieur et ne sont pas abordés pour le moment). À
+l’inverse, d’autres objets ne peuvent être modifiés. On parle alors
+d’objets <strong>immuables</strong> (<strong>« immutable »</strong> en anglais). C’est le cas
+notamment de tous les entiers, réels, chaînes et booléens. Pour modifier
+la valeur d’une variable référençant un objet immuable, il faut lui
+affecter un nouvel objet, faute de pouvoir modifier celui qu’elle
+référence. Le programme ci-dessous est un exemple de modification de la
+valeur d’une variable par une affectation :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coef</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valeur de coef après la première affectation : &quot;</span><span class="p">,</span> <span class="n">coef</span><span class="p">)</span>
+<span class="n">coef</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valeur de coef après la seconde affectation : &quot;</span><span class="p">,</span> <span class="n">coef</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Valeur</span> <span class="n">de</span> <span class="n">coef</span> <span class="n">après</span> <span class="n">la</span> <span class="n">première</span> <span class="n">affectation</span> <span class="p">:</span>  <span class="mi">5</span>
+<span class="n">Valeur</span> <span class="n">de</span> <span class="n">coef</span> <span class="n">après</span> <span class="n">la</span> <span class="n">seconde</span> <span class="n">affectation</span> <span class="p">:</span>  <span class="mi">6</span>
+</pre></div>
+</div>
+<p>Une première affectation donne la valeur entière <code class="docutils literal notranslate"><span class="pre">5</span></code> à la variable
+<code class="docutils literal notranslate"><span class="pre">coef</span></code>. La variable <code class="docutils literal notranslate"><span class="pre">coef</span></code> est donc de type entier. Ce type entier
+étant immuable, le changement de valeur de <code class="docutils literal notranslate"><span class="pre">coef</span></code> s’effectue grâce à
+la seconde affectation, qui donne à <code class="docutils literal notranslate"><span class="pre">coef</span></code> la valeur <code class="docutils literal notranslate"><span class="pre">6</span></code>. Les deux
+affichages avec l’instruction <code class="docutils literal notranslate"><span class="pre">print()</span></code> permettent de confirmer ce
+changement de valeur. Que se passe-t-il dans la mémoire lors de ces deux
+affectations ? Cela peut être schématisé comme indiqué ci-dessous :</p>
+<figure class="align-default" id="id6">
+<img alt="Objet immuable" src="_images/ObjetImmuable.PNG" />
+<figcaption>
+<p><span class="caption-text">Objet immuable</span><a class="headerlink" href="#id6" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>La première affectation ajoute la variable <code class="docutils literal notranslate"><span class="pre">coef</span></code> en mémoire : ajout
+du nom <code class="docutils literal notranslate"><span class="pre">coef</span></code> dans l’espace des noms, ajout d’un nouvel objet entier
+<code class="docutils literal notranslate"><span class="pre">5</span></code> puis création d’un lien entre le nom <code class="docutils literal notranslate"><span class="pre">coef</span></code> et l’objet <code class="docutils literal notranslate"><span class="pre">5</span></code>.
+Lors de la seconde affectation, un nouvel objet entier <code class="docutils literal notranslate"><span class="pre">6</span></code> est ajouté,
+le lien précédent est supprimé et remplacé par un lien entre le nom
+<code class="docutils literal notranslate"><span class="pre">coef</span></code> et l’objet <code class="docutils literal notranslate"><span class="pre">6</span></code>. L’objet <code class="docutils literal notranslate"><span class="pre">5</span></code> n’est alors plus référencé par
+une variable (aucune variable ne lui est relié). Il est donc supprimé de
+la mémoire grâce à un mécanisme appelé <strong>« ramasse-miettes »</strong> (<strong>«
+garbage collector »</strong> en anglais).</p>
+<p>On peut également comprendre ce qui se passe grâce au programme
+suivant :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coef</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adresse de l&#39;objet référencé par la variable coef : &quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">coef</span><span class="p">))</span>
+<span class="n">coef</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adresse de l&#39;objet référencé par la variable coef : &quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">coef</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Adresse</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;objet référencé par la variable coef :  1620036708784</span>
+<span class="n">Adresse</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;objet référencé par la variable coef :  1620036708816</span>
+</pre></div>
+</div>
+<p>Après chaque affectation, l’instruction
+<code class="docutils literal notranslate"><span class="pre">print(&quot;Adresse</span> <span class="pre">de</span> <span class="pre">l'objet</span> <span class="pre">référencé</span> <span class="pre">par</span> <span class="pre">la</span> <span class="pre">variable</span> <span class="pre">coef</span> <span class="pre">:</span> <span class="pre">&quot;,</span> <span class="pre">id(coef))</span></code>
+permet d’afficher l’adresse en mémoire de l’objet référencé par la
+variable <code class="docutils literal notranslate"><span class="pre">coef</span></code>. Cette adresse est différente après la seconde
+affectation, ce qui montre que cette seconde affectation n’a pas modifié
+l’objet <code class="docutils literal notranslate"><span class="pre">5</span></code> (qui est un entier, donc immuable) mais a modifié l’objet
+référencé par <code class="docutils literal notranslate"><span class="pre">coef</span></code> qui est désormais <code class="docutils literal notranslate"><span class="pre">6</span></code>.</p>
+<p>Le cas des objets muables est bien différent puisque ceux-ci sont
+modifiables. Comme il a été précisé plus haut, les objets muables tels
+que les listes et les dictionna ires feront l’objet d’un autre cours.
+Considérons néanmoins le programme suivant :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maListe</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La valeur de la variable maListe est : &quot;</span><span class="p">,</span> <span class="n">maListe</span><span class="p">)</span>
+<span class="n">maListe</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La valeur de la variable maListe est : &quot;</span><span class="p">,</span> <span class="n">maListe</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">La</span> <span class="n">valeur</span> <span class="n">de</span> <span class="n">la</span> <span class="n">variable</span> <span class="n">maListe</span> <span class="n">est</span> <span class="p">:</span>  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">La</span> <span class="n">valeur</span> <span class="n">de</span> <span class="n">la</span> <span class="n">variable</span> <span class="n">maListe</span> <span class="n">est</span> <span class="p">:</span>  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Ce qui se passe lors de l’exécution de ce programme peut se schématiser
+de la manière suivante :</p>
+<figure class="align-default" id="id7">
+<img alt="Objet muable" src="_images/ObjetMuable.PNG" />
+<figcaption>
+<p><span class="caption-text">Objet muable</span><a class="headerlink" href="#id7" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Une première affectation <code class="docutils literal notranslate"><span class="pre">maListe</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code> permet d’affecter à
+la variable <code class="docutils literal notranslate"><span class="pre">maListe</span></code> un <strong>objet liste</strong>, composé de plusieurs objets
+entiers <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>. Puis l’instruction <code class="docutils literal notranslate"><span class="pre">maListe.append(5)</span></code>
+ajoute un nouvel élément <code class="docutils literal notranslate"><span class="pre">5</span></code> à l’objet liste référencé par <code class="docutils literal notranslate"><span class="pre">maListe</span></code>
+(ce qui est tout à fait possible puisq’un objet liste est muable). Les
+instructions d’affichage permettent de confirmer que la valeur de la
+variable <code class="docutils literal notranslate"><span class="pre">maListe</span></code> a bien été modifiée, puisque l’objet qu’elle
+référence a été modifié. Notons que cette modification n’a pas nécessité
+de seconde affectation. C’est l’objet référencé qui a été modifié
+directement. Aucun nouvel objet n’a été créé et le lien variable/objet
+n’a pas été modifié. Cette constatation peut se vérifier à l’aide du
+programme suivant :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maListe</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adresse de l&#39;objet référencé par la variable maListe : &quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">maListe</span><span class="p">))</span>
+<span class="n">maListe</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adresse de l&#39;objet référencé par la variable maListe : &quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">maListe</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Adresse</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;objet référencé par la variable maListe :  1994930698560</span>
+<span class="n">Adresse</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;objet référencé par la variable maListe :  1994930698560</span>
+</pre></div>
+</div>
+<p>L’adresse de l’objet référencé par la variable <code class="docutils literal notranslate"><span class="pre">maListe</span></code> est la même
+après les deux instructions. La modification a donc impacté directement
+l’objet liste référencé par <code class="docutils literal notranslate"><span class="pre">maListe</span></code>. Pour résumer la différence
+entre objet immuable et objet muable, on peut dire que :</p>
+<ul class="simple">
+<li><p>pour modifier la valeur d’une variable contenant un objet immuable,
+il faut impérativement lui affecter un nouvel objet;</p></li>
+<li><p>la valeur d’une variable contenant un objet muable se modifie en
+modifiant directement l’objet.</p></li>
+</ul>
+</section>
+<section id="le-ramasse-miettes">
+<h3><span class="section-number">2.1.7. </span>Le « ramasse-miettes »<a class="headerlink" href="#le-ramasse-miettes" title="Lien permanent vers ce titre"></a></h3>
+<p>Le « ramasse-miettes », également appelé « récupérateur de mémoire » ou
+« glaneur de cellules » (« garbage collector » en anglais), est un
+processus visant à optimiser la mémoire de la machine lors de
+l’exécution d’un programme. Plus concrètement, au fil de l’exécution
+d’un programme, le ramasse-miettes détecte les objets de la mémoire non
+utilisés (c’est-à-dire, non référencés par des variables) et libère
+l’espace mémoire occupé par ces objets. De nombreux environnements de
+programmation possèdent un ramasse-miettes.</p>
+</section>
+</section>
+<section id="la-notion-de-fonction">
+<h2><span class="section-number">2.2. </span>La notion de fonction<a class="headerlink" href="#la-notion-de-fonction" title="Lien permanent vers ce titre"></a></h2>
+<p>Dans cette section, nous présentons brièvement la notion de fonction et
+nous présentons quelques fonctions usuelles du langage Python. Les
+fonctions feront l’objet d’un cours ultérieur plus détaillé. Dans un
+programme, une <strong>fonction</strong> réalise une tâche particulière. Elle est
+définie une seule fois, mais exécutée autant de fois que nécessaire. Par
+exemple :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print()</span></code> affiche des informations à l’écran</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">input()</span></code> permet à l’utilisateur de saisir des données à l’aide du
+clavier</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code> calcule la racine carrée d’un nombre</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sin()</span></code> calcule le sinus d’un angle.</p></li>
+</ul>
+<p>De manière générale, il existe trois catégories de fonctions dans les
+langages de programmation :</p>
+<ul class="simple">
+<li><p>les <strong>fonctions natives</strong>, qui sont intégrées au langage et donc
+toujours utilisables</p></li>
+<li><p>les fonctions définies dans des <strong>modules</strong> externes, qu’il faut
+importer pour pouvoir les utiliser</p></li>
+<li><p>les fonctions <strong>propres au programmeur</strong> que celui-ci définit dans
+ses programmes.</p></li>
+</ul>
+<p>Le programme ci-dessous calcule la longueur de l’hypothénuse d’un
+triangle rectangle, à partir de celles des deux côtés de l’angle droit.
+Il contient des exemples de chaque catégorie de fonctions.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="c1"># Définition d&#39;une fonction calculant la longueur de l&#39;hypothénuse d&#39;un triangle rectangle</span>
+<span class="c1"># à partir des longueurs des 2 côtés de l&#39;angle droit</span>
+<span class="k">def</span> <span class="nf">calculer_long_hyp</span><span class="p">(</span><span class="n">longc1</span><span class="p">,</span> <span class="n">longc2</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">longc1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">longc2</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Saisie des données au clavier (les longueurs des 2 côtés de l&#39;angle droit)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saisissez la longueur du premier côté de l&#39;angle droit : &quot;</span><span class="p">)</span>
+<span class="n">longc1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saisissez la longueur du second côté de l&#39;angle droit : &quot;</span><span class="p">)</span>
+<span class="n">longc2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="c1"># Calcul de la longueur de l&#39;hypothénuse</span>
+<span class="n">long_hyp</span> <span class="o">=</span> <span class="n">calculer_long_hyp</span><span class="p">(</span><span class="n">longc1</span><span class="p">,</span> <span class="n">longc2</span><span class="p">)</span>
+
+<span class="c1"># Affichage du résultat</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La longueur de l&#39;hypothénuse est : &quot;</span><span class="p">,</span><span class="n">long_hyp</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">la</span> <span class="n">longueur</span> <span class="n">du</span> <span class="n">premier</span> <span class="n">côté</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;angle droit :</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">la</span> <span class="n">longueur</span> <span class="n">du</span> <span class="n">second</span> <span class="n">côté</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;angle droit :</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">La</span> <span class="n">longueur</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;hypothénuse est :  7.810249675906654</span>
+</pre></div>
+</div>
+<p>Les fonctions <code class="docutils literal notranslate"><span class="pre">float()</span></code>, <code class="docutils literal notranslate"><span class="pre">print()</span></code> et <code class="docutils literal notranslate"><span class="pre">input()</span></code> sont des fonctions
+natives de Python. Elles sont exécutées plusieurs fois. Nous les
+aborderons plus en détails plus loin dans ce cours. La fonction
+<code class="docutils literal notranslate"><span class="pre">sqrt()</span></code> est définie dans le module <code class="docutils literal notranslate"><span class="pre">math</span></code> de Python. Elle est
+importée au début du programme avec l’instruction
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">sqrt</span></code>. La fonction <code class="docutils literal notranslate"><span class="pre">calculer_long_hyp()</span></code> est
+définie par le programmeur au début du programme avec le mot-réservé
+<code class="docutils literal notranslate"><span class="pre">def</span></code>. Elle utilise dans sa définition la fonction importée
+<code class="docutils literal notranslate"><span class="pre">sqrt()</span></code>. Elle est ensuite exécutée dans l’instruction
+<code class="docutils literal notranslate"><span class="pre">long_hyp</span> <span class="pre">=</span> <span class="pre">calculer_long_hyp(longc1,</span> <span class="pre">longc2)</span></code>.</p>
+<p>Pour exécuter sa tâche, une fonction peut nécessiter (ou pas !) qu’on
+lui fournisse des données. Ces données qui sont fournies à une fonction
+sont appelées ses <strong>paramètres</strong> ou <strong>arguments</strong>. Il sont indiqués dans
+un jeu de parenthèses après le nom de la fonction et peuvent être :</p>
+<ul class="simple">
+<li><p>des objets</p></li>
+<li><p>des variables</p></li>
+<li><p>des expressions</p></li>
+</ul>
+<p>Par exemple, dans l’instruction
+<code class="docutils literal notranslate"><span class="pre">print(&quot;Saisissez</span> <span class="pre">la</span> <span class="pre">longueur</span> <span class="pre">du</span> <span class="pre">premier</span> <span class="pre">côté</span> <span class="pre">de</span> <span class="pre">l'angle</span> <span class="pre">droit</span> <span class="pre">:</span> <span class="pre">&quot;)</span></code>,
+l’objet chaîne
+<code class="docutils literal notranslate"><span class="pre">&quot;Saisissez</span> <span class="pre">la</span> <span class="pre">longueur</span> <span class="pre">du</span> <span class="pre">premier</span> <span class="pre">côté</span> <span class="pre">de</span> <span class="pre">l'angle</span> <span class="pre">droit</span> <span class="pre">:</span> <span class="pre">&quot;</span></code> est
+fournie en paramètre de la fonction <code class="docutils literal notranslate"><span class="pre">print()</span></code> dont la tâche consiste à
+l’afficher à l’écran. Dans l’instruction <code class="docutils literal notranslate"><span class="pre">sqrt(a*2)</span></code>, le résultat de
+l’expression <code class="docutils literal notranslate"><span class="pre">a*2</span></code> est évalué puis fourni en paramètre de ma fonction
+<code class="docutils literal notranslate"><span class="pre">sqrt()</span></code> afin qu’elle en calcule la racine carrée.</p>
+<p>À partir des données qu’on lui fournit en paramètres, une fonction
+effectue sa tâche et retourne (ou pas !) un résultat (on parle aussi de
+<strong>valeur de retour</strong> d’une fonction). Pour être exploités ultérieurement
+dans un programme, les résultats retournés par les fonctions doivent
+être stockés dans des variables. La fonction <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code> retourne la
+racine carrée d’un nombre fourni en paramètre. Dans l’instruction
+<code class="docutils literal notranslate"><span class="pre">racine</span> <span class="pre">=</span> <span class="pre">sqrt(nb)</span></code>, la valeur de la variable <code class="docutils literal notranslate"><span class="pre">nb</span></code> est fournie en
+paramètre. Puis le résultat retourné par la fonction est stocké dans la
+variable <code class="docutils literal notranslate"><span class="pre">racine</span></code>. Le résultat d’une fonction peut être utilisé dans
+une expression de calcul, comme par exemple dans l’instruction
+<code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">sqrt(a)+sqrt(c)</span></code>. Il peut aussi être fourni comme paramètre d’une
+autre fonction. On parle alors de <strong>composition de fonctions</strong>.
+L’instruction <code class="docutils literal notranslate"><span class="pre">float(input())</span></code> est un exemple de composition de
+fonctions : le résultat de la fonction <code class="docutils literal notranslate"><span class="pre">input()</span></code> est donné en
+paramètre de la fonction <code class="docutils literal notranslate"><span class="pre">float()</span></code>.</p>
+<section id="la-fonction-print-affichage-dinformations-a-lecran">
+<h3><span class="section-number">2.2.1. </span>La fonction <code class="docutils literal notranslate"><span class="pre">print()</span></code> - Affichage d’informations à l’écran<a class="headerlink" href="#la-fonction-print-affichage-dinformations-a-lecran" title="Lien permanent vers ce titre"></a></h3>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">print()</span></code> affiche à l’écran les paramètres qu’on lui
+fournit (dans le jeu de parenthèses, séparés par des virgules). Un
+paramètre peut être : un objet, une variable, une expression ou une
+composition de fonctions. À l’écran, les valeurs des paramètres sont
+affichées dans le même ordre que celui où ils sont fournis, avec un
+espace de séparation entre chaque valeur. Par défaut, l’affichage se
+termine par un passage à la ligne suivante. Voici ci-dessous un exemple
+de programme Python affichant à l’écran la date du jour sous la forme «
+jj / mm / aa ».</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">aujourdhui</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bonjour ! Aujourd&#39;hui nous sommes le&quot;</span><span class="p">,</span> <span class="n">aujourdhui</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">aujourdhui</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">aujourdhui</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Bonjour ! Aujourd&#39;hui nous sommes le 13 / 10 / 2022 .
+</pre></div>
+</div>
+<section id="affichage-formate-avec-les-f-strings">
+<h4><span class="section-number">2.2.1.1. </span>Affichage formaté avec les <strong>f-strings</strong><a class="headerlink" href="#affichage-formate-avec-les-f-strings" title="Lien permanent vers ce titre"></a></h4>
+<p>Depuis la version 3.6 de Python, la fonction <code class="docutils literal notranslate"><span class="pre">print()</span></code> peut être
+exécutée avec un seul paramètre de type <code class="docutils literal notranslate"><span class="pre">f-string</span></code>. <code class="docutils literal notranslate"><span class="pre">f-string</span></code> est
+l’abbréviation de « formatted string litteral », autrement dit « chaîne
+formatée ». Une <code class="docutils literal notranslate"><span class="pre">f-string</span></code> :</p>
+<ul class="simple">
+<li><p>se code comme une chaîne précédée du caractère « f » (sans espace),
+par exemple : <code class="docutils literal notranslate"><span class="pre">f&quot;Ceci</span> <span class="pre">est</span> <span class="pre">une</span> <span class="pre">f-string.&quot;</span></code></p></li>
+<li><p>peut contenir des variables, expressions ou exécutions de fonctions
+entre accolades. Dans ce cas, celles-ci seront remplacées par leurs
+valeurs respectives lors de l’affichage. Par exemple,
+<code class="docutils literal notranslate"><span class="pre">f&quot;Ceci</span> <span class="pre">est</span> <span class="pre">une</span> <span class="pre">f-string</span> <span class="pre">contenant</span> <span class="pre">deux</span> <span class="pre">variables</span> <span class="pre">:</span> <span class="pre">{var1}</span> <span class="pre">et</span> <span class="pre">{var2}.&quot;</span></code></p></li>
+<li><p>une variable, expression ou exécution de fonction contenue dans une
+<code class="docutils literal notranslate"><span class="pre">f-string</span></code> peut être accompagnée de son format d’affichage. Ceci
+est particulièrement utile pour l’affichage des données numériques.
+Par exemple,
+<code class="docutils literal notranslate"><span class="pre">f&quot;Cette</span> <span class="pre">f-string</span> <span class="pre">affiche</span> <span class="pre">le</span> <span class="pre">nombre</span> <span class="pre">réel</span> <span class="pre">{mynb:.2f}</span> <span class="pre">avec</span> <span class="pre">2</span> <span class="pre">décimales</span> <span class="pre">seulement.&quot;</span></code>
+est une <code class="docutils literal notranslate"><span class="pre">f-string</span></code> où la valeur de <code class="docutils literal notranslate"><span class="pre">mynb</span></code> sera affichée avec deux
+chiffres décimaux seulement. Voici une seconde version du programme
+de calcul de l’hypothénuse, où l’instruction <code class="docutils literal notranslate"><span class="pre">print()</span></code> finale
+s’effectue avec une <code class="docutils literal notranslate"><span class="pre">f-string</span></code> en paramètre afin d’afficher le
+résultat avec uniquement 3 chiffres décimaux.</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="c1"># Définition d&#39;une fonction calculant la longueur de l&#39;hypothénuse d&#39;un triangle rectangle</span>
+<span class="c1"># à partir des longueurs des 2 côtés de l&#39;angle droit</span>
+<span class="k">def</span> <span class="nf">calculer_long_hyp</span><span class="p">(</span><span class="n">longc1</span><span class="p">,</span> <span class="n">longc2</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">longc1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">longc2</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Saisie des données au clavier (les longueurs des 2 côtés de l&#39;angle droit)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saisissez la longueur du premier côté de l&#39;angle droit : &quot;</span><span class="p">)</span>
+<span class="n">longc1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saisissez la longueur du second côté de l&#39;angle droit : &quot;</span><span class="p">)</span>
+<span class="n">longc2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="c1"># Calcul de la longueur de l&#39;hypothénuse</span>
+<span class="n">long_hyp</span> <span class="o">=</span> <span class="n">calculer_long_hyp</span><span class="p">(</span><span class="n">longc1</span><span class="p">,</span> <span class="n">longc2</span><span class="p">)</span>
+
+<span class="c1"># Affichage du résultat</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La longueur de l&#39;hypothénuse est : </span><span class="si">{</span><span class="n">long_hyp</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">la</span> <span class="n">longueur</span> <span class="n">du</span> <span class="n">premier</span> <span class="n">côté</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;angle droit :</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">9</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">la</span> <span class="n">longueur</span> <span class="n">du</span> <span class="n">second</span> <span class="n">côté</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;angle droit :</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">La</span> <span class="n">longueur</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;hypothénuse est : 9.849.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="la-fonction-input-saisie-de-donnees-au-clavier">
+<h3><span class="section-number">2.2.2. </span>La fonction <code class="docutils literal notranslate"><span class="pre">input()</span></code> - Saisie de données au clavier<a class="headerlink" href="#la-fonction-input-saisie-de-donnees-au-clavier" title="Lien permanent vers ce titre"></a></h3>
+<p>L’exécution de la fonction <code class="docutils literal notranslate"><span class="pre">input()</span></code> provoque une interruption du
+programme, afin de permettre à l’utilisateur de saisir des données au
+clavier. Celui-ci saisit ses données, puis marque la fin de la saisie en
+appuyant sur la touche <code class="docutils literal notranslate"><span class="pre">ENTRÉE</span></code>. L’exécution du programme peut alors
+reprendre là où elle s’est interrompue. Le résultat de la fonction
+<code class="docutils literal notranslate"><span class="pre">input()</span></code> est une <strong>chaîne</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) contenant tous les caractères
+saisis au clavier par l’utilisateur. Il est possible de fournir une
+chaîne en paramètre de la fonction, par exemple :
+<code class="docutils literal notranslate"><span class="pre">input(&quot;Saisissez</span> <span class="pre">un</span> <span class="pre">nombre</span> <span class="pre">:&quot;)</span></code>. Dans ce cas, cette chaîne sera
+affichée à l’écran avant l’interruption pour la saisie au clavier. Dans
+le programme suivant, la première instruction affiche la chaîne
+<code class="docutils literal notranslate"><span class="pre">&quot;Saisissez</span> <span class="pre">des</span> <span class="pre">données</span> <span class="pre">au</span> <span class="pre">clavier</span> <span class="pre">:&quot;</span></code>, saisit des données au clavier
+et les stocke dans une variable <code class="docutils literal notranslate"><span class="pre">ch</span></code>. La seconde instruction affiche
+le type de <code class="docutils literal notranslate"><span class="pre">ch</span></code> ainsi que sa valeur. Testez ce programme plusieurs
+fois avec des données différentes (mot, phrase, nombre entier, nombre
+réel). Quel est le type qui s’affiche, quelle que soit la donnée saisie
+? Qu’en déduisez-vous sur le résultat retourné par <code class="docutils literal notranslate"><span class="pre">input()</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ch</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Saisissez des données au clavier :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le type de la variable ch est </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="si">}</span><span class="s2"> et sa valeur est </span><span class="si">{</span><span class="n">ch</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">des</span> <span class="n">données</span> <span class="n">au</span> <span class="n">clavier</span> <span class="p">:</span> <span class="mi">56</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Le type de la variable ch est &lt;class &#39;str&#39;&gt; et sa valeur est 56.
+</pre></div>
+</div>
+<p>Si vous avez testé le programme précédent, vous avez pu constater que le
+résultat de la fonction <code class="docutils literal notranslate"><span class="pre">input()</span></code> est toujours la <strong>chaîne</strong> contenant
+les caractères saisis. En effet, si vous saisissez les caractères
+<code class="docutils literal notranslate"><span class="pre">ABCDE</span></code>, la fonction retourne la chaîne <code class="docutils literal notranslate"><span class="pre">&quot;ABCDE&quot;</span></code>. De la même
+manière, si vous saisissez <code class="docutils literal notranslate"><span class="pre">987</span></code>, la fonction retourne la chaîne
+<code class="docutils literal notranslate"><span class="pre">&quot;987&quot;</span></code>. Comment faire pour que les données saisies soient utilisées
+dans le programme comme des nombres et non comme des chaînes ? Il faut
+utiliser les fonctions de conversion telles que <code class="docutils literal notranslate"><span class="pre">int()</span></code> et
+<code class="docutils literal notranslate"><span class="pre">float()</span></code>. Ces fonctions prennent en paramètre un objet, convertissent
+cet objet respectivement en un entier ou un réel, puis retournent le
+résultat (entier ou réel). Par exemple, <code class="docutils literal notranslate"><span class="pre">int(&quot;53&quot;)</span></code> retourne l’entier
+<code class="docutils literal notranslate"><span class="pre">53</span></code> et <code class="docutils literal notranslate"><span class="pre">float(&quot;3.14159&quot;)</span></code> retourne le réel <code class="docutils literal notranslate"><span class="pre">3.14159</span></code>. L’objet
+passé en paramètre doit bien sûr être compatible avec la conversion
+demandée, sous peine de provoquer une erreur à l’exécution. Ainsi,
+<code class="docutils literal notranslate"><span class="pre">int(&quot;Coucou&quot;)</span></code> et <code class="docutils literal notranslate"><span class="pre">int(3.62)</span></code> ne peuvent s’exécuter correctement
+puisque ni la chaîne <code class="docutils literal notranslate"><span class="pre">&quot;Coucou&quot;</span></code> ni le réel <code class="docutils literal notranslate"><span class="pre">3.62</span></code> ne peuvent être
+convertis en entiers. Le programme suivant utilise ces fonctions pour
+convertir les données saisies par l’utilisateur.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lachaine</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Saisissez une phrase au clavier.&quot;</span><span class="p">)</span>
+<span class="n">lentier</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Saisissez un nombre entier au clavier.&quot;</span><span class="p">))</span>
+<span class="n">lereel</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Saisissez un nombre réel au clavier.&quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La valeur de la variable lachaine est </span><span class="si">{</span><span class="n">lachaine</span><span class="si">}</span><span class="s2"> et son type est </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">lachaine</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La valeur de la variable lentier est </span><span class="si">{</span><span class="n">lentier</span><span class="si">}</span><span class="s2"> et son type est </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">lentier</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La valeur de la variable lachaine est </span><span class="si">{</span><span class="n">lereel</span><span class="si">}</span><span class="s2"> et son type est </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">lereel</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">une</span> <span class="n">phrase</span> <span class="n">au</span> <span class="n">clavier</span><span class="o">.</span> <span class="n">Il</span> <span class="n">pleut</span>
+<span class="n">Saisissez</span> <span class="n">un</span> <span class="n">nombre</span> <span class="n">entier</span> <span class="n">au</span> <span class="n">clavier</span><span class="o">.</span> <span class="mi">84364</span>
+<span class="n">Saisissez</span> <span class="n">un</span> <span class="n">nombre</span> <span class="n">réel</span> <span class="n">au</span> <span class="n">clavier</span><span class="o">.</span> <span class="mf">5.47</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>La valeur de la variable lachaine est Il pleut et son type est &lt;class &#39;str&#39;&gt;.
+La valeur de la variable lentier est 84364 et son type est &lt;class &#39;int&#39;&gt;.
+La valeur de la variable lachaine est 5.47 et son type est &lt;class &#39;float&#39;&gt;.
+</pre></div>
+</div>
+<p>Pour terminer, notons qu’il existe d’autre fonctions telles que
+<code class="docutils literal notranslate"><span class="pre">str()</span></code> et <code class="docutils literal notranslate"><span class="pre">bool()</span></code> pour convertir des objets respectivement en
+chaînes et en booléens.</p>
+</section>
+</section>
+<section id="manipulation-de-chaines">
+<h2><span class="section-number">2.3. </span>Manipulation de chaînes<a class="headerlink" href="#manipulation-de-chaines" title="Lien permanent vers ce titre"></a></h2>
+<p>Pour terminer ce chapitre sur les notions de base du langage Python,
+voici quelques manipulations simples sur les chaînes de caractères.</p>
+<section id="notion-de-sequence-et-indicage-des-caracteres">
+<h3><span class="section-number">2.3.1. </span>Notion de séquence et indiçage des caractères<a class="headerlink" href="#notion-de-sequence-et-indicage-des-caracteres" title="Lien permanent vers ce titre"></a></h3>
+<p>En Python, une chaîne est considérée comme une <strong>séquence</strong>,
+c’est-à-dire une <strong>suite ordonnée d’objets</strong> (ordonnée au sens où chaque
+caractère occupe une place bien précise dans la chaîne). De ce fait,
+chaque caractère d’une chaîne est repéré par son <strong>indice</strong> dans la
+chaîne, l’indiçage s’effectuant à partir de 0 (en informatique, tout
+commence par le 0 !). Par exemple, la chaîne <code class="docutils literal notranslate"><span class="pre">&quot;Programmation&quot;</span></code>
+comporte 13 caractères. Le caractère d’indice <code class="docutils literal notranslate"><span class="pre">0</span></code> est <code class="docutils literal notranslate"><span class="pre">&quot;P&quot;</span></code>, celui
+d’indice <code class="docutils literal notranslate"><span class="pre">1</span></code> est <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code>, celui d’indice <code class="docutils literal notranslate"><span class="pre">2</span></code> est <code class="docutils literal notranslate"><span class="pre">&quot;o&quot;</span></code>, etc. Le
+dernier caractère est <code class="docutils literal notranslate"><span class="pre">&quot;n&quot;</span></code> et il se trouve à l’indice <code class="docutils literal notranslate"><span class="pre">12</span></code>. De
+manière générale, une chaîne de longueur <code class="docutils literal notranslate"><span class="pre">n</span></code> (la longueur correspond
+au nombre de caractères de la chaîne) comporte des caractères indicés de
+<code class="docutils literal notranslate"><span class="pre">0</span></code> à <code class="docutils literal notranslate"><span class="pre">n-1</span></code>.</p>
+</section>
+<section id="referencement-dun-caractere">
+<h3><span class="section-number">2.3.2. </span>Référencement d’un caractère<a class="headerlink" href="#referencement-dun-caractere" title="Lien permanent vers ce titre"></a></h3>
+<p>Pour référencer un caractère dans une chaîne, la notation consiste à
+indiquer le nom de la variable contenant la chaîne, suivie entre
+crochets de l’indice du caractère référencé. Par exemple,
+<code class="docutils literal notranslate"><span class="pre">maVarChaine[ind]</span></code> référence le caractère situé à l’indice <code class="docutils literal notranslate"><span class="pre">ind</span></code>
+dans la chaîne contenue dans la variable <code class="docutils literal notranslate"><span class="pre">maVarChaine</span></code>. <code class="docutils literal notranslate"><span class="pre">ind</span></code> doit
+obligatoirement être un entier ou une variable entière, et sa valeur ne
+doit pas dépasser celle de la longueur de la chaîne - 1. En effet,
+référencer un caractère situé à l’indice <code class="docutils literal notranslate"><span class="pre">10</span></code> dans une chaîne ne
+comportant que 5 caractères provoque une erreur. Le programme suivant
+illustre le référencement de caractères.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maVarChaine</span> <span class="o">=</span> <span class="s2">&quot;Programmation&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice 0 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice 3 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice 5 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice 13 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Le</span> <span class="n">caractère</span> <span class="n">situé</span> <span class="n">à</span> <span class="n">l</span><span class="s1">&#39;indice 0 est : P</span>
+<span class="n">Le</span> <span class="n">caractère</span> <span class="n">situé</span> <span class="n">à</span> <span class="n">l</span><span class="s1">&#39;indice 3 est : g</span>
+<span class="n">Le</span> <span class="n">caractère</span> <span class="n">situé</span> <span class="n">à</span> <span class="n">l</span><span class="s1">&#39;indice 5 est : a</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+
+<span class="ne">IndexError</span>                                <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">5</span><span class="o">&gt;</span><span class="p">()</span>
+      <span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice 3 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+      <span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice 5 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="o">----&gt;</span> <span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice 13 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="ne">IndexError</span><span class="p">:</span> <span class="n">string</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
+</pre></div>
+</div>
+<p>Il est possible d’utiliser comme indice un nombre entier négatif. Dans
+ce cas, le référencement s’effectue à partir de la fin de la chaîne (et
+non pas du début comme ci-dessus). Le caractère d’indice <code class="docutils literal notranslate"><span class="pre">-1</span></code> est
+alors le dernier caractère de la chaîne, celui d’indice <code class="docutils literal notranslate"><span class="pre">-2</span></code>
+l’avant-dernier, et ainsi de suite. Voici des exemples d’utilisation
+d’indices négatifs.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maVarChaine</span> <span class="o">=</span> <span class="s2">&quot;Programmation&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice -1 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice -3 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice -10 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice -13 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="o">-</span><span class="mi">13</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice -14 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="o">-</span><span class="mi">14</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Le</span> <span class="n">caractère</span> <span class="n">situé</span> <span class="n">à</span> <span class="n">l</span><span class="s1">&#39;indice -1 est : n</span>
+<span class="n">Le</span> <span class="n">caractère</span> <span class="n">situé</span> <span class="n">à</span> <span class="n">l</span><span class="s1">&#39;indice -3 est : i</span>
+<span class="n">Le</span> <span class="n">caractère</span> <span class="n">situé</span> <span class="n">à</span> <span class="n">l</span><span class="s1">&#39;indice -10 est : g</span>
+<span class="n">Le</span> <span class="n">caractère</span> <span class="n">situé</span> <span class="n">à</span> <span class="n">l</span><span class="s1">&#39;indice -13 est : P</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+
+<span class="ne">IndexError</span>                                <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">6</span><span class="o">&gt;</span><span class="p">()</span>
+      <span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice -10 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+      <span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice -13 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="o">-</span><span class="mi">13</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="o">----&gt;</span> <span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère situé à l&#39;indice -14 est : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="o">-</span><span class="mi">14</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="ne">IndexError</span><span class="p">:</span> <span class="n">string</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
+</pre></div>
+</div>
+</section>
+<section id="referencement-dune-sous-chaine-slicing">
+<h3><span class="section-number">2.3.3. </span>Référencement d’une sous-chaîne (« slicing »)<a class="headerlink" href="#referencement-dune-sous-chaine-slicing" title="Lien permanent vers ce titre"></a></h3>
+<p>Une <strong>sous-chaîne</strong> est une partie spécifique d’une chaîne. Le <strong>«
+slicing »</strong> consiste à référencer une sous-chaîne et la forme générale
+de sa notation est <code class="docutils literal notranslate"><span class="pre">maVarChaine[prem:der]</span></code> où :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">maVarChaine</span></code> est la variable contenant la chaîne</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prem</span></code> est l’indice du premier caractère de la sous-chaîne</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">der</span></code> est l’indice du dernier caractère de la chaîne ne figurant
+pas dans la sous-chaîne</p></li>
+</ul>
+<p>La notation <code class="docutils literal notranslate"><span class="pre">maVarChaine[prem:der]</span></code> référence donc la sous-chaine
+contenue dans <code class="docutils literal notranslate"><span class="pre">maVarChaine</span></code> qui débute au caractère d’indice <code class="docutils literal notranslate"><span class="pre">prem</span></code>
+et se termine au caractère d’indice <code class="docutils literal notranslate"><span class="pre">der-1</span></code>. Par exemple :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Premier exemple de slicing : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deuxième exemple de slicing : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Premier</span> <span class="n">exemple</span> <span class="n">de</span> <span class="n">slicing</span> <span class="p">:</span> <span class="n">ogra</span>
+<span class="n">Deuxième</span> <span class="n">exemple</span> <span class="n">de</span> <span class="n">slicing</span> <span class="p">:</span> <span class="n">rog</span>
+</pre></div>
+</div>
+<p>Lorsque les indices <code class="docutils literal notranslate"><span class="pre">prem</span></code> et <code class="docutils literal notranslate"><span class="pre">der</span></code> sont négatifs, le référencement
+débute à partir de la fin de la chaîne. Par exemple :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Troisième exemple de slicing : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Troisième</span> <span class="n">exemple</span> <span class="n">de</span> <span class="n">slicing</span> <span class="p">:</span> <span class="n">ati</span>
+</pre></div>
+</div>
+<p>L’indice <code class="docutils literal notranslate"><span class="pre">prem</span></code> peut être omis. Dans ce cas, le référencement
+s’effectue à partir du premier caractère de la chaîne jusqu’au caractère
+d’indice <code class="docutils literal notranslate"><span class="pre">der-1</span></code>. Par exemple :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Quatrième exemple de slicing : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Troisième</span> <span class="n">exemple</span> <span class="n">de</span> <span class="n">slicing</span> <span class="p">:</span> <span class="n">Pro</span>
+</pre></div>
+</div>
+<p>De la même façon, l’indice <code class="docutils literal notranslate"><span class="pre">der</span></code> peut être omis. Dans ce cas, le
+référencement s’effectue à partir du caractère d’indice <code class="docutils literal notranslate"><span class="pre">prem</span></code>
+jusqu’au dernier caractère de la chaîne. Par exemple :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cinquième exemple de slicing : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Quatrième</span> <span class="n">exemple</span> <span class="n">de</span> <span class="n">slicing</span> <span class="p">:</span> <span class="n">grammation</span>
+</pre></div>
+</div>
+</section>
+<section id="operateurs-fonctions-et-methodes-usuelles-sur-les-chaines">
+<h3><span class="section-number">2.3.4. </span>Opérateurs, fonctions et méthodes usuelles sur les chaînes<a class="headerlink" href="#operateurs-fonctions-et-methodes-usuelles-sur-les-chaines" title="Lien permanent vers ce titre"></a></h3>
+<p>Il existe deux opérateurs usuels sur les chaînes : la <strong>concaténation</strong>
+et la <strong>répétition</strong>.</p>
+<section id="la-concatenation">
+<h4><span class="section-number">2.3.4.1. </span>La concaténation<a class="headerlink" href="#la-concatenation" title="Lien permanent vers ce titre"></a></h4>
+<p>La concaténation permet de construire une chaîne en mettant bout à bout
+deux ou plusieurs chaînes existantes. Elle est une sorte d’addition de
+chaînes. Elle se note d’ailleurs avec le signe <code class="docutils literal notranslate"><span class="pre">+</span></code>. Par exemple :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ch1</span> <span class="o">=</span> <span class="s2">&quot; en Python&quot;</span>
+<span class="n">ch2</span> <span class="o">=</span> <span class="s2">&quot; à Rennes 2.&quot;</span>
+<span class="n">chConc</span> <span class="o">=</span> <span class="n">maVarChaine</span> <span class="o">+</span> <span class="n">ch1</span> <span class="o">+</span> <span class="n">ch2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chaîne obtenue par concaténation : </span><span class="si">{</span><span class="n">chConc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Chaîne</span> <span class="n">obtenue</span> <span class="n">par</span> <span class="n">concaténation</span> <span class="p">:</span> <span class="n">Programmation</span> <span class="n">en</span> <span class="n">Python</span> <span class="n">à</span> <span class="n">Rennes</span> <span class="mf">2.</span>
+</pre></div>
+</div>
+</section>
+<section id="la-repetition">
+<h4><span class="section-number">2.3.4.2. </span>La répétition<a class="headerlink" href="#la-repetition" title="Lien permanent vers ce titre"></a></h4>
+<p>La répétition permet de construire une chaîne en répétant plusieurs fois
+une chaîne existante. Elle est une sorte de multiplication de chaînes.
+Elle se note d’ailleurs avec le signe <code class="docutils literal notranslate"><span class="pre">*</span></code>. Par exemple :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chMult</span> <span class="o">=</span> <span class="n">maVarChaine</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chaîne obtenue par multiplication : </span><span class="si">{</span><span class="n">chMult</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Chaîne</span> <span class="n">obtenue</span> <span class="n">par</span> <span class="n">multiplication</span> <span class="p">:</span> <span class="n">ProgrammationProgrammationProgrammationProgrammationProgrammation</span>
+</pre></div>
+</div>
+</section>
+<section id="longueur-dune-chaine">
+<h4><span class="section-number">2.3.4.3. </span>Longueur d’une chaîne<a class="headerlink" href="#longueur-dune-chaine" title="Lien permanent vers ce titre"></a></h4>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">len</span></code> prend en paramètre une chaîne et retourne sa
+longueur, c’est-à-dire son nombre de caractères. Par exemple :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La chaîne </span><span class="si">{</span><span class="n">chMult</span><span class="si">}</span><span class="s2"> contient </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">chMult</span><span class="p">)</span><span class="si">}</span><span class="s2"> caractères.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La chaîne &#39;L1 MIASHS&#39; contient </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;L1MIASHS&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> caractères.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">La</span> <span class="n">chaîne</span> <span class="n">ProgrammationProgrammationProgrammationProgrammationProgrammation</span> <span class="n">contient</span> <span class="mi">65</span> <span class="n">caractères</span><span class="o">.</span>
+<span class="n">La</span> <span class="n">chaîne</span> <span class="s1">&#39;L1 MIASHS&#39;</span> <span class="n">contient</span> <span class="mi">8</span> <span class="n">caractères</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="indice-dun-caractere-dans-une-chaine">
+<h4><span class="section-number">2.3.4.4. </span>Indice d’un caractère dans une chaîne<a class="headerlink" href="#indice-dun-caractere-dans-une-chaine" title="Lien permanent vers ce titre"></a></h4>
+<p>Les chaînes sont des objets sur lesquels il est possible d’appliquer des
+<strong>méthodes</strong> qui vont retourner des résultats. Syntaxiquement,
+l’application d’une méthode à un objet s’effectue avec l’instruction
+<code class="docutils literal notranslate"><span class="pre">Obj.NomMeth(listepara)</span></code> où :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Obj</span></code> est l’objet ou le nom de la variable référençant l’objet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NomMeth</span></code> est le nom de la méthode à appliquer sur l’objet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">listepara</span></code> est la liste des paramètres fournis à la méthode
+(séparés par des virgules).</p></li>
+</ul>
+<p>La notion de méthode est proche de celle de fonction, et sera vue plus
+en détails en licence 2. En Python, il existe de nombreuses méthodes
+prédéfinies pour les différents types d’objets. Parmi les méthodes qui
+s’appliquent aux chaînes, la méthode <code class="docutils literal notranslate"><span class="pre">index</span></code> prend en paramètre un
+caractère et retourne l’indice de la première occurrence de ce caractère
+dans la chaîne. Par exemple :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uneChaine</span> <span class="o">=</span> <span class="s2">&quot;Ce matin, je me suis levée de bonne heure.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le premier caractère &#39;a&#39; est situé à l&#39;indice </span><span class="si">{</span><span class="n">uneChaine</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> dans la chaîne.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le premier caractère &#39;u&#39; est situé à l&#39;indice </span><span class="si">{</span><span class="n">uneChaine</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> dans la chaîne.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Le</span> <span class="n">premier</span> <span class="n">caractère</span> <span class="s1">&#39;a&#39;</span> <span class="n">est</span> <span class="n">situé</span> <span class="n">à</span> <span class="n">l</span><span class="s1">&#39;indice 4 dans la chaîne.</span>
+<span class="n">Le</span> <span class="n">premier</span> <span class="n">caractère</span> <span class="s1">&#39;u&#39;</span> <span class="n">est</span> <span class="n">situé</span> <span class="n">à</span> <span class="n">l</span><span class="s1">&#39;indice 17 dans la chaîne.</span>
+</pre></div>
+</div>
+<p>Lorsque le caractère fourni en paramètre ne figure pas dans la chaîne,
+une erreur se produit :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le premier caractère &#39;w&#39; est situé à l&#39;indice </span><span class="si">{</span><span class="n">uneChaine</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> dans la chaîne.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+
+<span class="ne">ValueError</span>                                <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le premier caractère &#39;w&#39; est situé à l&#39;indice </span><span class="si">{</span><span class="n">uneChaine</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> dans la chaîne.&quot;</span><span class="p">)</span>
+
+
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">substring</span> <span class="ow">not</span> <span class="n">found</span>
+</pre></div>
+</div>
+</section>
+<section id="la-suppression-de-caracteres-en-debut-ou-en-fin-de-chaine-la-methode-strip">
+<h4><span class="section-number">2.3.4.5. </span>La suppression de caractères en début ou en fin de chaîne : la méthode <strong>strip()</strong><a class="headerlink" href="#la-suppression-de-caracteres-en-debut-ou-en-fin-de-chaine-la-methode-strip" title="Lien permanent vers ce titre"></a></h4>
+<p>La méthode <strong>strip()</strong> s’applique à une chaîne. Sa syntaxe est la
+suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Obj</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>où <code class="docutils literal notranslate"><span class="pre">Obj</span></code> et <code class="docutils literal notranslate"><span class="pre">ch</span></code> sont des chaînes ou des variables référençant des
+chaînes. Elle retourne en résultat une chaîne, correspondant à la chaîne
+<code class="docutils literal notranslate"><span class="pre">Obj</span></code> dans laquelle tous les caractères de la chaîne <code class="docutils literal notranslate"><span class="pre">ch</span></code> figurant
+au début et à la fin ont été supprimés.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ch_init</span> <span class="o">=</span> <span class="s2">&quot;,,,,,rrddgg.....bandana....rrr&quot;</span>
+<span class="n">car_sup</span> <span class="o">=</span> <span class="s2">&quot;,grd.&quot;</span>
+<span class="n">ch_finale</span> <span class="o">=</span> <span class="n">ch_init</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="n">car_sup</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Après suppression des caractères </span><span class="si">{</span><span class="n">car_sup</span><span class="si">}</span><span class="s2"> au début et à la fin, la chaîne finale est : </span><span class="si">{</span><span class="n">ch_finale</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Après</span> <span class="n">suppression</span> <span class="n">des</span> <span class="n">caractères</span> <span class="p">,</span><span class="n">grd</span><span class="o">.</span> <span class="n">au</span> <span class="n">début</span> <span class="n">et</span> <span class="n">à</span> <span class="n">la</span> <span class="n">fin</span><span class="p">,</span> <span class="n">la</span> <span class="n">chaîne</span> <span class="n">finale</span> <span class="n">est</span> <span class="p">:</span> <span class="n">bandana</span>
+</pre></div>
+</div>
+<p>Notons que le caractère « d » figurant dans la chaîne finale « bandana »
+n’a pas été supprimé car il n’est situé ni au début ni à la fin de la
+chaîne initiale <code class="docutils literal notranslate"><span class="pre">ch_init</span></code>.</p>
+<p>Lorsqu’aucun paramètre n’est fourni à la méthode <strong>strip()</strong>, ce sont
+les espaces situés en début et en fin de chaîne qui sont supprimés.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ch_init</span> <span class="o">=</span> <span class="s2">&quot;                    Hello !!                 &quot;</span>
+<span class="n">ch_finale</span> <span class="o">=</span> <span class="n">ch_init</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Après suppression des espaces au début et à la fin, la chaîne finale est : </span><span class="si">{</span><span class="n">ch_finale</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Après suppression des espaces au début et à la fin, la chaîne finale est : Hello !!
+</pre></div>
+</div>
+</section>
+</section>
+<section id="test-dappartenance-dun-caractere-a-une-chaine">
+<h3><span class="section-number">2.3.5. </span>Test d’appartenance d’un caractère à une chaîne<a class="headerlink" href="#test-dappartenance-dun-caractere-a-une-chaine" title="Lien permanent vers ce titre"></a></h3>
+<p>En Python, il existe une structure conditionnelle <code class="docutils literal notranslate"><span class="pre">if</span></code> permettant de
+tester si un caractère appartient ou pas à une chaîne. Un bloc
+d’instructions différent est ensuite exécuté en fonction de
+l’appartenance ou non du caractère à la chaîne. Sa syntaxe est la
+suivante :</p>
+<dl class="simple">
+<dt>if car in ch:</dt><dd><p>bloc 1</p>
+</dd>
+<dt>else:</dt><dd><p>bloc 2</p>
+</dd>
+</dl>
+<p>où : * <code class="docutils literal notranslate"><span class="pre">car</span></code> est un caractère ou une variable référençant un
+caractère * <code class="docutils literal notranslate"><span class="pre">ch</span></code> est une chaîne ou une variable référençant une
+chaîne Par exemple :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">voyelles</span> <span class="o">=</span> <span class="s2">&quot;aeiouyAEIOUY&quot;</span>
+<span class="n">MyCar</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Saisissez un caractère :&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">MyCar</span> <span class="ow">in</span> <span class="n">voyelles</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère </span><span class="si">{</span><span class="n">MyCar</span><span class="si">}</span><span class="s2"> est une voyelle.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le caractère </span><span class="si">{</span><span class="n">MyCar</span><span class="si">}</span><span class="s2"> n&#39;est pas une voyelle.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">un</span> <span class="n">caractère</span> <span class="p">:</span> <span class="n">k</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Le</span> <span class="n">caractère</span> <span class="n">k</span> <span class="n">n</span><span class="s1">&#39;est pas une voyelle.</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Introduction.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title"><span class="section-number">1. </span>Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="InstructionsConditionnelles.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Les instructions conditionnelles</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By E. Martienne-Ughetto<br/>
+  
+      &copy; Copyright 2023, E. Martienne-Ughetto.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

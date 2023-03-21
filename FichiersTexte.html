@@ -1,0 +1,1557 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>8. La manipulation des fichiers texte &#8212; Université Rennes 2 - Cours de Python - L1 MIASHS</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="7. Les dictionnaires" href="Dictionnaires.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/ILovePython.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Université Rennes 2 - Cours de Python - L1 MIASHS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Structures de données en Python I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Table des matières
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="LesbasesdulangagePython.html">
+   2. Les bases du langage Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="InstructionsConditionnelles.html">
+   3. Les instructions conditionnelles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Booleens.html">
+   4. Booléens et expressions booléennes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="InstructionsRepetitives.html">
+   5. Les instructions répétitives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ListesEtTuples.html">
+   6. Les listes et les tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dictionnaires.html">
+   7. Les dictionnaires
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   8. La manipulation des fichiers texte
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/FichiersTexte.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contenu de la page
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generalites-sur-lutilisation-de-fichiers-en-programmation">
+   8.1. Généralités sur l’utilisation de fichiers en programmation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pourquoi-utiliser-des-fichiers">
+     8.1.1. Pourquoi utiliser des fichiers ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-fichiers-texte">
+     8.1.2. Les fichiers texte
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#contenu">
+       8.1.2.1. Contenu
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#notion-dencodage">
+       8.1.2.2. Notion d’encodage
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-fichiers-binaires">
+     8.1.3. Les fichiers binaires
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manipulation-des-fichiers-texte-quelles-fonctionnalites">
+     8.1.4. Manipulation des fichiers texte : quelles fonctionnalités ?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipulation-des-fichiers-texte-en-python">
+   8.2. Manipulation des fichiers texte en Python
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recuperation-du-dossier-courant-la-fonction-getcwd-du-module-os">
+     8.2.1. Récupération du
+     <strong>
+      dossier courant
+     </strong>
+     : la fonction
+     <strong>
+      getcwd()
+     </strong>
+     du module
+     <strong>
+      os
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modification-du-dossier-courant-la-fonction-chdir-du-module-os">
+     8.2.2. Modification du dossier courant : la fonction
+     <strong>
+      chdir()
+     </strong>
+     du module
+     <strong>
+      os
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ouverture-dun-fichier-la-fonction-open">
+     8.2.3. Ouverture d’un fichier : la fonction
+     <strong>
+      open()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fermeture-dun-fichier-la-methode-close">
+     8.2.4. Fermeture d’un fichier : la méthode
+     <strong>
+      close()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lecture-integrale-dun-fichier-les-methodes-read-et-readlines">
+     8.2.5. Lecture intégrale d’un fichier : les méthodes
+     <strong>
+      read()
+     </strong>
+     et
+     <strong>
+      readlines()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ecriture-dans-un-fichier-la-methode-write">
+     8.2.6. Écriture dans un fichier : la méthode
+     <strong>
+      write()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linstruction-with-et-la-fermeture-automatique-de-fichier">
+     8.2.7. L’instruction
+     <strong>
+      with
+     </strong>
+     et la fermeture automatique de fichier
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parcours-dun-fichier-ligne-par-ligne-la-boucle-for-et-la-methode-readline-associee-a-une-boucle-while">
+     8.2.8. Parcours d’un fichier ligne par ligne : la boucle
+     <strong>
+      for
+     </strong>
+     et la méthode
+     <strong>
+      readline()
+     </strong>
+     associée à une boucle
+     <strong>
+      while
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utilisation-des-fichiers-au-format-csv-en-python-le-module-csv">
+   8.3. Utilisation des fichiers au format CSV en Python : le module csv
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quest-ce-que-le-format-csv">
+     8.3.1. Qu’est-ce que le format CSV ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dialecte-dun-fichier-csv">
+     8.3.2. Dialecte d’un fichier CSV
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>La manipulation des fichiers texte</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenu de la page </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generalites-sur-lutilisation-de-fichiers-en-programmation">
+   8.1. Généralités sur l’utilisation de fichiers en programmation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pourquoi-utiliser-des-fichiers">
+     8.1.1. Pourquoi utiliser des fichiers ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-fichiers-texte">
+     8.1.2. Les fichiers texte
+    </a>
+    <ul class="visible nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#contenu">
+       8.1.2.1. Contenu
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#notion-dencodage">
+       8.1.2.2. Notion d’encodage
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-fichiers-binaires">
+     8.1.3. Les fichiers binaires
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manipulation-des-fichiers-texte-quelles-fonctionnalites">
+     8.1.4. Manipulation des fichiers texte : quelles fonctionnalités ?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipulation-des-fichiers-texte-en-python">
+   8.2. Manipulation des fichiers texte en Python
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recuperation-du-dossier-courant-la-fonction-getcwd-du-module-os">
+     8.2.1. Récupération du
+     <strong>
+      dossier courant
+     </strong>
+     : la fonction
+     <strong>
+      getcwd()
+     </strong>
+     du module
+     <strong>
+      os
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modification-du-dossier-courant-la-fonction-chdir-du-module-os">
+     8.2.2. Modification du dossier courant : la fonction
+     <strong>
+      chdir()
+     </strong>
+     du module
+     <strong>
+      os
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ouverture-dun-fichier-la-fonction-open">
+     8.2.3. Ouverture d’un fichier : la fonction
+     <strong>
+      open()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fermeture-dun-fichier-la-methode-close">
+     8.2.4. Fermeture d’un fichier : la méthode
+     <strong>
+      close()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lecture-integrale-dun-fichier-les-methodes-read-et-readlines">
+     8.2.5. Lecture intégrale d’un fichier : les méthodes
+     <strong>
+      read()
+     </strong>
+     et
+     <strong>
+      readlines()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ecriture-dans-un-fichier-la-methode-write">
+     8.2.6. Écriture dans un fichier : la méthode
+     <strong>
+      write()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linstruction-with-et-la-fermeture-automatique-de-fichier">
+     8.2.7. L’instruction
+     <strong>
+      with
+     </strong>
+     et la fermeture automatique de fichier
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parcours-dun-fichier-ligne-par-ligne-la-boucle-for-et-la-methode-readline-associee-a-une-boucle-while">
+     8.2.8. Parcours d’un fichier ligne par ligne : la boucle
+     <strong>
+      for
+     </strong>
+     et la méthode
+     <strong>
+      readline()
+     </strong>
+     associée à une boucle
+     <strong>
+      while
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utilisation-des-fichiers-au-format-csv-en-python-le-module-csv">
+   8.3. Utilisation des fichiers au format CSV en Python : le module csv
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quest-ce-que-le-format-csv">
+     8.3.1. Qu’est-ce que le format CSV ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dialecte-dun-fichier-csv">
+     8.3.2. Dialecte d’un fichier CSV
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="la-manipulation-des-fichiers-texte">
+<h1><span class="section-number">8. </span>La manipulation des fichiers texte<a class="headerlink" href="#la-manipulation-des-fichiers-texte" title="Lien permanent vers ce titre"></a></h1>
+<p>L’objectif de ce chapitre est d’expliquer comment s’effectue, en langage
+Python, la lecture et l’écriture de données dans des fichiers. Seul le
+cas des fichiers de texte est abordé.</p>
+<section id="generalites-sur-lutilisation-de-fichiers-en-programmation">
+<h2><span class="section-number">8.1. </span>Généralités sur l’utilisation de fichiers en programmation<a class="headerlink" href="#generalites-sur-lutilisation-de-fichiers-en-programmation" title="Lien permanent vers ce titre"></a></h2>
+<section id="pourquoi-utiliser-des-fichiers">
+<h3><span class="section-number">8.1.1. </span>Pourquoi utiliser des fichiers ?<a class="headerlink" href="#pourquoi-utiliser-des-fichiers" title="Lien permanent vers ce titre"></a></h3>
+<p>Jusqu’à présent, les données que nous avons traitées dans des programmes
+étaient :</p>
+<ul class="simple">
+<li><p>stockées dans des variables (simples ou structurées) grâce à des
+affectations, directement dans le code source</p></li>
+<li><p>saisies au clavier puis stockées dans des variables au cours de
+l’exécution.</p></li>
+</ul>
+<p>Ces deux méthodes sont très limitées et inadaptées pour traiter de
+grandes quantités de données. Prenons l’exemple d’un programme calculant
+la moyenne obtenue par 1500 élèves à un contrôle de maths. Il n’est pas
+envisageable de déclarer dans le programme 1500 variables pour stocker
+les 1500 notes. Il n’est pas non plus raisonnable de saisir au clavier
+les 1500 notes. En supposant qu’on puisse tout de même le faire, cela
+signifie que si les valeurs des notes ou leur nombre changent il faudra
+modifier le code source du programme. Or, un programme bien conçu doit
+être indépendant des données qu’il traite. La quantité de données ainsi
+que leurs valeurs doivent pouvoir changer sans qu’on ait besoin de
+modifier le programme.</p>
+<p>Jusqu’à présent également, les résultats produits par nos programmes
+étaient simplement affichés à l’écran. Or, les résultats produits sont
+souvent trop volumineux pour être simplement affichés. Ils ont aussi
+parfois besoin d’être conservés, ce que ne permet pas l’affichage à
+l’écran.</p>
+<p>L’intérêt des fichiers est de bien séparer les programmes des données
+qu’ils traitent et des résultats qu’ils produisent. L’utilisation de
+fichiers permet de stocker dans des fichiers séparés :</p>
+<ul class="simple">
+<li><p>le programme source</p></li>
+<li><p>les données à traiter, c’est-à-dire les <strong>entrées</strong> ou le <strong>fichier
+d’entrées</strong></p></li>
+<li><p>les données produites, c’est-à-dire les <strong>sorties</strong> ou le <strong>fichier
+de sorties</strong>.</p></li>
+</ul>
+<p>Si on prend l’exemple d’un programme calculant les moyennes obtenues par
+des étudiants à trois examens (cf. figure ci-dessous), le fichier
+d’entrées contient la liste des étudiants, avec pour chacun les trois
+notes obtenues. Le fichier de sorties contient la même liste
+d’étudiants, avec pour chacun la moyenne obtenue.</p>
+<figure class="align-default" id="id1">
+<img alt="Programme utilisant des fichiers" src="_images/EntreesSorties.PNG" />
+<figcaption>
+<p><span class="caption-text">Programme utilisant des fichiers</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>La seule contrainte imposée par l’utilisation de fichiers pour les
+entrées et les sorties est la définition précise et sans ambiguïté de la
+syntaxe (i.e., le format) de ces fichiers. Cette définition de la
+syntaxe doit précéder l’écriture du programme source, qui doit en tenir
+compte. Dans notre exemple, une syntaxe possible pour le fichier
+d’entrées est montrée sur la figure suivante. Dans cette syntaxe, chaque
+ligne contient les caractéristiques d’un étudiant(e) séparées par des
+virgules : nom, prénom, note obtenue au 1er examen, note obtenue au 2e
+examen, note obtenue au 3e examen.</p>
+<figure class="align-default" id="id2">
+<img alt="Syntaxe du fichier d’entrées" src="_images/SyntaxeEntrees.PNG" />
+<figcaption>
+<p><span class="caption-text">Syntaxe du fichier d’entrées</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Le fichier de sorties peut reprendre la même syntaxe que le fichier
+d’entrées, à ceci près que les 3 notes sont remplacées par la moyenne.</p>
+<figure class="align-default" id="id3">
+<img alt="Syntaxe du fichier de sorties" src="_images/SyntaxeSorties.PNG" />
+<figcaption>
+<p><span class="caption-text">Syntaxe du fichier de sorties</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Il existe principalement deux types de fichiers :</p>
+<ul class="simple">
+<li><p>les fichiers texte</p></li>
+<li><p>les fichiers binaires</p></li>
+</ul>
+</section>
+<section id="les-fichiers-texte">
+<h3><span class="section-number">8.1.2. </span>Les fichiers texte<a class="headerlink" href="#les-fichiers-texte" title="Lien permanent vers ce titre"></a></h3>
+<section id="contenu">
+<h4><span class="section-number">8.1.2.1. </span>Contenu<a class="headerlink" href="#contenu" title="Lien permanent vers ce titre"></a></h4>
+<p>Comme son nom l’indique, un fichier texte contient des données
+textuelles, lisibles grâce à l’utilisation d’un <strong>éditeur de texte</strong> tel
+que <strong>Notepad++</strong>, <strong>Bloc-notes</strong>, <strong>Xemacs</strong> ou <strong>Sublime Text</strong>. Ces
+données textuelles peuvent être :</p>
+<ul class="simple">
+<li><p>des caractères imprimables : lettres, chiffres, ponctuation,
+symboles, etc</p></li>
+<li><p>des espaces</p></li>
+<li><p>des caractères de fin de paragraphe ou de fin de ligne.</p></li>
+</ul>
+<p>Tous les programmes sources, quel que soit le langage utilisé, sont
+mémorisés dans des fichiers texte. Un fichier texte peut également être
+utilisé pour conserver des données textuelles brutes, c’est-à-dire sans
+aucune mise en forme.</p>
+</section>
+<section id="notion-dencodage">
+<h4><span class="section-number">8.1.2.2. </span>Notion d’encodage<a class="headerlink" href="#notion-dencodage" title="Lien permanent vers ce titre"></a></h4>
+<p>Dans la mémoire vive d’un ordinateur ou sur un support de stockage tel
+qu’un disque dur, toutes les données, quels que soient leurs types, sont
+codées à l’aide d’un <strong>langage binaire</strong>, dont l’alphabet se compose de
+deux symboles uniquement : <strong>0</strong> et <strong>1</strong>. Chaque caractère d’un fichier
+texte est donc mémorisé à l’aide d’une <strong>suite de bits</strong>, c’est-à-dire
+une suite de chiffres dont la valeur est 0 ou 1. La suite de bits
+représentant un caractère dépend de l’<strong>encodage</strong> utilisé. En
+informatique, un encodage est un processus permettant de traduire un
+caractère en une suite plus ou moins longue de bits qui correspond à sa
+représentation binaire. Il existe de nombreux encodages, parmi lesquels
+nous pouvons citer les plus couramment utilisés :</p>
+<ul class="simple">
+<li><p>ASCII : un des premiers encodages utilisés en informatique. Il n’est
+quasiment plus utilisé aujourd’hui car il ne permet l’encodage que de
+128 caractères différents.</p></li>
+<li><p>ISO-8859-1 ou ANSI : encodage dit « occidental » permettant de coder
+tous les caractères latins.</p></li>
+<li><p>UTF-8 : encodage le plus répandu depuis 2016. Il permet de coder de
+nombreux caractères issus de nombreux alphabets (latin, arabe,
+cyrillique, etc).</p></li>
+</ul>
+<p>Le tableau suivant montre les représentations binaires des caractères «
+e » et « é » avec les trois encodages cités ci-dessus.</p>
+<table class="table">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 29%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Caractère</p></th>
+<th class="head"><p>ASCII</p></th>
+<th class="head"><p>ANSI</p></th>
+<th class="head"><p>UTF-8</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>e</p></td>
+<td><p>01100101</p></td>
+<td><p>01100101</p></td>
+<td><p>01100101</p></td>
+</tr>
+<tr class="row-odd"><td><p>é</p></td>
+<td><p>non défini</p></td>
+<td><p>11101001</p></td>
+<td><p>11000011</p></td>
+</tr>
+</tbody>
+</table>
+<p>Nous pouvons remarquer que la représentation binaire de « e » est
+identique dans les trois encodages. En revanche, le « é » ne peut être
+codé en ASCII. De plus, sa représentation binaire est différente en ANSI
+et en UTF-8. Ces observations sont identiques pour tous les caractères
+accentués.</p>
+<p>Lorsqu’on travaille avec un fichier texte, il est primordial de savoir
+avec quel encodage il a été mémorisé. Supposons par exemple que nous
+créons un fichier texte, en utilisant l’encodage ANSI. Le contenu du
+fichier est le suivant :</p>
+<figure class="align-default" id="id4">
+<img alt="Fichier texte initial" src="_images/Fichier_ANSI_Init.PNG" />
+<figcaption>
+<p><span class="caption-text">Fichier texte initial</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Nous envoyons via la messagerie électronique ce fichier à deux amis A et
+B. Notre ami A récupère le fichier, puis l’ouvre dans son éditeur de
+texte en utilisant également l’encodage ANSI. Voici ce qui s’affiche sur
+l’écran de A :</p>
+<figure class="align-default" id="id5">
+<img alt="Fichier ouvert avec ANSI" src="_images/Fichier_ANSI_Init.PNG" />
+<figcaption>
+<p><span class="caption-text">Fichier ouvert avec ANSI</span><a class="headerlink" href="#id5" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Dans ce cas, tout se passe bien : l’encodage utilisé par A pour lire le
+fichier est le même que celui avec lequel nous l’avons créé.</p>
+<p>Notre ami B récupère également le fichier, mais l’ouvre dans son éditeur
+en utilisant l’encodage UTF-8. Voici ce qui s’affiche sur l’écran de B :</p>
+<figure class="align-default" id="id6">
+<img alt="Fichier ouvert avec UTF-8" src="_images/Fichier_UTF-8.PNG" />
+<figcaption>
+<p><span class="caption-text">Fichier ouvert avec UTF-8</span><a class="headerlink" href="#id6" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Dans ce cas, tous les caractères apparaissent normalement, sauf les
+caractères accentués ! Ce qui est normal puisque ces caractères ne sont
+pas codés de la même façon en ANSI et en UTF-8. Leur lecture avec un
+encodage UTF-8, alors qu’ils ont été mémorisés avec ANSI, ne peut donc
+pas s’effectuer correctement.</p>
+<p>Autre exemple illustrant l’importance de l’encodage pour le traitement
+des fichiers texte : voici ci-dessous un fichier texte encodé en UTF-8 :</p>
+<figure class="align-default" id="id7">
+<img alt="Fichier encodé avec UTF-8" src="_images/Exemple2_utf-8.PNG" />
+<figcaption>
+<p><span class="caption-text">Fichier encodé avec UTF-8</span><a class="headerlink" href="#id7" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Voici ci-dessous le même fichier ouvert avec un encodage ANSI :</p>
+<figure class="align-default" id="id8">
+<img alt="Fichier lu avec ANSI" src="_images/Exemple2_ansi.PNG" />
+<figcaption>
+<p><span class="caption-text">Fichier lu avec ANSI</span><a class="headerlink" href="#id8" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Tous les caractères accentués ont été mal décodés et apparaissent comme
+des suites de deux caractères telles que « Ã© » (à la place de « é ») ou
+« Ã¯ » (à la place de « ï »).</p>
+<p>L’encodage est donc une information essentielle lorsqu’on traite des
+fichiers texte. Dans la plupart des langages de programmation,
+l’encodage est une information qui doit être fournie aux différentes
+instructions/fonctions/méthodes qui lisent les données contenues dans
+les fichiers texte. Tous les éditeurs permettent généralement de
+paramétrer l’encodage utilisé pour créer un fichier, ou de modifier
+l’encodage d’un fichier existant. Lorsqu’on ne connaît pas l’encodage
+d’un fichier texte, une bonne méthode est d’ouvrir ce fichier avec un
+éditeur, et de tester plusieurs encodages jusqu’à obtenir celui avec
+lequel le contenu du fichier (en particulier les caractères accentués !)
+est lisible.</p>
+</section>
+</section>
+<section id="les-fichiers-binaires">
+<h3><span class="section-number">8.1.3. </span>Les fichiers binaires<a class="headerlink" href="#les-fichiers-binaires" title="Lien permanent vers ce titre"></a></h3>
+<p>Un <strong>fichier binaire</strong> est un fichier contenant des données non
+textuelles qui sont illisibles avec un éditeur de texte. Voici quelques
+exemples de fichiers binaires :</p>
+<ul class="simple">
+<li><p>une image (format, JPEG, GIF, PNG, etc)</p></li>
+<li><p>un son (format WAV, MP3, etc)</p></li>
+<li><p>une vidéo (format AVI, MOV, MP4, etc)</p></li>
+<li><p>un programme exécutable (fichier ayant l’extension .exe)</p></li>
+<li><p>un document Word, Excel, Libre Office, etc</p></li>
+</ul>
+<p>La plupart du temps (à l’exception des programmes exécutables), les
+fichiers binaires sont créés à l’aide de logiciele dédiés (Paint, Gimp,
+Word, Excel, etc). Seuls ces logiciels dédiés permettent d’en lire les
+contenus.</p>
+<p>Prenons l’exemple d’un fichier contenant une image au format PNG.
+Lorsqu’on ouvre ce fichier avec le logiciel de traitement d’images
+Irfanview, l’image s’affiche correctement :</p>
+<figure class="align-default" id="id9">
+<img alt="Image lue avec Irfanview" src="_images/png_irfanview.PNG" />
+<figcaption>
+<p><span class="caption-text">Image lue avec Irfanview</span><a class="headerlink" href="#id9" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Lorsqu’on essaie d’ouvrir le même fichier avec un éditeur de texte,
+voici ce qui s’affiche :</p>
+<figure class="align-default" id="id10">
+<img alt="Image lue avec éditeur" src="_images/png_texte.PNG" />
+<figcaption>
+<p><span class="caption-text">Image lue avec éditeur</span><a class="headerlink" href="#id10" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Voici ce que donne un diaporama Powerpoint… ouvert avec Powerpoint :</p>
+<figure class="align-default" id="id11">
+<img alt="Diaporama lu avec Powerpoint" src="_images/diapo_ppt.PNG" />
+<figcaption>
+<p><span class="caption-text">Diaporama lu avec Powerpoint</span><a class="headerlink" href="#id11" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>et ouvert avec un éditeur de texte :</p>
+<figure class="align-default" id="id12">
+<img alt="Diaporama lu avec éditeur" src="_images/diapo_texte.PNG" />
+<figcaption>
+<p><span class="caption-text">Diaporama lu avec éditeur</span><a class="headerlink" href="#id12" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="manipulation-des-fichiers-texte-quelles-fonctionnalites">
+<h3><span class="section-number">8.1.4. </span>Manipulation des fichiers texte : quelles fonctionnalités ?<a class="headerlink" href="#manipulation-des-fichiers-texte-quelles-fonctionnalites" title="Lien permanent vers ce titre"></a></h3>
+<p>Dans ce chapitre, nous nous intéresserons à la manipulation des fichiers
+texte uniquement. Pour pouvoir traiter correctement les fichiers texte,
+en tant que fichiers d’entrées ou de sorties, les programmes doivent
+être en mesure :</p>
+<ul class="simple">
+<li><p>d’ouvrir un fichier se trouvant sur un support de stockage</p></li>
+<li><p>de lire tout le contenu d’un fichier</p></li>
+<li><p>de créer un nouveau fichier</p></li>
+<li><p>d’écrire des données dans un fichier</p></li>
+<li><p>de modifier des données se trouvant dans un fichier</p></li>
+<li><p>de fermer un fichier</p></li>
+</ul>
+<p>La plupart des langages proposent toutes ces fonctionnalités.</p>
+</section>
+</section>
+<section id="manipulation-des-fichiers-texte-en-python">
+<h2><span class="section-number">8.2. </span>Manipulation des fichiers texte en Python<a class="headerlink" href="#manipulation-des-fichiers-texte-en-python" title="Lien permanent vers ce titre"></a></h2>
+<p>Comme vous pourrez le constater dans la suite de cette section, un
+fichier en Python est considéré comme un objet. Voici donc les
+principales fonctions et méthodes permettant de traiter des fichiers
+texte.</p>
+<section id="recuperation-du-dossier-courant-la-fonction-getcwd-du-module-os">
+<h3><span class="section-number">8.2.1. </span>Récupération du <strong>dossier courant</strong> : la fonction <strong>getcwd()</strong> du module <strong>os</strong><a class="headerlink" href="#recuperation-du-dossier-courant-la-fonction-getcwd-du-module-os" title="Lien permanent vers ce titre"></a></h3>
+<p>Le <strong>dossier courant</strong> est le dossier dans lequel s’exécute un
+programme. Ce dossier peut varier d’un environnement de programmation à
+un autre. Dans PyCharm, lorsqu’on exécute un programme Python, le
+dossier courant est celui où est stocké le programme. Dans VSCode, le
+dossier courant est le dossier qui a été ouvert pour travailler (qui
+n’est pas forcément celui où est stocké le programme qu’on exécute !).
+La fonction <strong>getcwd()</strong> permet de connaître le dossier courant dans
+lequel s’exécute un programme. Elle retourne une chaîne contenant le
+chemin complet du dossier courant.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">courant</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le dossier courant est : </span><span class="si">{</span><span class="n">courant</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<pre class="literal-block">Le dossier courant est : <code class="docutils literal notranslate"><span class="pre">C:\Users\martienne_e</span></code>.</pre>
+<p>Lorsqu’un programme traite des fichiers, <strong>ceux-ci doivent
+impérativement être stockés dans le dossier courant</strong>.</p>
+</section>
+<section id="modification-du-dossier-courant-la-fonction-chdir-du-module-os">
+<h3><span class="section-number">8.2.2. </span>Modification du dossier courant : la fonction <strong>chdir()</strong> du module <strong>os</strong><a class="headerlink" href="#modification-du-dossier-courant-la-fonction-chdir-du-module-os" title="Lien permanent vers ce titre"></a></h3>
+<p>Il est possible de modifier le dossier courant avec la fonction
+<strong>chdir()</strong>. La syntaxe de cette fonction est la suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">chemin</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>où <code class="docutils literal notranslate"><span class="pre">chemin</span></code> est une chaîne contenant le chemin complet du nouveau
+dossier courant (dossier dans lequel doivent impérativement figurer les
+fichiers à traiter !!). Le programme suivant est un exemple
+d’utilisation de la fonction <strong>chdir()</strong> permettant de paramétrer le
+dossier <code class="docutils literal notranslate"><span class="pre">'C:\Users\martienne_e\data'</span></code> comme nouveau dossier courant.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">courant</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le dossier courant est : </span><span class="si">{</span><span class="n">courant</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">nouveau</span> <span class="o">=</span> <span class="n">courant</span> <span class="o">+</span> <span class="s1">&#39;\data&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">nouveau</span><span class="p">)</span>
+<span class="n">courant</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le nouveau dossier courant est : </span><span class="si">{</span><span class="n">courant</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<pre class="literal-block">Le dossier courant est : <code class="docutils literal notranslate"><span class="pre">C:\Users\martienne_e</span></code>
+Le nouveau dossier courant est : <code class="docutils literal notranslate"><span class="pre">C:\Users\martienne_e\data</span></code></pre>
+</section>
+<section id="ouverture-dun-fichier-la-fonction-open">
+<h3><span class="section-number">8.2.3. </span>Ouverture d’un fichier : la fonction <strong>open()</strong><a class="headerlink" href="#ouverture-dun-fichier-la-fonction-open" title="Lien permanent vers ce titre"></a></h3>
+<p>Pour traiter un fichier dans un programme, la première chose à faire est
+d’ouvrir le fichier (un fichier est comme un livre : il faut l’ouvrir
+avant de pouvoir le lire !). C’est la fonction <strong>open()</strong> qui permet
+d’ouvrir un fichier. Elle prend en paramètres :</p>
+<ul class="simple">
+<li><p>une chaîne (ou une variable de type chaîne) contenant le nom complet
+du fichier à ouvrir</p></li>
+<li><p>une chaîne (ou une variable de type chaîne) représentant le <strong>mode
+d’ouverture</strong> du fichier.</p></li>
+</ul>
+<p>Le <strong>mode d’ouverture</strong> d’un fichier va déterminer le type du fichier et
+la manière dont on va l’utiliser. Il est représenté par une chaîne
+pouvant contenir les caractères suivants :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'t'</span></code> pour un fichier de type texte (type par défaut).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'b'</span></code> pour un fichier de type binaire.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'r'</span></code> pour ouvrir un fichier en lecture seule, ce qui signifie
+qu’il sera possible de lire les données qu’il contient mais pas d’y
+écrire des données.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'w'</span></code> pour ouvrir un fichier en écriture. Dans ce mode, il sera
+uniquement possible d’écrire dans le fichier. Si le fichier existe
+déjà, tout son contenu sera remplacé par les nouvelles données
+écrites par le programme. Si le fichier n’existe pas, il sera créé.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'a'</span></code> pour ouvrir un fichier en ajout. Dans ce mode, il sera
+uniquement possible d’écrire dans le fichier. Si le fichier existe
+déjà, les données écrites viendront s’ajouter au contenu du fichier.
+Si le fichier n’existe pas, il sera créé.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'x'</span></code> pour ouvrir un fichier en écriture et en création exclusive.
+Dans ce mode, le fichier ne doit pas exister sinon une erreur se
+produit. Le programme va créer le fichier et écrire les données qu’il
+produit dedans.</p></li>
+</ul>
+<p>Voici deux exemples de modes d’ouverture pouvant être fournis en
+paramètres de la fonction <strong>open()</strong> :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'tr'</span></code> : fichier texte à ouvrir en lecture seule</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'bw'</span></code> : fichier binaire à ouvrir en écriture.</p></li>
+</ul>
+<p>Tout interpréteur Python considère par défaut que l’encodage des
+fichiers texte est celui du système utilisé (exemple : cp1252 sous
+Windows). Pour ouvrir un fichier texte en utilisant un encodage
+différent de celui par défaut, il faut ajouter à la fonction <strong>open()</strong>
+un troisième paramètre optionnel, nommé <code class="docutils literal notranslate"><span class="pre">encoding</span></code>, dont la valeur est
+une chaîne correspondant au nom de l’encodage à utiliser.</p>
+<p>La fonction retourne en résultat un <strong>objet fichier</strong> (objet référençant
+un fichier) qui sera utilisé dans la suite du programme pour manipuler
+le fichier.</p>
+<p>Voici des exemples d’utilisation de la fonction <strong>open()</strong> :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fichtxt</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Objet fichier : </span><span class="si">{</span><span class="n">fichtxt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Objet</span> <span class="n">fichier</span> <span class="p">:</span> <span class="o">&lt;</span><span class="n">_io</span><span class="o">.</span><span class="n">TextIOWrapper</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;data.txt&#39;</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;rt&#39;</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>La fonction ouvre en lecture seule le fichier texte <code class="docutils literal notranslate"><span class="pre">data.txt</span></code> situé
+dans le dossier courant. L’encodage utilisé est UTF-8. Elle retourne
+l’objet référençant ce fichier dans la variable <code class="docutils literal notranslate"><span class="pre">fichtxt</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fichdata</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Objet fichier : </span><span class="si">{</span><span class="n">fichdata</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Objet</span> <span class="n">fichier</span> <span class="p">:</span> <span class="o">&lt;</span><span class="n">_io</span><span class="o">.</span><span class="n">TextIOWrapper</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sample.txt&#39;</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;rt&#39;</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;cp1252&#39;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>La fonction ouvre en lecture seule le fichier texte <code class="docutils literal notranslate"><span class="pre">sample.txt</span></code> situé
+dans le dossier courant. L’encodage utilisé est celui par défaut :
+cp1252 (Windows). Elle retourne l’objet référençant ce fichier dans la
+variable <code class="docutils literal notranslate"><span class="pre">fichdata</span></code>.</p>
+</section>
+<section id="fermeture-dun-fichier-la-methode-close">
+<h3><span class="section-number">8.2.4. </span>Fermeture d’un fichier : la méthode <strong>close()</strong><a class="headerlink" href="#fermeture-dun-fichier-la-methode-close" title="Lien permanent vers ce titre"></a></h3>
+<p>Dans un programme, dès qu’un fichier n’est plus utilisé il doit être
+fermé (comme un livre !!). La méthode <strong>close()</strong> permet de fermer un
+fichier. Elle ne prend aucun paramètre et s’applique à l’objet fichier à
+fermer (valeur de retour de la fonction <strong>open()</strong>).</p>
+<p>Voici les deux exemples précédents, dans lesquels ont été ajoutées les
+fermetures des deux fichiers.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ouverture du fichier</span>
+<span class="n">fichtxt</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+
+<span class="c1"># Affichage de l&#39;objet référençant le fichier</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Objet fichier : </span><span class="si">{</span><span class="n">fichtxt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Fermeture du fichier</span>
+<span class="n">fichtxt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Objet</span> <span class="n">fichier</span> <span class="p">:</span> <span class="o">&lt;</span><span class="n">_io</span><span class="o">.</span><span class="n">TextIOWrapper</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;data.txt&#39;</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;rt&#39;</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ouverture du fichier</span>
+<span class="n">fichdata</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">)</span>
+
+<span class="c1"># Affichage de l&#39;objet référençant le fichier</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Objet fichier : </span><span class="si">{</span><span class="n">fichdata</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Fermeture du fichier</span>
+<span class="n">fichdata</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Objet</span> <span class="n">fichier</span> <span class="p">:</span> <span class="o">&lt;</span><span class="n">_io</span><span class="o">.</span><span class="n">TextIOWrapper</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sample.txt&#39;</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;rt&#39;</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;cp1252&#39;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Un fichier ouvert dans un programme et non fermé avant la fin du
+programme risque d’être endommagé. Il faut donc bien penser à fermer un
+fichier dès qu’il n’est plus utilisé. L’instruction <strong>with</strong>, que nous
+aborderons plus loin dans ce chapitre, permet la fermeture implicite et
+donc l’utilisation sécurisée d’un fichier.</p>
+</section>
+<section id="lecture-integrale-dun-fichier-les-methodes-read-et-readlines">
+<h3><span class="section-number">8.2.5. </span>Lecture intégrale d’un fichier : les méthodes <strong>read()</strong> et <strong>readlines()</strong><a class="headerlink" href="#lecture-integrale-dun-fichier-les-methodes-read-et-readlines" title="Lien permanent vers ce titre"></a></h3>
+<p>La méthode <strong>read()</strong> s’applique à un objet fichier, et permet de lire
+son contenu. Lorsqu’aucun paramètre ne lui est fourni, elle retourne une
+chaîne contenant tous les caractères contenus dans le fichier. Voici un
+exemple de lecture complète et d’affichage du contenu d’un fichier (pour
+info : le fichier <code class="docutils literal notranslate"><span class="pre">data.txt</span></code> contient un poème de Charles Baudelaire).</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ouverture du fichier</span>
+<span class="n">fichtxt</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+
+<span class="c1"># Lecture de tous les caractères et stockage dans une chaîne</span>
+<span class="n">contenu</span> <span class="o">=</span> <span class="n">fichtxt</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Fermeture du fichier</span>
+<span class="n">fichtxt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Affichage de la chaîne</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contenu</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Souvent, pour s’amuser, les hommes d’équipage
+Prennent des albatros, vastes oiseaux des mers,
+Qui suivent, indolents compagnons de voyage,
+Le navire glissant sur les gouffres amers.
+
+A peine les ont-ils déposés sur les planches,
+Que ces rois de l’azur, maladroits et honteux,
+Laissent piteusement leurs grandes ailes blanches
+Comme des avirons traîner à côté d’eux.
+
+Ce voyageur ailé, comme il est gauche et veule !
+Lui, naguère si beau, qu’il est comique et laid !
+L’un agace son bec avec un brûle-gueule,
+L’autre mime, en boitant, l’infirme qui volait !
+
+Le Poète est semblable au prince des nuées
+Qui hante la tempête et se rit de l’archer ;
+Exilé sur le sol au milieu des huées,
+Ses ailes de géant l’empêchent de marcher.
+
+Charles Baudelaire
+</pre></div>
+</div>
+<p>Il est possible de fournir en paramètre de la fonction <strong>read()</strong> un
+nombre entier indiquant le nombre de caractères à lire (à partir du
+début du fichier). L’exemple suivant montre comment lire uniquement les
+15 premiers caractères d’un fichier.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ouverture du fichier</span>
+<span class="n">fichtxt</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+
+<span class="c1"># Lecture des 15 premiers caractères et stockage dans une chaîne</span>
+<span class="n">contenu</span> <span class="o">=</span> <span class="n">fichtxt</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="c1"># Fermeture du fichier</span>
+<span class="n">fichtxt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Affichage de la chaîne</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contenu</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Souvent</span><span class="p">,</span> <span class="n">pour</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>Tout comme la méthode <strong>read()</strong>, la méthode <strong>readlines()</strong> permet de
+lire le contenu d’un fichier. Elle s’applique à l’objet fichier, et
+retourne le contenu du fichier sous la forme d’une liste de chaînes, où
+chaque chaîne correspond à une ligne du fichier (1re chaîne = 1re ligne,
+2e chaîne = 2e ligne, etc). Il s’agit donc d’une méthode adaptée pour
+effectuer un traitement ligne par ligne du contenu d’un fichier.
+Lorsqu’aucun paramètre ne lui est fourni, elle retourne toutes les
+lignes du fichier. Il est possible de stopper la lecture des lignes
+lorsqu’un nombre de caractères (à partir du premier) a été atteint. Il
+suffit pour cela de fournir ce nombre en paramètre de la fonction. Dans
+ce cas, la lecture des lignes s’arrête lorsque le nombre de caractères
+souhaité a été atteint.</p>
+<p>Le programme suivant lit toutes les lignes du fichier <code class="docutils literal notranslate"><span class="pre">data.txt</span></code>,
+affiche la liste de chaînes obtenues, puis chaque ligne du fichier une
+par une.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ouverture du fichier</span>
+<span class="n">fichtxt</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+
+<span class="c1"># Lecture des lignes et stockage dans une liste de chaînes</span>
+<span class="n">lignes</span> <span class="o">=</span> <span class="n">fichtxt</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="c1"># Fermeture du fichier</span>
+<span class="n">fichtxt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Affichage de la liste de chaînes</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Liste des chaînes lues dans le fichier : </span><span class="se">\n</span><span class="si">{</span><span class="n">lignes</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Affichage des lignes une par une</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Affichage ligne par ligne :</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lignes</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<pre class="literal-block">Liste des chaînes lues dans le fichier :
+<code class="docutils literal notranslate"><span class="pre">['Souvent,</span> <span class="pre">pour</span> <span class="pre">s’amuser,</span> <span class="pre">les</span> <span class="pre">hommes</span> <span class="pre">d’équipage\n',</span> <span class="pre">'Prennent</span> <span class="pre">des</span> <span class="pre">albatros,</span> <span class="pre">vastes</span> <span class="pre">oiseaux</span> <span class="pre">des</span> <span class="pre">mers,\n',</span> <span class="pre">'Qui</span> <span class="pre">suivent,</span> <span class="pre">indolents</span> <span class="pre">compagnons</span> <span class="pre">de</span> <span class="pre">voyage,\n',</span> <span class="pre">'Le</span> <span class="pre">navire</span> <span class="pre">glissant</span> <span class="pre">sur</span> <span class="pre">les</span> <span class="pre">gouffres</span> <span class="pre">amers.\n',</span> <span class="pre">'\n',</span> <span class="pre">'A</span> <span class="pre">peine</span> <span class="pre">les</span> <span class="pre">ont-ils</span> <span class="pre">déposés</span> <span class="pre">sur</span> <span class="pre">les</span> <span class="pre">planches,\n',</span> <span class="pre">'Que</span> <span class="pre">ces</span> <span class="pre">rois</span> <span class="pre">de</span> <span class="pre">l’azur,</span> <span class="pre">maladroits</span> <span class="pre">et</span> <span class="pre">honteux,\n',</span> <span class="pre">'Laissent</span> <span class="pre">piteusement</span> <span class="pre">leurs</span> <span class="pre">grandes</span> <span class="pre">ailes</span> <span class="pre">blanches\n',</span> <span class="pre">'Comme</span> <span class="pre">des</span> <span class="pre">avirons</span> <span class="pre">traîner</span> <span class="pre">à</span> <span class="pre">côté</span> <span class="pre">d’eux.\n',</span> <span class="pre">'\n',</span> <span class="pre">'Ce</span> <span class="pre">voyageur</span> <span class="pre">ailé,</span> <span class="pre">comme</span> <span class="pre">il</span> <span class="pre">est</span> <span class="pre">gauche</span> <span class="pre">et</span> <span class="pre">veule</span> <span class="pre">!\n',</span> <span class="pre">'Lui,</span> <span class="pre">naguère</span> <span class="pre">si</span> <span class="pre">beau,</span> <span class="pre">qu’il</span> <span class="pre">est</span> <span class="pre">comique</span> <span class="pre">et</span> <span class="pre">laid</span> <span class="pre">!\n',</span> <span class="pre">'L’un</span> <span class="pre">agace</span> <span class="pre">son</span> <span class="pre">bec</span> <span class="pre">avec</span> <span class="pre">un</span> <span class="pre">brûle-gueule,\n',</span> <span class="pre">'L’autre</span> <span class="pre">mime,</span> <span class="pre">en</span> <span class="pre">boitant,</span> <span class="pre">l’infirme</span> <span class="pre">qui</span> <span class="pre">volait</span> <span class="pre">!\n',</span> <span class="pre">'\n',</span> <span class="pre">'Le</span> <span class="pre">Poète</span> <span class="pre">est</span> <span class="pre">semblable</span> <span class="pre">au</span> <span class="pre">prince</span> <span class="pre">des</span> <span class="pre">nuées\n',</span> <span class="pre">'Qui</span> <span class="pre">hante</span> <span class="pre">la</span> <span class="pre">tempête</span> <span class="pre">et</span> <span class="pre">se</span> <span class="pre">rit</span> <span class="pre">de</span> <span class="pre">l’archer</span> <span class="pre">;\n',</span> <span class="pre">'Exilé</span> <span class="pre">sur</span> <span class="pre">le</span> <span class="pre">sol</span> <span class="pre">au</span> <span class="pre">milieu</span> <span class="pre">des</span> <span class="pre">huées,\n',</span> <span class="pre">'Ses</span> <span class="pre">ailes</span> <span class="pre">de</span> <span class="pre">géant</span> <span class="pre">l’empêchent</span> <span class="pre">de</span> <span class="pre">marcher.\n',</span> <span class="pre">'\n',</span> <span class="pre">'Charles</span> <span class="pre">Baudelaire']</span></code>
+
+Affichage ligne par ligne :
+
+Souvent, pour s’amuser, les hommes d’équipage
+Prennent des albatros, vastes oiseaux des mers,
+Qui suivent, indolents compagnons de voyage,
+Le navire glissant sur les gouffres amers.
+
+A peine les ont-ils déposés sur les planches,
+Que ces rois de l’azur, maladroits et honteux,
+Laissent piteusement leurs grandes ailes blanches
+Comme des avirons traîner à côté d’eux.
+
+Ce voyageur ailé, comme il est gauche et veule !
+Lui, naguère si beau, qu’il est comique et laid !
+L’un agace son bec avec un brûle-gueule,
+L’autre mime, en boitant, l’infirme qui volait !
+
+Le Poète est semblable au prince des nuées
+Qui hante la tempête et se rit de l’archer ;
+Exilé sur le sol au milieu des huées,
+Ses ailes de géant l’empêchent de marcher.
+
+Charles Baudelaire</pre>
+<p>Dans la liste de chaînes, on peut remarquer que chaque chaîne se termine
+par le caractère spécial de retour à la ligne <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
+<p>Le programme suivant lit les lignes du fichier <code class="docutils literal notranslate"><span class="pre">data.txt</span></code> jusqu’à ce
+qu’une limite de 100 caractères soit atteinte. Il affiche ensuite une
+par une les lignes lues.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ouverture du fichier</span>
+<span class="n">fichtxt</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+
+<span class="c1"># Lecture des lignes et stockage dans une liste de chaînes, jusqu&#39;au 100e caractère</span>
+<span class="n">lignes</span> <span class="o">=</span> <span class="n">fichtxt</span><span class="o">.</span><span class="n">readlines</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Fermeture du fichier</span>
+<span class="n">fichtxt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Affichage des lignes une par une</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Affichage ligne par ligne :</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lignes</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Affichage ligne par ligne :
+
+Souvent, pour s’amuser, les hommes d’équipage
+Prennent des albatros, vastes oiseaux des mers,
+Qui suivent, indolents compagnons de voyage,
+</pre></div>
+</div>
+<p>On remarque que seules les 3 premières lignes du fichier ont été lues,
+ce qui signifie que le 100e caractère doit se trouver quelque part sur
+la 3e ligne.</p>
+</section>
+<section id="ecriture-dans-un-fichier-la-methode-write">
+<h3><span class="section-number">8.2.6. </span>Écriture dans un fichier : la méthode <strong>write()</strong><a class="headerlink" href="#ecriture-dans-un-fichier-la-methode-write" title="Lien permanent vers ce titre"></a></h3>
+<p>La méthode <strong>write()</strong> s’applique à un objet fichier, prend en paramètre
+une chaîne, et permet d’écrire cette chaîne dans le fichier. Cela
+suppose donc que le fichier soit ouvert soit en écriture, soit en ajout,
+et que toutes les données à écrire dans le fichier soient converties au
+préalable en chaînes. Lorsque plusieurs appels à <strong>write()</strong> sont
+effectués successivement sur le même fichier, les chaînes sont écrites
+les unes à la suite des autres dans le fichier.</p>
+<p>Le programme suivant copie le contenu du fichier <code class="docutils literal notranslate"><span class="pre">data.txt</span></code> dans un
+fichier <code class="docutils literal notranslate"><span class="pre">data_copie.txt</span></code>. La méthode <strong>read()</strong> est utilisée pour lire
+le contenu du fichier <code class="docutils literal notranslate"><span class="pre">data.txt</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ouverture du fichier data.txt en lecture seule</span>
+<span class="n">original</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+
+<span class="c1"># Lecture du contenu du fichier data.txt</span>
+<span class="n">contenu</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Fermeture du fichier data.txt</span>
+<span class="n">original</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Ouverture du fichier data_copie.txt en écriture</span>
+<span class="n">copie</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_copie.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;wt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+
+<span class="c1"># Ecriture du contenu de data.txt dans data_copie.txt</span>
+<span class="n">copie</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">contenu</span><span class="p">)</span>
+
+<span class="c1"># Fermeture du fichier data_copie.txt</span>
+<span class="n">copie</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Le programme suivant ajoute une chaîne à la fin du fichier
+<code class="docutils literal notranslate"><span class="pre">data_copie.txt</span></code> créé précédemment, puis affiche le contenu de ce
+fichier.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ouverture du fichier data_copie.txt en ajout</span>
+<span class="n">fich</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_copie.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;at&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+
+<span class="c1"># Ecriture de la chaîne à la fin du fichier</span>
+<span class="n">fich</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Né le 9 avril 1821 à Paris, mort le 31 août 1867 à Paris.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Ouverture du fichier data_copie.txt en lecture</span>
+<span class="n">fich</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_copie.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+
+<span class="c1"># Lecture du contenu du fichier après ajout</span>
+<span class="n">contenu</span> <span class="o">=</span> <span class="n">fich</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Affichage du contenu</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contenu</span><span class="p">)</span>
+
+<span class="c1"># Fermeture du fichier</span>
+<span class="n">fich</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Souvent, pour s’amuser, les hommes d’équipage
+Prennent des albatros, vastes oiseaux des mers,
+Qui suivent, indolents compagnons de voyage,
+Le navire glissant sur les gouffres amers.
+
+A peine les ont-ils déposés sur les planches,
+Que ces rois de l’azur, maladroits et honteux,
+Laissent piteusement leurs grandes ailes blanches
+Comme des avirons traîner à côté d’eux.
+
+Ce voyageur ailé, comme il est gauche et veule !
+Lui, naguère si beau, qu’il est comique et laid !
+L’un agace son bec avec un brûle-gueule,
+L’autre mime, en boitant, l’infirme qui volait !
+
+Le Poète est semblable au prince des nuées
+Qui hante la tempête et se rit de l’archer ;
+Exilé sur le sol au milieu des huées,
+Ses ailes de géant l’empêchent de marcher.
+
+Charles Baudelaire
+Né le 9 avril 1821 à Paris, mort le 31 août 1867 à Paris.
+</pre></div>
+</div>
+</section>
+<section id="linstruction-with-et-la-fermeture-automatique-de-fichier">
+<h3><span class="section-number">8.2.7. </span>L’instruction <strong>with</strong> et la fermeture automatique de fichier<a class="headerlink" href="#linstruction-with-et-la-fermeture-automatique-de-fichier" title="Lien permanent vers ce titre"></a></h3>
+<p>Nous avons évoqué précédemment l’importance de fermer les fichiers, dès
+que leurs utilisations sont terminées. Pour ne pas avoir à se soucier de
+la fermeture des fichiers (et accessoirement ne pas risquer de perdre
+les données qu’ils contiennent !), il est possible (voire même fortement
+recommandé !) d’utiliser l’instruction <strong>with</strong>. Sa syntaxe est la
+suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">()</span> <span class="k">as</span> <span class="n">obj_fich</span><span class="p">:</span>
+    <span class="n">bloc</span>
+</pre></div>
+</div>
+<p>où :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">open()</span></code> est un appel à la fonction du même nom permettant d’ouvrir
+un fichier</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">obj_fich</span></code> est un objet fichier, dont la valeur est celle retournée
+par l’appel à <code class="docutils literal notranslate"><span class="pre">open()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bloc</span></code> est un bloc d’instructions, contenant notamment des
+opérations sur le fichier référencé par <code class="docutils literal notranslate"><span class="pre">obj_fich</span></code>.</p></li>
+</ul>
+<p>L’intérêt de cette instruction <strong>with</strong> est qu’elle va <strong>appliquer
+automatiquement la méthode close()</strong> sur l’objet fichier <code class="docutils literal notranslate"><span class="pre">obj_fich</span></code>,
+dès que l’exécution du bloc d’instructions sera terminée, et même si
+cette terminaison est dûe à une erreur. Utiliser <strong>with</strong>, c’est donc
+avoir l’assurance que les fichiers seront fermés quoi qu’il arrive.</p>
+<p>Le programme suivant lit le contenu intégral d’un fichier <code class="docutils literal notranslate"><span class="pre">demo.txt</span></code>
+puis l’affiche, en utilisant l’instruction <strong>with</strong>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;demo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fich</span><span class="p">:</span>
+    <span class="n">contenu</span> <span class="o">=</span> <span class="n">fich</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">contenu</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ligne</span> <span class="mi">1</span>
+<span class="n">Ligne</span> <span class="mi">2</span>
+<span class="n">Ligne</span> <span class="mi">3</span>
+<span class="n">Ligne</span> <span class="mi">4</span>
+<span class="n">Ligne</span> <span class="mi">5</span>
+<span class="n">Ligne</span> <span class="mi">6</span>
+<span class="n">Ligne</span> <span class="mi">7</span>
+<span class="n">Ligne</span> <span class="mi">8</span>
+<span class="n">Ligne</span> <span class="mi">9</span>
+<span class="n">Ligne</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>Il est possible d’imbriquer deux instructions <strong>with</strong> (ou plus !),
+notamment dans un programme manipulant plusieurs fichiers texte. Le
+programme suivant copie le contenu du fichier <code class="docutils literal notranslate"><span class="pre">demo.txt</span></code> dans le
+fichier <code class="docutils literal notranslate"><span class="pre">demo_copie.txt</span></code>. Deux instructions <strong>with</strong> sont utilisées :</p>
+<ul class="simple">
+<li><p>une première pour ouvrir le fichier <code class="docutils literal notranslate"><span class="pre">demo.txt</span></code> en lecture seule</p></li>
+<li><p>une seconde, imbriquée dans la première, pour l’ouverture du fichier
+<code class="docutils literal notranslate"><span class="pre">demo_copie.txt</span></code> en écriture.</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;demo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fich</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;demo_copie.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;wt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">nouveau</span><span class="p">:</span>
+        <span class="n">contenu</span> <span class="o">=</span> <span class="n">fich</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">nouveau</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">contenu</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notons au passage que l’imbrication des instructions <strong>with</strong> aurait pu
+se faire « dans l’autre sens ».</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;demo_copie.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;wt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">nouveau</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;demo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fich</span><span class="p">:</span>
+        <span class="n">contenu</span> <span class="o">=</span> <span class="n">fich</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">nouveau</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">contenu</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="parcours-dun-fichier-ligne-par-ligne-la-boucle-for-et-la-methode-readline-associee-a-une-boucle-while">
+<h3><span class="section-number">8.2.8. </span>Parcours d’un fichier ligne par ligne : la boucle <strong>for</strong> et la méthode <strong>readline()</strong> associée à une boucle <strong>while</strong><a class="headerlink" href="#parcours-dun-fichier-ligne-par-ligne-la-boucle-for-et-la-methode-readline-associee-a-une-boucle-while" title="Lien permanent vers ce titre"></a></h3>
+<p>La boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> permet d’effectuer un traitement ligne par ligne d’un
+fichier texte. Sa syntaxe est la suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">obj_fich</span><span class="p">:</span>
+    <span class="n">bloc</span>
+</pre></div>
+</div>
+<p>où :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ligne</span></code> est une variable de type chaîne</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">obj_fich</span></code> est un l’objet référençant le fichier à parcourir</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bloc</span></code> est un bloc d’instructions</p></li>
+</ul>
+<p>La variable <code class="docutils literal notranslate"><span class="pre">ligne</span></code> va prendre pour valeurs successives, une par une,
+toutes les lignes du fichier (une ligne = une chaîne). Chaque ligne sera
+terminée par le caractère de retour à la ligne <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>. Pour chaque
+ligne du fichier, une exécution de <code class="docutils literal notranslate"><span class="pre">bloc</span></code> est réalisée.</p>
+<p>Le programme suivant effectue un parcours ligne par ligne du fichier
+<code class="docutils literal notranslate"><span class="pre">data_copie.txt</span></code>. Sur chaque ligne, l’application de la méthode
+<code class="docutils literal notranslate"><span class="pre">strip()</span></code> permet de supprimer le caractère de retour à la ligne
+<code class="docutils literal notranslate"><span class="pre">'\n'</span></code>. Puis, le nombre de caractères de la ligne est affiché à
+l’écran.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_copie.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fich</span><span class="p">:</span>
+    <span class="c1"># Parcours du fichier ligne par ligne, suppression du caractère de retour à la ligne \n et affichage du nombre de caractères de chaque ligne</span>
+    <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">fich</span><span class="p">:</span>
+        <span class="n">ligne</span> <span class="o">=</span> <span class="n">ligne</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ligne</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">45</span>
+<span class="mi">47</span>
+<span class="mi">44</span>
+<span class="mi">42</span>
+<span class="mi">0</span>
+<span class="mi">45</span>
+<span class="mi">46</span>
+<span class="mi">49</span>
+<span class="mi">39</span>
+<span class="mi">0</span>
+<span class="mi">48</span>
+<span class="mi">49</span>
+<span class="mi">40</span>
+<span class="mi">48</span>
+<span class="mi">0</span>
+<span class="mi">42</span>
+<span class="mi">44</span>
+<span class="mi">37</span>
+<span class="mi">42</span>
+<span class="mi">0</span>
+<span class="mi">18</span>
+<span class="mi">57</span>
+</pre></div>
+</div>
+<p>On remarque que certaines lignes comportent 0 caractère. Ce sont les
+lignes vides qui ne contiennent que le caractère de retour à la ligne
+<code class="docutils literal notranslate"><span class="pre">'\n'</span></code> (caractère que la méthode <code class="docutils literal notranslate"><span class="pre">strip()</span></code> permet de supprimer avant
+le calcul du nombre de caractères).</p>
+<p>La méthode <strong>readline()</strong> permet de lire une ligne dans un fichier, et
+de se positionner sur la ligne suivante. Elle retourne :</p>
+<ul class="simple">
+<li><p>le contenu de la ligne lue (sous la forme d’une chaîne terminée par
+<code class="docutils literal notranslate"><span class="pre">'\n'</span></code>), si la fin du fichier n’est pas encore atteinte</p></li>
+<li><p>une chaîne vide si la fin de fichier est atteinte.</p></li>
+</ul>
+<p>Le programme suivant lit puis affiche la première ligne du fichier nommé
+<code class="docutils literal notranslate"><span class="pre">demo.txt</span></code> (après lui avoir retiré le caractère de fin de ligne).</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;demo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fich</span><span class="p">:</span>
+    <span class="n">premligne</span> <span class="o">=</span> <span class="n">fich</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>   <span class="c1"># Lecture de la première ligne</span>
+    <span class="n">premligne</span> <span class="o">=</span> <span class="n">premligne</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Suppression du caractère de fin de ligne</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Voici le contenu de la première ligne du fichier : </span><span class="si">{</span><span class="n">premligne</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Voici</span> <span class="n">le</span> <span class="n">contenu</span> <span class="n">de</span> <span class="n">la</span> <span class="n">première</span> <span class="n">ligne</span> <span class="n">du</span> <span class="n">fichier</span> <span class="p">:</span> <span class="n">Ligne</span> <span class="mf">1.</span>
+</pre></div>
+</div>
+<p>Associée à une boucle <strong>while</strong>, la méthode <strong>readline()</strong> permet
+d’effectuer un parcours ligne par ligne d’un fichier, pour appliquer à
+chaque ligne le même traitement. Le programme ci-dessous parcourt toutes
+les lignes du fichier <code class="docutils literal notranslate"><span class="pre">demo.txt</span></code> en affichant pour chacune son contenu
+et son nombre de caractères.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;demo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fich</span><span class="p">:</span>
+    <span class="n">premligne</span> <span class="o">=</span> <span class="n">fich</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>    <span class="c1"># Lecture de la première ligne</span>
+    <span class="k">while</span> <span class="n">premligne</span><span class="p">:</span>               <span class="c1"># Equivalent à while premligne != &#39;&#39;:</span>
+        <span class="n">premligne</span> <span class="o">=</span> <span class="n">premligne</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>   <span class="c1"># Suppression du caractère de fin de ligne</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Contenu : </span><span class="si">{</span><span class="n">premligne</span><span class="si">}</span><span class="s2">, Nombre de caractères : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">premligne</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">premligne</span> <span class="o">=</span> <span class="n">fich</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>  <span class="c1"># Lecture de la ligne suivante</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Contenu</span> <span class="p">:</span> <span class="n">Ligne</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Nombre</span> <span class="n">de</span> <span class="n">caractères</span> <span class="p">:</span> <span class="mi">7</span>
+<span class="n">Contenu</span> <span class="p">:</span> <span class="n">Ligne</span> <span class="mi">2</span><span class="p">,</span> <span class="n">Nombre</span> <span class="n">de</span> <span class="n">caractères</span> <span class="p">:</span> <span class="mi">7</span>
+<span class="n">Contenu</span> <span class="p">:</span> <span class="n">Ligne</span> <span class="mi">3</span><span class="p">,</span> <span class="n">Nombre</span> <span class="n">de</span> <span class="n">caractères</span> <span class="p">:</span> <span class="mi">7</span>
+<span class="n">Contenu</span> <span class="p">:</span> <span class="n">Ligne</span> <span class="mi">4</span><span class="p">,</span> <span class="n">Nombre</span> <span class="n">de</span> <span class="n">caractères</span> <span class="p">:</span> <span class="mi">7</span>
+<span class="n">Contenu</span> <span class="p">:</span> <span class="n">Ligne</span> <span class="mi">5</span><span class="p">,</span> <span class="n">Nombre</span> <span class="n">de</span> <span class="n">caractères</span> <span class="p">:</span> <span class="mi">7</span>
+<span class="n">Contenu</span> <span class="p">:</span> <span class="n">Ligne</span> <span class="mi">6</span><span class="p">,</span> <span class="n">Nombre</span> <span class="n">de</span> <span class="n">caractères</span> <span class="p">:</span> <span class="mi">7</span>
+<span class="n">Contenu</span> <span class="p">:</span> <span class="n">Ligne</span> <span class="mi">7</span><span class="p">,</span> <span class="n">Nombre</span> <span class="n">de</span> <span class="n">caractères</span> <span class="p">:</span> <span class="mi">7</span>
+<span class="n">Contenu</span> <span class="p">:</span> <span class="n">Ligne</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Nombre</span> <span class="n">de</span> <span class="n">caractères</span> <span class="p">:</span> <span class="mi">7</span>
+<span class="n">Contenu</span> <span class="p">:</span> <span class="n">Ligne</span> <span class="mi">9</span><span class="p">,</span> <span class="n">Nombre</span> <span class="n">de</span> <span class="n">caractères</span> <span class="p">:</span> <span class="mi">7</span>
+<span class="n">Contenu</span> <span class="p">:</span> <span class="n">Ligne</span> <span class="mi">10</span><span class="p">,</span> <span class="n">Nombre</span> <span class="n">de</span> <span class="n">caractères</span> <span class="p">:</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="utilisation-des-fichiers-au-format-csv-en-python-le-module-csv">
+<h2><span class="section-number">8.3. </span>Utilisation des fichiers au format CSV en Python : le module csv<a class="headerlink" href="#utilisation-des-fichiers-au-format-csv-en-python-le-module-csv" title="Lien permanent vers ce titre"></a></h2>
+<p>Dans cette section, nous présentons les principales fonctions du module
+CSV de Python, permettant le traitement des fichiers texte au format
+CSV.</p>
+<section id="quest-ce-que-le-format-csv">
+<h3><span class="section-number">8.3.1. </span>Qu’est-ce que le format CSV ?<a class="headerlink" href="#quest-ce-que-le-format-csv" title="Lien permanent vers ce titre"></a></h3>
+<p><strong>CSV</strong> signifie <strong>Comma-Separated Values</strong>, autrement dit <strong>valeurs
+séparées par des virgules</strong>. Il s’agit d’un format de données textuelles
+permettant de stocker des données <strong>tabulaires</strong>, c’est-à-dire des
+données qui pourraient être représentées dans un tableau. Il est très
+utilisé dans les systèmes de gestion de bases de données, ainsi que dans
+les logiciels tableurs, pour faciliter l’échange de données d’un
+logiciel à l’autre.</p>
+<p>Dans un fichier au format CSV :</p>
+<ul class="simple">
+<li><p>chaque ligne correspond à une ligne d’un tableau, la première ligne
+pouvant contenir les intitulés des différents colonnes (cette
+première ligne d’intitulés n’est pas obligatoire)</p></li>
+<li><p>sur chaque ligne, les contenus des différentes colonnes sont séparés
+à l’aide d’un <strong>caractère séparateur</strong></p></li>
+<li><p>certaines colonnes peuvent avoir un contenu vide.</p></li>
+</ul>
+<p>Voici ci-dessous un exemple de fichier au format CSV. La première ligne
+est la ligne d’intitulés (7 intitulés, donc 7 colonnes). Le caractère
+séparateur est la virgule « , ». Aucune des lignes ne comporte de
+colonne vide.</p>
+<figure class="align-default" id="id13">
+<img alt="Fichier au format CSV" src="_images/Exemple_Fichier_CSV.PNG" />
+<figcaption>
+<p><span class="caption-text">Fichier au format CSV</span><a class="headerlink" href="#id13" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="dialecte-dun-fichier-csv">
+<h3><span class="section-number">8.3.2. </span>Dialecte d’un fichier CSV<a class="headerlink" href="#dialecte-dun-fichier-csv" title="Lien permanent vers ce titre"></a></h3>
+<p>Le dialecte d’un fichier CSV désigne l’ensemble des principes utilisés
+pour formater les données qu’il contient. Le format CSV n’étant pas
+normalisé, il existe de nombreux dialectes différents. Dans l’exemple
+ci-dessous, le dialecte du fichier se compose de trois principes de
+formatage :</p>
+<ul class="simple">
+<li><p>l’utilisation du point-virgule « ; » comme caractère séparateur des
+colonnes</p></li>
+<li><p>les guillemets doubles anglo-saxons « “” » autour des données
+textuelles (pour les distinguer des données numériques)</p></li>
+<li><p>l’utilisation du point « . » comme séparateur décimal des données
+numériques.</p></li>
+</ul>
+<img alt="_images/dialecte_CSV.PNG" src="_images/dialecte_CSV.PNG" />
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Dictionnaires.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Les dictionnaires</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By E. Martienne-Ughetto<br/>
+  
+      &copy; Copyright 2023, E. Martienne-Ughetto.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
