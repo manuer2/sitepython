@@ -408,6 +408,14 @@ title="Print to PDF"
      </strong>
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformation-dune-chaine-en-une-liste-de-chaines-la-methode-split">
+     6.7.9. Transformation d’une chaîne en une liste de chaînes : la méthode
+     <strong>
+      split()
+     </strong>
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -628,6 +636,14 @@ title="Print to PDF"
      6.7.8. Inversion d’une liste : la méthode
      <strong>
       reverse()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformation-dune-chaine-en-une-liste-de-chaines-la-methode-split">
+     6.7.9. Transformation d’une chaîne en une liste de chaînes : la méthode
+     <strong>
+      split()
      </strong>
     </a>
    </li>
@@ -1359,6 +1375,53 @@ instruction.</p>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Exemple</span> <span class="n">de</span> <span class="n">liste</span> <span class="n">inversée</span> <span class="p">:</span> <span class="p">[</span><span class="mf">2.36</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;framboise&#39;</span><span class="p">,</span> <span class="s1">&#39;pomme&#39;</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="transformation-dune-chaine-en-une-liste-de-chaines-la-methode-split">
+<h3><span class="section-number">6.7.9. </span>Transformation d’une chaîne en une liste de chaînes : la méthode <strong>split()</strong><a class="headerlink" href="#transformation-dune-chaine-en-une-liste-de-chaines-la-methode-split" title="Lien permanent vers ce titre"></a></h3>
+<p>La méthode <strong>split()</strong> s’applique à une chaîne de caractères et permet
+de découper cette chaîne en plusieurs sous-chaînes. Le découpage
+s’effectue grâce à un élément séparateur qui est constitué par défaut
+d’une suite quelconque d’espaces. La méthode retourne la liste des
+sous-chaînes obtenues par découpage. Cette méthode peut être utilisée
+pour extraire la liste des mots contenus dans une phrase, comme le
+montre l’exemple suivant.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">laphrase</span> <span class="o">=</span> <span class="s2">&quot;Youpidou la  ribambelle&quot;</span>
+<span class="n">lesmots</span> <span class="o">=</span> <span class="n">laphrase</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lesmots</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;Youpidou&#39;</span><span class="p">,</span> <span class="s1">&#39;la&#39;</span><span class="p">,</span> <span class="s1">&#39;ribambelle&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Il est possible de définir élément séparateur autre que la suite
+quelconque d’espaces. Dans ce cas, il faut l’indiquer en paramètre de la
+méthode. L’exemple suivant décompose une chaîne en utilisant le tiret
+<code class="docutils literal notranslate"><span class="pre">'-'</span></code> comme élément séparateur.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ph</span> <span class="o">=</span> <span class="s2">&quot;251-964-89523-74&quot;</span>
+<span class="n">lm</span> <span class="o">=</span> <span class="n">ph</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lm</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;251&#39;</span><span class="p">,</span> <span class="s1">&#39;964&#39;</span><span class="p">,</span> <span class="s1">&#39;89523&#39;</span><span class="p">,</span> <span class="s1">&#39;74&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>On peut également donner en second paramètre un nombre correspondant à
+l’indice maximal de la liste à retourner (0 pour une liste avec un seul
+élément, 1 pour une liste de 2 éléments, etc).</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lm2</span> <span class="o">=</span> <span class="n">ph</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lm2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;251&#39;</span><span class="p">,</span> <span class="s1">&#39;964-89523-74&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lm3</span> <span class="o">=</span> <span class="n">ph</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lm3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;251&#39;</span><span class="p">,</span> <span class="s1">&#39;964&#39;</span><span class="p">,</span> <span class="s1">&#39;89523-74&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>

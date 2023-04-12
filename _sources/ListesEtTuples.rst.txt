@@ -825,6 +825,72 @@ instruction.
     Exemple de liste inversée : [2.36, True, 'framboise', 'pomme', 78, 'orange']
     
 
+Transformation d’une chaîne en une liste de chaînes : la méthode **split()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La méthode **split()** s’applique à une chaîne de caractères et permet
+de découper cette chaîne en plusieurs sous-chaînes. Le découpage
+s’effectue grâce à un élément séparateur qui est constitué par défaut
+d’une suite quelconque d’espaces. La méthode retourne la liste des
+sous-chaînes obtenues par découpage. Cette méthode peut être utilisée
+pour extraire la liste des mots contenus dans une phrase, comme le
+montre l’exemple suivant.
+
+.. code:: ipython3
+
+    laphrase = "Youpidou la  ribambelle"
+    lesmots = laphrase.split()
+    print(lesmots)
+
+
+.. parsed-literal::
+
+    ['Youpidou', 'la', 'ribambelle']
+    
+
+Il est possible de définir élément séparateur autre que la suite
+quelconque d’espaces. Dans ce cas, il faut l’indiquer en paramètre de la
+méthode. L’exemple suivant décompose une chaîne en utilisant le tiret
+``'-'`` comme élément séparateur.
+
+.. code:: ipython3
+
+    ph = "251-964-89523-74"
+    lm = ph.split('-')
+    print(lm)
+
+
+.. parsed-literal::
+
+    ['251', '964', '89523', '74']
+    
+
+On peut également donner en second paramètre un nombre correspondant à
+l’indice maximal de la liste à retourner (0 pour une liste avec un seul
+élément, 1 pour une liste de 2 éléments, etc).
+
+.. code:: ipython3
+
+    lm2 = ph.split('-', 1)
+    print(lm2)
+
+
+.. parsed-literal::
+
+    ['251', '964-89523-74']
+    
+
+.. code:: ipython3
+
+    lm3 = ph.split('-', 2)
+    print(lm3)
+
+
+.. parsed-literal::
+
+    ['251', '964', '89523-74']
+    
+
 Opérateur d’appartenance à une liste
 ------------------------------------
 
