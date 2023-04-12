@@ -4,9 +4,11 @@ Booléens et expressions booléennes
 En informatique, et tout particulièrement en programmation, on a
 fréquemment besoin de savoir si une condition est vérifiée (vraie) ou
 non (fausse) pour définir les traitements appropriés (cf. cours
-précédent sur les instructions conditionnelles). Par exemple : \* La
-valeur de la variable ``x`` est-elle négative ? \* La valeur de la
-variable ``x`` est-elle supérieure à celle de la variable ``y`` ?
+précédent sur les instructions conditionnelles). Par exemple :
+
+-  La valeur de la variable ``x`` est-elle négative ?
+-  La valeur de la variable ``x`` est-elle supérieure à celle de la
+   variable ``y`` ?
 
 En mathématiques, certaines fonctions sont définies en fonction de
 différentes conditions. C’est le cas par exemple de la fonction
