@@ -373,10 +373,14 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ecriture-dans-un-fichier-la-methode-write">
-     8.2.6. Écriture dans un fichier : la méthode
+    <a class="reference internal nav-link" href="#ecriture-dans-un-fichier-les-methodes-write-et-writelines">
+     8.2.6. Écriture dans un fichier : les méthodes
      <strong>
       write()
+     </strong>
+     et
+     <strong>
+      writelines()
      </strong>
     </a>
    </li>
@@ -544,10 +548,14 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ecriture-dans-un-fichier-la-methode-write">
-     8.2.6. Écriture dans un fichier : la méthode
+    <a class="reference internal nav-link" href="#ecriture-dans-un-fichier-les-methodes-write-et-writelines">
+     8.2.6. Écriture dans un fichier : les méthodes
      <strong>
       write()
+     </strong>
+     et
+     <strong>
+      writelines()
      </strong>
     </a>
    </li>
@@ -1210,8 +1218,8 @@ Qui suivent, indolents compagnons de voyage,
 ce qui signifie que le 100e caractère doit se trouver quelque part sur
 la 3e ligne.</p>
 </section>
-<section id="ecriture-dans-un-fichier-la-methode-write">
-<h3><span class="section-number">8.2.6. </span>Écriture dans un fichier : la méthode <strong>write()</strong><a class="headerlink" href="#ecriture-dans-un-fichier-la-methode-write" title="Lien permanent vers ce titre"></a></h3>
+<section id="ecriture-dans-un-fichier-les-methodes-write-et-writelines">
+<h3><span class="section-number">8.2.6. </span>Écriture dans un fichier : les méthodes <strong>write()</strong> et <strong>writelines()</strong><a class="headerlink" href="#ecriture-dans-un-fichier-les-methodes-write-et-writelines" title="Lien permanent vers ce titre"></a></h3>
 <p>La méthode <strong>write()</strong> s’applique à un objet fichier, prend en paramètre
 une chaîne, et permet d’écrire cette chaîne dans le fichier. Cela
 suppose donc que le fichier soit ouvert soit en écriture, soit en ajout,
@@ -1285,6 +1293,59 @@ Ses ailes de géant l’empêchent de marcher.
 
 Charles Baudelaire
 Né le 9 avril 1821 à Paris, mort le 31 août 1867 à Paris.
+</pre></div>
+</div>
+<p>La méthode <strong>writelines()</strong> s’applique à un objet fichier, prend en
+paramètre une liste de chaînes, et permet d’écrire toutes les chaînes de
+la liste dans le fichier, les unes après les autres. Le programme
+suivant ajoute deux chaînes à la fin du fichier <code class="docutils literal notranslate"><span class="pre">data_copie.txt</span></code> créé
+précédemment, puis affiche le contenu de ce fichier.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Liste contenant les deux chaînes à ajouter</span>
+<span class="n">chajout</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Père : Joseph-François Baudelaire</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Mère : Caroline Aupick</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
+
+<span class="c1"># Ouverture du fichier data_copie.txt en ajout</span>
+<span class="n">fich</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_copie.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;at&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+
+<span class="c1"># Ecriture des chaînes de la liste à la fin du fichier</span>
+<span class="n">fich</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">chajout</span><span class="p">)</span>
+
+<span class="c1"># Ouverture du fichier data_copie.txt en lecture</span>
+<span class="n">fich</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_copie.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+
+<span class="c1"># Lecture du contenu du fichier après ajout</span>
+<span class="n">contenu</span> <span class="o">=</span> <span class="n">fich</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Affichage du contenu</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contenu</span><span class="p">)</span>
+
+<span class="c1"># Fermeture du fichier</span>
+<span class="n">fich</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Souvent, pour s’amuser, les hommes d’équipage
+Prennent des albatros, vastes oiseaux des mers,
+Qui suivent, indolents compagnons de voyage,
+Le navire glissant sur les gouffres amers.
+
+A peine les ont-ils déposés sur les planches,
+Que ces rois de l’azur, maladroits et honteux,
+Laissent piteusement leurs grandes ailes blanches
+Comme des avirons traîner à côté d’eux.
+
+Ce voyageur ailé, comme il est gauche et veule !
+Lui, naguère si beau, qu’il est comique et laid !
+L’un agace son bec avec un brûle-gueule,
+L’autre mime, en boitant, l’infirme qui volait !
+
+Le Poète est semblable au prince des nuées
+Qui hante la tempête et se rit de l’archer ;
+Exilé sur le sol au milieu des huées,
+Ses ailes de géant l’empêchent de marcher.
+
+Charles Baudelaire
+Né le 9 avril 1821 à Paris, mort le 31 août 1867 à Paris.
+Père : Joseph-François Baudelaire
+Mère : Caroline Aupick
 </pre></div>
 </div>
 </section>
