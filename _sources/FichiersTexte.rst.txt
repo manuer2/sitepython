@@ -327,11 +327,23 @@ Il est possible de modifier le dossier courant avec la fonction
 
     os.chdir(chemin)
 
-où ``chemin`` est une chaîne contenant le chemin complet du nouveau
-dossier courant (dossier dans lequel doivent impérativement figurer les
-fichiers à traiter !!). Le programme suivant est un exemple
-d’utilisation de la fonction **chdir()** permettant de paramétrer le
-dossier ``'C:\Users\martienne_e\data'`` comme nouveau dossier courant.
+où ``chemin`` est une chaîne contenant le chemin du nouveau dossier
+courant (dossier dans lequel doivent impérativement figurer les fichiers
+à traiter !!). Ce chemin peut-être :
+
+-  **absolu** : il s’agit alors d’un chemin complet dont le point de
+   départ est la racine de l’espace de stockage. Le chemin :
+   ``M:\MesDonnées\L1\Python\TD1`` est un exemple de chemin absolu
+   indiquant l’emplacement complet du dossier ``TD1`` sur le disque
+   ``M``.
+-  **relatif** : il s’agit alors d’un chemin dont le point de départ est
+   le dossier courant. Le chemin : ``Info\Bureautique`` est un exemple
+   de chemin relatif indiquant l’emplacement du dossier ``Bureautique``
+   à partir du dossier courant.
+
+Le programme suivant est un exemple d’utilisation de la fonction
+**chdir()** permettant de paramétrer le dossier
+``'C:\Users\martienne_e\data'`` comme nouveau dossier courant.
 
 .. code:: ipython3
 
@@ -398,41 +410,48 @@ différent de celui par défaut, il faut ajouter à la fonction **open()**
 un troisième paramètre optionnel, nommé ``encoding``, dont la valeur est
 une chaîne correspondant au nom de l’encodage à utiliser.
 
-La fonction retourne en résultat un **objet fichier** (objet référençant
-un fichier) qui sera utilisé dans la suite du programme pour manipuler
-le fichier.
+La fonction retourne en résultat un **descripteur de fichier** (ou
+**objet fichier**). Ce descripteur peut être comparé à **un curseur
+pointant sur un caractère précis du fichier**, et dont la position va
+varier en fonction des différentes opérations qui seront effectuées sur
+le fichier (lectures et/ou écritures). Un descripteur est positionné :
+
+-  au tout début du fichier (c’est-à-dire sur le premier caractère)
+   lorsque le mode d’ouverture est ``r``, ``w`` ou ``x``
+-  à la fin du fichier (c’est-à-dire juste après le dernier caractère)
+   lorsque le mode d’ouverture est ``a``.
 
 Voici des exemples d’utilisation de la fonction **open()** :
 
 .. code:: ipython3
 
     fichtxt = open('data.txt', 'rt', encoding='UTF-8')
-    print(f"Objet fichier : {fichtxt}")
+    print(f"Descripteur de fichier : {fichtxt}")
 
 
 .. parsed-literal::
 
-    Objet fichier : <_io.TextIOWrapper name='data.txt' mode='rt' encoding='UTF-8'>
+    Descripteur de fichier : <_io.TextIOWrapper name='data.txt' mode='rt' encoding='UTF-8'>
     
 
 La fonction ouvre en lecture seule le fichier texte ``data.txt`` situé
-dans le dossier courant. L’encodage utilisé est UTF-8. Elle retourne
-l’objet référençant ce fichier dans la variable ``fichtxt``.
+dans le dossier courant. L’encodage utilisé est UTF-8. Elle retourne le
+descripteur du fichier dans la variable ``fichtxt``.
 
 .. code:: ipython3
 
     fichdata = open('sample.txt', 'rt')
-    print(f"Objet fichier : {fichdata}")
+    print(f"Descripteur de fichier : {fichdata}")
 
 
 .. parsed-literal::
 
-    Objet fichier : <_io.TextIOWrapper name='sample.txt' mode='rt' encoding='cp1252'>
+    Descripteur de fichier : <_io.TextIOWrapper name='sample.txt' mode='rt' encoding='cp1252'>
     
 
 La fonction ouvre en lecture seule le fichier texte ``sample.txt`` situé
 dans le dossier courant. L’encodage utilisé est celui par défaut :
-cp1252 (Windows). Elle retourne l’objet référençant ce fichier dans la
+cp1252 (Windows). Elle retourne le descripteur du fichier dans la
 variable ``fichdata``.
 
 Fermeture d’un fichier : la méthode **close()**
@@ -440,8 +459,8 @@ Fermeture d’un fichier : la méthode **close()**
 
 Dans un programme, dès qu’un fichier n’est plus utilisé il doit être
 fermé (comme un livre !!). La méthode **close()** permet de fermer un
-fichier. Elle ne prend aucun paramètre et s’applique à l’objet fichier à
-fermer (valeur de retour de la fonction **open()**).
+fichier. Elle ne prend aucun paramètre et s’applique au descripteur du
+fichier à fermer (valeur de retour de la fonction **open()**).
 
 Voici les deux exemples précédents, dans lesquels ont été ajoutées les
 fermetures des deux fichiers.
@@ -452,7 +471,7 @@ fermetures des deux fichiers.
     fichtxt = open('data.txt', 'rt', encoding='UTF-8')
     
     # Affichage de l'objet référençant le fichier
-    print(f"Objet fichier : {fichtxt}")
+    print(f"Descripteur du fichier : {fichtxt}")
     
     # Fermeture du fichier
     fichtxt.close()
@@ -460,7 +479,7 @@ fermetures des deux fichiers.
 
 .. parsed-literal::
 
-    Objet fichier : <_io.TextIOWrapper name='data.txt' mode='rt' encoding='UTF-8'>
+    Descripteur du fichier : <_io.TextIOWrapper name='data.txt' mode='rt' encoding='UTF-8'>
     
 
 .. code:: ipython3
@@ -469,7 +488,7 @@ fermetures des deux fichiers.
     fichdata = open('sample.txt', 'rt')
     
     # Affichage de l'objet référençant le fichier
-    print(f"Objet fichier : {fichdata}")
+    print(f"Descripteur du fichier : {fichdata}")
     
     # Fermeture du fichier
     fichdata.close()
@@ -477,7 +496,7 @@ fermetures des deux fichiers.
 
 .. parsed-literal::
 
-    Objet fichier : <_io.TextIOWrapper name='sample.txt' mode='rt' encoding='cp1252'>
+    Descripteur du fichier : <_io.TextIOWrapper name='sample.txt' mode='rt' encoding='cp1252'>
     
 
 Un fichier ouvert dans un programme et non fermé avant la fin du
@@ -489,15 +508,22 @@ donc l’utilisation sécurisée d’un fichier.
 Lecture intégrale d’un fichier : les méthodes **read()** et **readlines()**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-La méthode **read()** s’applique à un objet fichier, et permet de lire
-son contenu. Lorsqu’aucun paramètre ne lui est fourni, elle retourne une
-chaîne contenant tous les caractères contenus dans le fichier. Voici un
-exemple de lecture complète et d’affichage du contenu d’un fichier (pour
-info : le fichier ``data.txt`` contient un poème de Charles Baudelaire).
+La méthode **read()** s’applique à un descripteur de fichier, et permet
+de lire tout son contenu **à partir de la position courante du
+descripteur**. Lorsqu’aucun paramètre ne lui est fourni, elle retourne
+une chaîne contenant tous les caractères contenus dans le fichier, à
+partir de la position du descripteur jusqu’à la fin du fichier. Dans ce
+cas, après l’exécution de **read()**, le descripteur est positionné à la
+fin du fichier.
+
+Voici un exemple de lecture complète et d’affichage du contenu d’un
+fichier (pour info : le fichier ``data.txt`` contient un poème de
+Charles Baudelaire).
 
 .. code:: ipython3
 
     # Ouverture du fichier
+    # Le descripteur fichtxt est positionné sur le premier caractère du fichier
     fichtxt = open('data.txt', 'rt', encoding='UTF-8')
     
     # Lecture de tous les caractères et stockage dans une chaîne
@@ -536,13 +562,18 @@ info : le fichier ``data.txt`` contient un poème de Charles Baudelaire).
     
 
 Il est possible de fournir en paramètre de la fonction **read()** un
-nombre entier indiquant le nombre de caractères à lire (à partir du
-début du fichier). L’exemple suivant montre comment lire uniquement les
-15 premiers caractères d’un fichier.
+nombre entier indiquant le nombre de caractères à lire (à partir de la
+position du descripteur). Dans ce cas, après l’exécution de **read()**,
+le descripteur est positionné sur le premier caractère non lu du
+fichier.
+
+L’exemple suivant montre comment lire uniquement les 15 premiers
+caractères d’un fichier.
 
 .. code:: ipython3
 
     # Ouverture du fichier
+    # Le descripteur fichtxt est positionné sur le premier caractère du fichier
     fichtxt = open('data.txt', 'rt', encoding='UTF-8')
     
     # Lecture des 15 premiers caractères et stockage dans une chaîne
@@ -561,17 +592,21 @@ début du fichier). L’exemple suivant montre comment lire uniquement les
     
 
 Tout comme la méthode **read()**, la méthode **readlines()** permet de
-lire le contenu d’un fichier. Elle s’applique à l’objet fichier, et
-retourne le contenu du fichier sous la forme d’une liste de chaînes, où
+lire le contenu d’un fichier. Elle s’applique au descripteur d’un
+fichier, et retourne le contenu du fichier (toujour à partir de la
+position du descripteur !) sous la forme d’une liste de chaînes, où
 chaque chaîne correspond à une ligne du fichier (1re chaîne = 1re ligne,
 2e chaîne = 2e ligne, etc). Il s’agit donc d’une méthode adaptée pour
 effectuer un traitement ligne par ligne du contenu d’un fichier.
 Lorsqu’aucun paramètre ne lui est fourni, elle retourne toutes les
-lignes du fichier. Il est possible de stopper la lecture des lignes
-lorsqu’un nombre de caractères (à partir du premier) a été atteint. Il
-suffit pour cela de fournir ce nombre en paramètre de la fonction. Dans
-ce cas, la lecture des lignes s’arrête lorsque le nombre de caractères
-souhaité a été atteint.
+lignes du fichier situées entre la position courante du descripteur et
+la fin du fichier (après son exécution, le descripteur est positionné à
+la fin du fichier). Il est possible de stopper la lecture des lignes
+lorsqu’un nombre de caractères a été atteint. Il suffit pour cela de
+fournir ce nombre en paramètre de la fonction. Dans ce cas, la lecture
+des lignes s’arrête lorsque le nombre de caractères souhaité a été
+atteint (et le descripteur est positionné sur le premier caractère non
+lu du fichier).
 
 Le programme suivant lit toutes les lignes du fichier ``data.txt``,
 affiche la liste de chaînes obtenues, puis chaque ligne du fichier une
@@ -580,6 +615,7 @@ par une.
 .. code:: ipython3
 
     # Ouverture du fichier
+    # Le descripteur fichtxt est positionné sur le premier caractère du fichier
     fichtxt = open('data.txt', 'rt', encoding='UTF-8')
     
     # Lecture des lignes et stockage dans une liste de chaînes
@@ -636,6 +672,7 @@ par une les lignes lues.
 .. code:: ipython3
 
     # Ouverture du fichier
+    # Le descripteur fichtxt est positionné sur le premier caractère du fichier
     fichtxt = open('data.txt', 'rt', encoding='UTF-8')
     
     # Lecture des lignes et stockage dans une liste de chaînes, jusqu'au 100e caractère
@@ -666,13 +703,16 @@ la 3e ligne.
 Écriture dans un fichier : les méthodes **write()** et **writelines()**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-La méthode **write()** s’applique à un objet fichier, prend en paramètre
-une chaîne, et permet d’écrire cette chaîne dans le fichier. Cela
-suppose donc que le fichier soit ouvert soit en écriture, soit en ajout,
-et que toutes les données à écrire dans le fichier soient converties au
-préalable en chaînes. Lorsque plusieurs appels à **write()** sont
-effectués successivement sur le même fichier, les chaînes sont écrites
-les unes à la suite des autres dans le fichier.
+La méthode **write()** s’applique à un descripteur de fichier, prend en
+paramètre une chaîne, et permet d’écrire cette chaîne dans le fichier
+**à la position courante du descripteur**. Cela suppose donc que le
+fichier soit ouvert soit en écriture, soit en ajout, et que toutes les
+données à écrire dans le fichier soient converties au préalable en
+chaînes. Après l’exécution de **write()**, le descripteur est positionné
+immédiatement après le dernier caractère écrit. Ainsi, lorsque plusieurs
+appels à **write()** sont effectués successivement sur le même
+descripteur de fichier, les chaînes sont écrites les unes à la suite des
+autres dans le fichier.
 
 Le programme suivant copie le contenu du fichier ``data.txt`` dans un
 fichier ``data_copie.txt``. La méthode **read()** est utilisée pour lire
@@ -681,6 +721,7 @@ le contenu du fichier ``data.txt``.
 .. code:: ipython3
 
     # Ouverture du fichier data.txt en lecture seule
+    # Le descripteur original est positionné sur le premier caractère du fichier
     original = open('data.txt', 'rt', encoding='UTF-8')
     
     # Lecture du contenu du fichier data.txt
@@ -690,6 +731,7 @@ le contenu du fichier ``data.txt``.
     original.close()
     
     # Ouverture du fichier data_copie.txt en écriture
+    # Le descripteur copie est positionné sur le premier caractère du fichier
     copie = open('data_copie.txt', 'wt', encoding='UTF-8')
     
     # Ecriture du contenu de data.txt dans data_copie.txt
@@ -705,12 +747,14 @@ fichier.
 .. code:: ipython3
 
     # Ouverture du fichier data_copie.txt en ajout
+    # Le descripteur fich est positionné à la fin du fichier (après le dernier caractère)
     fich = open('data_copie.txt', 'at', encoding='UTF-8')
     
     # Ecriture de la chaîne à la fin du fichier
     fich.write('\nNé le 9 avril 1821 à Paris, mort le 31 août 1867 à Paris.\n')
     
     # Ouverture du fichier data_copie.txt en lecture
+    # Le descripteur fich est positionné au début du fichier
     fich = open('data_copie.txt', 'rt', encoding='UTF-8')
     
     # Lecture du contenu du fichier après ajout
@@ -750,11 +794,14 @@ fichier.
     
     
 
-La méthode **writelines()** s’applique à un objet fichier, prend en
-paramètre une liste de chaînes, et permet d’écrire toutes les chaînes de
-la liste dans le fichier, les unes après les autres. Le programme
-suivant ajoute deux chaînes à la fin du fichier ``data_copie.txt`` créé
-précédemment, puis affiche le contenu de ce fichier.
+La méthode **writelines()** s’applique à un descripteur de fichier,
+prend en paramètre une liste de chaînes, et permet d’écrire toutes les
+chaînes de la liste dans le fichier, les unes après les autres, à partir
+de la position courante du descripteur. Après son exécution, le
+descripteur est positionné immédiatement après le dernier caractère
+écrit. Le programme suivant ajoute deux chaînes à la fin du fichier
+``data_copie.txt`` créé précédemment, puis affiche le contenu de ce
+fichier.
 
 .. code:: ipython3
 
@@ -762,12 +809,14 @@ précédemment, puis affiche le contenu de ce fichier.
     chajout = ['Père : Joseph-François Baudelaire\n', 'Mère : Caroline Aupick\n']
     
     # Ouverture du fichier data_copie.txt en ajout
+    # Le descripteur fich est positionné à la fin du fichier (après le dernier caractère)
     fich = open('data_copie.txt', 'at', encoding='UTF-8')
     
     # Ecriture des chaînes de la liste à la fin du fichier
     fich.writelines(chajout)
     
     # Ouverture du fichier data_copie.txt en lecture
+    # Le descripteur fich est positionné au début du fichier
     fich = open('data_copie.txt', 'rt', encoding='UTF-8')
     
     # Lecture du contenu du fichier après ajout
@@ -821,29 +870,31 @@ suivante :
 
 .. code:: ipython3
 
-    with open() as obj_fich:
+    with open() as desc_fich:
         bloc
 
 où :
 
 -  ``open()`` est un appel à la fonction du même nom permettant d’ouvrir
    un fichier
--  ``obj_fich`` est un objet fichier, dont la valeur est celle retournée
-   par l’appel à ``open()``
+-  ``desc_fich`` est un descripteur fichier, dont la valeur est celle
+   retournée par l’appel à ``open()``
 -  ``bloc`` est un bloc d’instructions, contenant notamment des
-   opérations sur le fichier référencé par ``obj_fich``.
+   opérations sur le fichier référencé par ``desc_fich``.
 
 L’intérêt de cette instruction **with** est qu’elle va **appliquer
-automatiquement la méthode close()** sur l’objet fichier ``obj_fich``,
+automatiquement la méthode close()** sur le descripteur ``desc_fich``,
 dès que l’exécution du bloc d’instructions sera terminée, et même si
 cette terminaison est dûe à une erreur. Utiliser **with**, c’est donc
-avoir l’assurance que les fichiers seront fermés quoi qu’il arrive.
+avoir l’assurance que le fichier sera fermé quoi qu’il arrive.
 
 Le programme suivant lit le contenu intégral d’un fichier ``demo.txt``
 puis l’affiche, en utilisant l’instruction **with**.
 
 .. code:: ipython3
 
+    # Ouverture du fichier demo.txt en lecture
+    # Le descripteur fich est positionné au début du fichier
     with open('demo.txt', 'rt', encoding='UTF-8') as fich:
         contenu = fich.read()
         print(contenu)
@@ -874,7 +925,11 @@ fichier ``demo_copie.txt``. Deux instructions **with** sont utilisées :
 
 .. code:: ipython3
 
+    # Ouverture du fichier demo.txt en lecture
+    # Le descripteur fich est positionné au début du fichier
     with open('demo.txt', 'rt', encoding='UTF-8') as fich:
+        # Ouverture du fichier demo_copie.txt en écriture
+        # Le descripteur nouveau est positionné au début du fichier
         with open('demo_copie.txt', 'wt', encoding='UTF-8') as nouveau:
             contenu = fich.read()
             nouveau.write(contenu)
@@ -897,17 +952,18 @@ fichier texte. Sa syntaxe est la suivante :
 
 .. code:: ipython3
 
-    for ligne in obj_fich:
+    for ligne in desc_fich:
         bloc
 
 où :
 
 -  ``ligne`` est une variable de type chaîne
--  ``obj_fich`` est un l’objet référençant le fichier à parcourir
+-  ``desc_fich`` est le descripteur du fichier à parcourir
 -  ``bloc`` est un bloc d’instructions
 
 La variable ``ligne`` va prendre pour valeurs successives, une par une,
-toutes les lignes du fichier (une ligne = une chaîne). Chaque ligne sera
+toutes les lignes du fichier (une ligne = une chaîne) **à partir de la
+position courante du descripteur ``desc_fich``**. Chaque ligne sera
 terminée par le caractère de retour à la ligne ``'\n'``. Pour chaque
 ligne du fichier, une exécution de ``bloc`` est réalisée.
 
@@ -919,6 +975,8 @@ l’écran.
 
 .. code:: ipython3
 
+    # Ouverture du fichier data_copie.txt en lecture
+    # Le descripteur fich est positionné au début du fichier
     with open('data_copie.txt', 'rt', encoding='UTF-8') as fich:
         # Parcours du fichier ligne par ligne, suppression du caractère de retour à la ligne \n et affichage du nombre de caractères de chaque ligne
         for ligne in fich:
@@ -950,6 +1008,8 @@ l’écran.
     0
     18
     57
+    33
+    22
     
 
 On remarque que certaines lignes comportent 0 caractère. Ce sont les
@@ -957,8 +1017,10 @@ lignes vides qui ne contiennent que le caractère de retour à la ligne
 ``'\n'`` (caractère que la méthode ``strip()`` permet de supprimer avant
 le calcul du nombre de caractères).
 
-La méthode **readline()** permet de lire une ligne dans un fichier, et
-de se positionner sur la ligne suivante. Elle retourne :
+La méthode **readline()** permet de lire une ligne dans un fichier
+(toujours à partir de la position courante du descripteur du fichier
+!!), et de positionner le descripteur sur le premier caractère de la
+ligne suivante. Elle retourne :
 
 -  le contenu de la ligne lue (sous la forme d’une chaîne terminée par
    ``'\n'``), si la fin du fichier n’est pas encore atteinte
@@ -969,6 +1031,8 @@ Le programme suivant lit puis affiche la première ligne du fichier nommé
 
 .. code:: ipython3
 
+    # Ouverture du fichier demo.txt en lecture
+    # Le descripteur fich est positionné au début du fichier
     with open('demo.txt', 'rt', encoding='UTF-8') as fich:
         premligne = fich.readline()   # Lecture de la première ligne
         premligne = premligne.strip('\n')  # Suppression du caractère de fin de ligne
@@ -988,6 +1052,8 @@ et son nombre de caractères.
 
 .. code:: ipython3
 
+    # Ouverture du fichier demo.txt en lecture
+    # Le descripteur fich est positionné au début du fichier
     with open('demo.txt', 'rt', encoding='UTF-8') as fich:
         premligne = fich.readline()    # Lecture de la première ligne
         while premligne:               # Equivalent à while premligne != '':
@@ -1008,6 +1074,118 @@ et son nombre de caractères.
     Contenu : Ligne 8, Nombre de caractères : 7
     Contenu : Ligne 9, Nombre de caractères : 7
     Contenu : Ligne 10, Nombre de caractères : 8
+    
+
+Positionnement d’un descripteur de fichier : la méthode **seek()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Nous avons vu précédemment que les opérations de lecture et d’écriture
+dans un fichier s’effectuent toujours à partir de la position courante
+du descripteur dans le fichier. Un descripteur de fichier se crée à
+l’aide de la fonction **open()**, qui le positionne soit au début du
+fichier (premier caractère) soit à la fin (après le dernier caractère)
+selon le mode d’ouverture choisi. Les différentes opérations de lecture
+et/ou d’écriture modifient ensuite la position du descripteur dans le
+fichier. La méthode **seek()** s’applique à un descripteur de fichier et
+prend en paramètre un nombre correspondant à la position d’un caractère
+(0 pour le premier, 1 pour le deuxième, 2 pour le troisième, etc). Elle
+ne retourne aucun résultat mais positionne le descripteur sur le
+caractère situé à la position souhaité.
+
+Le programme suivant lit puis affiche plusieurs fois le contenu du
+fichier ``data.txt`` : dans sa totalité, à partir du caractère de la
+position 15 puis à partir du caractère de la position 50.
+
+.. code:: ipython3
+
+    # Ouverture du fichier data.txt
+    # Le descripteur fichtxt est positionné sur le premier caractère du fichier
+    with open('data.txt', 'rt', encoding='UTF-8') as fichtxt:
+        complet = fichtxt.read()                              # Lecture de la totalité du fichier
+        print(f"Contenu complet du fichier :\n\n{complet}\n")    # Affichage de la totalité du fichier
+        
+        fichtxt.seek(15)               # Positionnement de fichtxt sur le caractère situé à la position 15
+        partiel = fichtxt.read()       # Lecture du fichier (à partir de la position de fichtxt : position 15)
+        print(f"Contenu partiel du fichier à partir de la position 15 :\n\n{partiel}\n")    # Affichage
+        
+        fichtxt.seek(50)               # Positionnement de fichtxt sur le caractère situé à la position 50
+        partiel = fichtxt.read()       # Lecture du fichier (à partir de la position de fichtxt : position 50)
+        print(f"Contenu partiel du fichier à partir de la position 50 :\n\n{partiel}")    # Affichage
+
+
+.. parsed-literal::
+
+    Contenu complet du fichier :
+    
+    Souvent, pour s’amuser, les hommes d’équipage
+    Prennent des albatros, vastes oiseaux des mers,
+    Qui suivent, indolents compagnons de voyage,
+    Le navire glissant sur les gouffres amers.
+    
+    A peine les ont-ils déposés sur les planches,
+    Que ces rois de l’azur, maladroits et honteux,
+    Laissent piteusement leurs grandes ailes blanches
+    Comme des avirons traîner à côté d’eux.
+    
+    Ce voyageur ailé, comme il est gauche et veule !
+    Lui, naguère si beau, qu’il est comique et laid !
+    L’un agace son bec avec un brûle-gueule,
+    L’autre mime, en boitant, l’infirme qui volait !
+    
+    Le Poète est semblable au prince des nuées
+    Qui hante la tempête et se rit de l’archer ;
+    Exilé sur le sol au milieu des huées,
+    Ses ailes de géant l’empêchent de marcher.
+    
+    Charles Baudelaire
+    
+    Contenu partiel du fichier à partir de la position 15 :
+    
+    ’amuser, les hommes d’équipage
+    Prennent des albatros, vastes oiseaux des mers,
+    Qui suivent, indolents compagnons de voyage,
+    Le navire glissant sur les gouffres amers.
+    
+    A peine les ont-ils déposés sur les planches,
+    Que ces rois de l’azur, maladroits et honteux,
+    Laissent piteusement leurs grandes ailes blanches
+    Comme des avirons traîner à côté d’eux.
+    
+    Ce voyageur ailé, comme il est gauche et veule !
+    Lui, naguère si beau, qu’il est comique et laid !
+    L’un agace son bec avec un brûle-gueule,
+    L’autre mime, en boitant, l’infirme qui volait !
+    
+    Le Poète est semblable au prince des nuées
+    Qui hante la tempête et se rit de l’archer ;
+    Exilé sur le sol au milieu des huées,
+    Ses ailes de géant l’empêchent de marcher.
+    
+    Charles Baudelaire
+    
+    Contenu partiel du fichier à partir de la position 50 :
+    
+    
+    Prennent des albatros, vastes oiseaux des mers,
+    Qui suivent, indolents compagnons de voyage,
+    Le navire glissant sur les gouffres amers.
+    
+    A peine les ont-ils déposés sur les planches,
+    Que ces rois de l’azur, maladroits et honteux,
+    Laissent piteusement leurs grandes ailes blanches
+    Comme des avirons traîner à côté d’eux.
+    
+    Ce voyageur ailé, comme il est gauche et veule !
+    Lui, naguère si beau, qu’il est comique et laid !
+    L’un agace son bec avec un brûle-gueule,
+    L’autre mime, en boitant, l’infirme qui volait !
+    
+    Le Poète est semblable au prince des nuées
+    Qui hante la tempête et se rit de l’archer ;
+    Exilé sur le sol au milieu des huées,
+    Ses ailes de géant l’empêchent de marcher.
+    
+    Charles Baudelaire
     
 
 Utilisation des fichiers au format CSV en Python : le module csv
@@ -1050,11 +1228,11 @@ colonne vide.
 Dialecte d’un fichier CSV
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Le dialecte d’un fichier CSV désigne l’ensemble des principes utilisés
+Le dialecte d’un fichier CSV désigne l’ensemble des règles utilisées
 pour formater les données qu’il contient. Le format CSV n’étant pas
 normalisé, il existe de nombreux dialectes différents. Dans l’exemple
-ci-dessous, le dialecte du fichier se compose de trois principes de
-formatage :
+ci-dessous, le dialecte du fichier se compose entre autres des trois
+règles de formatage suivantes :
 
 -  l’utilisation du point-virgule « ; » comme caractère séparateur des
    colonnes
@@ -1065,4 +1243,115 @@ formatage :
 
 .. image:: ImagesNotebook/dialecte_CSV.PNG
 
-To be continued…
+Les fonctions **has_header()** et **sniff()** fournies par le module CSV
+prennent en paramètre un extrait du contenu d’un fichier au format CSV,
+puis analysent cet extrait. La fonction **has_reader()** retourne un
+booléen dont la valeur est ``True`` si la première ligne du fichier est
+bien une ligne d’intitulés, et ``False`` sinon. La fonction **sniff()**
+retourne un **objet dialecte** contenant toutes les règles de formatage
+du fichier, résumées dans des variables telles que :
+
+-  ``lineterminator`` : le caractère de fin de ligne
+-  ``delimiter`` : le caractère séparateur
+-  ``quotechar`` : le caractère utilisé pour entourer les données
+   susceptibles de contenir le caractère séparateur
+-  etc
+
+Le programme ci-dessous utilise ces deux fonctions pour analyser un
+fichier nommé ``donnees.csv`` puis affiche le résultat de son analyse.
+Notons que le fichier à analyser doit être préalablement ouvert en
+lecture.
+
+.. code:: ipython3
+
+    import os, csv
+    
+    with open('donnees.csv', 'rt', encoding='UTF-8') as f:
+        extrait = f.read()
+        intitules = csv.Sniffer().has_header(extrait)   # Existence ou non d'une ligne d'intitulés
+        dialect = csv.Sniffer().sniff(extrait)          # Analyse du dialecte utilisé pour le formatage
+        if intitules:
+            print("Le fichier analysé possède une ligne d'intitulés.")
+        else:
+            print("Le fichier analysé ne possède pas de ligne d'intitulés.")
+        print("Voici quelques propriétés du dialecte utilisé :")
+        print(f"Caractère séparateur : {dialect.delimiter}")
+        print(f"Caractère entourant les données contenant le caractère séparateur : {dialect.quotechar}")
+
+
+.. parsed-literal::
+
+    Le fichier analysé possède une ligne d'intitulés.
+    Voici quelques propriétés du dialecte utilisé :
+    Caractère séparateur : ;
+    Caractère entourant les données contenant le caractère séparateur : "
+    
+
+Les résultats du programme sont bien conformes aux caractéristiques du
+fichier ``donnees.csv`` dont voici ci-dessous un extrait.
+
+.. figure:: ImagesNotebook/Fichier_Donnees_csv.PNG
+   :alt: Extrait du fichier donnees.csv
+
+   Extrait du fichier donnees.csv
+
+La première ligne est bien une ligne d’intitulés. Le caractère
+séparateur est bien le point-virgule « ; ». De plus, les données
+textuelles susceptibles de contenir le caractère séparateur sont
+entourés du caractère « ” » (caractère nommé ``quotechar``).
+
+Lecture d’un fichier CSV
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Pour lire les données textuelles contenues dans un fichier CSV, il faut
+tout d’abord créer un **lecteur** (un ``reader``) de ce fichier,
+c’est-à-dire un objet capable de décoder le fichier. La lecture des
+données ligne par ligne s’effectue ensuite à partir de ce lecteur.
+
+Création d’un **lecteur** : la fonction **csv.reader()**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+La fonction **csv.reader()** prend en paramètres :
+
+-  le descripteur du fichier CSV à lire
+-  un objet dialecte contenant le dialecte du fichier CSV
+
+et retourne le lecteur associé au fichier CSV. Le dialecte du fichier
+CSV à lire peut être obtenu en utilisant la méthode **sniff()** vue
+précédemment.
+
+Le programme suivant ouvre le fichier ``donnees.csv``, récupère son
+dialecte, re-positionne le descripteur au début du fichier
+(l’instruction ``f.read()`` a eu pour effet de le déplacer en fin de
+fichier) puis crée un lecteur pour le fichier. Notons que la variable
+``dialect`` contenant le dialecte (valeur de retour de la méthode
+**sniff()**) est passée en paramètre de la fonction **csv.reader()**.
+
+.. code:: ipython3
+
+    import os, csv
+    
+    # Ouverture du fichier donnees.csv
+    # Le descripteur f est positionné sur le premier caractère du fichier
+    with open('donnees.csv', 'rt', encoding='UTF-8') as f:
+        dialect = csv.Sniffer().sniff(f.read())            # Après f.read(), le descripteur f est positionné à la fin du fichier
+        f.seek(0)                                          # Re-positionnement de f au début du fichier (indispensable avant la création du lecteur)
+        lecteur = csv.reader(f, dialect)                   # Création du lecteur
+
+Lecture des données à partir du lecteur
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Itération sur le lecteur avec la boucle for pour lire les données ligne
+par ligne
+
+Utilisation de la fonction list() pour récupérer une liste de listes,
+chaque liste étant une ligne du fichier.
+
+Écriture dans un fichier CSV
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Création d’un **écrivain**
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Écriture des données à l’aide de l’écrivain
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
