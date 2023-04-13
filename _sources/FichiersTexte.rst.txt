@@ -963,7 +963,7 @@ où :
 
 La variable ``ligne`` va prendre pour valeurs successives, une par une,
 toutes les lignes du fichier (une ligne = une chaîne) **à partir de la
-position courante du descripteur ``desc_fich``**. Chaque ligne sera
+position courante du descripteur** ``desc_fich``. Chaque ligne sera
 terminée par le caractère de retour à la ligne ``'\n'``. Pour chaque
 ligne du fichier, une exécution de ``bloc`` est réalisée.
 
