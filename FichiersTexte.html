@@ -464,19 +464,31 @@ title="Print to PDF"
     </a>
     <ul class="visible nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#creation-dun-ecrivain">
+      <a class="reference internal nav-link" href="#creation-dun-ecrivain-la-fonction-csv-writer">
        8.3.4.1. Création d’un
        <strong>
         écrivain
        </strong>
+       : la fonction
+       <strong>
+        csv.writer()
+       </strong>
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ecriture-des-donnees-a-laide-de-lecrivain">
-       8.3.4.2. Écriture des données à l’aide de l’écrivain
+      <a class="reference internal nav-link" href="#ecriture-des-donnees-a-laide-de-lecrivain-la-methode-writerow">
+       8.3.4.2. Écriture des données à l’aide de l’écrivain : la méthode
+       <strong>
+        writerow()
+       </strong>
       </a>
      </li>
     </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemple-complet">
+     8.3.5. Exemple complet
+    </a>
    </li>
   </ul>
  </li>
@@ -691,19 +703,31 @@ title="Print to PDF"
     </a>
     <ul class="visible nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#creation-dun-ecrivain">
+      <a class="reference internal nav-link" href="#creation-dun-ecrivain-la-fonction-csv-writer">
        8.3.4.1. Création d’un
        <strong>
         écrivain
        </strong>
+       : la fonction
+       <strong>
+        csv.writer()
+       </strong>
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ecriture-des-donnees-a-laide-de-lecrivain">
-       8.3.4.2. Écriture des données à l’aide de l’écrivain
+      <a class="reference internal nav-link" href="#ecriture-des-donnees-a-laide-de-lecrivain-la-methode-writerow">
+       8.3.4.2. Écriture des données à l’aide de l’écrivain : la méthode
+       <strong>
+        writerow()
+       </strong>
       </a>
      </li>
     </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemple-complet">
+     8.3.5. Exemple complet
+    </a>
    </li>
   </ul>
  </li>
@@ -1029,7 +1053,7 @@ chemin complet du dossier courant.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le dossier courant est : </span><span class="si">{</span><span class="n">courant</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<pre class="literal-block">Le dossier courant est : C:Usersmartienne_e.</pre>
+<pre class="literal-block">Le dossier courant est : <code class="docutils literal notranslate"><span class="pre">C:\Users\martienne_e</span></code>.</pre>
 <p>Lorsqu’un programme traite des fichiers, <strong>ceux-ci doivent
 impérativement être stockés dans le dossier courant</strong>.</p>
 </section>
@@ -1066,8 +1090,8 @@ de chemin relatif indiquant l’emplacement du dossier <code class="docutils lit
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le nouveau dossier courant est : </span><span class="si">{</span><span class="n">courant</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<pre class="literal-block">Le dossier courant est : C:Usersmartienne_e
-Le nouveau dossier courant est : C:Usersmartienne_edata</pre>
+<pre class="literal-block">Le dossier courant est : <code class="docutils literal notranslate"><span class="pre">C:\Users\martienne_e</span></code>
+Le nouveau dossier courant est : <code class="docutils literal notranslate"><span class="pre">C:\Users\martienne_e\data</span></code></pre>
 </section>
 <section id="ouverture-dun-fichier-la-fonction-open">
 <h3><span class="section-number">8.2.3. </span>Ouverture d’un fichier : la fonction <strong>open()</strong><a class="headerlink" href="#ouverture-dun-fichier-la-fonction-open" title="Lien permanent vers ce titre"></a></h3>
@@ -1702,7 +1726,7 @@ fichier. La méthode <strong>seek()</strong> s’applique à un descripteur de f
 prend en paramètre un nombre correspondant à la position d’un caractère
 (0 pour le premier, 1 pour le deuxième, 2 pour le troisième, etc). Elle
 ne retourne aucun résultat mais positionne le descripteur sur le
-caractère situé à la position souhaité.</p>
+caractère situé à la position fournie en paramètre.</p>
 <p>Le programme suivant lit puis affiche plusieurs fois le contenu du
 fichier <code class="docutils literal notranslate"><span class="pre">data.txt</span></code> : dans sa totalité, à partir du caractère de la
 position 15 puis à partir du caractère de la position 50.</p>
@@ -1903,12 +1927,12 @@ entourés du caractère « ” » (caractère nommé <code class="docutils liter
 <p>Pour lire les données textuelles contenues dans un fichier CSV, il faut
 tout d’abord créer un <strong>lecteur</strong> (un <code class="docutils literal notranslate"><span class="pre">reader</span></code>) de ce fichier,
 c’est-à-dire un objet capable de décoder le fichier. La lecture des
-données ligne par ligne s’effectue ensuite à partir de ce lecteur.</p>
+données s’effectue ensuite à partir de ce lecteur.</p>
 <section id="creation-dun-lecteur-la-fonction-csv-reader">
 <h4><span class="section-number">8.3.3.1. </span>Création d’un <strong>lecteur</strong> : la fonction <strong>csv.reader()</strong><a class="headerlink" href="#creation-dun-lecteur-la-fonction-csv-reader" title="Lien permanent vers ce titre"></a></h4>
 <p>La fonction <strong>csv.reader()</strong> prend en paramètres :</p>
 <ul class="simple">
-<li><p>le descripteur du fichier CSV à lire</p></li>
+<li><p>le descripteur du fichier CSV à lire, qui doit être ouvert en lecture</p></li>
 <li><p>un objet dialecte contenant le dialecte du fichier CSV</p></li>
 </ul>
 <p>et retourne le lecteur associé au fichier CSV. Le dialecte du fichier
@@ -1925,7 +1949,7 @@ fichier) puis crée un lecteur pour le fichier. Notons que la variable
 <span class="c1"># Ouverture du fichier donnees.csv</span>
 <span class="c1"># Le descripteur f est positionné sur le premier caractère du fichier</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;donnees.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">dialect</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">Sniffer</span><span class="p">()</span><span class="o">.</span><span class="n">sniff</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>            <span class="c1"># Après f.read(), le descripteur f est positionné à la fin du fichier</span>
+    <span class="n">dialect</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">Sniffer</span><span class="p">()</span><span class="o">.</span><span class="n">sniff</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>            <span class="c1"># Récupération du dialecte. Après f.read(), le descripteur f est positionné à la fin du fichier</span>
     <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>                                          <span class="c1"># Re-positionnement de f au début du fichier (indispensable avant la création du lecteur)</span>
     <span class="n">lecteur</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dialect</span><span class="p">)</span>                   <span class="c1"># Création du lecteur</span>
 </pre></div>
@@ -1933,20 +1957,227 @@ fichier) puis crée un lecteur pour le fichier. Notons que la variable
 </section>
 <section id="lecture-des-donnees-a-partir-du-lecteur">
 <h4><span class="section-number">8.3.3.2. </span>Lecture des données à partir du lecteur<a class="headerlink" href="#lecture-des-donnees-a-partir-du-lecteur" title="Lien permanent vers ce titre"></a></h4>
-<p>Itération sur le lecteur avec la boucle for pour lire les données ligne
-par ligne</p>
-<p>Utilisation de la fonction list() pour récupérer une liste de listes,
-chaque liste étant une ligne du fichier.</p>
+<p>Un lecteur de fichier (résultat de la fonction <strong>csv.reader()</strong>) est un
+objet itérable. Il peut donc être utilisé pour parcourir ligne par ligne
+les données se trouvant dans le fichier. Ce parcours s’effectue à l’aide
+d’une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> dont la syntaxe est la suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">lect</span><span class="p">:</span>
+    <span class="n">bloc</span>
+</pre></div>
+</div>
+<p>où :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ligne</span></code> est une variable contenant liste de chaînes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lect</span></code> est lecteur</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bloc</span></code> est un bloc d’instructions</p></li>
+</ul>
+<p>La variable <code class="docutils literal notranslate"><span class="pre">ligne</span></code> va prendre successivement pour valeurs toutes les
+lignes du fichier, de la première à la dernière. Pour chaque ligne, une
+exécution de <code class="docutils literal notranslate"><span class="pre">bloc</span></code> est effectuée. Chaque ligne placée dans la
+variable <code class="docutils literal notranslate"><span class="pre">ligne</span></code> est une liste de chaînes, où la première chaîne
+correspond à la première valeur de la ligne, la deuxième chaîne à la
+deuxième valeur, etc. On accède à chaque valeur de la ligne à l’aide de
+sa position dans la liste.</p>
+<p>A la fin d’une itération sur un lecteur, le descripteur du fichier se
+situe à la fin du fichier. Pour pouvoir refaire une itération sur le
+lecteur, il faut re-positionner le descripteur au début du fichier avec
+la méthode <strong>seek()</strong>.</p>
+<p>Le programme suivant effectue deux parcours du contenu du fichier
+<code class="docutils literal notranslate"><span class="pre">donnees.csv</span></code> ligne par ligne, à l’aide de son lecteur et d’une boucle
+<code class="docutils literal notranslate"><span class="pre">for</span></code>. Lors du premier parcours, chaque ligne est affichée en séparant
+les différentes valeurs de la ligne par un tiret horizontal. Lors du
+second parcours, chaque ligne est affichée en séparant les différentes
+valeurs de la ligne par un trait vertical.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">csv</span>
+
+<span class="c1"># Ouverture du fichier donnees.csv</span>
+<span class="c1"># Le descripteur f est positionné sur le premier caractère du fichier</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;donnees.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">dialect</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">Sniffer</span><span class="p">()</span><span class="o">.</span><span class="n">sniff</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>             <span class="c1"># Récupération du dialecte. Après f.read(), le descripteur f est positionné à la fin du fichier</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>                                          <span class="c1"># Re-positionnement de f au début du fichier (indispensable avant la création du lecteur)</span>
+    <span class="n">lecteur</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dialect</span><span class="p">)</span>                   <span class="c1"># Création du lecteur</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Premier parcours : &quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">lecteur</span><span class="p">:</span>                              <span class="c1"># Premier parcours ligne par ligne du fichier à l&#39;aide du lecteur</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>                                          <span class="c1"># Re-positionnement de f au début du fichier (indispensable avant le second parcours)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Second parcours : &quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">lecteur</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Premier</span> <span class="n">parcours</span> <span class="p">:</span>
+<span class="n">Numéro</span> <span class="o">-</span> <span class="n">Nom</span> <span class="o">-</span> <span class="n">Nbinscrits</span> <span class="o">-</span> <span class="n">Nbvotants</span> <span class="o">-</span> <span class="n">Nbblancs</span> <span class="o">-</span> <span class="n">Nbnuls</span> <span class="o">-</span> <span class="n">Nbexp</span>
+<span class="mi">44</span> <span class="o">-</span> <span class="n">Grand</span> <span class="n">Est</span> <span class="o">-</span> <span class="mi">3864055</span> <span class="o">-</span> <span class="mi">2847382</span> <span class="o">-</span> <span class="mi">158769</span> <span class="o">-</span> <span class="mi">54418</span> <span class="o">-</span> <span class="mi">2634195</span>
+<span class="mi">75</span> <span class="o">-</span> <span class="n">Nouvelle</span><span class="o">-</span><span class="n">Aquitaine</span> <span class="o">-</span> <span class="mi">4462866</span> <span class="o">-</span> <span class="mi">3383501</span> <span class="o">-</span> <span class="mi">250345</span> <span class="o">-</span> <span class="mi">103875</span> <span class="o">-</span> <span class="mi">3029281</span>
+<span class="mi">84</span> <span class="o">-</span> <span class="n">Auvergne</span><span class="o">-</span><span class="n">Rhône</span><span class="o">-</span><span class="n">Alpes</span> <span class="o">-</span> <span class="mi">5558964</span> <span class="o">-</span> <span class="mi">4136309</span> <span class="o">-</span> <span class="mi">277883</span> <span class="o">-</span> <span class="mi">91317</span> <span class="o">-</span> <span class="mi">3767109</span>
+<span class="mi">27</span> <span class="o">-</span> <span class="n">Bourgogne</span><span class="o">-</span><span class="n">Franche</span><span class="o">-</span><span class="n">Comté</span> <span class="o">-</span> <span class="mi">1992557</span> <span class="o">-</span> <span class="mi">1491021</span> <span class="o">-</span> <span class="mi">102236</span> <span class="o">-</span> <span class="mi">38647</span> <span class="o">-</span> <span class="mi">1350138</span>
+<span class="mi">53</span> <span class="o">-</span> <span class="n">Bretagne</span> <span class="o">-</span> <span class="mi">2562764</span> <span class="o">-</span> <span class="mi">1996495</span> <span class="o">-</span> <span class="mi">142782</span> <span class="o">-</span> <span class="mi">48102</span> <span class="o">-</span> <span class="mi">1805611</span>
+<span class="mi">24</span> <span class="o">-</span> <span class="n">Centre</span><span class="o">-</span><span class="n">Val</span> <span class="n">de</span> <span class="n">Loire</span> <span class="o">-</span> <span class="mi">1837674</span> <span class="o">-</span> <span class="mi">1373416</span> <span class="o">-</span> <span class="mi">89671</span> <span class="o">-</span> <span class="mi">33483</span> <span class="o">-</span> <span class="mi">1250262</span>
+<span class="mi">11</span> <span class="o">-</span> <span class="n">Île</span><span class="o">-</span><span class="n">de</span><span class="o">-</span><span class="n">France</span> <span class="o">-</span> <span class="mi">7353133</span> <span class="o">-</span> <span class="mi">5192986</span> <span class="o">-</span> <span class="mi">320171</span> <span class="o">-</span> <span class="mi">86980</span> <span class="o">-</span> <span class="mi">4785835</span>
+<span class="mi">76</span> <span class="o">-</span> <span class="n">Occitanie</span> <span class="o">-</span> <span class="mi">4324603</span> <span class="o">-</span> <span class="mi">3251774</span> <span class="o">-</span> <span class="mi">238975</span> <span class="o">-</span> <span class="mi">99581</span> <span class="o">-</span> <span class="mi">2913218</span>
+<span class="mi">32</span> <span class="o">-</span> <span class="n">Hauts</span><span class="o">-</span><span class="n">de</span><span class="o">-</span><span class="n">France</span> <span class="o">-</span> <span class="mi">4256336</span> <span class="o">-</span> <span class="mi">3119882</span> <span class="o">-</span> <span class="mi">160771</span> <span class="o">-</span> <span class="mi">68989</span> <span class="o">-</span> <span class="mi">2890122</span>
+<span class="mi">28</span> <span class="o">-</span> <span class="n">Normandie</span> <span class="o">-</span> <span class="mi">2414345</span> <span class="o">-</span> <span class="mi">1830658</span> <span class="o">-</span> <span class="mi">116648</span> <span class="o">-</span> <span class="mi">36854</span> <span class="o">-</span> <span class="mi">1677156</span>
+<span class="mi">52</span> <span class="o">-</span> <span class="n">Pays</span> <span class="n">de</span> <span class="n">la</span> <span class="n">Loire</span> <span class="o">-</span> <span class="mi">2833848</span> <span class="o">-</span> <span class="mi">2164728</span> <span class="o">-</span> <span class="mi">144187</span> <span class="o">-</span> <span class="mi">46252</span> <span class="o">-</span> <span class="mi">1974289</span>
+<span class="mi">93</span> <span class="o">-</span> <span class="n">Provence</span><span class="o">-</span><span class="n">Alpes</span><span class="o">-</span><span class="n">Côte</span> <span class="n">d</span><span class="s1">&#39;Azur - 3664768 - 2656700 - 155435 - 49262 - 2452003</span>
+<span class="mi">94</span> <span class="o">-</span> <span class="n">Corse</span> <span class="o">-</span> <span class="mi">243000</span> <span class="o">-</span> <span class="mi">147902</span> <span class="o">-</span> <span class="mi">9534</span> <span class="o">-</span> <span class="mi">4552</span> <span class="o">-</span> <span class="mi">133816</span>
+<span class="mi">01</span> <span class="o">-</span> <span class="n">Guadeloupe</span> <span class="o">-</span> <span class="mi">315941</span> <span class="o">-</span> <span class="mi">149057</span> <span class="o">-</span> <span class="mi">8511</span> <span class="o">-</span> <span class="mi">8211</span> <span class="o">-</span> <span class="mi">132335</span>
+<span class="mi">02</span> <span class="o">-</span> <span class="n">Martinique</span> <span class="o">-</span> <span class="mi">304670</span> <span class="o">-</span> <span class="mi">138469</span> <span class="o">-</span> <span class="mi">11198</span> <span class="o">-</span> <span class="mi">7353</span> <span class="o">-</span> <span class="mi">119918</span>
+<span class="mi">03</span> <span class="o">-</span> <span class="n">Guyane</span> <span class="o">-</span> <span class="mi">103058</span> <span class="o">-</span> <span class="mi">40088</span> <span class="o">-</span> <span class="mi">3049</span> <span class="o">-</span> <span class="mi">1768</span> <span class="o">-</span> <span class="mi">35271</span>
+<span class="mi">04</span> <span class="o">-</span> <span class="n">La</span> <span class="n">Réunion</span> <span class="o">-</span> <span class="mi">676080</span> <span class="o">-</span> <span class="mi">401492</span> <span class="o">-</span> <span class="mi">20584</span> <span class="o">-</span> <span class="mi">16644</span> <span class="o">-</span> <span class="mi">364264</span>
+<span class="mi">06</span> <span class="o">-</span> <span class="n">Mayotte</span> <span class="o">-</span> <span class="mi">92421</span> <span class="o">-</span> <span class="mi">42044</span> <span class="o">-</span> <span class="mi">1645</span> <span class="o">-</span> <span class="mi">1997</span> <span class="o">-</span> <span class="mi">38402</span>
+<span class="n">Second</span> <span class="n">parcours</span> <span class="p">:</span>
+<span class="n">Numéro</span> <span class="o">|</span> <span class="n">Nom</span> <span class="o">|</span> <span class="n">Nbinscrits</span> <span class="o">|</span> <span class="n">Nbvotants</span> <span class="o">|</span> <span class="n">Nbblancs</span> <span class="o">|</span> <span class="n">Nbnuls</span> <span class="o">|</span> <span class="n">Nbexp</span>
+<span class="mi">44</span> <span class="o">|</span> <span class="n">Grand</span> <span class="n">Est</span> <span class="o">|</span> <span class="mi">3864055</span> <span class="o">|</span> <span class="mi">2847382</span> <span class="o">|</span> <span class="mi">158769</span> <span class="o">|</span> <span class="mi">54418</span> <span class="o">|</span> <span class="mi">2634195</span>
+<span class="mi">75</span> <span class="o">|</span> <span class="n">Nouvelle</span><span class="o">-</span><span class="n">Aquitaine</span> <span class="o">|</span> <span class="mi">4462866</span> <span class="o">|</span> <span class="mi">3383501</span> <span class="o">|</span> <span class="mi">250345</span> <span class="o">|</span> <span class="mi">103875</span> <span class="o">|</span> <span class="mi">3029281</span>
+<span class="mi">84</span> <span class="o">|</span> <span class="n">Auvergne</span><span class="o">-</span><span class="n">Rhône</span><span class="o">-</span><span class="n">Alpes</span> <span class="o">|</span> <span class="mi">5558964</span> <span class="o">|</span> <span class="mi">4136309</span> <span class="o">|</span> <span class="mi">277883</span> <span class="o">|</span> <span class="mi">91317</span> <span class="o">|</span> <span class="mi">3767109</span>
+<span class="mi">27</span> <span class="o">|</span> <span class="n">Bourgogne</span><span class="o">-</span><span class="n">Franche</span><span class="o">-</span><span class="n">Comté</span> <span class="o">|</span> <span class="mi">1992557</span> <span class="o">|</span> <span class="mi">1491021</span> <span class="o">|</span> <span class="mi">102236</span> <span class="o">|</span> <span class="mi">38647</span> <span class="o">|</span> <span class="mi">1350138</span>
+<span class="mi">53</span> <span class="o">|</span> <span class="n">Bretagne</span> <span class="o">|</span> <span class="mi">2562764</span> <span class="o">|</span> <span class="mi">1996495</span> <span class="o">|</span> <span class="mi">142782</span> <span class="o">|</span> <span class="mi">48102</span> <span class="o">|</span> <span class="mi">1805611</span>
+<span class="mi">24</span> <span class="o">|</span> <span class="n">Centre</span><span class="o">-</span><span class="n">Val</span> <span class="n">de</span> <span class="n">Loire</span> <span class="o">|</span> <span class="mi">1837674</span> <span class="o">|</span> <span class="mi">1373416</span> <span class="o">|</span> <span class="mi">89671</span> <span class="o">|</span> <span class="mi">33483</span> <span class="o">|</span> <span class="mi">1250262</span>
+<span class="mi">11</span> <span class="o">|</span> <span class="n">Île</span><span class="o">-</span><span class="n">de</span><span class="o">-</span><span class="n">France</span> <span class="o">|</span> <span class="mi">7353133</span> <span class="o">|</span> <span class="mi">5192986</span> <span class="o">|</span> <span class="mi">320171</span> <span class="o">|</span> <span class="mi">86980</span> <span class="o">|</span> <span class="mi">4785835</span>
+<span class="mi">76</span> <span class="o">|</span> <span class="n">Occitanie</span> <span class="o">|</span> <span class="mi">4324603</span> <span class="o">|</span> <span class="mi">3251774</span> <span class="o">|</span> <span class="mi">238975</span> <span class="o">|</span> <span class="mi">99581</span> <span class="o">|</span> <span class="mi">2913218</span>
+<span class="mi">32</span> <span class="o">|</span> <span class="n">Hauts</span><span class="o">-</span><span class="n">de</span><span class="o">-</span><span class="n">France</span> <span class="o">|</span> <span class="mi">4256336</span> <span class="o">|</span> <span class="mi">3119882</span> <span class="o">|</span> <span class="mi">160771</span> <span class="o">|</span> <span class="mi">68989</span> <span class="o">|</span> <span class="mi">2890122</span>
+<span class="mi">28</span> <span class="o">|</span> <span class="n">Normandie</span> <span class="o">|</span> <span class="mi">2414345</span> <span class="o">|</span> <span class="mi">1830658</span> <span class="o">|</span> <span class="mi">116648</span> <span class="o">|</span> <span class="mi">36854</span> <span class="o">|</span> <span class="mi">1677156</span>
+<span class="mi">52</span> <span class="o">|</span> <span class="n">Pays</span> <span class="n">de</span> <span class="n">la</span> <span class="n">Loire</span> <span class="o">|</span> <span class="mi">2833848</span> <span class="o">|</span> <span class="mi">2164728</span> <span class="o">|</span> <span class="mi">144187</span> <span class="o">|</span> <span class="mi">46252</span> <span class="o">|</span> <span class="mi">1974289</span>
+<span class="mi">93</span> <span class="o">|</span> <span class="n">Provence</span><span class="o">-</span><span class="n">Alpes</span><span class="o">-</span><span class="n">Côte</span> <span class="n">d</span><span class="s1">&#39;Azur | 3664768 | 2656700 | 155435 | 49262 | 2452003</span>
+<span class="mi">94</span> <span class="o">|</span> <span class="n">Corse</span> <span class="o">|</span> <span class="mi">243000</span> <span class="o">|</span> <span class="mi">147902</span> <span class="o">|</span> <span class="mi">9534</span> <span class="o">|</span> <span class="mi">4552</span> <span class="o">|</span> <span class="mi">133816</span>
+<span class="mi">01</span> <span class="o">|</span> <span class="n">Guadeloupe</span> <span class="o">|</span> <span class="mi">315941</span> <span class="o">|</span> <span class="mi">149057</span> <span class="o">|</span> <span class="mi">8511</span> <span class="o">|</span> <span class="mi">8211</span> <span class="o">|</span> <span class="mi">132335</span>
+<span class="mi">02</span> <span class="o">|</span> <span class="n">Martinique</span> <span class="o">|</span> <span class="mi">304670</span> <span class="o">|</span> <span class="mi">138469</span> <span class="o">|</span> <span class="mi">11198</span> <span class="o">|</span> <span class="mi">7353</span> <span class="o">|</span> <span class="mi">119918</span>
+<span class="mi">03</span> <span class="o">|</span> <span class="n">Guyane</span> <span class="o">|</span> <span class="mi">103058</span> <span class="o">|</span> <span class="mi">40088</span> <span class="o">|</span> <span class="mi">3049</span> <span class="o">|</span> <span class="mi">1768</span> <span class="o">|</span> <span class="mi">35271</span>
+<span class="mi">04</span> <span class="o">|</span> <span class="n">La</span> <span class="n">Réunion</span> <span class="o">|</span> <span class="mi">676080</span> <span class="o">|</span> <span class="mi">401492</span> <span class="o">|</span> <span class="mi">20584</span> <span class="o">|</span> <span class="mi">16644</span> <span class="o">|</span> <span class="mi">364264</span>
+<span class="mi">06</span> <span class="o">|</span> <span class="n">Mayotte</span> <span class="o">|</span> <span class="mi">92421</span> <span class="o">|</span> <span class="mi">42044</span> <span class="o">|</span> <span class="mi">1645</span> <span class="o">|</span> <span class="mi">1997</span> <span class="o">|</span> <span class="mi">38402</span>
+</pre></div>
+</div>
+<p>La lecture du contenu d’un fichier à partir de son lecteur peut
+également se faire en transformant le lecteur en une liste de listes, à
+l’aide de la fonction <code class="docutils literal notranslate"><span class="pre">list</span></code>. La structure de la liste de listes
+obtenue est la suivante :</p>
+<figure class="align-default" id="id15">
+<img alt="Structure de la liste de listes du lecteur" src="_images/Struct_Liste_Lecteur.PNG" />
+<figcaption>
+<p><span class="caption-text">Structure de la liste de listes du lecteur</span><a class="headerlink" href="#id15" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Chaque liste de la liste est une liste de chaînes, où la première chaîne
+est la première valeur de la liste (colonne 1), la deuxième chaîne est
+la deuxième valeur (colonne 2), etc. L’intérêt de cette méthode est
+qu’elle permet de mémoriser tout le contenu du fichier dans une liste.
+Le fichier peut donc être fermé une fois se données lues, comme le
+montre le programme ci-dessous.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">csv</span>
+
+<span class="c1"># Ouverture du fichier donnees.csv</span>
+<span class="c1"># Le descripteur f est positionné sur le premier caractère du fichier</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;donnees.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">dialect</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">Sniffer</span><span class="p">()</span><span class="o">.</span><span class="n">sniff</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>             <span class="c1"># Récupération du dialecte. Après f.read(), le descripteur f est positionné à la fin du fichier</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>                                          <span class="c1"># Re-positionnement de f au début du fichier (indispensable avant la création du lecteur)</span>
+    <span class="n">lecteur</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dialect</span><span class="p">)</span>                   <span class="c1"># Création du lecteur</span>
+    <span class="n">contenu</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">lecteur</span><span class="p">)</span>                            <span class="c1"># Transformation du lecteur en une liste de listes mémorisée dans une variable</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le contenu du fichier est : </span><span class="se">\n</span><span class="si">{</span><span class="n">contenu</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>     <span class="c1"># Affichage du contenu du fichier (après la fermeture du fichier)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Le</span> <span class="n">contenu</span> <span class="n">du</span> <span class="n">fichier</span> <span class="n">est</span> <span class="p">:</span>
+<span class="p">[[</span><span class="s1">&#39;Numéro&#39;</span><span class="p">,</span> <span class="s1">&#39;Nom&#39;</span><span class="p">,</span> <span class="s1">&#39;Nbinscrits&#39;</span><span class="p">,</span> <span class="s1">&#39;Nbvotants&#39;</span><span class="p">,</span> <span class="s1">&#39;Nbblancs&#39;</span><span class="p">,</span> <span class="s1">&#39;Nbnuls&#39;</span><span class="p">,</span> <span class="s1">&#39;Nbexp&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;44&#39;</span><span class="p">,</span> <span class="s1">&#39;Grand Est&#39;</span><span class="p">,</span> <span class="s1">&#39;3864055&#39;</span><span class="p">,</span> <span class="s1">&#39;2847382&#39;</span><span class="p">,</span> <span class="s1">&#39;158769&#39;</span><span class="p">,</span> <span class="s1">&#39;54418&#39;</span><span class="p">,</span> <span class="s1">&#39;2634195&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;75&#39;</span><span class="p">,</span> <span class="s1">&#39;Nouvelle-Aquitaine&#39;</span><span class="p">,</span> <span class="s1">&#39;4462866&#39;</span><span class="p">,</span> <span class="s1">&#39;3383501&#39;</span><span class="p">,</span> <span class="s1">&#39;250345&#39;</span><span class="p">,</span> <span class="s1">&#39;103875&#39;</span><span class="p">,</span> <span class="s1">&#39;3029281&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;84&#39;</span><span class="p">,</span> <span class="s1">&#39;Auvergne-Rhône-Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;5558964&#39;</span><span class="p">,</span> <span class="s1">&#39;4136309&#39;</span><span class="p">,</span> <span class="s1">&#39;277883&#39;</span><span class="p">,</span> <span class="s1">&#39;91317&#39;</span><span class="p">,</span> <span class="s1">&#39;3767109&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;27&#39;</span><span class="p">,</span> <span class="s1">&#39;Bourgogne-Franche-Comté&#39;</span><span class="p">,</span> <span class="s1">&#39;1992557&#39;</span><span class="p">,</span> <span class="s1">&#39;1491021&#39;</span><span class="p">,</span> <span class="s1">&#39;102236&#39;</span><span class="p">,</span> <span class="s1">&#39;38647&#39;</span><span class="p">,</span> <span class="s1">&#39;1350138&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;53&#39;</span><span class="p">,</span> <span class="s1">&#39;Bretagne&#39;</span><span class="p">,</span> <span class="s1">&#39;2562764&#39;</span><span class="p">,</span> <span class="s1">&#39;1996495&#39;</span><span class="p">,</span> <span class="s1">&#39;142782&#39;</span><span class="p">,</span> <span class="s1">&#39;48102&#39;</span><span class="p">,</span> <span class="s1">&#39;1805611&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;24&#39;</span><span class="p">,</span> <span class="s1">&#39;Centre-Val de Loire&#39;</span><span class="p">,</span> <span class="s1">&#39;1837674&#39;</span><span class="p">,</span> <span class="s1">&#39;1373416&#39;</span><span class="p">,</span> <span class="s1">&#39;89671&#39;</span><span class="p">,</span> <span class="s1">&#39;33483&#39;</span><span class="p">,</span> <span class="s1">&#39;1250262&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;Île-de-France&#39;</span><span class="p">,</span> <span class="s1">&#39;7353133&#39;</span><span class="p">,</span> <span class="s1">&#39;5192986&#39;</span><span class="p">,</span> <span class="s1">&#39;320171&#39;</span><span class="p">,</span> <span class="s1">&#39;86980&#39;</span><span class="p">,</span> <span class="s1">&#39;4785835&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;76&#39;</span><span class="p">,</span> <span class="s1">&#39;Occitanie&#39;</span><span class="p">,</span> <span class="s1">&#39;4324603&#39;</span><span class="p">,</span> <span class="s1">&#39;3251774&#39;</span><span class="p">,</span> <span class="s1">&#39;238975&#39;</span><span class="p">,</span> <span class="s1">&#39;99581&#39;</span><span class="p">,</span> <span class="s1">&#39;2913218&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;32&#39;</span><span class="p">,</span> <span class="s1">&#39;Hauts-de-France&#39;</span><span class="p">,</span> <span class="s1">&#39;4256336&#39;</span><span class="p">,</span> <span class="s1">&#39;3119882&#39;</span><span class="p">,</span> <span class="s1">&#39;160771&#39;</span><span class="p">,</span> <span class="s1">&#39;68989&#39;</span><span class="p">,</span> <span class="s1">&#39;2890122&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;28&#39;</span><span class="p">,</span> <span class="s1">&#39;Normandie&#39;</span><span class="p">,</span> <span class="s1">&#39;2414345&#39;</span><span class="p">,</span> <span class="s1">&#39;1830658&#39;</span><span class="p">,</span> <span class="s1">&#39;116648&#39;</span><span class="p">,</span> <span class="s1">&#39;36854&#39;</span><span class="p">,</span> <span class="s1">&#39;1677156&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;52&#39;</span><span class="p">,</span> <span class="s1">&#39;Pays de la Loire&#39;</span><span class="p">,</span> <span class="s1">&#39;2833848&#39;</span><span class="p">,</span> <span class="s1">&#39;2164728&#39;</span><span class="p">,</span> <span class="s1">&#39;144187&#39;</span><span class="p">,</span> <span class="s1">&#39;46252&#39;</span><span class="p">,</span> <span class="s1">&#39;1974289&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;93&#39;</span><span class="p">,</span> <span class="s2">&quot;Provence-Alpes-Côte d&#39;Azur&quot;</span><span class="p">,</span> <span class="s1">&#39;3664768&#39;</span><span class="p">,</span> <span class="s1">&#39;2656700&#39;</span><span class="p">,</span> <span class="s1">&#39;155435&#39;</span><span class="p">,</span> <span class="s1">&#39;49262&#39;</span><span class="p">,</span> <span class="s1">&#39;2452003&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;94&#39;</span><span class="p">,</span> <span class="s1">&#39;Corse&#39;</span><span class="p">,</span> <span class="s1">&#39;243000&#39;</span><span class="p">,</span> <span class="s1">&#39;147902&#39;</span><span class="p">,</span> <span class="s1">&#39;9534&#39;</span><span class="p">,</span> <span class="s1">&#39;4552&#39;</span><span class="p">,</span> <span class="s1">&#39;133816&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;Guadeloupe&#39;</span><span class="p">,</span> <span class="s1">&#39;315941&#39;</span><span class="p">,</span> <span class="s1">&#39;149057&#39;</span><span class="p">,</span> <span class="s1">&#39;8511&#39;</span><span class="p">,</span> <span class="s1">&#39;8211&#39;</span><span class="p">,</span> <span class="s1">&#39;132335&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;Martinique&#39;</span><span class="p">,</span> <span class="s1">&#39;304670&#39;</span><span class="p">,</span> <span class="s1">&#39;138469&#39;</span><span class="p">,</span> <span class="s1">&#39;11198&#39;</span><span class="p">,</span> <span class="s1">&#39;7353&#39;</span><span class="p">,</span> <span class="s1">&#39;119918&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;03&#39;</span><span class="p">,</span> <span class="s1">&#39;Guyane&#39;</span><span class="p">,</span> <span class="s1">&#39;103058&#39;</span><span class="p">,</span> <span class="s1">&#39;40088&#39;</span><span class="p">,</span> <span class="s1">&#39;3049&#39;</span><span class="p">,</span> <span class="s1">&#39;1768&#39;</span><span class="p">,</span> <span class="s1">&#39;35271&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;La Réunion&#39;</span><span class="p">,</span> <span class="s1">&#39;676080&#39;</span><span class="p">,</span> <span class="s1">&#39;401492&#39;</span><span class="p">,</span> <span class="s1">&#39;20584&#39;</span><span class="p">,</span> <span class="s1">&#39;16644&#39;</span><span class="p">,</span> <span class="s1">&#39;364264&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;06&#39;</span><span class="p">,</span> <span class="s1">&#39;Mayotte&#39;</span><span class="p">,</span> <span class="s1">&#39;92421&#39;</span><span class="p">,</span> <span class="s1">&#39;42044&#39;</span><span class="p">,</span> <span class="s1">&#39;1645&#39;</span><span class="p">,</span> <span class="s1">&#39;1997&#39;</span><span class="p">,</span> <span class="s1">&#39;38402&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="ecriture-dans-un-fichier-csv">
 <h3><span class="section-number">8.3.4. </span>Écriture dans un fichier CSV<a class="headerlink" href="#ecriture-dans-un-fichier-csv" title="Lien permanent vers ce titre"></a></h3>
-<section id="creation-dun-ecrivain">
-<h4><span class="section-number">8.3.4.1. </span>Création d’un <strong>écrivain</strong><a class="headerlink" href="#creation-dun-ecrivain" title="Lien permanent vers ce titre"></a></h4>
+<p>Pour écrire les données textuelles contenues dans un fichier CSV, il
+faut tout d’abord créer un <strong>écrivain</strong> (un <code class="docutils literal notranslate"><span class="pre">writer</span></code>) de ce fichier,
+c’est-à-dire un objet capable d’écrire dans le fichier. L’écriture des
+données s’effectue ensuite à partir de cet écrivain.</p>
+<section id="creation-dun-ecrivain-la-fonction-csv-writer">
+<h4><span class="section-number">8.3.4.1. </span>Création d’un <strong>écrivain</strong> : la fonction <strong>csv.writer()</strong><a class="headerlink" href="#creation-dun-ecrivain-la-fonction-csv-writer" title="Lien permanent vers ce titre"></a></h4>
+<p>La fonction <strong>csv.writer()</strong> prend en paramètres :</p>
+<ul class="simple">
+<li><p>le descripteur du fichier CSV dans lequel les données doivent être
+écrites, qui doit être ouvert en écriture</p></li>
+<li><p>des paramètres facultatifs précisant certains éléments du dialecte
+(comme par exemple la valeur de <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> ou celle de
+<code class="docutils literal notranslate"><span class="pre">lineseparator</span></code></p></li>
+</ul>
+<p>et retourne l’écrivain associé au fichier CSV.</p>
+<p>Le programme suivant ouvre le fichier <code class="docutils literal notranslate"><span class="pre">resultats.csv</span></code> en écriture,
+puis crée un écrivain pour ce fichier. Le caractère séparateur est le
+point-virgule et le caractère de fin de ligne <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;resultats.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;wt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">ecrivain</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">lineterminator</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
-<section id="ecriture-des-donnees-a-laide-de-lecrivain">
-<h4><span class="section-number">8.3.4.2. </span>Écriture des données à l’aide de l’écrivain<a class="headerlink" href="#ecriture-des-donnees-a-laide-de-lecrivain" title="Lien permanent vers ce titre"></a></h4>
+<section id="ecriture-des-donnees-a-laide-de-lecrivain-la-methode-writerow">
+<h4><span class="section-number">8.3.4.2. </span>Écriture des données à l’aide de l’écrivain : la méthode <strong>writerow()</strong><a class="headerlink" href="#ecriture-des-donnees-a-laide-de-lecrivain-la-methode-writerow" title="Lien permanent vers ce titre"></a></h4>
+<p>La méthode <strong>writerow()</strong> s’applique à un écrivain et permet d’écrire
+une nouvelle ligne dans le fichier associé, à la position courante du
+descripteur. Elle prend comme unique paramètre un tuple ou une liste de
+chaînes dont les éléments sont les différentes valeurs de la ligne. Le
+tuple ou la liste peut être défini(e) à l’aide de la compréhension de
+liste (de tuple). Le programme suivant écrit deux lignes dans le fichier
+<code class="docutils literal notranslate"><span class="pre">resultats.csv</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;resultats.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;wt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">ecrivain</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">lineterminator</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ecrivain</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;Nom&#39;</span><span class="p">,</span> <span class="s1">&#39;Prénom&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">])</span>
+    <span class="n">ecrivain</span><span class="o">.</span><span class="n">writerow</span><span class="p">((</span><span class="s1">&#39;Dutilleul&#39;</span><span class="p">,</span> <span class="s1">&#39;Armand&#39;</span><span class="p">,</span> <span class="s1">&#39;28&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Voici ci-dessous le contenu du fichier <code class="docutils literal notranslate"><span class="pre">resultats.csv</span></code> après exécution
+du programme.</p>
+<figure class="align-default" id="id16">
+<img alt="Contenu du fichier resultats.csv" src="_images/Contenu_Resultats_csv.PNG" />
+<figcaption>
+<p><span class="caption-text">Contenu du fichier resultats.csv</span><a class="headerlink" href="#id16" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
 </section>
+</section>
+<section id="exemple-complet">
+<h3><span class="section-number">8.3.5. </span>Exemple complet<a class="headerlink" href="#exemple-complet" title="Lien permanent vers ce titre"></a></h3>
+<p>Dans cette section, nous présentons un exemple de programme traitant des
+données mémorisées dans un fichier au format CSV. Le fichier de départ,
+nommé <code class="docutils literal notranslate"><span class="pre">notes.csv</span></code>, contient sur chaque ligne le nom, le prénom d’un(e)
+étudiant(e) ainsi que trois notes obtenues à des examens (cf. image
+ci-dessous).</p>
+<figure class="align-default" id="id17">
+<img alt="Contenu du fichier donnees.csv" src="_images/Contenu_Donnees_csv.PNG" />
+<figcaption>
+<p><span class="caption-text">Contenu du fichier donnees.csv</span><a class="headerlink" href="#id17" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>Le programme parcourt ligne par ligne le fichier <code class="docutils literal notranslate"><span class="pre">notes.csv</span></code> afin de
+calculer la moyenne des trois notes de chaque étudiant(e). Il crée un
+nouveau fichier au format CSV, nommé <code class="docutils literal notranslate"><span class="pre">moyennes.csv</span></code>, dont le contenu
+est identique à celui de <code class="docutils literal notranslate"><span class="pre">notes.csv</span></code> à ceci près que les trois notes
+d’examens sont remplacées par les moyennes des trois notes.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;notes.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fnotes</span><span class="p">:</span>                       <span class="c1"># Ouverture du fichier notes.csv en lecture seule</span>
+    <span class="n">dialect</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">Sniffer</span><span class="p">()</span><span class="o">.</span><span class="n">sniff</span><span class="p">(</span><span class="n">fnotes</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>                                <span class="c1"># Récupération du dialecte</span>
+    <span class="n">fnotes</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>                                                              <span class="c1"># Re-positionnement du descripteur au début du fichier</span>
+    <span class="n">lecteur</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">fnotes</span><span class="p">,</span> <span class="n">dialect</span><span class="p">)</span>                                       <span class="c1"># Création du lecteur du fichier notes.csv</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;moyennes.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;wt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fmoy</span><span class="p">:</span>                  <span class="c1"># Ouverture du fichier moyennes.csv en écriture</span>
+        <span class="n">ecrivain</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">fmoy</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span><span class="n">lineterminator</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>        <span class="c1"># Création d&#39;un écrivain du fichier moyennes.csv</span>
+        <span class="k">for</span> <span class="n">etudiant</span> <span class="ow">in</span> <span class="n">lecteur</span><span class="p">:</span>                                                <span class="c1"># Parcours ligne par ligne du fichier notes.csv à l&#39;aide de son lecteur</span>
+            <span class="n">nom</span> <span class="o">=</span> <span class="n">etudiant</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                                                   <span class="c1"># Stockage dans des variables des informations sur l&#39;étudiant(e)</span>
+            <span class="n">prenom</span> <span class="o">=</span> <span class="n">etudiant</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">note1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">etudiant</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>                                          <span class="c1"># Les 3 notes lues sont des chaînes et doivent être converties en float</span>
+            <span class="n">note2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">etudiant</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+            <span class="n">note3</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">etudiant</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+            <span class="n">moyenne</span> <span class="o">=</span> <span class="p">(</span><span class="n">note1</span><span class="o">+</span><span class="n">note2</span><span class="o">+</span><span class="n">note3</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>                                     <span class="c1"># Calcul de la moyenne de l&#39;étudiant(e)</span>
+            <span class="n">ecrivain</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">moyenne</span><span class="p">)])</span>                      <span class="c1"># Ecriture des informations sur l&#39;étudiant(e) dans le fichier moyennes.csv à l&#39;aide de l&#39;écrivain</span>
+</pre></div>
+</div>
+<p>Le contenu du fichier <code class="docutils literal notranslate"><span class="pre">moyennes.csv</span></code> obtenu est le suivant :</p>
+<figure class="align-default" id="id18">
+<img alt="Contenu du fichier moyennes.csv" src="_images/Contenu_Moyennes_csv.PNG" />
+<figcaption>
+<p><span class="caption-text">Contenu du fichier moyennes.csv</span><a class="headerlink" href="#id18" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 </section>

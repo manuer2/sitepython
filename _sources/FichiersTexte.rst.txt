@@ -311,7 +311,7 @@ chemin complet du dossier courant.
 
 .. parsed-literal::
 
-    Le dossier courant est : C:\Users\martienne_e.
+    Le dossier courant est : ``C:\Users\martienne_e``.
     
 
 Lorsqu’un programme traite des fichiers, **ceux-ci doivent
@@ -358,8 +358,8 @@ Le programme suivant est un exemple d’utilisation de la fonction
 
 .. parsed-literal::
 
-    Le dossier courant est : C:\Users\martienne_e
-    Le nouveau dossier courant est : C:\Users\martienne_e\data
+    Le dossier courant est : ``C:\Users\martienne_e``
+    Le nouveau dossier courant est : ``C:\Users\martienne_e\data``
     
 
 Ouverture d’un fichier : la fonction **open()**
@@ -1090,7 +1090,7 @@ fichier. La méthode **seek()** s’applique à un descripteur de fichier et
 prend en paramètre un nombre correspondant à la position d’un caractère
 (0 pour le premier, 1 pour le deuxième, 2 pour le troisième, etc). Elle
 ne retourne aucun résultat mais positionne le descripteur sur le
-caractère situé à la position souhaité.
+caractère situé à la position fournie en paramètre.
 
 Le programme suivant lit puis affiche plusieurs fois le contenu du
 fichier ``data.txt`` : dans sa totalité, à partir du caractère de la
@@ -1306,14 +1306,14 @@ Lecture d’un fichier CSV
 Pour lire les données textuelles contenues dans un fichier CSV, il faut
 tout d’abord créer un **lecteur** (un ``reader``) de ce fichier,
 c’est-à-dire un objet capable de décoder le fichier. La lecture des
-données ligne par ligne s’effectue ensuite à partir de ce lecteur.
+données s’effectue ensuite à partir de ce lecteur.
 
 Création d’un **lecteur** : la fonction **csv.reader()**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 La fonction **csv.reader()** prend en paramètres :
 
--  le descripteur du fichier CSV à lire
+-  le descripteur du fichier CSV à lire, qui doit être ouvert en lecture
 -  un objet dialecte contenant le dialecte du fichier CSV
 
 et retourne le lecteur associé au fichier CSV. Le dialecte du fichier
@@ -1334,24 +1334,251 @@ fichier) puis crée un lecteur pour le fichier. Notons que la variable
     # Ouverture du fichier donnees.csv
     # Le descripteur f est positionné sur le premier caractère du fichier
     with open('donnees.csv', 'rt', encoding='UTF-8') as f:
-        dialect = csv.Sniffer().sniff(f.read())            # Après f.read(), le descripteur f est positionné à la fin du fichier
+        dialect = csv.Sniffer().sniff(f.read())            # Récupération du dialecte. Après f.read(), le descripteur f est positionné à la fin du fichier
         f.seek(0)                                          # Re-positionnement de f au début du fichier (indispensable avant la création du lecteur)
         lecteur = csv.reader(f, dialect)                   # Création du lecteur
 
 Lecture des données à partir du lecteur
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Itération sur le lecteur avec la boucle for pour lire les données ligne
-par ligne
+Un lecteur de fichier (résultat de la fonction **csv.reader()**) est un
+objet itérable. Il peut donc être utilisé pour parcourir ligne par ligne
+les données se trouvant dans le fichier. Ce parcours s’effectue à l’aide
+d’une boucle ``for`` dont la syntaxe est la suivante :
 
-Utilisation de la fonction list() pour récupérer une liste de listes,
-chaque liste étant une ligne du fichier.
+.. code:: ipython3
+
+    for ligne in lect:
+        bloc
+
+où :
+
+-  ``ligne`` est une variable contenant liste de chaînes
+-  ``lect`` est lecteur
+-  ``bloc`` est un bloc d’instructions
+
+La variable ``ligne`` va prendre successivement pour valeurs toutes les
+lignes du fichier, de la première à la dernière. Pour chaque ligne, une
+exécution de ``bloc`` est effectuée. Chaque ligne placée dans la
+variable ``ligne`` est une liste de chaînes, où la première chaîne
+correspond à la première valeur de la ligne, la deuxième chaîne à la
+deuxième valeur, etc. On accède à chaque valeur de la ligne à l’aide de
+sa position dans la liste.
+
+A la fin d’une itération sur un lecteur, le descripteur du fichier se
+situe à la fin du fichier. Pour pouvoir refaire une itération sur le
+lecteur, il faut re-positionner le descripteur au début du fichier avec
+la méthode **seek()**.
+
+Le programme suivant effectue deux parcours du contenu du fichier
+``donnees.csv`` ligne par ligne, à l’aide de son lecteur et d’une boucle
+``for``. Lors du premier parcours, chaque ligne est affichée en séparant
+les différentes valeurs de la ligne par un tiret horizontal. Lors du
+second parcours, chaque ligne est affichée en séparant les différentes
+valeurs de la ligne par un trait vertical.
+
+.. code:: ipython3
+
+    import os, csv
+    
+    # Ouverture du fichier donnees.csv
+    # Le descripteur f est positionné sur le premier caractère du fichier
+    with open('donnees.csv', 'rt', encoding='UTF-8') as f:
+        dialect = csv.Sniffer().sniff(f.read())             # Récupération du dialecte. Après f.read(), le descripteur f est positionné à la fin du fichier
+        f.seek(0)                                          # Re-positionnement de f au début du fichier (indispensable avant la création du lecteur)
+        lecteur = csv.reader(f, dialect)                   # Création du lecteur
+        print("Premier parcours : ")
+        for ligne in lecteur:                              # Premier parcours ligne par ligne du fichier à l'aide du lecteur
+            print(f"{ligne[0]} - {ligne[1]} - {ligne[2]} - {ligne[3]} - {ligne[4]} - {ligne[5]} - {ligne[6]}")
+        f.seek(0)                                          # Re-positionnement de f au début du fichier (indispensable avant le second parcours)
+        print("Second parcours : ")
+        for ligne in lecteur:
+            print(f"{ligne[0]} | {ligne[1]} | {ligne[2]} | {ligne[3]} | {ligne[4]} | {ligne[5]} | {ligne[6]}")
+
+
+.. parsed-literal::
+
+    Premier parcours : 
+    Numéro - Nom - Nbinscrits - Nbvotants - Nbblancs - Nbnuls - Nbexp
+    44 - Grand Est - 3864055 - 2847382 - 158769 - 54418 - 2634195
+    75 - Nouvelle-Aquitaine - 4462866 - 3383501 - 250345 - 103875 - 3029281
+    84 - Auvergne-Rhône-Alpes - 5558964 - 4136309 - 277883 - 91317 - 3767109
+    27 - Bourgogne-Franche-Comté - 1992557 - 1491021 - 102236 - 38647 - 1350138
+    53 - Bretagne - 2562764 - 1996495 - 142782 - 48102 - 1805611
+    24 - Centre-Val de Loire - 1837674 - 1373416 - 89671 - 33483 - 1250262
+    11 - Île-de-France - 7353133 - 5192986 - 320171 - 86980 - 4785835
+    76 - Occitanie - 4324603 - 3251774 - 238975 - 99581 - 2913218
+    32 - Hauts-de-France - 4256336 - 3119882 - 160771 - 68989 - 2890122
+    28 - Normandie - 2414345 - 1830658 - 116648 - 36854 - 1677156
+    52 - Pays de la Loire - 2833848 - 2164728 - 144187 - 46252 - 1974289
+    93 - Provence-Alpes-Côte d'Azur - 3664768 - 2656700 - 155435 - 49262 - 2452003
+    94 - Corse - 243000 - 147902 - 9534 - 4552 - 133816
+    01 - Guadeloupe - 315941 - 149057 - 8511 - 8211 - 132335
+    02 - Martinique - 304670 - 138469 - 11198 - 7353 - 119918
+    03 - Guyane - 103058 - 40088 - 3049 - 1768 - 35271
+    04 - La Réunion - 676080 - 401492 - 20584 - 16644 - 364264
+    06 - Mayotte - 92421 - 42044 - 1645 - 1997 - 38402
+    Second parcours : 
+    Numéro | Nom | Nbinscrits | Nbvotants | Nbblancs | Nbnuls | Nbexp
+    44 | Grand Est | 3864055 | 2847382 | 158769 | 54418 | 2634195
+    75 | Nouvelle-Aquitaine | 4462866 | 3383501 | 250345 | 103875 | 3029281
+    84 | Auvergne-Rhône-Alpes | 5558964 | 4136309 | 277883 | 91317 | 3767109
+    27 | Bourgogne-Franche-Comté | 1992557 | 1491021 | 102236 | 38647 | 1350138
+    53 | Bretagne | 2562764 | 1996495 | 142782 | 48102 | 1805611
+    24 | Centre-Val de Loire | 1837674 | 1373416 | 89671 | 33483 | 1250262
+    11 | Île-de-France | 7353133 | 5192986 | 320171 | 86980 | 4785835
+    76 | Occitanie | 4324603 | 3251774 | 238975 | 99581 | 2913218
+    32 | Hauts-de-France | 4256336 | 3119882 | 160771 | 68989 | 2890122
+    28 | Normandie | 2414345 | 1830658 | 116648 | 36854 | 1677156
+    52 | Pays de la Loire | 2833848 | 2164728 | 144187 | 46252 | 1974289
+    93 | Provence-Alpes-Côte d'Azur | 3664768 | 2656700 | 155435 | 49262 | 2452003
+    94 | Corse | 243000 | 147902 | 9534 | 4552 | 133816
+    01 | Guadeloupe | 315941 | 149057 | 8511 | 8211 | 132335
+    02 | Martinique | 304670 | 138469 | 11198 | 7353 | 119918
+    03 | Guyane | 103058 | 40088 | 3049 | 1768 | 35271
+    04 | La Réunion | 676080 | 401492 | 20584 | 16644 | 364264
+    06 | Mayotte | 92421 | 42044 | 1645 | 1997 | 38402
+    
+
+La lecture du contenu d’un fichier à partir de son lecteur peut
+également se faire en transformant le lecteur en une liste de listes, à
+l’aide de la fonction ``list``. La structure de la liste de listes
+obtenue est la suivante :
+
+.. figure:: ImagesNotebook/Struct_Liste_Lecteur.PNG
+   :alt: Structure de la liste de listes du lecteur
+
+   Structure de la liste de listes du lecteur
+
+Chaque liste de la liste est une liste de chaînes, où la première chaîne
+est la première valeur de la liste (colonne 1), la deuxième chaîne est
+la deuxième valeur (colonne 2), etc. L’intérêt de cette méthode est
+qu’elle permet de mémoriser tout le contenu du fichier dans une liste.
+Le fichier peut donc être fermé une fois se données lues, comme le
+montre le programme ci-dessous.
+
+.. code:: ipython3
+
+    import os, csv
+    
+    # Ouverture du fichier donnees.csv
+    # Le descripteur f est positionné sur le premier caractère du fichier
+    with open('donnees.csv', 'rt', encoding='UTF-8') as f:
+        dialect = csv.Sniffer().sniff(f.read())             # Récupération du dialecte. Après f.read(), le descripteur f est positionné à la fin du fichier
+        f.seek(0)                                          # Re-positionnement de f au début du fichier (indispensable avant la création du lecteur)
+        lecteur = csv.reader(f, dialect)                   # Création du lecteur
+        contenu = list(lecteur)                            # Transformation du lecteur en une liste de listes mémorisée dans une variable
+    print(f"Le contenu du fichier est : \n{contenu}")     # Affichage du contenu du fichier (après la fermeture du fichier)
+
+
+.. parsed-literal::
+
+    Le contenu du fichier est : 
+    [['Numéro', 'Nom', 'Nbinscrits', 'Nbvotants', 'Nbblancs', 'Nbnuls', 'Nbexp'], ['44', 'Grand Est', '3864055', '2847382', '158769', '54418', '2634195'], ['75', 'Nouvelle-Aquitaine', '4462866', '3383501', '250345', '103875', '3029281'], ['84', 'Auvergne-Rhône-Alpes', '5558964', '4136309', '277883', '91317', '3767109'], ['27', 'Bourgogne-Franche-Comté', '1992557', '1491021', '102236', '38647', '1350138'], ['53', 'Bretagne', '2562764', '1996495', '142782', '48102', '1805611'], ['24', 'Centre-Val de Loire', '1837674', '1373416', '89671', '33483', '1250262'], ['11', 'Île-de-France', '7353133', '5192986', '320171', '86980', '4785835'], ['76', 'Occitanie', '4324603', '3251774', '238975', '99581', '2913218'], ['32', 'Hauts-de-France', '4256336', '3119882', '160771', '68989', '2890122'], ['28', 'Normandie', '2414345', '1830658', '116648', '36854', '1677156'], ['52', 'Pays de la Loire', '2833848', '2164728', '144187', '46252', '1974289'], ['93', "Provence-Alpes-Côte d'Azur", '3664768', '2656700', '155435', '49262', '2452003'], ['94', 'Corse', '243000', '147902', '9534', '4552', '133816'], ['01', 'Guadeloupe', '315941', '149057', '8511', '8211', '132335'], ['02', 'Martinique', '304670', '138469', '11198', '7353', '119918'], ['03', 'Guyane', '103058', '40088', '3049', '1768', '35271'], ['04', 'La Réunion', '676080', '401492', '20584', '16644', '364264'], ['06', 'Mayotte', '92421', '42044', '1645', '1997', '38402']]
+    
 
 Écriture dans un fichier CSV
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Création d’un **écrivain**
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Pour écrire les données textuelles contenues dans un fichier CSV, il
+faut tout d’abord créer un **écrivain** (un ``writer``) de ce fichier,
+c’est-à-dire un objet capable d’écrire dans le fichier. L’écriture des
+données s’effectue ensuite à partir de cet écrivain.
 
-Écriture des données à l’aide de l’écrivain
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Création d’un **écrivain** : la fonction **csv.writer()**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+La fonction **csv.writer()** prend en paramètres :
+
+-  le descripteur du fichier CSV dans lequel les données doivent être
+   écrites, qui doit être ouvert en écriture
+-  des paramètres facultatifs précisant certains éléments du dialecte
+   (comme par exemple la valeur de ``delimiter`` ou celle de
+   ``lineseparator``
+
+et retourne l’écrivain associé au fichier CSV.
+
+Le programme suivant ouvre le fichier ``resultats.csv`` en écriture,
+puis crée un écrivain pour ce fichier. Le caractère séparateur est le
+point-virgule et le caractère de fin de ligne ``'\n'``.
+
+.. code:: ipython3
+
+    import os, csv
+    
+    with open('resultats.csv', 'wt', encoding='UTF-8') as f:
+        ecrivain = csv.writer(f, delimiter=";", lineterminator = "\n")
+
+Écriture des données à l’aide de l’écrivain : la méthode **writerow()**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+La méthode **writerow()** s’applique à un écrivain et permet d’écrire
+une nouvelle ligne dans le fichier associé, à la position courante du
+descripteur. Elle prend comme unique paramètre un tuple ou une liste de
+chaînes dont les éléments sont les différentes valeurs de la ligne. Le
+tuple ou la liste peut être défini(e) à l’aide de la compréhension de
+liste (de tuple). Le programme suivant écrit deux lignes dans le fichier
+``resultats.csv``.
+
+.. code:: ipython3
+
+    import os, csv
+    
+    with open('resultats.csv', 'wt', encoding='UTF-8') as f:
+        ecrivain = csv.writer(f, delimiter=";", lineterminator = "\n")
+        ecrivain.writerow(['Nom', 'Prénom', 'Age'])
+        ecrivain.writerow(('Dutilleul', 'Armand', '28'))
+
+Voici ci-dessous le contenu du fichier ``resultats.csv`` après exécution
+du programme.
+
+.. figure:: ImagesNotebook/Contenu_Resultats_csv.PNG
+   :alt: Contenu du fichier resultats.csv
+
+   Contenu du fichier resultats.csv
+
+Exemple complet
+~~~~~~~~~~~~~~~
+
+Dans cette section, nous présentons un exemple de programme traitant des
+données mémorisées dans un fichier au format CSV. Le fichier de départ,
+nommé ``notes.csv``, contient sur chaque ligne le nom, le prénom d’un(e)
+étudiant(e) ainsi que trois notes obtenues à des examens (cf. image
+ci-dessous).
+
+.. figure:: ImagesNotebook/Contenu_Donnees_csv.PNG
+   :alt: Contenu du fichier donnees.csv
+
+   Contenu du fichier donnees.csv
+
+Le programme parcourt ligne par ligne le fichier ``notes.csv`` afin de
+calculer la moyenne des trois notes de chaque étudiant(e). Il crée un
+nouveau fichier au format CSV, nommé ``moyennes.csv``, dont le contenu
+est identique à celui de ``notes.csv`` à ceci près que les trois notes
+d’examens sont remplacées par les moyennes des trois notes.
+
+.. code:: ipython3
+
+    import os, csv
+    
+    with open('notes.csv', 'rt', encoding='UTF-8') as fnotes:                       # Ouverture du fichier notes.csv en lecture seule
+        dialect = csv.Sniffer().sniff(fnotes.read())                                # Récupération du dialecte
+        fnotes.seek(0)                                                              # Re-positionnement du descripteur au début du fichier
+        lecteur = csv.reader(fnotes, dialect)                                       # Création du lecteur du fichier notes.csv
+        with open('moyennes.csv', 'wt', encoding='UTF-8') as fmoy:                  # Ouverture du fichier moyennes.csv en écriture
+            ecrivain = csv.writer(fmoy, delimiter=";",lineterminator = "\n")        # Création d'un écrivain du fichier moyennes.csv
+            for etudiant in lecteur:                                                # Parcours ligne par ligne du fichier notes.csv à l'aide de son lecteur
+                nom = etudiant[0]                                                   # Stockage dans des variables des informations sur l'étudiant(e)
+                prenom = etudiant[1]
+                note1 = float(etudiant[2])                                          # Les 3 notes lues sont des chaînes et doivent être converties en float
+                note2 = float(etudiant[3])
+                note3 = float(etudiant[4])
+                moyenne = (note1+note2+note3)/3                                     # Calcul de la moyenne de l'étudiant(e)
+                ecrivain.writerow([nom, prenom, str(moyenne)])                      # Ecriture des informations sur l'étudiant(e) dans le fichier moyennes.csv à l'aide de l'écrivain
+
+Le contenu du fichier ``moyennes.csv`` obtenu est le suivant :
+
+.. figure:: ImagesNotebook/Contenu_Moyennes_csv.PNG
+   :alt: Contenu du fichier moyennes.csv
+
+   Contenu du fichier moyennes.csv
