@@ -446,8 +446,13 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parcours-par-indice-et-element">
+     6.9.3. Parcours par indice et élément
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#parcours-partiel">
-     6.9.3. Parcours partiel
+     6.9.4. Parcours partiel
     </a>
    </li>
   </ul>
@@ -677,8 +682,13 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parcours-par-indice-et-element">
+     6.9.3. Parcours par indice et élément
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#parcours-partiel">
-     6.9.3. Parcours partiel
+     6.9.4. Parcours partiel
     </a>
    </li>
   </ul>
@@ -1454,11 +1464,12 @@ Pomme appartient-elle à la liste ? Réponse : False
 <h2><span class="section-number">6.9. </span>Parcours d’une liste<a class="headerlink" href="#parcours-dune-liste" title="Lien permanent vers ce titre"></a></h2>
 <p>Une liste est une séquence, et est de ce fait un objet « itérable ».
 Cela signifie qu’on peut parcourir un à un ses éléments à l’aide d’une
-boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> pour leur appliquer un traitement. Il existe deux
+boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> pour leur appliquer un traitement. Il existe trois
 manières d’effectuer un parcours complet d’une liste :</p>
 <ul class="simple">
 <li><p>le parcours <strong>par élément</strong></p></li>
 <li><p>le parcours <strong>par indice</strong></p></li>
+<li><p>le parcours <strong>par indice et élément</strong></p></li>
 </ul>
 <section id="parcours-par-element">
 <h3><span class="section-number">6.9.1. </span>Parcours <strong>par élément</strong><a class="headerlink" href="#parcours-par-element" title="Lien permanent vers ce titre"></a></h3>
@@ -1566,8 +1577,45 @@ La liste contient dessert qui est de type &lt;class &#39;str&#39;&gt;.
 </pre></div>
 </div>
 </section>
+<section id="parcours-par-indice-et-element">
+<h3><span class="section-number">6.9.3. </span>Parcours par indice et élément<a class="headerlink" href="#parcours-par-indice-et-element" title="Lien permanent vers ce titre"></a></h3>
+<p>Ce parcours permet de parcourir un par un les éléments d’une liste, en
+disposant pour chaque élément de son indice, mais également de sa
+valeur. La syntaxe d’une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> effectuant un parcours par
+indice et élément est la suivante :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">id_liste</span><span class="p">):</span>
+    <span class="n">bloc_instructions</span>
+</pre></div>
+</div>
+<p>où :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ind</span></code> et <code class="docutils literal notranslate"><span class="pre">val</span></code> sont des variables représentant respectivement les
+indices et les valeurs des éléments de la liste</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id_liste</span></code> est l’identifiant de la liste à parcourir</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enumerate(id_liste)</span></code> permet de générer la séquence de tous les
+couples (indice, valeur) de la liste <code class="docutils literal notranslate"><span class="pre">id_liste</span></code>.</p></li>
+</ul>
+<p>Les variables <code class="docutils literal notranslate"><span class="pre">ind</span></code> et <code class="docutils literal notranslate"><span class="pre">val</span></code> vont prendre successivement toutes les
+valeurs des indices (<code class="docutils literal notranslate"><span class="pre">ind</span></code>) et des éléments (<code class="docutils literal notranslate"><span class="pre">val</span></code>) de la liste.
+Pour chaque binôme de valeurs <code class="docutils literal notranslate"><span class="pre">ind</span></code> et <code class="docutils literal notranslate"><span class="pre">val</span></code>, le bloc
+<code class="docutils literal notranslate"><span class="pre">bloc_instructions</span></code> est exécuté. Voici un exemple de programme
+parcourant une liste par indice et élément. Pour chaque élément de la
+liste, le programme affiche son indice suivi de sa valeur.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classement</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Arthur&#39;</span><span class="p">,</span> <span class="s1">&#39;Barnabé&#39;</span><span class="p">,</span> <span class="s1">&#39;Côme&#39;</span><span class="p">,</span> <span class="s1">&#39;Damien&#39;</span><span class="p">,</span> <span class="s1">&#39;Emile&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">classement</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;élément situé au rang </span><span class="si">{</span><span class="n">ind</span><span class="si">}</span><span class="s2"> est </span><span class="si">{</span><span class="n">val</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="s1">&#39;élément situé au rang 0 est Arthur.</span>
+<span class="n">L</span><span class="s1">&#39;élément situé au rang 1 est Barnabé.</span>
+<span class="n">L</span><span class="s1">&#39;élément situé au rang 2 est Côme.</span>
+<span class="n">L</span><span class="s1">&#39;élément situé au rang 3 est Damien.</span>
+<span class="n">L</span><span class="s1">&#39;élément situé au rang 4 est Emile.</span>
+</pre></div>
+</div>
+</section>
 <section id="parcours-partiel">
-<h3><span class="section-number">6.9.3. </span>Parcours partiel<a class="headerlink" href="#parcours-partiel" title="Lien permanent vers ce titre"></a></h3>
+<h3><span class="section-number">6.9.4. </span>Parcours partiel<a class="headerlink" href="#parcours-partiel" title="Lien permanent vers ce titre"></a></h3>
 <p>Le parcours par indice vu précédemment permet de choisir les indices des
 éléments à parcourir, ce qui n’est pas le cas du parcours par élément.
 On peut donc l’utiliser pour effectuer un parcours partiel d’une liste.

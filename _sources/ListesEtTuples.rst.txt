@@ -927,11 +927,12 @@ Parcours d’une liste
 
 Une liste est une séquence, et est de ce fait un objet « itérable ».
 Cela signifie qu’on peut parcourir un à un ses éléments à l’aide d’une
-boucle ``for`` pour leur appliquer un traitement. Il existe deux
+boucle ``for`` pour leur appliquer un traitement. Il existe trois
 manières d’effectuer un parcours complet d’une liste :
 
 -  le parcours **par élément**
 -  le parcours **par indice**
+-  le parcours **par indice et élément**
 
 Parcours **par élément**
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1064,6 +1065,50 @@ en affichant à l’écran chaque élément ainsi que son type.
     La liste contient 154 qui est de type <class 'int'>.
     La liste contient fromage qui est de type <class 'str'>.
     La liste contient dessert qui est de type <class 'str'>.
+    
+
+Parcours par indice et élément
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Ce parcours permet de parcourir un par un les éléments d’une liste, en
+disposant pour chaque élément de son indice, mais également de sa
+valeur. La syntaxe d’une boucle ``for`` effectuant un parcours par
+indice et élément est la suivante :
+
+.. code:: ipython3
+
+    for ind, val in enumerate(id_liste):
+        bloc_instructions
+
+où :
+
+-  ``ind`` et ``val`` sont des variables représentant respectivement les
+   indices et les valeurs des éléments de la liste
+-  ``id_liste`` est l’identifiant de la liste à parcourir
+-  ``enumerate(id_liste)`` permet de générer la séquence de tous les
+   couples (indice, valeur) de la liste ``id_liste``.
+
+Les variables ``ind`` et ``val`` vont prendre successivement toutes les
+valeurs des indices (``ind``) et des éléments (``val``) de la liste.
+Pour chaque binôme de valeurs ``ind`` et ``val``, le bloc
+``bloc_instructions`` est exécuté. Voici un exemple de programme
+parcourant une liste par indice et élément. Pour chaque élément de la
+liste, le programme affiche son indice suivi de sa valeur.
+
+.. code:: ipython3
+
+    classement = ['Arthur', 'Barnabé', 'Côme', 'Damien', 'Emile']
+    for ind, val in enumerate(classement):
+        print(f"L'élément situé au rang {ind} est {val}.")
+
+
+.. parsed-literal::
+
+    L'élément situé au rang 0 est Arthur.
+    L'élément situé au rang 1 est Barnabé.
+    L'élément situé au rang 2 est Côme.
+    L'élément situé au rang 3 est Damien.
+    L'élément situé au rang 4 est Emile.
     
 
 Parcours partiel
