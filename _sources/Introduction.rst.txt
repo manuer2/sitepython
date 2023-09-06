@@ -57,10 +57,10 @@ informatiques.
 Exemple de tâche simple
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-On considère par exemple une tâche assez qu’il est possible d’effectuer
-avec juste un crayon, une feuille de papier… et le souvenir de ses
-leçons de mathématiques du lycée : le calcul des racines réelles d’une
-équation du second degré à une inconnue de la forme :
+On considère par exemple une tâche, assez simple, qu’il est possible
+d’effectuer avec juste un crayon, une feuille de papier… et le souvenir
+de ses leçons de mathématiques du lycée : le calcul des racines réelles
+d’une équation du second degré à une inconnue de la forme :
 :math:`ax^2+bx+c=0`. Pour automatiser cette tâche à l’aide d’un
 ordinateur et d’un programme, quatre étapes sont nécessaires :
 
@@ -120,7 +120,7 @@ de la phase de conception de notre programme de calcul des racines d’une
     #            (à la racine unique) de l'équation si elle(s) existe(nt).
     #            Les valeurs de ces variables sont affichées à l'écran.
     #            - racine1 est la valeur de la première racine
-    #              (ou de la racine unique selon le cas
+    #              (ou de la racine unique selon le cas)
     #            - racine2 est la valeur de la seconde racine
     #            si l'équation n'admet aucune racine réelle, un message
     #            l'indiquant est affiché à l'écran.
@@ -136,7 +136,7 @@ de la phase de conception de notre programme de calcul des racines d’une
         Saisir au clavier la valeur de coeff_b
         Saisir au clavier la valeur de coeff_c
         Calculer la valeur du discriminant delta
-        Si (delta <= 0)
+        Si (delta >= 0)
             alors Si (delta > 0)
                         alors calculer les valeurs des 2 racines racine1 et racine2
                               afficher à l'écran les valeurs de racine1 et racine2
@@ -250,14 +250,14 @@ d’exécution).
 
 .. parsed-literal::
 
-     4
-     4
      1
+     3
+     2
     
 
 .. parsed-literal::
 
-    L'équation admet une racine réelle double égale à : -0.5.
+    L'équation admet deux racines réelles égales à -2.0 et -1.0.
     
 
 Le test du programme
@@ -333,9 +333,7 @@ de scripts Python (toujours notre programme de l’équation !) dont
 l’interprétation indique des erreurs de syntaxe. Quelles sont ces
 erreurs ? Notez bien que le message d’erreur fourni par l’interpréteur,
 ainsi que parfois la ligne où est censée se trouver l’erreur, ne sont
-pas toujours exacts. Avant d’exécuter les scripts, n’oubliez pas de
-réinitialiser la mémoire de l’interpréteur en cliquant sur la flèche
-circulaire “Restart the kernel”.
+pas toujours exacts.
 
 .. code:: ipython3
 
@@ -351,7 +349,7 @@ circulaire “Restart the kernel”.
     
     # Calcul et mémorisation du discriminant de l'équation
     
-    delta = (coeff_b**2)-(4 * coeff_a * coeff_c)
+    delta = (coeff_b**2)-(4 * coeff_a * coeff_c
     
     # Calcul des racines réelles (ou pas) en fonction de la valeur du discriminant
     
@@ -367,34 +365,14 @@ circulaire “Restart the kernel”.
         print("Cette équation n'admet pas de racine réelle.")
 
 
-.. parsed-literal::
-
-    Saisissez les valeurs des 3 coefficients a, b et c dans cet ordre : 
-    
-
-.. parsed-literal::
-
-     5
-     6
-     1
-    
-
 ::
 
 
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    Input In [2], in <cell line: 17>()
-         17 if (delta >= 0):
-         18     if (delta > 0):
-    ---> 19         racine1 == ((-1 * coeff_b) - sqrt(delta))/(2 * coeff_a)
-         20         racine2 = ((-1 * coeff_b) + sqrt(delta))/(2 * coeff_a)
-         21         print(f"L'équation admet deux racines réelles égales à {racine1} et {racine2}.")
+      Input In [8]
+        if (delta >= 0):
+                       ^
+    SyntaxError: invalid syntax
     
-
-    NameError: name 'racine1' is not defined
 
 
 .. code:: ipython3

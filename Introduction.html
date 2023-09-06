@@ -543,10 +543,10 @@ informatiques.</p>
 </section>
 <section id="exemple-de-tache-simple">
 <h3><span class="section-number">1.4.2. </span>Exemple de tâche simple<a class="headerlink" href="#exemple-de-tache-simple" title="Lien permanent vers ce titre"></a></h3>
-<p>On considère par exemple une tâche assez qu’il est possible d’effectuer
-avec juste un crayon, une feuille de papier… et le souvenir de ses
-leçons de mathématiques du lycée : le calcul des racines réelles d’une
-équation du second degré à une inconnue de la forme :
+<p>On considère par exemple une tâche, assez simple, qu’il est possible
+d’effectuer avec juste un crayon, une feuille de papier… et le souvenir
+de ses leçons de mathématiques du lycée : le calcul des racines réelles
+d’une équation du second degré à une inconnue de la forme :
 <span class="math notranslate nohighlight">\(ax^2+bx+c=0\)</span>. Pour automatiser cette tâche à l’aide d’un
 ordinateur et d’un programme, quatre étapes sont nécessaires :</p>
 <ul class="simple">
@@ -599,7 +599,7 @@ de la phase de conception de notre programme de calcul des racines d’une
 <span class="c1">#            (à la racine unique) de l&#39;équation si elle(s) existe(nt).</span>
 <span class="c1">#            Les valeurs de ces variables sont affichées à l&#39;écran.</span>
 <span class="c1">#            - racine1 est la valeur de la première racine</span>
-<span class="c1">#              (ou de la racine unique selon le cas</span>
+<span class="c1">#              (ou de la racine unique selon le cas)</span>
 <span class="c1">#            - racine2 est la valeur de la seconde racine</span>
 <span class="c1">#            si l&#39;équation n&#39;admet aucune racine réelle, un message</span>
 <span class="c1">#            l&#39;indiquant est affiché à l&#39;écran.</span>
@@ -615,7 +615,7 @@ de la phase de conception de notre programme de calcul des racines d’une
     <span class="n">Saisir</span> <span class="n">au</span> <span class="n">clavier</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">de</span> <span class="n">coeff_b</span>
     <span class="n">Saisir</span> <span class="n">au</span> <span class="n">clavier</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">de</span> <span class="n">coeff_c</span>
     <span class="n">Calculer</span> <span class="n">la</span> <span class="n">valeur</span> <span class="n">du</span> <span class="n">discriminant</span> <span class="n">delta</span>
-    <span class="n">Si</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">Si</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
         <span class="n">alors</span> <span class="n">Si</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
                     <span class="n">alors</span> <span class="n">calculer</span> <span class="n">les</span> <span class="n">valeurs</span> <span class="n">des</span> <span class="mi">2</span> <span class="n">racines</span> <span class="n">racine1</span> <span class="n">et</span> <span class="n">racine2</span>
                           <span class="n">afficher</span> <span class="n">à</span> <span class="n">l</span><span class="s1">&#39;écran les valeurs de racine1 et racine2</span>
@@ -713,12 +713,12 @@ d’exécution).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">les</span> <span class="n">valeurs</span> <span class="n">des</span> <span class="mi">3</span> <span class="n">coefficients</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="n">et</span> <span class="n">c</span> <span class="n">dans</span> <span class="n">cet</span> <span class="n">ordre</span> <span class="p">:</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span>
-<span class="mi">4</span>
-<span class="mi">1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">3</span>
+<span class="mi">2</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="s1">&#39;équation admet une racine réelle double égale à : -0.5.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="s1">&#39;équation admet deux racines réelles égales à -2.0 et -1.0.</span>
 </pre></div>
 </div>
 </section>
@@ -794,9 +794,7 @@ de scripts Python (toujours notre programme de l’équation !) dont
 l’interprétation indique des erreurs de syntaxe. Quelles sont ces
 erreurs ? Notez bien que le message d’erreur fourni par l’interpréteur,
 ainsi que parfois la ligne où est censée se trouver l’erreur, ne sont
-pas toujours exacts. Avant d’exécuter les scripts, n’oubliez pas de
-réinitialiser la mémoire de l’interpréteur en cliquant sur la flèche
-circulaire “Restart the kernel”.</p>
+pas toujours exacts.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 
 <span class="c1"># Saisie des données au clavier</span>
@@ -809,7 +807,7 @@ circulaire “Restart the kernel”.</p>
 
 <span class="c1"># Calcul et mémorisation du discriminant de l&#39;équation</span>
 
-<span class="n">delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">coeff_b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">coeff_a</span> <span class="o">*</span> <span class="n">coeff_c</span><span class="p">)</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">coeff_b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">coeff_a</span> <span class="o">*</span> <span class="n">coeff_c</span>
 
 <span class="c1"># Calcul des racines réelles (ou pas) en fonction de la valeur du discriminant</span>
 
@@ -825,27 +823,10 @@ circulaire “Restart the kernel”.</p>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cette équation n&#39;admet pas de racine réelle.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saisissez</span> <span class="n">les</span> <span class="n">valeurs</span> <span class="n">des</span> <span class="mi">3</span> <span class="n">coefficients</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="n">et</span> <span class="n">c</span> <span class="n">dans</span> <span class="n">cet</span> <span class="n">ordre</span> <span class="p">:</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span>
-<span class="mi">6</span>
-<span class="mi">1</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
-
-<span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
-
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">17</span><span class="o">&gt;</span><span class="p">()</span>
-     <span class="mi">17</span> <span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
-     <span class="mi">18</span>     <span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
-<span class="o">---&gt;</span> <span class="mi">19</span>         <span class="n">racine1</span> <span class="o">==</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">coeff_b</span><span class="p">)</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">coeff_a</span><span class="p">)</span>
-     <span class="mi">20</span>         <span class="n">racine2</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">coeff_b</span><span class="p">)</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">coeff_a</span><span class="p">)</span>
-     <span class="mi">21</span>         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;équation admet deux racines réelles égales à </span><span class="si">{</span><span class="n">racine1</span><span class="si">}</span><span class="s2"> et </span><span class="si">{</span><span class="n">racine2</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-
-
-<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;racine1&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
+                   <span class="o">^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
