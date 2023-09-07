@@ -709,7 +709,7 @@ contient ;</p></li>
 <code class="docutils literal notranslate"><span class="pre">chaîne</span> <span class="pre">de</span> <span class="pre">caractères</span> <span class="pre">(string)</span></code>, ayant pour valeur l’objet chaîne
 <code class="docutils literal notranslate"><span class="pre">'lundi'</span></code> ;</p></li>
 <li><p>une variable de nom <code class="docutils literal notranslate"><span class="pre">mois</span></code>, de type <code class="docutils literal notranslate"><span class="pre">entier</span> <span class="pre">(int)</span></code>, ayant pour
-valeur le nombre (objet) entier <code class="docutils literal notranslate"><span class="pre">25</span></code>.</p></li>
+valeur le nombre (objet) entier <code class="docutils literal notranslate"><span class="pre">15</span></code>.</p></li>
 </ul>
 <section id="nom-de-variable">
 <h3><span class="section-number">2.1.1. </span>Nom de variable<a class="headerlink" href="#nom-de-variable" title="Lien permanent vers ce titre"></a></h3>
@@ -727,7 +727,7 @@ clavier) pour jouer le rôle de séparateur de mots ;</p></li>
 <code class="docutils literal notranslate"><span class="pre">aire_triangle</span></code> sont des exemples de noms de variables conformes.</p>
 <p>L’utilisation de lettres majuscules pour les noms de variables n’est pas
 interdit, mais n’est pas recommandé. En particulier parce que la
-<strong>casse</strong> (En informatique, la casse est la distinction entre les
+<strong>casse</strong> (en informatique, la casse est la distinction entre les
 caractères minuscules et majuscules) est bien prise en compte par les
 interpréteurs Python. Ainsi, <code class="docutils literal notranslate"><span class="pre">aire</span></code>, <code class="docutils literal notranslate"><span class="pre">Aire</span></code> et <code class="docutils literal notranslate"><span class="pre">AIRE</span></code> ne désignent
 pas tous la même variable, mais trois variables différentes. En fait,
@@ -777,8 +777,8 @@ la mémoire;</p></li>
 <li><p>Création d’un nouvel objet dans une zone de la mémoire;</p></li>
 <li><p>Attribution d’un type à la nouvelle variable (conforme au type de
 l’objet précédent);</p></li>
-<li><p>Création d’un lien entre la nouvelle variable et la zone où l’objet
-est stocké.</p></li>
+<li><p>Création d’un lien entre la nouvelle variable (dans l’espace des
+noms) et la zone où l’objet est stocké.</p></li>
 </ol>
 <p>Voici de manière très schématique l’état de la mémoire après les trois
 affectations précédentes :</p>
@@ -1027,7 +1027,7 @@ l’objet <code class="docutils literal notranslate"><span class="pre">5</span><
 référencé par <code class="docutils literal notranslate"><span class="pre">coef</span></code> qui est désormais <code class="docutils literal notranslate"><span class="pre">6</span></code>.</p>
 <p>Le cas des objets muables est bien différent puisque ceux-ci sont
 modifiables. Comme il a été précisé plus haut, les objets muables tels
-que les listes et les dictionna ires feront l’objet d’un autre cours.
+que les listes et les dictionnaires feront l’objet d’un autre cours.
 Considérons néanmoins le programme suivant :</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maListe</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La valeur de la variable maListe est : &quot;</span><span class="p">,</span> <span class="n">maListe</span><span class="p">)</span>
@@ -1070,9 +1070,9 @@ programme suivant :</p>
 </pre></div>
 </div>
 <p>L’adresse de l’objet référencé par la variable <code class="docutils literal notranslate"><span class="pre">maListe</span></code> est la même
-après les deux instructions. La modification a donc impacté directement
-l’objet liste référencé par <code class="docutils literal notranslate"><span class="pre">maListe</span></code>. Pour résumer la différence
-entre objet immuable et objet muable, on peut dire que :</p>
+après les deux instructions <code class="docutils literal notranslate"><span class="pre">print</span></code>. La modification a donc impacté
+directement l’objet liste référencé par <code class="docutils literal notranslate"><span class="pre">maListe</span></code>. Pour résumer la
+différence entre objet immuable et objet muable, on peut dire que :</p>
 <ul class="simple">
 <li><p>pour modifier la valeur d’une variable contenant un objet immuable,
 il faut impérativement lui affecter un nouvel objet;</p></li>
@@ -1095,8 +1095,7 @@ programmation possèdent un ramasse-miettes.</p>
 <section id="la-notion-de-fonction">
 <h2><span class="section-number">2.2. </span>La notion de fonction<a class="headerlink" href="#la-notion-de-fonction" title="Lien permanent vers ce titre"></a></h2>
 <p>Dans cette section, nous présentons brièvement la notion de fonction et
-nous présentons quelques fonctions usuelles du langage Python. Les
-fonctions feront l’objet d’un cours ultérieur plus détaillé. Dans un
+nous présentons quelques fonctions usuelles du langage Python. Dans un
 programme, une <strong>fonction</strong> réalise une tâche particulière. Elle est
 définie une seule fois, mais exécutée autant de fois que nécessaire. Par
 exemple :</p>
@@ -1124,19 +1123,23 @@ Il contient des exemples de chaque catégorie de fonctions.</p>
 
 <span class="c1"># Définition d&#39;une fonction calculant la longueur de l&#39;hypothénuse d&#39;un triangle rectangle</span>
 <span class="c1"># à partir des longueurs des 2 côtés de l&#39;angle droit</span>
+
 <span class="k">def</span> <span class="nf">calculer_long_hyp</span><span class="p">(</span><span class="n">longc1</span><span class="p">,</span> <span class="n">longc2</span><span class="p">):</span>
     <span class="k">return</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">longc1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">longc2</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="c1"># Saisie des données au clavier (les longueurs des 2 côtés de l&#39;angle droit)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saisissez la longueur du premier côté de l&#39;angle droit : &quot;</span><span class="p">)</span>
 <span class="n">longc1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saisissez la longueur du second côté de l&#39;angle droit : &quot;</span><span class="p">)</span>
 <span class="n">longc2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 
 <span class="c1"># Calcul de la longueur de l&#39;hypothénuse</span>
+
 <span class="n">long_hyp</span> <span class="o">=</span> <span class="n">calculer_long_hyp</span><span class="p">(</span><span class="n">longc1</span><span class="p">,</span> <span class="n">longc2</span><span class="p">)</span>
 
 <span class="c1"># Affichage du résultat</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La longueur de l&#39;hypothénuse est : &quot;</span><span class="p">,</span><span class="n">long_hyp</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1221,44 +1224,48 @@ jj / mm / aa ».</p>
 <section id="affichage-formate-avec-les-f-strings">
 <h4><span class="section-number">2.2.1.1. </span>Affichage formaté avec les <strong>f-strings</strong><a class="headerlink" href="#affichage-formate-avec-les-f-strings" title="Lien permanent vers ce titre"></a></h4>
 <p>Depuis la version 3.6 de Python, la fonction <code class="docutils literal notranslate"><span class="pre">print()</span></code> peut être
-exécutée avec un seul paramètre de type <code class="docutils literal notranslate"><span class="pre">f-string</span></code>. <code class="docutils literal notranslate"><span class="pre">f-string</span></code> est
-l’abbréviation de « formatted string litteral », autrement dit « chaîne
-formatée ». Une <code class="docutils literal notranslate"><span class="pre">f-string</span></code> :</p>
+exécutée avec un seul paramètre de type <code class="docutils literal notranslate"><span class="pre">f-string</span></code> (type d’objet
+dérivé de <code class="docutils literal notranslate"><span class="pre">string</span></code>). <code class="docutils literal notranslate"><span class="pre">f-string</span></code> est l’abbréviation de « formatted
+string litteral », autrement dit « chaîne formatée ». Une <code class="docutils literal notranslate"><span class="pre">f-string</span></code> :</p>
 <ul class="simple">
 <li><p>se code comme une chaîne précédée du caractère « f » (sans espace),
 par exemple : <code class="docutils literal notranslate"><span class="pre">f&quot;Ceci</span> <span class="pre">est</span> <span class="pre">une</span> <span class="pre">f-string.&quot;</span></code></p></li>
 <li><p>peut contenir des variables, expressions ou exécutions de fonctions
 entre accolades. Dans ce cas, celles-ci seront remplacées par leurs
-valeurs respectives lors de l’affichage. Par exemple,
+valeurs respectives lors de l’affichage de la f-string. Par exemple,
 <code class="docutils literal notranslate"><span class="pre">f&quot;Ceci</span> <span class="pre">est</span> <span class="pre">une</span> <span class="pre">f-string</span> <span class="pre">contenant</span> <span class="pre">deux</span> <span class="pre">variables</span> <span class="pre">:</span> <span class="pre">{var1}</span> <span class="pre">et</span> <span class="pre">{var2}.&quot;</span></code></p></li>
-<li><p>une variable, expression ou exécution de fonction contenue dans une
-<code class="docutils literal notranslate"><span class="pre">f-string</span></code> peut être accompagnée de son format d’affichage. Ceci
-est particulièrement utile pour l’affichage des données numériques.
-Par exemple,
+</ul>
+<p>Une variable, expression ou exécution de fonction contenue dans une
+<code class="docutils literal notranslate"><span class="pre">f-string</span></code> peut être accompagnée de son format d’affichage. Ceci est
+particulièrement utile pour l’affichage des données numériques. Par
+exemple,
 <code class="docutils literal notranslate"><span class="pre">f&quot;Cette</span> <span class="pre">f-string</span> <span class="pre">affiche</span> <span class="pre">le</span> <span class="pre">nombre</span> <span class="pre">réel</span> <span class="pre">{mynb:.2f}</span> <span class="pre">avec</span> <span class="pre">2</span> <span class="pre">décimales</span> <span class="pre">seulement.&quot;</span></code>
 est une <code class="docutils literal notranslate"><span class="pre">f-string</span></code> où la valeur de <code class="docutils literal notranslate"><span class="pre">mynb</span></code> sera affichée avec deux
-chiffres décimaux seulement. Voici une seconde version du programme
-de calcul de l’hypothénuse, où l’instruction <code class="docutils literal notranslate"><span class="pre">print()</span></code> finale
-s’effectue avec une <code class="docutils literal notranslate"><span class="pre">f-string</span></code> en paramètre afin d’afficher le
-résultat avec uniquement 3 chiffres décimaux.</p></li>
-</ul>
+chiffres décimaux seulement. Voici une seconde version du programme de
+calcul de l’hypothénuse, où l’instruction <code class="docutils literal notranslate"><span class="pre">print()</span></code> finale s’effectue
+avec une <code class="docutils literal notranslate"><span class="pre">f-string</span></code> en paramètre afin d’afficher le résultat avec
+uniquement 3 chiffres décimaux.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 
 <span class="c1"># Définition d&#39;une fonction calculant la longueur de l&#39;hypothénuse d&#39;un triangle rectangle</span>
 <span class="c1"># à partir des longueurs des 2 côtés de l&#39;angle droit</span>
+
 <span class="k">def</span> <span class="nf">calculer_long_hyp</span><span class="p">(</span><span class="n">longc1</span><span class="p">,</span> <span class="n">longc2</span><span class="p">):</span>
     <span class="k">return</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">longc1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">longc2</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="c1"># Saisie des données au clavier (les longueurs des 2 côtés de l&#39;angle droit)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saisissez la longueur du premier côté de l&#39;angle droit : &quot;</span><span class="p">)</span>
 <span class="n">longc1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saisissez la longueur du second côté de l&#39;angle droit : &quot;</span><span class="p">)</span>
 <span class="n">longc2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 
 <span class="c1"># Calcul de la longueur de l&#39;hypothénuse</span>
+
 <span class="n">long_hyp</span> <span class="o">=</span> <span class="n">calculer_long_hyp</span><span class="p">(</span><span class="n">longc1</span><span class="p">,</span> <span class="n">longc2</span><span class="p">)</span>
 
 <span class="c1"># Affichage du résultat</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La longueur de l&#39;hypothénuse est : </span><span class="si">{</span><span class="n">long_hyp</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1375,7 +1382,7 @@ au nombre de caractères de la chaîne) comporte des caractères indicés de
 indiquer le nom de la variable contenant la chaîne, suivie entre
 crochets de l’indice du caractère référencé. Par exemple,
 <code class="docutils literal notranslate"><span class="pre">maVarChaine[ind]</span></code> référence le caractère situé à l’indice <code class="docutils literal notranslate"><span class="pre">ind</span></code>
-dans la chaîne contenue dans la variable <code class="docutils literal notranslate"><span class="pre">maVarChaine</span></code>. <code class="docutils literal notranslate"><span class="pre">ind</span></code> doit
+dans la chaîne référencée par la variable <code class="docutils literal notranslate"><span class="pre">maVarChaine</span></code>. <code class="docutils literal notranslate"><span class="pre">ind</span></code> doit
 obligatoirement être un entier ou une variable entière, et sa valeur ne
 doit pas dépasser celle de la longueur de la chaîne - 1. En effet,
 référencer un caractère situé à l’indice <code class="docutils literal notranslate"><span class="pre">10</span></code> dans une chaîne ne
@@ -1454,7 +1461,8 @@ pas dans la sous-chaîne</p></li>
 <p>La notation <code class="docutils literal notranslate"><span class="pre">maVarChaine[prem:der]</span></code> référence donc la sous-chaine
 contenue dans <code class="docutils literal notranslate"><span class="pre">maVarChaine</span></code> qui débute au caractère d’indice <code class="docutils literal notranslate"><span class="pre">prem</span></code>
 et se termine au caractère d’indice <code class="docutils literal notranslate"><span class="pre">der-1</span></code>. Par exemple :</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Premier exemple de slicing : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maVarChaine</span> <span class="o">=</span> <span class="s2">&quot;Programmation&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Premier exemple de slicing : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deuxième exemple de slicing : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1498,7 +1506,8 @@ et la <strong>répétition</strong>.</p>
 <p>La concaténation permet de construire une chaîne en mettant bout à bout
 deux ou plusieurs chaînes existantes. Elle est une sorte d’addition de
 chaînes. Elle se note d’ailleurs avec le signe <code class="docutils literal notranslate"><span class="pre">+</span></code>. Par exemple :</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ch1</span> <span class="o">=</span> <span class="s2">&quot; en Python&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maVarChaine</span> <span class="o">=</span> <span class="s2">&quot;Programmation&quot;</span>
+<span class="n">ch1</span> <span class="o">=</span> <span class="s2">&quot; en Python&quot;</span>
 <span class="n">ch2</span> <span class="o">=</span> <span class="s2">&quot; à Rennes 2.&quot;</span>
 <span class="n">chConc</span> <span class="o">=</span> <span class="n">maVarChaine</span> <span class="o">+</span> <span class="n">ch1</span> <span class="o">+</span> <span class="n">ch2</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chaîne obtenue par concaténation : </span><span class="si">{</span><span class="n">chConc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1626,9 +1635,12 @@ suivante :</p>
 <dt>else:</dt><dd><p>bloc 2</p>
 </dd>
 </dl>
-<p>où : * <code class="docutils literal notranslate"><span class="pre">car</span></code> est un caractère ou une variable référençant un
-caractère * <code class="docutils literal notranslate"><span class="pre">ch</span></code> est une chaîne ou une variable référençant une
-chaîne Par exemple :</p>
+<p>où :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">car</span></code> est un caractère ou une variable référençant un caractère</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ch</span></code> est une chaîne ou une variable référençant une chaîne</p></li>
+</ul>
+<p>Par exemple :</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">voyelles</span> <span class="o">=</span> <span class="s2">&quot;aeiouyAEIOUY&quot;</span>
 <span class="n">MyCar</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Saisissez un caractère :&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">MyCar</span> <span class="ow">in</span> <span class="n">voyelles</span><span class="p">:</span>

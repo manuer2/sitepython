@@ -29,7 +29,7 @@ On peut donc écrire un programme Python dans lequel on manipule :
    ``chaîne de caractères (string)``, ayant pour valeur l’objet chaîne
    ``'lundi'`` ;
 -  une variable de nom ``mois``, de type ``entier (int)``, ayant pour
-   valeur le nombre (objet) entier ``25``.
+   valeur le nombre (objet) entier ``15``.
 
 Nom de variable
 ~~~~~~~~~~~~~~~
@@ -49,7 +49,7 @@ Les noms suivants : ``abs``, ``ord``, ``alti``, ``peri1`` et
 
 L’utilisation de lettres majuscules pour les noms de variables n’est pas
 interdit, mais n’est pas recommandé. En particulier parce que la
-**casse** (En informatique, la casse est la distinction entre les
+**casse** (en informatique, la casse est la distinction entre les
 caractères minuscules et majuscules) est bien prise en compte par les
 interpréteurs Python. Ainsi, ``aire``, ``Aire`` et ``AIRE`` ne désignent
 pas tous la même variable, mais trois variables différentes. En fait,
@@ -105,8 +105,8 @@ identifier quatre étapes :
 2. Création d’un nouvel objet dans une zone de la mémoire;
 3. Attribution d’un type à la nouvelle variable (conforme au type de
    l’objet précédent);
-4. Création d’un lien entre la nouvelle variable et la zone où l’objet
-   est stocké.
+4. Création d’un lien entre la nouvelle variable (dans l’espace des
+   noms) et la zone où l’objet est stocké.
 
 Voici de manière très schématique l’état de la mémoire après les trois
 affectations précédentes :
@@ -381,7 +381,7 @@ référencé par ``coef`` qui est désormais ``6``.
 
 Le cas des objets muables est bien différent puisque ceux-ci sont
 modifiables. Comme il a été précisé plus haut, les objets muables tels
-que les listes et les dictionna ires feront l’objet d’un autre cours.
+que les listes et les dictionnaires feront l’objet d’un autre cours.
 Considérons néanmoins le programme suivant :
 
 .. code:: ipython3
@@ -434,9 +434,9 @@ programme suivant :
     
 
 L’adresse de l’objet référencé par la variable ``maListe`` est la même
-après les deux instructions. La modification a donc impacté directement
-l’objet liste référencé par ``maListe``. Pour résumer la différence
-entre objet immuable et objet muable, on peut dire que :
+après les deux instructions ``print``. La modification a donc impacté
+directement l’objet liste référencé par ``maListe``. Pour résumer la
+différence entre objet immuable et objet muable, on peut dire que :
 
 -  pour modifier la valeur d’une variable contenant un objet immuable,
    il faut impérativement lui affecter un nouvel objet;
@@ -459,8 +459,7 @@ La notion de fonction
 ---------------------
 
 Dans cette section, nous présentons brièvement la notion de fonction et
-nous présentons quelques fonctions usuelles du langage Python. Les
-fonctions feront l’objet d’un cours ultérieur plus détaillé. Dans un
+nous présentons quelques fonctions usuelles du langage Python. Dans un
 programme, une **fonction** réalise une tâche particulière. Elle est
 définie une seule fois, mais exécutée autant de fois que nécessaire. Par
 exemple :
@@ -491,19 +490,23 @@ Il contient des exemples de chaque catégorie de fonctions.
     
     # Définition d'une fonction calculant la longueur de l'hypothénuse d'un triangle rectangle
     # à partir des longueurs des 2 côtés de l'angle droit
+    
     def calculer_long_hyp(longc1, longc2):
         return(sqrt(longc1**2 + longc2**2))
     
     # Saisie des données au clavier (les longueurs des 2 côtés de l'angle droit)
+    
     print("Saisissez la longueur du premier côté de l'angle droit : ")
     longc1 = float(input())
     print("Saisissez la longueur du second côté de l'angle droit : ")
     longc2 = float(input())
     
     # Calcul de la longueur de l'hypothénuse
+    
     long_hyp = calculer_long_hyp(longc1, longc2)
     
     # Affichage du résultat
+    
     print("La longueur de l'hypothénuse est : ",long_hyp)
 
 
@@ -608,26 +611,27 @@ Affichage formaté avec les **f-strings**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Depuis la version 3.6 de Python, la fonction ``print()`` peut être
-exécutée avec un seul paramètre de type ``f-string``. ``f-string`` est
-l’abbréviation de « formatted string litteral », autrement dit « chaîne
-formatée ». Une ``f-string`` :
+exécutée avec un seul paramètre de type ``f-string`` (type d’objet
+dérivé de ``string``). ``f-string`` est l’abbréviation de « formatted
+string litteral », autrement dit « chaîne formatée ». Une ``f-string`` :
 
 -  se code comme une chaîne précédée du caractère « f » (sans espace),
    par exemple : ``f"Ceci est une f-string."``
 -  peut contenir des variables, expressions ou exécutions de fonctions
    entre accolades. Dans ce cas, celles-ci seront remplacées par leurs
-   valeurs respectives lors de l’affichage. Par exemple,
+   valeurs respectives lors de l’affichage de la f-string. Par exemple,
    ``f"Ceci est une f-string contenant deux variables : {var1} et {var2}."``
--  une variable, expression ou exécution de fonction contenue dans une
-   ``f-string`` peut être accompagnée de son format d’affichage. Ceci
-   est particulièrement utile pour l’affichage des données numériques.
-   Par exemple,
-   ``f"Cette f-string affiche le nombre réel {mynb:.2f} avec 2 décimales seulement."``
-   est une ``f-string`` où la valeur de ``mynb`` sera affichée avec deux
-   chiffres décimaux seulement. Voici une seconde version du programme
-   de calcul de l’hypothénuse, où l’instruction ``print()`` finale
-   s’effectue avec une ``f-string`` en paramètre afin d’afficher le
-   résultat avec uniquement 3 chiffres décimaux.
+
+Une variable, expression ou exécution de fonction contenue dans une
+``f-string`` peut être accompagnée de son format d’affichage. Ceci est
+particulièrement utile pour l’affichage des données numériques. Par
+exemple,
+``f"Cette f-string affiche le nombre réel {mynb:.2f} avec 2 décimales seulement."``
+est une ``f-string`` où la valeur de ``mynb`` sera affichée avec deux
+chiffres décimaux seulement. Voici une seconde version du programme de
+calcul de l’hypothénuse, où l’instruction ``print()`` finale s’effectue
+avec une ``f-string`` en paramètre afin d’afficher le résultat avec
+uniquement 3 chiffres décimaux.
 
 .. code:: ipython3
 
@@ -635,19 +639,23 @@ formatée ». Une ``f-string`` :
     
     # Définition d'une fonction calculant la longueur de l'hypothénuse d'un triangle rectangle
     # à partir des longueurs des 2 côtés de l'angle droit
+    
     def calculer_long_hyp(longc1, longc2):
         return(sqrt(longc1**2 + longc2**2))
     
     # Saisie des données au clavier (les longueurs des 2 côtés de l'angle droit)
+    
     print("Saisissez la longueur du premier côté de l'angle droit : ")
     longc1 = float(input())
     print("Saisissez la longueur du second côté de l'angle droit : ")
     longc2 = float(input())
     
     # Calcul de la longueur de l'hypothénuse
+    
     long_hyp = calculer_long_hyp(longc1, longc2)
     
     # Affichage du résultat
+    
     print(f"La longueur de l'hypothénuse est : {long_hyp:.3f}.")
 
 
@@ -790,7 +798,7 @@ Pour référencer un caractère dans une chaîne, la notation consiste à
 indiquer le nom de la variable contenant la chaîne, suivie entre
 crochets de l’indice du caractère référencé. Par exemple,
 ``maVarChaine[ind]`` référence le caractère situé à l’indice ``ind``
-dans la chaîne contenue dans la variable ``maVarChaine``. ``ind`` doit
+dans la chaîne référencée par la variable ``maVarChaine``. ``ind`` doit
 obligatoirement être un entier ou une variable entière, et sa valeur ne
 doit pas dépasser celle de la longueur de la chaîne - 1. En effet,
 référencer un caractère situé à l’indice ``10`` dans une chaîne ne
@@ -888,6 +896,7 @@ et se termine au caractère d’indice ``der-1``. Par exemple :
 
 .. code:: ipython3
 
+    maVarChaine = "Programmation"
     print(f"Premier exemple de slicing : {maVarChaine[2:6]}")
     print(f"Deuxième exemple de slicing : {maVarChaine[1:4]}")
 
@@ -954,6 +963,7 @@ chaînes. Elle se note d’ailleurs avec le signe ``+``. Par exemple :
 
 .. code:: ipython3
 
+    maVarChaine = "Programmation"
     ch1 = " en Python"
     ch2 = " à Rennes 2."
     chConc = maVarChaine + ch1 + ch2
@@ -1117,9 +1127,12 @@ if car in ch:
 else:
     bloc 2
 
-où : \* ``car`` est un caractère ou une variable référençant un
-caractère \* ``ch`` est une chaîne ou une variable référençant une
-chaîne Par exemple :
+où :
+
+-  ``car`` est un caractère ou une variable référençant un caractère
+-  ``ch`` est une chaîne ou une variable référençant une chaîne
+
+Par exemple :
 
 .. code:: ipython3
 
@@ -1140,5 +1153,3 @@ chaîne Par exemple :
 
     Le caractère k n'est pas une voyelle.
     
-
-
