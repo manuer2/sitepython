@@ -154,12 +154,12 @@ de tabulation. Elle est souvent effectuée automatiquement par les
 
 Littéralement, on peut énoncer le fonctionnement d’une telle boucle de
 la manière suivante : « Pour chaque valeur entière ``var`` contenue dans
-``seq_val`` exécuter le bloc d’instructions ». Plus concrètement, la
-variable ``var`` va prendre successivement pour valeur chacune des
-valeurs de ``seq_val``, de la première à la dernière. Pour chaque
-valeur, le bloc d’instructions est exécuté. La boucle s’arrête
-lorsqu’une exécution du bloc a été réalisée pour chaque valeur de
-``seq_val``.
+la séquence de valeurs ``seq_val`` exécuter le bloc d’instructions ».
+Plus concrètement, la variable ``var`` va prendre successivement pour
+valeur chacune des valeurs de ``seq_val``, de la première à la dernière.
+Pour chaque valeur, le bloc d’instructions est exécuté. La boucle
+s’arrête lorsqu’une exécution du bloc a été réalisée pour chaque valeur
+de ``seq_val``.
 
 La fonction **range()**
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -279,7 +279,8 @@ entiers positifs.
 
 Cette fois-ci, l’instruction réalisée dans le bloc : ``somme = somme+i``
 va s’exécuter pour chaque valeur ``i`` de la séquence retournée par
-``range(1, n+1)``.
+``range(1, n+1)``. Les valeurs de la séquence sont utilisées dans le
+bloc d’instructions.
 
 Troisième exemple : calcul de la somme des n premiers entiers positifs pairs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

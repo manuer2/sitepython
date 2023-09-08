@@ -635,12 +635,12 @@ de tabulation. Elle est souvent effectuée automatiquement par les
 éditeurs de code Python.</p>
 <p>Littéralement, on peut énoncer le fonctionnement d’une telle boucle de
 la manière suivante : « Pour chaque valeur entière <code class="docutils literal notranslate"><span class="pre">var</span></code> contenue dans
-<code class="docutils literal notranslate"><span class="pre">seq_val</span></code> exécuter le bloc d’instructions ». Plus concrètement, la
-variable <code class="docutils literal notranslate"><span class="pre">var</span></code> va prendre successivement pour valeur chacune des
-valeurs de <code class="docutils literal notranslate"><span class="pre">seq_val</span></code>, de la première à la dernière. Pour chaque
-valeur, le bloc d’instructions est exécuté. La boucle s’arrête
-lorsqu’une exécution du bloc a été réalisée pour chaque valeur de
-<code class="docutils literal notranslate"><span class="pre">seq_val</span></code>.</p>
+la séquence de valeurs <code class="docutils literal notranslate"><span class="pre">seq_val</span></code> exécuter le bloc d’instructions ».
+Plus concrètement, la variable <code class="docutils literal notranslate"><span class="pre">var</span></code> va prendre successivement pour
+valeur chacune des valeurs de <code class="docutils literal notranslate"><span class="pre">seq_val</span></code>, de la première à la dernière.
+Pour chaque valeur, le bloc d’instructions est exécuté. La boucle
+s’arrête lorsqu’une exécution du bloc a été réalisée pour chaque valeur
+de <code class="docutils literal notranslate"><span class="pre">seq_val</span></code>.</p>
 <section id="la-fonction-range">
 <h4><span class="section-number">5.2.1.1. </span>La fonction <strong>range()</strong><a class="headerlink" href="#la-fonction-range" title="Lien permanent vers ce titre"></a></h4>
 <p>Comment générer cette fameuse séquence de valeurs <code class="docutils literal notranslate"><span class="pre">seq_val</span></code> ? C’est le
@@ -741,7 +741,8 @@ entiers positifs.</p>
 </div>
 <p>Cette fois-ci, l’instruction réalisée dans le bloc : <code class="docutils literal notranslate"><span class="pre">somme</span> <span class="pre">=</span> <span class="pre">somme+i</span></code>
 va s’exécuter pour chaque valeur <code class="docutils literal notranslate"><span class="pre">i</span></code> de la séquence retournée par
-<code class="docutils literal notranslate"><span class="pre">range(1,</span> <span class="pre">n+1)</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">range(1,</span> <span class="pre">n+1)</span></code>. Les valeurs de la séquence sont utilisées dans le
+bloc d’instructions.</p>
 </section>
 <section id="troisieme-exemple-calcul-de-la-somme-des-n-premiers-entiers-positifs-pairs">
 <h4><span class="section-number">5.2.1.4. </span>Troisième exemple : calcul de la somme des n premiers entiers positifs pairs<a class="headerlink" href="#troisieme-exemple-calcul-de-la-somme-des-n-premiers-entiers-positifs-pairs" title="Lien permanent vers ce titre"></a></h4>
