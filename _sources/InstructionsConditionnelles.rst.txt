@@ -85,11 +85,12 @@ L’instruction conditionnelle ``if``
 
 Dans un programme, on doit pouvoir adapter les traitements réalisés en
 fonction du contexte dans lequel on se trouve. Une **instruction
-conditionnelle** ``if`` permet (cf. figure ci-dessous) : \* de tester si
-une condition est vérifiée (c’est-à-dire vraie) ou pas (c’est-à-dire
-fausse) \* d’effectuer des instructions différentes selon que la
-condition est vérifiée (bloc d’instructions 1) ou non (bloc
-d’instructions 2).
+conditionnelle** ``if`` permet (cf. figure ci-dessous) :
+
+-  de tester si une condition est vérifiée (c’est-à-dire vraie) ou pas
+   (c’est-à-dire fausse)
+-  d’effectuer des instructions différentes selon que la condition est
+   vérifiée (bloc d’instructions 1) ou non (bloc d’instructions 2).
 
 .. figure:: ImagesNotebook/InstructionConditionnelle.PNG
    :alt: L’instruction conditionnelle if
