@@ -124,8 +124,8 @@ Voici ce qui se passe lors de l’exécution d’une instruction ``if`` :
 -  la valeur de la condition (``exp_cond``) est évaluée
 -  si cette valeur est vraie, le bloc d’instructions 1 est effectué
 -  si cette valeur est fausse, le bloc d’instructions 2 est effectué
--  l’exécution séquentielle du programme se poursuit après l’exécution
-   du bloc (1 ou 2).
+-  après l’exécution du bloc (1 ou 2), l’exécution séquentielle reprend
+   à la première instruction située après l’instruction ``if``.
 
 Le programme ci-dessous est un exemple d’utilisation d’une instruction
 ``if``, avec deux traces d’exécution.
@@ -168,11 +168,11 @@ Le programme ci-dessous est un exemple d’utilisation d’une instruction
     Vous êtes majeur(e).
     
 
-Il existe une version «réduite» de l’instruction ``if`` dans laquelle la
-partie ``else`` est omise. Dans ce cas, lorsque la condition est fausse,
-aucun bloc d’instructions particulier n’est effectué avant la poursuite
-de l’exécution du programme. Voici un exemple de ce cas de figure avec
-deux traces d’exécution.
+Il existe une version « réduite » de l’instruction ``if`` dans laquelle
+la partie ``else`` est omise. Dans ce cas, lorsque la condition est
+fausse, aucun bloc d’instructions particulier n’est effectué avant la
+poursuite de l’exécution séquentielle des instructions. Voici un exemple
+de ce cas de figure avec deux traces d’exécution.
 
 .. code:: ipython3
 
@@ -286,11 +286,12 @@ La simplification avec ``elif``
 -------------------------------
 
 L’exemple précédent contient deux instructions ``if`` imbriquées sur
-deux niveaux. E pratique, les possibilités d’imbrication sont multiples,
-et il n’existe pas de limitation du nombre de niveaux. Lorsque plusieurs
-instructions ``if`` sont imbriquées sur plusieurs niveaux, il est
-possible de simplifier l’écriture du code en utilisant l’instruction
-``elif`` (contraction de ``else`` et ``if``). Ainsi, le code suivant :
+deux niveaux. En pratique, les possibilités d’imbrication sont
+multiples, et il n’existe pas de limitation du nombre de niveaux.
+Lorsque plusieurs instructions ``if`` sont imbriquées sur plusieurs
+niveaux, il est possible de simplifier l’écriture du code en utilisant
+l’instruction ``elif`` (contraction de ``else`` et ``if``). Ainsi, le
+code suivant :
 
 .. code:: ipython3
 

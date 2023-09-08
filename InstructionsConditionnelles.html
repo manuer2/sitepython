@@ -458,8 +458,8 @@ souvent effectuée automatiquement par les éditeurs de code Python.</p>
 <li><p>la valeur de la condition (<code class="docutils literal notranslate"><span class="pre">exp_cond</span></code>) est évaluée</p></li>
 <li><p>si cette valeur est vraie, le bloc d’instructions 1 est effectué</p></li>
 <li><p>si cette valeur est fausse, le bloc d’instructions 2 est effectué</p></li>
-<li><p>l’exécution séquentielle du programme se poursuit après l’exécution
-du bloc (1 ou 2).</p></li>
+<li><p>après l’exécution du bloc (1 ou 2), l’exécution séquentielle reprend
+à la première instruction située après l’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p></li>
 </ul>
 <p>Le programme ci-dessous est un exemple d’utilisation d’une instruction
 <code class="docutils literal notranslate"><span class="pre">if</span></code>, avec deux traces d’exécution.</p>
@@ -489,11 +489,11 @@ du bloc (1 ou 2).</p></li>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Vous</span> <span class="n">êtes</span> <span class="n">majeur</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>Il existe une version «réduite» de l’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> dans laquelle la
-partie <code class="docutils literal notranslate"><span class="pre">else</span></code> est omise. Dans ce cas, lorsque la condition est fausse,
-aucun bloc d’instructions particulier n’est effectué avant la poursuite
-de l’exécution du programme. Voici un exemple de ce cas de figure avec
-deux traces d’exécution.</p>
+<p>Il existe une version « réduite » de l’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> dans laquelle
+la partie <code class="docutils literal notranslate"><span class="pre">else</span></code> est omise. Dans ce cas, lorsque la condition est
+fausse, aucun bloc d’instructions particulier n’est effectué avant la
+poursuite de l’exécution séquentielle des instructions. Voici un exemple
+de ce cas de figure avec deux traces d’exécution.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Quel est votre âge ?&quot;</span><span class="p">))</span>
 <span class="k">if</span> <span class="n">age</span><span class="o">&gt;=</span><span class="mi">18</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vous êtes majeur(e).&quot;</span><span class="p">)</span>
@@ -575,11 +575,12 @@ ce cas de figure.</p>
 <section id="la-simplification-avec-elif">
 <h2><span class="section-number">3.3. </span>La simplification avec <code class="docutils literal notranslate"><span class="pre">elif</span></code><a class="headerlink" href="#la-simplification-avec-elif" title="Lien permanent vers ce titre"></a></h2>
 <p>L’exemple précédent contient deux instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> imbriquées sur
-deux niveaux. E pratique, les possibilités d’imbrication sont multiples,
-et il n’existe pas de limitation du nombre de niveaux. Lorsque plusieurs
-instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> sont imbriquées sur plusieurs niveaux, il est
-possible de simplifier l’écriture du code en utilisant l’instruction
-<code class="docutils literal notranslate"><span class="pre">elif</span></code> (contraction de <code class="docutils literal notranslate"><span class="pre">else</span></code> et <code class="docutils literal notranslate"><span class="pre">if</span></code>). Ainsi, le code suivant :</p>
+deux niveaux. En pratique, les possibilités d’imbrication sont
+multiples, et il n’existe pas de limitation du nombre de niveaux.
+Lorsque plusieurs instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> sont imbriquées sur plusieurs
+niveaux, il est possible de simplifier l’écriture du code en utilisant
+l’instruction <code class="docutils literal notranslate"><span class="pre">elif</span></code> (contraction de <code class="docutils literal notranslate"><span class="pre">else</span></code> et <code class="docutils literal notranslate"><span class="pre">if</span></code>). Ainsi, le
+code suivant :</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">exp_cond1</span><span class="p">:</span>
     <span class="n">bloc</span> <span class="mi">1</span>
 <span class="k">else</span><span class="p">:</span>
