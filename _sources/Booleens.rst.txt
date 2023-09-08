@@ -17,12 +17,13 @@ différentes conditions. C’est le cas par exemple de la fonction
 -  :math:`n! = 1` si :math:`n = 0`
 -  :math:`n! = n \times (n-1)!` si :math:`n \gt 0`
 
-Les **booléens** (ou **expressions booléennes**) ont été introduits par
-le mathématicien Georges Boole (1815-1864) pour manipuler ces
-expressions qui sont soit vraies soit fausses. La partie des
-mathématiques qui traite des différentes opérations et fonctions sur les
-booléens s’appelle l’\ **algèbre de Boole**. Elle est très utilisée en
-électronique, informatique et logique.
+Les **booléens** (ou **expressions booléennes**, ou **expressions
+logiques**) ont été introduits par le mathématicien Georges Boole
+(1815-1864) pour manipuler ces expressions qui sont soit vraies soit
+fausses. La partie des mathématiques qui traite des différentes
+opérations et fonctions sur les booléens s’appelle l’\ **algèbre de
+Boole**. Elle est très utilisée en électronique, informatique et
+logique.
 
 Expression booléenne en Python (notion de **prédicat**)
 -------------------------------------------------------
@@ -147,17 +148,17 @@ p1         not p1
 Les lois de **De Morgan**
 -------------------------
 
-Les lois de De Morgan ont été formulées par le mathématicient
-britannique Augustus De Morgan (1806-1871). Elles définissent les
-équivalences existant entre des expressions logiques.
+Les lois de De Morgan ont été formulées par le mathématicien britannique
+Augustus De Morgan (1806-1871). Elles définissent les équivalences
+existant entre des expressions booléennes.
 
 Première loi
 ~~~~~~~~~~~~
 
 Selon la première loi, **la négation de la conjonction (et logique) de
 deux prédicats est équivalente à la disjonction (ou logique) des
-négations des deux prédicats**. En utilisant les opérateurs logiques du
-langage Python, cette loi peut s’énoncer de la manière suivante :
+négations des deux prédicats**. En utilisant les opérateurs booléens,
+cette loi peut s’énoncer de la manière suivante :
 
 not (P1 and P2) :math:`\Leftrightarrow` (not P1) or (not P2).
 
@@ -187,8 +188,8 @@ Seconde loi
 
 Selon la seconde loi, **la négation de la disjonction (ou logique) de
 deux prédicats est équivalente à la conjonction (et logique) des
-négations des deux prédicats**. En utilisant les opérateurs logiques du
-langage Python, cette loi peut s’énoncer de la manière suivante :
+négations des deux prédicats**. En utilisant les opérateurs booléens,
+cette loi peut s’énoncer de la manière suivante :
 
 not (P1 or P2) :math:`\Leftrightarrow` (not P1) and (not P2).
 

@@ -477,12 +477,13 @@ différentes conditions. C’est le cas par exemple de la fonction
 <li><p><span class="math notranslate nohighlight">\(n! = 1\)</span> si <span class="math notranslate nohighlight">\(n = 0\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(n! = n \times (n-1)!\)</span> si <span class="math notranslate nohighlight">\(n \gt 0\)</span></p></li>
 </ul>
-<p>Les <strong>booléens</strong> (ou <strong>expressions booléennes</strong>) ont été introduits par
-le mathématicien Georges Boole (1815-1864) pour manipuler ces
-expressions qui sont soit vraies soit fausses. La partie des
-mathématiques qui traite des différentes opérations et fonctions sur les
-booléens s’appelle l’<strong>algèbre de Boole</strong>. Elle est très utilisée en
-électronique, informatique et logique.</p>
+<p>Les <strong>booléens</strong> (ou <strong>expressions booléennes</strong>, ou <strong>expressions
+logiques</strong>) ont été introduits par le mathématicien Georges Boole
+(1815-1864) pour manipuler ces expressions qui sont soit vraies soit
+fausses. La partie des mathématiques qui traite des différentes
+opérations et fonctions sur les booléens s’appelle l’<strong>algèbre de
+Boole</strong>. Elle est très utilisée en électronique, informatique et
+logique.</p>
 <section id="expression-booleenne-en-python-notion-de-predicat">
 <h2><span class="section-number">4.1. </span>Expression booléenne en Python (notion de <strong>prédicat</strong>)<a class="headerlink" href="#expression-booleenne-en-python-notion-de-predicat" title="Lien permanent vers ce titre"></a></h2>
 <p>En Python, une expression booléenne simple est appelée un <strong>prédicat</strong>.
@@ -677,15 +678,15 @@ vérité ci-dessous.</p>
 </section>
 <section id="les-lois-de-de-morgan">
 <h2><span class="section-number">4.2. </span>Les lois de <strong>De Morgan</strong><a class="headerlink" href="#les-lois-de-de-morgan" title="Lien permanent vers ce titre"></a></h2>
-<p>Les lois de De Morgan ont été formulées par le mathématicient
-britannique Augustus De Morgan (1806-1871). Elles définissent les
-équivalences existant entre des expressions logiques.</p>
+<p>Les lois de De Morgan ont été formulées par le mathématicien britannique
+Augustus De Morgan (1806-1871). Elles définissent les équivalences
+existant entre des expressions booléennes.</p>
 <section id="premiere-loi">
 <h3><span class="section-number">4.2.1. </span>Première loi<a class="headerlink" href="#premiere-loi" title="Lien permanent vers ce titre"></a></h3>
 <p>Selon la première loi, <strong>la négation de la conjonction (et logique) de
 deux prédicats est équivalente à la disjonction (ou logique) des
-négations des deux prédicats</strong>. En utilisant les opérateurs logiques du
-langage Python, cette loi peut s’énoncer de la manière suivante :</p>
+négations des deux prédicats</strong>. En utilisant les opérateurs booléens,
+cette loi peut s’énoncer de la manière suivante :</p>
 <p>not (P1 and P2) <span class="math notranslate nohighlight">\(\Leftrightarrow\)</span> (not P1) or (not P2).</p>
 <p>En français, cela signifie que « nier l’existence simultanée de P1 et
 P2, c’est nier P1 ou nier P2 ».</p>
@@ -707,8 +708,8 @@ n’est pas divisible par 3 ». CQFD.</p>
 <h3><span class="section-number">4.2.2. </span>Seconde loi<a class="headerlink" href="#seconde-loi" title="Lien permanent vers ce titre"></a></h3>
 <p>Selon la seconde loi, <strong>la négation de la disjonction (ou logique) de
 deux prédicats est équivalente à la conjonction (et logique) des
-négations des deux prédicats</strong>. En utilisant les opérateurs logiques du
-langage Python, cette loi peut s’énoncer de la manière suivante :</p>
+négations des deux prédicats</strong>. En utilisant les opérateurs booléens,
+cette loi peut s’énoncer de la manière suivante :</p>
 <p>not (P1 or P2) <span class="math notranslate nohighlight">\(\Leftrightarrow\)</span> (not P1) and (not P2).</p>
 <p>En français, cela signifie que « nier l’existence de P1 ou P2, c’est
 nier à la fois P1 et P2 ».</p>
