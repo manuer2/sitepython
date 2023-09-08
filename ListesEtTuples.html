@@ -758,8 +758,8 @@ déclarer 500 variables : une variable par note ? Pas vraiment.</p>
 en appliquant un traitement identique à tous les mots d’un texte. Est-ce
 envisageable de compter au préalable le nombre de mots du texte pour
 savoir de combien de variables on a besoin ? Absolument pas. Et en
-supposant que cela soit possible, cela signifie qu’il faudra modifier
-votre programme si le texte à traiter change…</p>
+supposant que cela soit possible, cela signifie qu’il faudra modifier le
+programme si le texte à traiter change…</p>
 <p>Utiliser uniquement des variables simples suppose de connaître à
 l’avance la quantité de données à traiter, ce qui est rarement le cas
 sauf pour des programmes très simples. Et même dans l’hypothèse où il
@@ -794,9 +794,9 @@ dictionnaires feront l’objet d’un autre chapitre.</p>
 </section>
 <section id="les-listes">
 <h2><span class="section-number">6.2. </span>Les listes<a class="headerlink" href="#les-listes" title="Lien permanent vers ce titre"></a></h2>
-<p>Une liste est une séquence d’éléments (une collection ordonnée d’objets)
-dont les types peuvent être différents. Chaque élément figure à une
-place précise dans la liste (on parle aussi d’<strong>indice</strong>, de
+<p>Une liste est une séquence d’éléments (i.e., une collection ordonnée
+d’objets) dont les types peuvent être différents. Chaque élément figure
+à une place précise dans la liste (on parle aussi d’<strong>indice</strong>, de
 <strong>position</strong> ou de <strong>rang</strong>) qui permet de le repérer et d’y accéder. On
 dit en particulier qu’une liste est indexée sur les indices de ses
 éléments. Le nombre d’éléments stockés dans une liste est quelconque et
@@ -889,9 +889,9 @@ l’avant-dernier élément à la position -2, etc.</p>
 <section id="acces-a-une-sous-liste-list-slicing">
 <h2><span class="section-number">6.5. </span>Accès à une sous-liste (« list slicing »)<a class="headerlink" href="#acces-a-une-sous-liste-list-slicing" title="Lien permanent vers ce titre"></a></h2>
 <p>En Python, une sous-liste (on dit aussi une « tranche » de liste) est
-une partie contigüe de ses éléments, qui débute à partir d’une position
-de début comprise, et qui se termine à une position de fin non comprise.
-La syntaxe générale d’accès à une sous-liste est la suivante :</p>
+une sous-séquence de ses éléments, qui débute à partir d’une position de
+début comprise, et qui se termine à une position de fin non comprise. La
+syntaxe générale d’accès à une sous-liste est la suivante :</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">id_liste</span><span class="p">[</span><span class="n">pos_deb</span><span class="p">:</span><span class="n">pos_fin</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -899,7 +899,8 @@ La syntaxe générale d’accès à une sous-liste est la suivante :</p>
 <code class="docutils literal notranslate"><span class="pre">pos_fin</span></code> est la position du premier élément non compris dans la
 sous-liste. Les éléments composant la sous-liste sont donc ceux compris
 entre la position <code class="docutils literal notranslate"><span class="pre">pos_deb</span></code> et la position <code class="docutils literal notranslate"><span class="pre">pos_fin-1</span></code>.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Premier exemple de slicing : </span><span class="si">{</span><span class="n">bazar</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bazar</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.1416</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="s2">&quot;fromage&quot;</span><span class="p">,</span> <span class="s2">&quot;dessert&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Premier exemple de slicing : </span><span class="si">{</span><span class="n">bazar</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deuxième exemple de slicing : </span><span class="si">{</span><span class="n">bazar</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Troisième exemple de slicing : </span><span class="si">{</span><span class="n">bazar</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1001,7 +1002,9 @@ fonction <strong>len()</strong> :</p>
 <li><p>prend en paramètre une liste</p></li>
 <li><p>retourne en résultat un nombre entier égal à la taille de cette liste</p></li>
 </ul>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La taille de la liste bazar est : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">bazar</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bazar</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.1416</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="s2">&quot;fromage&quot;</span><span class="p">,</span> <span class="s2">&quot;dessert&quot;</span><span class="p">]</span>
+<span class="n">alphabet</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;j&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La taille de la liste bazar est : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">bazar</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La taille de la liste alphabet est : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">alphabet</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1132,7 +1135,7 @@ aucune valeur. Elle peut donc être utilisée comme une instruction.</p>
 </section>
 <section id="extension-dune-liste-la-methode-extend">
 <h3><span class="section-number">6.7.2. </span>Extension d’une liste : la méthode <strong>extend()</strong><a class="headerlink" href="#extension-dune-liste-la-methode-extend" title="Lien permanent vers ce titre"></a></h3>
-<p>La méthode <strong>append()</strong> s’applique à une liste initiale et prend en
+<p>La méthode <strong>extend()</strong> s’applique à une liste initiale et prend en
 paramètre une seconde liste. Elle ajoute cette seconde liste à la fin de
 la liste initiale (ce qui revient à concaténer les deux listes). Elle ne
 retourne aucune valeur et peut être utilisée comme une instruction.</p>
@@ -1220,7 +1223,7 @@ première position.</p>
 <span class="n">premier</span> <span class="o">=</span> <span class="n">liste</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Voici la liste après suppression de l&#39;élément </span><span class="si">{</span><span class="n">premier</span><span class="si">}</span><span class="s2"> situé en tête de la liste : </span><span class="si">{</span><span class="n">liste</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 <span class="n">eltpos8</span> <span class="o">=</span> <span class="n">liste</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Voici la liste après suppression de l&#39;élément </span><span class="si">{</span><span class="n">eltpos8</span><span class="si">}</span><span class="s2"> situé à la position 4 : </span><span class="si">{</span><span class="n">liste</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Voici la liste après suppression de l&#39;élément </span><span class="si">{</span><span class="n">eltpos8</span><span class="si">}</span><span class="s2"> situé à la position 8 : </span><span class="si">{</span><span class="n">liste</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Liste</span> <span class="n">initiale</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="o">.</span>
@@ -1233,11 +1236,11 @@ première position.</p>
 
 <span class="ne">IndexError</span>                                <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
 
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">9</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">9</span><span class="o">&gt;</span><span class="p">()</span>
       <span class="mi">7</span> <span class="n">premier</span> <span class="o">=</span> <span class="n">liste</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
       <span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Voici la liste après suppression de l&#39;élément </span><span class="si">{</span><span class="n">premier</span><span class="si">}</span><span class="s2"> situé en tête de la liste : </span><span class="si">{</span><span class="n">liste</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 <span class="o">----&gt;</span> <span class="mi">9</span> <span class="n">eltpos8</span> <span class="o">=</span> <span class="n">liste</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-     <span class="mi">10</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Voici la liste après suppression de l&#39;élément </span><span class="si">{</span><span class="n">eltpos8</span><span class="si">}</span><span class="s2"> situé à la position 4 : </span><span class="si">{</span><span class="n">liste</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+     <span class="mi">10</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Voici la liste après suppression de l&#39;élément </span><span class="si">{</span><span class="n">eltpos8</span><span class="si">}</span><span class="s2"> situé à la position 8 : </span><span class="si">{</span><span class="n">liste</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
 
 <span class="ne">IndexError</span><span class="p">:</span> <span class="n">pop</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
@@ -1290,7 +1293,7 @@ nombre d’occurrences de cet élément dans la liste.</p>
 </section>
 <section id="tri-des-elements-dune-liste-la-methode-sort">
 <h3><span class="section-number">6.7.7. </span>Tri des éléments d’une liste : la méthode <strong>sort()</strong><a class="headerlink" href="#tri-des-elements-dune-liste-la-methode-sort" title="Lien permanent vers ce titre"></a></h3>
-<p>La méthode <strong>count()</strong> permet de trier les éléments d’une liste. Elle ne
+<p>La méthode <strong>sort()</strong> permet de trier les éléments d’une liste. Elle ne
 retourne aucune valeur et peut être utilisée comme une instruction. La
 nature du tri dépend du type des éléments. Si ceux-ci sont numériques,
 le tri le sera également.</p>
@@ -1376,7 +1379,7 @@ fonction <code class="docutils literal notranslate"><span class="pre">len()</spa
 </section>
 <section id="inversion-dune-liste-la-methode-reverse">
 <h3><span class="section-number">6.7.8. </span>Inversion d’une liste : la méthode <strong>reverse()</strong><a class="headerlink" href="#inversion-dune-liste-la-methode-reverse" title="Lien permanent vers ce titre"></a></h3>
-<p>La méthode <strong>reverse()</strong> permet d’inverser l’order des éléments d’une
+<p>La méthode <strong>reverse()</strong> permet d’inverser l’ordre des éléments d’une
 liste. Elle ne retourne aucune valeur et peut être utilisée comme une
 instruction.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste_vrac</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="s1">&#39;pomme&#39;</span><span class="p">,</span> <span class="s1">&#39;framboise&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mf">2.36</span><span class="p">]</span>
@@ -1761,7 +1764,7 @@ la suivante :</p>
 </pre></div>
 </div>
 <p>où <code class="docutils literal notranslate"><span class="pre">exp_cond</span></code> est une expression conditionnelle que doivent vérifier
-les éléments de la liste retournée.</p>
+tous les éléments de la liste retournée.</p>
 <p>Le résultat est une liste contenant un élément dont la valeur est
 obtenue par évaluation de l’expression <code class="docutils literal notranslate"><span class="pre">exp</span></code>, vérifiant la condition
 <code class="docutils literal notranslate"><span class="pre">exp_cond</span></code>, pour chaque exécution de la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>. Par exemple,
@@ -1799,10 +1802,10 @@ utiliser la compréhension !</p>
 types variés, indexée sur les indices de ses éléments. La différence
 avec une liste est qu’un tuple est un objet Python « immuable ». Cela
 signifie que pour modifier une variable référençant un tuple, il faut
-impérativement réaliser une affectation. On ne peut pas effectuer de
-manipulation entraînant une modification sur un tuple. Les tuples sont
-donc utiles dans un programme pour mémoriser des données qu’on ne
-souhaite pas modifier « accidentellement ».</p>
+impérativement réaliser une nouvelle affectation. On ne peut pas
+effectuer de manipulation entraînant une modification sur un tuple. Les
+tuples sont donc utiles dans un programme pour mémoriser des données
+qu’on ne souhaite pas modifier « accidentellement ».</p>
 <section id="notation-creation">
 <h3><span class="section-number">6.11.1. </span>Notation, création<a class="headerlink" href="#notation-creation" title="Lien permanent vers ce titre"></a></h3>
 <p>La notation utilisée pour un tuple est quasiment la même que celle d’une
@@ -1830,7 +1833,7 @@ n’entraînent pas de modification peuvent être réalisées sur les tuples :<
 <li><p>opérateurs de concaténation <code class="docutils literal notranslate"><span class="pre">+</span></code> et de répétition <code class="docutils literal notranslate"><span class="pre">*</span></code></p></li>
 <li><p>position d’un élément <code class="docutils literal notranslate"><span class="pre">index()</span></code></p></li>
 <li><p>comptage du nombre d’occurrences d’un élément <code class="docutils literal notranslate"><span class="pre">count()</span></code></p></li>
-<li><p>parcours avec la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> par élément, par indice et partiel</p></li>
+<li><p>parcours avec la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code></p></li>
 <li><p>compréhension</p></li>
 </ul>
 <p>Les syntaxes de ces manipulations sont exactement les mêmes que pour les
