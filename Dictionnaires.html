@@ -588,7 +588,7 @@ utilisé en Python : les <strong>dictionnaires</strong>.</p>
 <h2><span class="section-number">7.1. </span>Définition<a class="headerlink" href="#definition" title="Lien permanent vers ce titre"></a></h2>
 <p>Un dictionnaire est un objet structuré permettant d’associer des
 <strong>valeurs</strong> à des <strong>clés</strong>. On peut comparer un dictionnaire à une liste
-dont les positions des éléments peuvent être autre chose que des nombres
+dont les indices des éléments peuvent être autre chose que des nombres
 entiers : chaînes, réels, etc. Les dictionnaires sont particulièrement
 adaptés à la représentation de données contenant des associations, comme
 par exemple :</p>
@@ -615,12 +615,12 @@ d’affectation. Chaque élément d’un dictionnaire est un couple
 <p>et la valeur peut être :</p>
 <ul class="simple">
 <li><p>un objet de type simple (entier, réel, chaîne, booléen)</p></li>
-<li><p>un objet structuré (liste, tuple, dictionnaire ensemble, etc).</p></li>
+<li><p>un objet structuré (liste, tuple, dictionnaire, ensemble, etc).</p></li>
 </ul>
 <p>La duplication de clé n’est pas autorisée : à une clé ne peut
 correspondre qu’un seul couple <code class="docutils literal notranslate"><span class="pre">clé</span> <span class="pre">:</span> <span class="pre">valeur</span></code> et donc une seule
 valeur. À la différence d’une liste, un dictionnaire n’est pas une
-séquence. Par conséquent, ses éléments ne sont pas ordonnés. Il est
+séquence. Par conséquent, ses éléments ne sont pas ordonnés. Il est donc
 impossible d’accéder à un élément d’un dictionnaire à l’aide de sa
 position (ce qui est logique, puisque la notion d’ordre et donc de
 position n’existe pas). Il est également impossible d’accéder à un
@@ -643,7 +643,7 @@ dictionnaire peut se faire de deux façons :</p>
 <ul class="simple">
 <li><p>soit par une simple affectation du dictionnaire complet dans une
 variable structurée, comme dans l’exemple ci-dessous. Le nom de la
-variable est alors appelé son identifiant et permet de le référencer
+variable est l’identifiant du dictionnaire et permet de le référencer
 dans le programme.</p></li>
 </ul>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">repas</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;entrée&#39;</span><span class="p">:</span><span class="s1">&#39;crudités&#39;</span><span class="p">,</span> <span class="s1">&#39;plat&#39;</span><span class="p">:</span><span class="s1">&#39;lasagnes&#39;</span><span class="p">,</span> <span class="s1">&#39;dessert&#39;</span><span class="p">:</span><span class="s1">&#39;fruit&#39;</span><span class="p">}</span>
@@ -712,7 +712,7 @@ dictionnaire créé précédemment.</p>
 
 <span class="ne">KeyError</span>                                  <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
 
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">3</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">3</span><span class="o">&gt;</span><span class="p">()</span>
       <span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le numéro 04 correspond au département </span><span class="si">{</span><span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;04&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
       <span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le numéro 06 correspond au département </span><span class="si">{</span><span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;06&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 <span class="o">----&gt;</span> <span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le numéro 01 correspond au département </span><span class="si">{</span><span class="n">dpt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
@@ -872,7 +872,7 @@ une exception est levée et un message d’erreur s’affiche.</p>
 
 <span class="ne">KeyError</span>                                  <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
 
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">cell</span> <span class="n">line</span><span class="p">:</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">()</span>
       <span class="mi">2</span> <span class="k">del</span> <span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;17&#39;</span><span class="p">]</span>
       <span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dictionnaire après suppression : </span><span class="si">{</span><span class="n">dpt</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 <span class="o">----&gt;</span> <span class="mi">4</span> <span class="k">del</span> <span class="n">dpt</span><span class="p">[</span><span class="s1">&#39;32&#39;</span><span class="p">]</span>
@@ -881,11 +881,12 @@ une exception est levée et un message d’erreur s’affiche.</p>
 <span class="ne">KeyError</span><span class="p">:</span> <span class="s1">&#39;32&#39;</span>
 </pre></div>
 </div>
-<p>La méthode <strong>pop()</strong> prend en paramètre la clé de l’élément à supprimer.
-Si la clé existe, elle supprime l’élément correspondant dans le
-dictionnaire et retourne la valeur associée à l’élément supprimé. Si la
-clé n’existe pas ou qu’aucun paramètre n’est fourni, une exception est
-levée et un message d’erreur s’affiche.</p>
+<p>La méthode <strong>pop()</strong> s’applique à un dictionnaire et prend en paramètre
+la clé de l’élément à supprimer. Si la clé existe, elle supprime
+l’élément correspondant dans le dictionnaire et retourne la valeur
+associée à l’élément supprimé. Si la clé n’existe pas ou qu’aucun
+paramètre n’est fourni, une exception est levée et un message d’erreur
+s’affiche.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dictionnaire avant suppression : </span><span class="si">{</span><span class="n">dpt</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 <span class="n">val05</span> <span class="o">=</span> <span class="n">dpt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;05&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dictionnaire après suppression : </span><span class="si">{</span><span class="n">dpt</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
@@ -944,8 +945,8 @@ Cette copie est retournée en résultat.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Affichage de la copie du dictionnaire : </span><span class="si">{</span><span class="n">copie_dpt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Affichage</span> <span class="n">du</span> <span class="n">dictionnaire</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">}</span>
-<span class="n">Affichage</span> <span class="n">de</span> <span class="n">la</span> <span class="n">copie</span> <span class="n">du</span> <span class="n">dictionnaire</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Affichage</span> <span class="n">du</span> <span class="n">dictionnaire</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">),</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">}</span>
+<span class="n">Affichage</span> <span class="n">de</span> <span class="n">la</span> <span class="n">copie</span> <span class="n">du</span> <span class="n">dictionnaire</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">),</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -959,7 +960,7 @@ retourne aucune valeur et peut être utilisée comme une instruction.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Affichage après suppression : </span><span class="si">{</span><span class="n">copie_dpt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Affichage</span> <span class="n">avant</span> <span class="n">suppression</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Affichage</span> <span class="n">avant</span> <span class="n">suppression</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="s1">&#39;Ain&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="s1">&#39;Aisne&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="s1">&#39;Allier&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes de Haute Provence&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">),</span> <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="s1">&#39;Alpes maritimes&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Aveyron&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Cantal&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">:</span> <span class="s1">&#39;Charente&#39;</span><span class="p">}</span>
 <span class="n">Affichage</span> <span class="n">après</span> <span class="n">suppression</span> <span class="p">:</span> <span class="p">{}</span>
 </pre></div>
 </div>
@@ -1011,6 +1012,7 @@ Le département n°01 est : Ain
 Le département n°02 est : Aisne
 Le département n°03 est : Allier
 Le département n°04 est : Alpes de Haute Provence
+Le département n°05 est : (&#39;Hautes Alpes&#39;, &#39;Briançon&#39;)
 Le département n°06 est : Alpes maritimes
 Le département n°12 est : Aveyron
 Le département n°15 est : Cantal
@@ -1020,6 +1022,7 @@ Le département n°01 est : Ain
 Le département n°02 est : Aisne
 Le département n°03 est : Allier
 Le département n°04 est : Alpes de Haute Provence
+Le département n°05 est : (&#39;Hautes Alpes&#39;, &#39;Briançon&#39;)
 Le département n°06 est : Alpes maritimes
 Le département n°12 est : Aveyron
 Le département n°15 est : Cantal
@@ -1050,6 +1053,7 @@ valeurs, en affichant chaque valeur.</p>
 <span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="n">Aisne</span>
 <span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="n">Allier</span>
 <span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="n">Alpes</span> <span class="n">de</span> <span class="n">Haute</span> <span class="n">Provence</span>
+<span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Hautes Alpes&#39;</span><span class="p">,</span> <span class="s1">&#39;Briançon&#39;</span><span class="p">)</span>
 <span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="n">Alpes</span> <span class="n">maritimes</span>
 <span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="n">Aveyron</span>
 <span class="n">Le</span> <span class="n">département</span> <span class="n">est</span> <span class="p">:</span> <span class="n">Cantal</span>
@@ -1081,6 +1085,7 @@ dictionnaire sur la séquence des couples clé, valeur.</p>
 Le département n°02 est : Aisne
 Le département n°03 est : Allier
 Le département n°04 est : Alpes de Haute Provence
+Le département n°05 est : (&#39;Hautes Alpes&#39;, &#39;Briançon&#39;)
 Le département n°06 est : Alpes maritimes
 Le département n°12 est : Aveyron
 Le département n°15 est : Cantal

@@ -9,7 +9,7 @@ Définition
 
 Un dictionnaire est un objet structuré permettant d’associer des
 **valeurs** à des **clés**. On peut comparer un dictionnaire à une liste
-dont les positions des éléments peuvent être autre chose que des nombres
+dont les indices des éléments peuvent être autre chose que des nombres
 entiers : chaînes, réels, etc. Les dictionnaires sont particulièrement
 adaptés à la représentation de données contenant des associations, comme
 par exemple :
@@ -37,12 +37,12 @@ d’affectation. Chaque élément d’un dictionnaire est un couple
 et la valeur peut être :
 
 -  un objet de type simple (entier, réel, chaîne, booléen)
--  un objet structuré (liste, tuple, dictionnaire ensemble, etc).
+-  un objet structuré (liste, tuple, dictionnaire, ensemble, etc).
 
 La duplication de clé n’est pas autorisée : à une clé ne peut
 correspondre qu’un seul couple ``clé : valeur`` et donc une seule
 valeur. À la différence d’une liste, un dictionnaire n’est pas une
-séquence. Par conséquent, ses éléments ne sont pas ordonnés. Il est
+séquence. Par conséquent, ses éléments ne sont pas ordonnés. Il est donc
 impossible d’accéder à un élément d’un dictionnaire à l’aide de sa
 position (ce qui est logique, puisque la notion d’ordre et donc de
 position n’existe pas). Il est également impossible d’accéder à un
@@ -66,7 +66,7 @@ dictionnaire peut se faire de deux façons :
 
 -  soit par une simple affectation du dictionnaire complet dans une
    variable structurée, comme dans l’exemple ci-dessous. Le nom de la
-   variable est alors appelé son identifiant et permet de le référencer
+   variable est l’identifiant du dictionnaire et permet de le référencer
    dans le programme.
 
 .. code:: ipython3
@@ -155,7 +155,7 @@ dictionnaire créé précédemment.
 
     KeyError                                  Traceback (most recent call last)
 
-    Input In [15], in <cell line: 3>()
+    Input In [3], in <cell line: 3>()
           1 print(f"Le numéro 04 correspond au département {dpt['04']}.")
           2 print(f"Le numéro 06 correspond au département {dpt['06']}.")
     ----> 3 print(f"Le numéro 01 correspond au département {dpt[1]}.")
@@ -362,7 +362,7 @@ une exception est levée et un message d’erreur s’affiche.
 
     KeyError                                  Traceback (most recent call last)
 
-    Input In [23], in <cell line: 4>()
+    Input In [11], in <cell line: 4>()
           2 del dpt['17']
           3 print(f"Dictionnaire après suppression : {dpt}.")
     ----> 4 del dpt['32']
@@ -371,11 +371,12 @@ une exception est levée et un message d’erreur s’affiche.
     KeyError: '32'
 
 
-La méthode **pop()** prend en paramètre la clé de l’élément à supprimer.
-Si la clé existe, elle supprime l’élément correspondant dans le
-dictionnaire et retourne la valeur associée à l’élément supprimé. Si la
-clé n’existe pas ou qu’aucun paramètre n’est fourni, une exception est
-levée et un message d’erreur s’affiche.
+La méthode **pop()** s’applique à un dictionnaire et prend en paramètre
+la clé de l’élément à supprimer. Si la clé existe, elle supprime
+l’élément correspondant dans le dictionnaire et retourne la valeur
+associée à l’élément supprimé. Si la clé n’existe pas ou qu’aucun
+paramètre n’est fourni, une exception est levée et un message d’erreur
+s’affiche.
 
 .. code:: ipython3
 
@@ -454,8 +455,8 @@ Cette copie est retournée en résultat.
 
 .. parsed-literal::
 
-    Affichage du dictionnaire : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}
-    Affichage de la copie du dictionnaire : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}
+    Affichage du dictionnaire : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}
+    Affichage de la copie du dictionnaire : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}
     
 
 Réinitialisation : la méthode **clear()**
@@ -474,7 +475,7 @@ retourne aucune valeur et peut être utilisée comme une instruction.
 
 .. parsed-literal::
 
-    Affichage avant suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}
+    Affichage avant suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}
     Affichage après suppression : {}
     
 
@@ -536,6 +537,7 @@ valeur.
     Le département n°02 est : Aisne
     Le département n°03 est : Allier
     Le département n°04 est : Alpes de Haute Provence
+    Le département n°05 est : ('Hautes Alpes', 'Briançon')
     Le département n°06 est : Alpes maritimes
     Le département n°12 est : Aveyron
     Le département n°15 est : Cantal
@@ -545,6 +547,7 @@ valeur.
     Le département n°02 est : Aisne
     Le département n°03 est : Allier
     Le département n°04 est : Alpes de Haute Provence
+    Le département n°05 est : ('Hautes Alpes', 'Briançon')
     Le département n°06 est : Alpes maritimes
     Le département n°12 est : Aveyron
     Le département n°15 est : Cantal
@@ -583,6 +586,7 @@ valeurs, en affichant chaque valeur.
     Le département est : Aisne
     Le département est : Allier
     Le département est : Alpes de Haute Provence
+    Le département est : ('Hautes Alpes', 'Briançon')
     Le département est : Alpes maritimes
     Le département est : Aveyron
     Le département est : Cantal
@@ -622,6 +626,7 @@ dictionnaire sur la séquence des couples clé, valeur.
     Le département n°02 est : Aisne
     Le département n°03 est : Allier
     Le département n°04 est : Alpes de Haute Provence
+    Le département n°05 est : ('Hautes Alpes', 'Briançon')
     Le département n°06 est : Alpes maritimes
     Le département n°12 est : Aveyron
     Le département n°15 est : Cantal
