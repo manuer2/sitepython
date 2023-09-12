@@ -22,14 +22,12 @@ Jusqu’à présent, les données que nous avons traitées dans des programmes
 Ces deux méthodes sont très limitées et inadaptées pour traiter de
 grandes quantités de données. Prenons l’exemple d’un programme calculant
 la moyenne obtenue par 1500 élèves à un contrôle de maths. Il n’est pas
-envisageable de déclarer dans le programme 1500 variables pour stocker
-les 1500 notes. Il n’est pas non plus raisonnable de saisir au clavier
-les 1500 notes. En supposant qu’on puisse tout de même le faire, cela
-signifie que si les valeurs des notes ou leur nombre changent il faudra
-modifier le code source du programme. Or, un programme bien conçu doit
-être indépendant des données qu’il traite. La quantité de données ainsi
-que leurs valeurs doivent pouvoir changer sans qu’on ait besoin de
-modifier le programme.
+raisonnable de saisir au clavier les 1500 notes. En supposant qu’on
+puisse tout de même le faire, cela signifie que si le nombre de valeurs
+change il faudra modifier le code source du programme. Or, un programme
+bien conçu doit être indépendant des données qu’il traite. La quantité
+de données ainsi que leurs valeurs doivent pouvoir changer sans qu’on
+ait besoin de modifier le programme.
 
 Jusqu’à présent également, les résultats produits par nos programmes
 étaient simplement affichés à l’écran. Or, les résultats produits sont
@@ -116,7 +114,7 @@ codées à l’aide d’un **langage binaire**, dont l’alphabet se compose de
 deux symboles uniquement : **0** et **1**. Chaque caractère d’un fichier
 texte est donc mémorisé à l’aide d’une **suite de bits**, c’est-à-dire
 une suite de chiffres dont la valeur est 0 ou 1. La suite de bits
-représentant un caractère dépend de l’\ **encodage** utilisé. En
+représentant un caractère dépend de l’**encodage** utilisé. En
 informatique, un encodage est un processus permettant de traduire un
 caractère en une suite plus ou moins longue de bits qui correspond à sa
 représentation binaire. Il existe de nombreux encodages, parmi lesquels
@@ -148,9 +146,8 @@ et en UTF-8. Ces observations sont identiques pour tous les caractères
 accentués.
 
 Lorsqu’on travaille avec un fichier texte, il est primordial de savoir
-avec quel encodage il a été mémorisé. Supposons par exemple que nous
-créons un fichier texte, en utilisant l’encodage ANSI. Le contenu du
-fichier est le suivant :
+avec quel encodage il a été créé. Considérons par exemple un fichier
+texte utilisant l’encodage ANSI. Le contenu du fichier est le suivant :
 
 .. figure:: ImagesNotebook/Fichier_ANSI_Init.PNG
    :alt: Fichier texte initial
@@ -311,7 +308,7 @@ chemin complet du dossier courant.
 
 .. parsed-literal::
 
-    Le dossier courant est : ``C:\Users\martienne_e``.
+    Le dossier courant est : C:\\Users\\martienne_e.
     
 
 Lorsqu’un programme traite des fichiers, **ceux-ci doivent
@@ -358,8 +355,8 @@ Le programme suivant est un exemple d’utilisation de la fonction
 
 .. parsed-literal::
 
-    Le dossier courant est : ``C:\Users\martienne_e``
-    Le nouveau dossier courant est : ``C:\Users\martienne_e\data``
+    Le dossier courant est : C:\\Users\\martienne_e
+    Le nouveau dossier courant est : C:\\Users\\martienne_e\\data
     
 
 Ouverture d’un fichier : la fonction **open()**
@@ -1353,7 +1350,7 @@ d’une boucle ``for`` dont la syntaxe est la suivante :
 
 où :
 
--  ``ligne`` est une variable contenant liste de chaînes
+-  ``ligne`` est une variable
 -  ``lect`` est lecteur
 -  ``bloc`` est un bloc d’instructions
 
@@ -1454,7 +1451,7 @@ Chaque liste de la liste est une liste de chaînes, où la première chaîne
 est la première valeur de la liste (colonne 1), la deuxième chaîne est
 la deuxième valeur (colonne 2), etc. L’intérêt de cette méthode est
 qu’elle permet de mémoriser tout le contenu du fichier dans une liste.
-Le fichier peut donc être fermé une fois se données lues, comme le
+Le fichier peut donc être fermé une fois ses données lues, comme le
 montre le programme ci-dessous.
 
 .. code:: ipython3

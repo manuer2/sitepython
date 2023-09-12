@@ -761,14 +761,12 @@ l’exécution.</p></li>
 <p>Ces deux méthodes sont très limitées et inadaptées pour traiter de
 grandes quantités de données. Prenons l’exemple d’un programme calculant
 la moyenne obtenue par 1500 élèves à un contrôle de maths. Il n’est pas
-envisageable de déclarer dans le programme 1500 variables pour stocker
-les 1500 notes. Il n’est pas non plus raisonnable de saisir au clavier
-les 1500 notes. En supposant qu’on puisse tout de même le faire, cela
-signifie que si les valeurs des notes ou leur nombre changent il faudra
-modifier le code source du programme. Or, un programme bien conçu doit
-être indépendant des données qu’il traite. La quantité de données ainsi
-que leurs valeurs doivent pouvoir changer sans qu’on ait besoin de
-modifier le programme.</p>
+raisonnable de saisir au clavier les 1500 notes. En supposant qu’on
+puisse tout de même le faire, cela signifie que si le nombre de valeurs
+change il faudra modifier le code source du programme. Or, un programme
+bien conçu doit être indépendant des données qu’il traite. La quantité
+de données ainsi que leurs valeurs doivent pouvoir changer sans qu’on
+ait besoin de modifier le programme.</p>
 <p>Jusqu’à présent également, les résultats produits par nos programmes
 étaient simplement affichés à l’écran. Or, les résultats produits sont
 souvent trop volumineux pour être simplement affichés. Ils ont aussi
@@ -901,9 +899,8 @@ codé en ASCII. De plus, sa représentation binaire est différente en ANSI
 et en UTF-8. Ces observations sont identiques pour tous les caractères
 accentués.</p>
 <p>Lorsqu’on travaille avec un fichier texte, il est primordial de savoir
-avec quel encodage il a été mémorisé. Supposons par exemple que nous
-créons un fichier texte, en utilisant l’encodage ANSI. Le contenu du
-fichier est le suivant :</p>
+avec quel encodage il a été créé. Considérons par exemple un fichier
+texte utilisant l’encodage ANSI. Le contenu du fichier est le suivant :</p>
 <figure class="align-default" id="id4">
 <img alt="Fichier texte initial" src="_images/Fichier_ANSI_Init.PNG" />
 <figcaption>
@@ -1053,7 +1050,7 @@ chemin complet du dossier courant.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le dossier courant est : </span><span class="si">{</span><span class="n">courant</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<pre class="literal-block">Le dossier courant est : <code class="docutils literal notranslate"><span class="pre">C:\Users\martienne_e</span></code>.</pre>
+<pre class="literal-block">Le dossier courant est : C:\Users\martienne_e.</pre>
 <p>Lorsqu’un programme traite des fichiers, <strong>ceux-ci doivent
 impérativement être stockés dans le dossier courant</strong>.</p>
 </section>
@@ -1090,8 +1087,8 @@ de chemin relatif indiquant l’emplacement du dossier <code class="docutils lit
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le nouveau dossier courant est : </span><span class="si">{</span><span class="n">courant</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<pre class="literal-block">Le dossier courant est : <code class="docutils literal notranslate"><span class="pre">C:\Users\martienne_e</span></code>
-Le nouveau dossier courant est : <code class="docutils literal notranslate"><span class="pre">C:\Users\martienne_e\data</span></code></pre>
+<pre class="literal-block">Le dossier courant est : C:\Users\martienne_e
+Le nouveau dossier courant est : C:\Users\martienne_e\data</pre>
 </section>
 <section id="ouverture-dun-fichier-la-fonction-open">
 <h3><span class="section-number">8.2.3. </span>Ouverture d’un fichier : la fonction <strong>open()</strong><a class="headerlink" href="#ouverture-dun-fichier-la-fonction-open" title="Lien permanent vers ce titre"></a></h3>
@@ -1967,7 +1964,7 @@ d’une boucle <code class="docutils literal notranslate"><span class="pre">for<
 </div>
 <p>où :</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ligne</span></code> est une variable contenant liste de chaînes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ligne</span></code> est une variable</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lect</span></code> est lecteur</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bloc</span></code> est un bloc d’instructions</p></li>
 </ul>
@@ -2061,7 +2058,7 @@ obtenue est la suivante :</p>
 est la première valeur de la liste (colonne 1), la deuxième chaîne est
 la deuxième valeur (colonne 2), etc. L’intérêt de cette méthode est
 qu’elle permet de mémoriser tout le contenu du fichier dans une liste.
-Le fichier peut donc être fermé une fois se données lues, comme le
+Le fichier peut donc être fermé une fois ses données lues, comme le
 montre le programme ci-dessous.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">csv</span>
 
