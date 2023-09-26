@@ -459,6 +459,75 @@ ou bien :
     ['A', 'B', 'C', 'D']
     
 
+Copie de liste : la fonction **list()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Une liste étant un objet « muable », une simple affectation ne suffit
+pas à en faire une copie. Considérons l’exemple ci-dessous :
+
+.. code:: ipython3
+
+    maliste = [1, 3, 5, 7, 9, 11]   # Création d'une liste initiale
+    lacopie = maliste               # Tentative de copie de la liste initiale par simple affectation
+    maliste[0] = -1                 # Modification de la liste initiale
+    lacopie[5] = -11                # Modification de la copie
+    print(f"La liste initiale est {maliste} et la copie est {lacopie}.")
+
+
+.. parsed-literal::
+
+    La liste initiale est [-1, 3, 5, 7, 9, -11] et la copie est [-1, 3, 5, 7, 9, -11].
+    
+
+On peut constater lors de l’exécution de ce programme que les contenus
+finaux des variables ``maliste`` et ``lacopie`` sont identiques
+(cf. dernière instruction d’affichage). Cela signifie que l’affectation
+``lacopie = maliste`` n’a pas créé de copie de la liste. En fait, après
+cette affectation les deux variables ``maliste`` et ``lacopie``
+référencent le même objet liste ``[1, 3, 5, 7, 9, 11]`` (cf. schéma
+ci-dessous). Les deux instructions ``maliste[0] = -1`` et
+``lacopie[5] = -11`` modifient donc un seul et même objet, même si cet
+objet est référencé par deux variables différentes.
+
+.. figure:: ImagesNotebook/AffectationListe.PNG
+   :alt: Affectation de liste
+
+   Affectation de liste
+
+La fonction **list()** est une fonction prédéfinie de Python qui prend
+en paramètre un objet itérable (chaîne, intervalle produit avec
+**range()**, liste, etc), et qui crée une liste à partir de cet objet
+itérable. Elle peut être utilisée pour copier une liste, comme dans
+l’exemple ci-dessous :
+
+.. code:: ipython3
+
+    maliste = [1, 3, 5, 7, 9, 11]   # Création d'une liste initiale
+    lacopie = list(maliste)         # Création d'une seconde liste à partir de la liste initiale (équivalent à une copie de la liste initiale)
+    maliste[0] = -1                 # Modification de la liste initiale
+    lacopie[5] = -11                # Modification de la copie
+    print(f"La liste initiale est {maliste} et la copie est {lacopie}.")
+
+
+.. parsed-literal::
+
+    La liste initiale est [-1, 3, 5, 7, 9, 11] et la copie est [1, 3, 5, 7, 9, -11].
+    
+
+Cette fois-ci, l’instruction ``lacopie = list(maliste)`` crée une copie
+de la liste ``[1, 3, 5, 7, 9, 11]``. Il y a donc deux copies de la
+liste, l’une référencée par la variable ``maliste`` et l’autre par la
+variable ``lacopie`` (cf. schéma ci-dessous). L’instruction
+``maliste[0] = -1`` modifie la liste référencée par ``maliste`` alors
+que l’instruction ``lacopie[5] = -11`` modifie celle référencée par
+``lacopie``. Lors de l’affichage final, les contenus des deux variables
+sont donc logiquement différents.
+
+.. figure:: ImagesNotebook/AffectationListe2.PNG
+   :alt: Affectation de liste bis
+
+   Affectation de liste bis
+
 Méthodes usuelles sur les listes
 --------------------------------
 
@@ -892,6 +961,26 @@ l’indice maximal de la liste à retourner (0 pour une liste avec un seul
 .. parsed-literal::
 
     ['251', '964', '89523-74']
+    
+
+Copie d’une liste : la méthode **copy()**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La méthode **copy()** s’applique à une liste et permet de créer une
+copie de cette liste, comme le montre l’exemple suivant.
+
+.. code:: ipython3
+
+    maliste = [1, 3, 5, 7, 9, 11]   # Création d'une liste initiale
+    lacopie = maliste.copy()        # Création d'une copie de la liste initiale
+    maliste[0] = -1                 # Modification de la liste initiale
+    lacopie[5] = -11                # Modification de la copie
+    print(f"La liste initiale est {maliste} et la copie est {lacopie}.")
+
+
+.. parsed-literal::
+
+    La liste initiale est [-1, 3, 5, 7, 9, 11] et la copie est [1, 3, 5, 7, 9, -11].
     
 
 Opérateur d’appartenance à une liste

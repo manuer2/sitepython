@@ -333,6 +333,14 @@ title="Print to PDF"
      </strong>
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copie-de-liste-la-fonction-list">
+     6.6.5. Copie de liste : la fonction
+     <strong>
+      list()
+     </strong>
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -413,6 +421,14 @@ title="Print to PDF"
      6.7.9. Transformation d’une chaîne en une liste de chaînes : la méthode
      <strong>
       split()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copie-dune-liste-la-methode-copy">
+     6.7.10. Copie d’une liste : la méthode
+     <strong>
+      copy()
      </strong>
     </a>
    </li>
@@ -569,6 +585,14 @@ title="Print to PDF"
      </strong>
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copie-de-liste-la-fonction-list">
+     6.6.5. Copie de liste : la fonction
+     <strong>
+      list()
+     </strong>
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -649,6 +673,14 @@ title="Print to PDF"
      6.7.9. Transformation d’une chaîne en une liste de chaînes : la méthode
      <strong>
       split()
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copie-dune-liste-la-methode-copy">
+     6.7.10. Copie d’une liste : la méthode
+     <strong>
+      copy()
      </strong>
     </a>
    </li>
@@ -1100,6 +1132,65 @@ listes.</p>
 </pre></div>
 </div>
 </section>
+<section id="copie-de-liste-la-fonction-list">
+<h3><span class="section-number">6.6.5. </span>Copie de liste : la fonction <strong>list()</strong><a class="headerlink" href="#copie-de-liste-la-fonction-list" title="Lien permanent vers ce titre"></a></h3>
+<p>Une liste étant un objet « muable », une simple affectation ne suffit
+pas à en faire une copie. Considérons l’exemple ci-dessous :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maliste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>   <span class="c1"># Création d&#39;une liste initiale</span>
+<span class="n">lacopie</span> <span class="o">=</span> <span class="n">maliste</span>               <span class="c1"># Tentative de copie de la liste initiale par simple affectation</span>
+<span class="n">maliste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>                 <span class="c1"># Modification de la liste initiale</span>
+<span class="n">lacopie</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">11</span>                <span class="c1"># Modification de la copie</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La liste initiale est </span><span class="si">{</span><span class="n">maliste</span><span class="si">}</span><span class="s2"> et la copie est </span><span class="si">{</span><span class="n">lacopie</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">La</span> <span class="n">liste</span> <span class="n">initiale</span> <span class="n">est</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">]</span> <span class="n">et</span> <span class="n">la</span> <span class="n">copie</span> <span class="n">est</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">]</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>On peut constater lors de l’exécution de ce programme que les contenus
+finaux des variables <code class="docutils literal notranslate"><span class="pre">maliste</span></code> et <code class="docutils literal notranslate"><span class="pre">lacopie</span></code> sont identiques
+(cf. dernière instruction d’affichage). Cela signifie que l’affectation
+<code class="docutils literal notranslate"><span class="pre">lacopie</span> <span class="pre">=</span> <span class="pre">maliste</span></code> n’a pas créé de copie de la liste. En fait, après
+cette affectation les deux variables <code class="docutils literal notranslate"><span class="pre">maliste</span></code> et <code class="docutils literal notranslate"><span class="pre">lacopie</span></code>
+référencent le même objet liste <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">7,</span> <span class="pre">9,</span> <span class="pre">11]</span></code> (cf. schéma
+ci-dessous). Les deux instructions <code class="docutils literal notranslate"><span class="pre">maliste[0]</span> <span class="pre">=</span> <span class="pre">-1</span></code> et
+<code class="docutils literal notranslate"><span class="pre">lacopie[5]</span> <span class="pre">=</span> <span class="pre">-11</span></code> modifient donc un seul et même objet, même si cet
+objet est référencé par deux variables différentes.</p>
+<figure class="align-default" id="id2">
+<img alt="Affectation de liste" src="_images/AffectationListe.PNG" />
+<figcaption>
+<p><span class="caption-text">Affectation de liste</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+<p>La fonction <strong>list()</strong> est une fonction prédéfinie de Python qui prend
+en paramètre un objet itérable (chaîne, intervalle produit avec
+<strong>range()</strong>, liste, etc), et qui crée une liste à partir de cet objet
+itérable. Elle peut être utilisée pour copier une liste, comme dans
+l’exemple ci-dessous :</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maliste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>   <span class="c1"># Création d&#39;une liste initiale</span>
+<span class="n">lacopie</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">maliste</span><span class="p">)</span>         <span class="c1"># Création d&#39;une seconde liste à partir de la liste initiale (équivalent à une copie de la liste initiale)</span>
+<span class="n">maliste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>                 <span class="c1"># Modification de la liste initiale</span>
+<span class="n">lacopie</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">11</span>                <span class="c1"># Modification de la copie</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La liste initiale est </span><span class="si">{</span><span class="n">maliste</span><span class="si">}</span><span class="s2"> et la copie est </span><span class="si">{</span><span class="n">lacopie</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">La</span> <span class="n">liste</span> <span class="n">initiale</span> <span class="n">est</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span> <span class="n">et</span> <span class="n">la</span> <span class="n">copie</span> <span class="n">est</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">]</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Cette fois-ci, l’instruction <code class="docutils literal notranslate"><span class="pre">lacopie</span> <span class="pre">=</span> <span class="pre">list(maliste)</span></code> crée une copie
+de la liste <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">7,</span> <span class="pre">9,</span> <span class="pre">11]</span></code>. Il y a donc deux copies de la
+liste, l’une référencée par la variable <code class="docutils literal notranslate"><span class="pre">maliste</span></code> et l’autre par la
+variable <code class="docutils literal notranslate"><span class="pre">lacopie</span></code> (cf. schéma ci-dessous). L’instruction
+<code class="docutils literal notranslate"><span class="pre">maliste[0]</span> <span class="pre">=</span> <span class="pre">-1</span></code> modifie la liste référencée par <code class="docutils literal notranslate"><span class="pre">maliste</span></code> alors
+que l’instruction <code class="docutils literal notranslate"><span class="pre">lacopie[5]</span> <span class="pre">=</span> <span class="pre">-11</span></code> modifie celle référencée par
+<code class="docutils literal notranslate"><span class="pre">lacopie</span></code>. Lors de l’affichage final, les contenus des deux variables
+sont donc logiquement différents.</p>
+<figure class="align-default" id="id3">
+<img alt="Affectation de liste bis" src="_images/AffectationListe2.PNG" />
+<figcaption>
+<p><span class="caption-text">Affectation de liste bis</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image"></a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 <section id="methodes-usuelles-sur-les-listes">
 <h2><span class="section-number">6.7. </span>Méthodes usuelles sur les listes<a class="headerlink" href="#methodes-usuelles-sur-les-listes" title="Lien permanent vers ce titre"></a></h2>
@@ -1435,6 +1526,21 @@ l’indice maximal de la liste à retourner (0 pour une liste avec un seul
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;251&#39;</span><span class="p">,</span> <span class="s1">&#39;964&#39;</span><span class="p">,</span> <span class="s1">&#39;89523-74&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="copie-dune-liste-la-methode-copy">
+<h3><span class="section-number">6.7.10. </span>Copie d’une liste : la méthode <strong>copy()</strong><a class="headerlink" href="#copie-dune-liste-la-methode-copy" title="Lien permanent vers ce titre"></a></h3>
+<p>La méthode <strong>copy()</strong> s’applique à une liste et permet de créer une
+copie de cette liste, comme le montre l’exemple suivant.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maliste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>   <span class="c1"># Création d&#39;une liste initiale</span>
+<span class="n">lacopie</span> <span class="o">=</span> <span class="n">maliste</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>        <span class="c1"># Création d&#39;une copie de la liste initiale</span>
+<span class="n">maliste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>                 <span class="c1"># Modification de la liste initiale</span>
+<span class="n">lacopie</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">11</span>                <span class="c1"># Modification de la copie</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La liste initiale est </span><span class="si">{</span><span class="n">maliste</span><span class="si">}</span><span class="s2"> et la copie est </span><span class="si">{</span><span class="n">lacopie</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">La</span> <span class="n">liste</span> <span class="n">initiale</span> <span class="n">est</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span> <span class="n">et</span> <span class="n">la</span> <span class="n">copie</span> <span class="n">est</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">]</span><span class="o">.</span>
 </pre></div>
 </div>
 </section>
