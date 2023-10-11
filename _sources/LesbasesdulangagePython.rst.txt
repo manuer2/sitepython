@@ -404,6 +404,9 @@ Considérons néanmoins le programme suivant :
     La valeur de la variable maListe est :  [1, 2, 3, 4, 5]
     
 
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=maListe%20%3D%20%5B1,%202,%203,%204%5D%0Aprint%28%22La%20valeur%20de%20la%20variable%20maListe%20est%20%3A%20%22,%20maListe%29%0AmaListe.append%285%29%0Aprint%28%22La%20valeur%20de%20la%20variable%20maListe%20est%20%3A%20%22,%20maListe%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
+
 Ce qui se passe lors de l’exécution de ce programme peut se schématiser
 de la manière suivante :
 
@@ -918,6 +921,7 @@ débute à partir de la fin de la chaîne. Par exemple :
 
 .. code:: ipython3
 
+    maVarChaine = "Programmation"
     print(f"Troisième exemple de slicing : {maVarChaine[-5:-2]}")
 
 
@@ -932,12 +936,13 @@ d’indice ``der-1``. Par exemple :
 
 .. code:: ipython3
 
+    maVarChaine = "Programmation"
     print(f"Quatrième exemple de slicing : {maVarChaine[:3]}")
 
 
 .. parsed-literal::
 
-    Troisième exemple de slicing : Pro
+    Quatrième exemple de slicing : Pro
     
 
 De la même façon, l’indice ``der`` peut être omis. Dans ce cas, le
@@ -946,12 +951,13 @@ jusqu’au dernier caractère de la chaîne. Par exemple :
 
 .. code:: ipython3
 
+    maVarChaine = "Programmation"
     print(f"Cinquième exemple de slicing : {maVarChaine[3:]}")
 
 
 .. parsed-literal::
 
-    Quatrième exemple de slicing : grammation
+    Cinquième exemple de slicing : grammation
     
 
 Opérateurs, fonctions et méthodes usuelles sur les chaînes
@@ -990,6 +996,7 @@ Elle se note d’ailleurs avec le signe ``*``. Par exemple :
 
 .. code:: ipython3
 
+    maVarChaine = "Programmation"
     chMult = maVarChaine * 5
     print(f"Chaîne obtenue par multiplication : {chMult}")
 
@@ -1007,6 +1014,8 @@ longueur, c’est-à-dire son nombre de caractères. Par exemple :
 
 .. code:: ipython3
 
+    maVarChaine = "Programmation"
+    chMult = maVarChaine * 5
     print(f"La chaîne {chMult} contient {len(chMult)} caractères.")
     print(f"La chaîne 'L1 MIASHS' contient {len('L1MIASHS')} caractères.")
 

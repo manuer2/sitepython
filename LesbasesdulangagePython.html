@@ -1043,6 +1043,8 @@ Considérons néanmoins le programme suivant :</p>
 <span class="n">La</span> <span class="n">valeur</span> <span class="n">de</span> <span class="n">la</span> <span class="n">variable</span> <span class="n">maListe</span> <span class="n">est</span> <span class="p">:</span>  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
+<p><a class="reference external" href="https://pythontutor.com/render.html#code=maListe%20%3D%20%5B1,%202,%203,%204%5D%0Aprint%28%22La%20valeur%20de%20la%20variable%20maListe%20est%20%3A%20%22,%20maListe%29%0AmaListe.append%285%29%0Aprint%28%22La%20valeur%20de%20la%20variable%20maListe%20est%20%3A%20%22,%20maListe%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Exécution dans Python
+Tutor</a></p>
 <p>Ce qui se passe lors de l’exécution de ce programme peut se schématiser
 de la manière suivante :</p>
 <figure class="align-default" id="id7">
@@ -1476,7 +1478,8 @@ et se termine au caractère d’indice <code class="docutils literal notranslate
 </div>
 <p>Lorsque les indices <code class="docutils literal notranslate"><span class="pre">prem</span></code> et <code class="docutils literal notranslate"><span class="pre">der</span></code> sont négatifs, le référencement
 débute à partir de la fin de la chaîne. Par exemple :</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Troisième exemple de slicing : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maVarChaine</span> <span class="o">=</span> <span class="s2">&quot;Programmation&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Troisième exemple de slicing : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Troisième</span> <span class="n">exemple</span> <span class="n">de</span> <span class="n">slicing</span> <span class="p">:</span> <span class="n">ati</span>
@@ -1485,19 +1488,21 @@ débute à partir de la fin de la chaîne. Par exemple :</p>
 <p>L’indice <code class="docutils literal notranslate"><span class="pre">prem</span></code> peut être omis. Dans ce cas, le référencement
 s’effectue à partir du premier caractère de la chaîne jusqu’au caractère
 d’indice <code class="docutils literal notranslate"><span class="pre">der-1</span></code>. Par exemple :</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Quatrième exemple de slicing : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maVarChaine</span> <span class="o">=</span> <span class="s2">&quot;Programmation&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Quatrième exemple de slicing : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Troisième</span> <span class="n">exemple</span> <span class="n">de</span> <span class="n">slicing</span> <span class="p">:</span> <span class="n">Pro</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Quatrième</span> <span class="n">exemple</span> <span class="n">de</span> <span class="n">slicing</span> <span class="p">:</span> <span class="n">Pro</span>
 </pre></div>
 </div>
 <p>De la même façon, l’indice <code class="docutils literal notranslate"><span class="pre">der</span></code> peut être omis. Dans ce cas, le
 référencement s’effectue à partir du caractère d’indice <code class="docutils literal notranslate"><span class="pre">prem</span></code>
 jusqu’au dernier caractère de la chaîne. Par exemple :</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cinquième exemple de slicing : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maVarChaine</span> <span class="o">=</span> <span class="s2">&quot;Programmation&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cinquième exemple de slicing : </span><span class="si">{</span><span class="n">maVarChaine</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Quatrième</span> <span class="n">exemple</span> <span class="n">de</span> <span class="n">slicing</span> <span class="p">:</span> <span class="n">grammation</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cinquième</span> <span class="n">exemple</span> <span class="n">de</span> <span class="n">slicing</span> <span class="p">:</span> <span class="n">grammation</span>
 </pre></div>
 </div>
 </section>
@@ -1526,7 +1531,8 @@ chaînes. Elle se note d’ailleurs avec le signe <code class="docutils literal 
 <p>La répétition permet de construire une chaîne en répétant plusieurs fois
 une chaîne existante. Elle est une sorte de multiplication de chaînes.
 Elle se note d’ailleurs avec le signe <code class="docutils literal notranslate"><span class="pre">*</span></code>. Par exemple :</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chMult</span> <span class="o">=</span> <span class="n">maVarChaine</span> <span class="o">*</span> <span class="mi">5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maVarChaine</span> <span class="o">=</span> <span class="s2">&quot;Programmation&quot;</span>
+<span class="n">chMult</span> <span class="o">=</span> <span class="n">maVarChaine</span> <span class="o">*</span> <span class="mi">5</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chaîne obtenue par multiplication : </span><span class="si">{</span><span class="n">chMult</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1538,7 +1544,9 @@ Elle se note d’ailleurs avec le signe <code class="docutils literal notranslat
 <h4><span class="section-number">2.3.4.3. </span>Longueur d’une chaîne<a class="headerlink" href="#longueur-dune-chaine" title="Lien permanent vers ce titre"></a></h4>
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">len</span></code> prend en paramètre une chaîne et retourne sa
 longueur, c’est-à-dire son nombre de caractères. Par exemple :</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La chaîne </span><span class="si">{</span><span class="n">chMult</span><span class="si">}</span><span class="s2"> contient </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">chMult</span><span class="p">)</span><span class="si">}</span><span class="s2"> caractères.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maVarChaine</span> <span class="o">=</span> <span class="s2">&quot;Programmation&quot;</span>
+<span class="n">chMult</span> <span class="o">=</span> <span class="n">maVarChaine</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La chaîne </span><span class="si">{</span><span class="n">chMult</span><span class="si">}</span><span class="s2"> contient </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">chMult</span><span class="p">)</span><span class="si">}</span><span class="s2"> caractères.&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La chaîne &#39;L1 MIASHS&#39; contient </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;L1MIASHS&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> caractères.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
