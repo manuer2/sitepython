@@ -164,6 +164,7 @@ l’avant-dernier élément à la position -2, etc.
 
 .. code:: ipython3
 
+    bazar = [3.1416, 25, 154, "fromage", "dessert"]
     print(f"L'élément de position -1 est : {bazar[-1]}")
     print(f"L'élément de position -5 est : {bazar[-5]}")
 
@@ -212,6 +213,7 @@ sous-liste contient tous les éléments à partir de la position
 
 .. code:: ipython3
 
+    bazar = [3.1416, 25, 154, "fromage", "dessert"]
     print(f"bazar[3:] = {bazar[3:]}")
     print(f"bazar[-4:] = {bazar[-4:]}")
 
@@ -228,6 +230,7 @@ jusqu’à l’élément de rang ``pos_fin-1``.
 
 .. code:: ipython3
 
+    bazar = [3.1416, 25, 154, "fromage", "dessert"]
     print(f"bazar[:3] = {bazar[:3]}")
     print(f"bazar[:-3] = {bazar[:-3]}")
 
@@ -272,6 +275,7 @@ supérieure à ``pos_fin`` sous peine d’avoir un résultat vide.
 
 .. code:: ipython3
 
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     print(f"Extraction de la position 20 à la position 5 comprises, de -2 en -2 : alphabet[20:4:-2] = {alphabet[20:4:-2]}.")
     print(f"Extraction de la position 5 à la position 20 comprises, de -2 en -2 : alphabet[5:21:-2] = {alphabet[5:21:-2]}.")
 
@@ -287,6 +291,7 @@ l’illustrent les exemples ci-dessous.
 
 .. code:: ipython3
 
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     print(f"alphabet[:7:2] = {alphabet[:7:2]}.")
     print(f"alphabet[3::2] = {alphabet[3::2]}.")
     print(f"alphabet[:3:-2] = {alphabet[:3:-2]}.")
@@ -360,6 +365,7 @@ où  :
 
 .. code:: ipython3
 
+    bazar = [3.1416, 25, 154, "fromage", "dessert"]
     print(f"Liste bazar avant modification : {bazar}")
     bazar[2] = 'bonjour'
     bazar[1] += 3
@@ -371,6 +377,9 @@ où  :
     Liste bazar avant modification : [3.1416, 25, 154, 'fromage', 'dessert']
     Liste bazar après modification : [3.1416, 28, 'bonjour', 'fromage', 'dessert']
     
+
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=bazar%20%3D%20%5B3.1416,%2025,%20154,%20%22fromage%22,%20%22dessert%22%5D%0Aprint%28f%22Liste%20bazar%20avant%20modification%20%3A%20%7Bbazar%7D%22%29%0Abazar%5B2%5D%20%3D%20'bonjour'%0Abazar%5B1%5D%20%2B%3D%203%0Aprint%28f%22Liste%20bazar%20apr%C3%A8s%20modification%20%3A%20%7Bbazar%7D%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
 
 Suppression d’élément(s) : l’instruction **del**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
