@@ -53,6 +53,9 @@ suivant et exécutons-le en saisissant les valeurs ``5`` pour ``x`` et
     La valeur de est x est 7 et celle de y est 7.
     
 
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=x%20%3D%20int%28input%28%22Saisissez%20la%20valeur%20de%20x%20%3A%20%22%29%29%0Ay%20%3D%20int%28input%28%22Saisissez%20la%20valeur%20de%20y%20%3A%20%22%29%29%0Ax%20%3D%20y%0Ay%20%3D%20x%0Aprint%28f%22La%20valeur%20de%20est%20x%20est%20%7Bx%7D%20et%20celle%20de%20y%20est%20%7By%7D.%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
+
 Considérons maintenant le même programme, avec juste une inversion de
 l’ordre des instructions ``x = y`` et ``y = x``. Que constatez-vous en
 l’exécutant et en saisissant les mêmes valeurs que précédemment pour
@@ -77,6 +80,9 @@ l’exécutant et en saisissant les mêmes valeurs que précédemment pour
 
     La valeur de est x est 5 et celle de y est 5.
     
+
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=x%20%3D%20int%28input%28%22Saisissez%20la%20valeur%20de%20x%20%3A%20%22%29%29%0Ay%20%3D%20int%28input%28%22Saisissez%20la%20valeur%20de%20y%20%3A%20%22%29%29%0Ay%20%3D%20x%0Ax%20%3D%20y%0Aprint%28f%22La%20valeur%20de%20est%20x%20est%20%7Bx%7D%20et%20celle%20de%20y%20est%20%7By%7D.%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
 
 Les valeurs finales de ``x`` et ``y`` sont différentes.
 
