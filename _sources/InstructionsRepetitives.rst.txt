@@ -87,6 +87,9 @@ boucle ``while``.
     Terminé !!
     
 
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=compteur%20%3D%2010%0Aprint%28f%22Compte%20%C3%A0%20rebours%20basique%20%3A%22%29%0Awhile%20compteur%3E%3D0%3A%0A%20%20%20%20print%28f%22%7Bcompteur%7D%22%29%0A%20%20%20%20compteur%20%3D%20compteur%20-%201%0Aprint%28%22Termin%C3%A9%20!!%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
+
 Le programme ci-dessous calcule le résultat de la factorielle d’un
 nombre.
 
@@ -113,6 +116,9 @@ nombre.
 
     Factorielle de 5 est égal à 120.
     
+
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=n%20%3D%20int%28input%28%22Saisissez%20un%20nombre%20entier%20positif%20ou%20nul%20%3A%20%22%29%29%0Aif%20n%3D%3D0%20or%20n%3D%3D1%3A%0A%20%20%20%20facto%20%3D%201%0Aelse%3A%0A%20%20%20%20facto%20%3D%20n%0A%20%20%20%20mult%20%3D%20n-1%0A%20%20%20%20while%20mult%3E%3D1%3A%0A%20%20%20%20%20%20%20%20facto%20%3D%20facto*mult%0A%20%20%20%20%20%20%20%20mult%20%3D%20mult-1%0Aprint%28f%22Factorielle%20de%20%7Bn%7D%20est%20%C3%A9gal%20%C3%A0%20%7Bfacto%7D.%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
 
 La boucle **for**
 -----------------
@@ -239,6 +245,9 @@ entier ``nb``, puis affiche sur la même ligne ``nb`` fois le caractère «
 
     ??????????
 
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=nb%20%3D%20int%28input%28%22Saisissez%20le%20nombre%20de%20symboles%20souhait%C3%A9%20%3A%20%22%29%29%0Afor%20i%20in%20range%28nb%29%3A%0A%20%20%20%20print%28%22%3F%22,%20end%3D%22%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
+
 Notons que sur cet exemple, l’instruction réalisée dans le bloc :
 ``print("?", end="")`` n’utilise pas les valeurs de la séquence
 retournée par ``range(nb)`` (i.e., les valeurs successives de ``i``).
@@ -277,6 +286,9 @@ entiers positifs.
     La somme des 15 premiers entiers positifs est 120.
     
 
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=print%28%22Calcul%20de%20la%20somme%20des%20n%20premiers%20entiers%20positifs.%22%29%0An%20%3D%20int%28input%28%22Saisissez%20la%20valeur%20de%20n%20%3A%22%29%29%0Asomme%20%3D%200%0Afor%20i%20in%20range%281,%20n%2B1%29%3A%0A%20%20%20%20somme%20%3D%20somme%2Bi%0Aprint%28f%22La%20somme%20des%20%7Bn%7D%20premiers%20entiers%20positifs%20est%20%7Bsomme%7D.%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
+
 Cette fois-ci, l’instruction réalisée dans le bloc : ``somme = somme+i``
 va s’exécuter pour chaque valeur ``i`` de la séquence retournée par
 ``range(1, n+1)``. Les valeurs de la séquence sont utilisées dans le
@@ -312,6 +324,9 @@ des entiers positifs pairs uniquement.
 
     La somme des 15 premiers entiers positifs pairs est 56.
     
+
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=print%28%22Calcul%20de%20la%20somme%20des%20n%20premiers%20entiers%20positifs%20pairs.%22%29%0An%20%3D%20int%28input%28%22Saisissez%20la%20valeur%20de%20n%20%3A%22%29%29%0Asomme%20%3D%200%0Afor%20i%20in%20range%282,%20n%2B1,%202%29%3A%0A%20%20%20%20somme%20%3D%20somme%2Bi%0Aprint%28f%22La%20somme%20des%20%7Bn%7D%20premiers%20entiers%20positifs%20pairs%20est%20%7Bsomme%7D.%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
 
 Parcours d’objets **itérables** - Cas des chaînes de caractères
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -365,6 +380,9 @@ puis qui affiche un par un les caractères qu’elle contient.
     Au revoir Anatole !!
     
 
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=myname%20%3D%20input%28%22Quel%20est%20votre%20pr%C3%A9nom%20%3F%22%29%0Afor%20car%20in%20myname%3A%0A%20%20%20%20print%28car%29%0Aprint%28f%22Au%20revoir%20%7Bmyname%7D%20!!%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
+
 Notons qu’une variante de ce programme consiste à parcourir la chaîne à
 l’aide des indices de ses caractères, en utilisant la boucle ``for`` de
 parcours de séquences de valeurs entières. Dans ce cas, la séquence de
@@ -398,6 +416,9 @@ du dernier caractère). Voici ci-dessous cette variante.
     e
     Au revoir Hippolyte !!
     
+
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=myname%20%3D%20input%28%22Quel%20est%20votre%20pr%C3%A9nom%20%3F%22%29%0Afor%20ind%20in%20range%280,%20len%28myname%29%29%3A%0A%20%20%20%20print%28myname%5Bind%5D%29%0Aprint%28f%22Au%20revoir%20%7Bmyname%7D%20!!%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
 
 Nous venons de voir l’utilisation de la boucle ``for`` pour le parcours
 caractère par caractère d’une chaîne. Il existe d’autres types objets

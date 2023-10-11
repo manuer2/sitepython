@@ -579,6 +579,8 @@ boucle <code class="docutils literal notranslate"><span class="pre">while</span>
 Terminé !!
 </pre></div>
 </div>
+<p><a class="reference external" href="https://pythontutor.com/render.html#code=compteur%20%3D%2010%0Aprint%28f%22Compte%20%C3%A0%20rebours%20basique%20%3A%22%29%0Awhile%20compteur%3E%3D0%3A%0A%20%20%20%20print%28f%22%7Bcompteur%7D%22%29%0A%20%20%20%20compteur%20%3D%20compteur%20-%201%0Aprint%28%22Termin%C3%A9%20!!%22%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Exécution dans Python
+Tutor</a></p>
 <p>Le programme ci-dessous calcule le résultat de la factorielle d’un
 nombre.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Saisissez un nombre entier positif ou nul : &quot;</span><span class="p">))</span>
@@ -599,6 +601,8 @@ nombre.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Factorielle</span> <span class="n">de</span> <span class="mi">5</span> <span class="n">est</span> <span class="n">égal</span> <span class="n">à</span> <span class="mf">120.</span>
 </pre></div>
 </div>
+<p><a class="reference external" href="https://pythontutor.com/render.html#code=n%20%3D%20int%28input%28%22Saisissez%20un%20nombre%20entier%20positif%20ou%20nul%20%3A%20%22%29%29%0Aif%20n%3D%3D0%20or%20n%3D%3D1%3A%0A%20%20%20%20facto%20%3D%201%0Aelse%3A%0A%20%20%20%20facto%20%3D%20n%0A%20%20%20%20mult%20%3D%20n-1%0A%20%20%20%20while%20mult%3E%3D1%3A%0A%20%20%20%20%20%20%20%20facto%20%3D%20facto*mult%0A%20%20%20%20%20%20%20%20mult%20%3D%20mult-1%0Aprint%28f%22Factorielle%20de%20%7Bn%7D%20est%20%C3%A9gal%20%C3%A0%20%7Bfacto%7D.%22%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Exécution dans Python
+Tutor</a></p>
 </section>
 <section id="la-boucle-for">
 <h2><span class="section-number">5.2. </span>La boucle <strong>for</strong><a class="headerlink" href="#la-boucle-for" title="Lien permanent vers ce titre"></a></h2>
@@ -711,6 +715,8 @@ entier <code class="docutils literal notranslate"><span class="pre">nb</span></c
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>??????????
 </pre></div>
 </div>
+<p><a class="reference external" href="https://pythontutor.com/render.html#code=nb%20%3D%20int%28input%28%22Saisissez%20le%20nombre%20de%20symboles%20souhait%C3%A9%20%3A%20%22%29%29%0Afor%20i%20in%20range%28nb%29%3A%0A%20%20%20%20print%28%22%3F%22,%20end%3D%22%22%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Exécution dans Python
+Tutor</a></p>
 <p>Notons que sur cet exemple, l’instruction réalisée dans le bloc :
 <code class="docutils literal notranslate"><span class="pre">print(&quot;?&quot;,</span> <span class="pre">end=&quot;&quot;)</span></code> n’utilise pas les valeurs de la séquence
 retournée par <code class="docutils literal notranslate"><span class="pre">range(nb)</span></code> (i.e., les valeurs successives de <code class="docutils literal notranslate"><span class="pre">i</span></code>).
@@ -739,6 +745,8 @@ entiers positifs.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">La</span> <span class="n">somme</span> <span class="n">des</span> <span class="mi">15</span> <span class="n">premiers</span> <span class="n">entiers</span> <span class="n">positifs</span> <span class="n">est</span> <span class="mf">120.</span>
 </pre></div>
 </div>
+<p><a class="reference external" href="https://pythontutor.com/render.html#code=print%28%22Calcul%20de%20la%20somme%20des%20n%20premiers%20entiers%20positifs.%22%29%0An%20%3D%20int%28input%28%22Saisissez%20la%20valeur%20de%20n%20%3A%22%29%29%0Asomme%20%3D%200%0Afor%20i%20in%20range%281,%20n%2B1%29%3A%0A%20%20%20%20somme%20%3D%20somme%2Bi%0Aprint%28f%22La%20somme%20des%20%7Bn%7D%20premiers%20entiers%20positifs%20est%20%7Bsomme%7D.%22%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Exécution dans Python
+Tutor</a></p>
 <p>Cette fois-ci, l’instruction réalisée dans le bloc : <code class="docutils literal notranslate"><span class="pre">somme</span> <span class="pre">=</span> <span class="pre">somme+i</span></code>
 va s’exécuter pour chaque valeur <code class="docutils literal notranslate"><span class="pre">i</span></code> de la séquence retournée par
 <code class="docutils literal notranslate"><span class="pre">range(1,</span> <span class="pre">n+1)</span></code>. Les valeurs de la séquence sont utilisées dans le
@@ -765,6 +773,8 @@ des entiers positifs pairs uniquement.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">La</span> <span class="n">somme</span> <span class="n">des</span> <span class="mi">15</span> <span class="n">premiers</span> <span class="n">entiers</span> <span class="n">positifs</span> <span class="n">pairs</span> <span class="n">est</span> <span class="mf">56.</span>
 </pre></div>
 </div>
+<p><a class="reference external" href="https://pythontutor.com/render.html#code=print%28%22Calcul%20de%20la%20somme%20des%20n%20premiers%20entiers%20positifs%20pairs.%22%29%0An%20%3D%20int%28input%28%22Saisissez%20la%20valeur%20de%20n%20%3A%22%29%29%0Asomme%20%3D%200%0Afor%20i%20in%20range%282,%20n%2B1,%202%29%3A%0A%20%20%20%20somme%20%3D%20somme%2Bi%0Aprint%28f%22La%20somme%20des%20%7Bn%7D%20premiers%20entiers%20positifs%20pairs%20est%20%7Bsomme%7D.%22%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Exécution dans Python
+Tutor</a></p>
 </section>
 </section>
 <section id="parcours-dobjets-iterables-cas-des-chaines-de-caracteres">
@@ -810,6 +820,8 @@ e
 Au revoir Anatole !!
 </pre></div>
 </div>
+<p><a class="reference external" href="https://pythontutor.com/render.html#code=myname%20%3D%20input%28%22Quel%20est%20votre%20pr%C3%A9nom%20%3F%22%29%0Afor%20car%20in%20myname%3A%0A%20%20%20%20print%28car%29%0Aprint%28f%22Au%20revoir%20%7Bmyname%7D%20!!%22%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Exécution dans Python
+Tutor</a></p>
 <p>Notons qu’une variante de ce programme consiste à parcourir la chaîne à
 l’aide des indices de ses caractères, en utilisant la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> de
 parcours de séquences de valeurs entières. Dans ce cas, la séquence de
@@ -837,6 +849,8 @@ e
 Au revoir Hippolyte !!
 </pre></div>
 </div>
+<p><a class="reference external" href="https://pythontutor.com/render.html#code=myname%20%3D%20input%28%22Quel%20est%20votre%20pr%C3%A9nom%20%3F%22%29%0Afor%20ind%20in%20range%280,%20len%28myname%29%29%3A%0A%20%20%20%20print%28myname%5Bind%5D%29%0Aprint%28f%22Au%20revoir%20%7Bmyname%7D%20!!%22%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Exécution dans Python
+Tutor</a></p>
 <p>Nous venons de voir l’utilisation de la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> pour le parcours
 caractère par caractère d’une chaîne. Il existe d’autres types objets
 itérables, qui peuvent être parcourus intégralement à l’aide d’une
