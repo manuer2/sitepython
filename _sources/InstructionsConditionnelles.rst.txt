@@ -156,6 +156,9 @@ Le programme ci-dessous est un exemple d’utilisation d’une instruction
     Vous êtes mineur(e).
     
 
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=age%20%3D%20int%28input%28%22Quel%20est%20votre%20%C3%A2ge%20%3F%22%29%29%0Aif%20age%3E%3D18%3A%0A%20%20%20%20print%28%22Vous%20%C3%AAtes%20majeur%28e%29.%22%29%0Aelse%3A%0A%20%20%20%20print%28%22Vous%20%C3%AAtes%20mineur%28e%29.%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
+
 .. code:: ipython3
 
     age = int(input("Quel est votre âge ?"))
@@ -199,6 +202,9 @@ de ce cas de figure avec deux traces d’exécution.
     Vous êtes majeur(e).
     Au revoir et à bientôt !!
     
+
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=age%20%3D%20int%28input%28%22Quel%20est%20votre%20%C3%A2ge%20%3F%22%29%29%0Aif%20age%3E%3D18%3A%0A%20%20%20%20print%28%22Vous%20%C3%AAtes%20majeur%28e%29.%22%29%0Aprint%28%22Au%20revoir%20et%20%C3%A0%20bient%C3%B4t%20!!%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
 
 .. code:: ipython3
 
@@ -244,6 +250,9 @@ ce cas de figure.
 
     Il s'agit d'un nombre négatif.
     
+
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=monentier%20%3D%20int%28input%28%22Saisissez%20un%20nombre%20entier%20%3A%20%22%29%29%0Aif%20monentier%3C0%3A%0A%20%20%20%20print%28%22Il%20s'agit%20d'un%20nombre%20n%C3%A9gatif.%22%29%0Aelse%3A%0A%20%20%20%20if%20monentier%3E0%3A%0A%20%20%20%20%20%20%20%20print%28%22Il%20s'agit%20d'un%20nombre%20positif.%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28%22Il%20s'agit%20d'un%20nombre%20nul.%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
 
 .. code:: ipython3
 
@@ -327,4 +336,29 @@ peut se simplifier de la manière suivante :
         bloc 4
 
 L’usage de l’instruction ``elif`` permet notamment d’avoir un seul
-niveau d’indentation des différents blocs.
+niveau d’indentation des différents blocs. Voici ci-dessous le programme
+précédent, écrit en utilisant ``elif``.
+
+.. code:: ipython3
+
+    monentier = int(input("Saisissez un nombre entier : "))
+    if monentier<0:
+        print("Il s'agit d'un nombre négatif.")
+    elif monentier>0:
+        print("Il s'agit d'un nombre positif.")
+    else:
+        print("Il s'agit d'un nombre nul.")
+
+
+.. parsed-literal::
+
+    Saisissez un nombre entier :  7
+    
+
+.. parsed-literal::
+
+    Il s'agit d'un nombre positif.
+    
+
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=monentier%20%3D%20int%28input%28%22Saisissez%20un%20nombre%20entier%20%3A%20%22%29%29%0Aif%20monentier%3C0%3A%0A%20%20%20%20print%28%22Il%20s'agit%20d'un%20nombre%20n%C3%A9gatif.%22%29%0Aelif%20monentier%3E0%3A%0A%20%20%20%20print%28%22Il%20s'agit%20d'un%20nombre%20positif.%22%29%0Aelse%3A%0A%20%20%20%20print%28%22Il%20s'agit%20d'un%20nombre%20nul.%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
