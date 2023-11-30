@@ -130,9 +130,9 @@ particulièrement adaptée aux deux cas de figure suivants :
    traitement autant de fois qu’il y a de valeurs dans la séquence (ce
    traitement peut utiliser les valeurs de la séquence ou bien être
    totalement indépendant)
--  pour parcourir des objets **itérables** (c’est-à-dire des objets
+-  pour parcourir des objets **itérables**, c’est-à-dire des objets
    comprenant plusieurs éléments auxquels on peut accéder
-   individuellement) et appliquer le même traitement sur chacun de leurs
+   individuellement, et appliquer le même traitement sur chacun de leurs
    éléments.
 
 Parcours de séquences de valeurs entières
@@ -150,7 +150,7 @@ Il s’agit d’une **instruction composée** dans laquelle :
 -  ``var`` est une variable
 -  ``seq_val`` est une séquence de nombres entiers générée par la
    fonction ``range()`` (voir plus loin dans ce chapitre)
--  ``bloc_instructions`` est un bloc d’instructions
+-  ``bloc_instructions`` est un bloc d’instructions.
 
 Le bloc d’instructions doit obligatoirement être indenté par rapport à
 la ligne d’en-tête ``for var in seq_val:``. Cette indentation s’effectue
