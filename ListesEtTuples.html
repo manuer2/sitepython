@@ -819,7 +819,7 @@ il en existe quatre principaux :</p>
 <li><p>les listes</p></li>
 <li><p>les tuples</p></li>
 <li><p>les dictionnaires</p></li>
-<li><p>les ensembles</p></li>
+<li><p>les ensembles.</p></li>
 </ul>
 <p>Les listes et les tuples sont abordés dans ce chapitre. Les
 dictionnaires feront l’objet d’un autre chapitre.</p>
@@ -863,7 +863,9 @@ commençant par 0 (rang du premier élément), puis 1 (rang du deuxième
 <strong>variable structurée</strong>). Par exemple :
 <code class="docutils literal notranslate"><span class="pre">bazar</span> <span class="pre">=</span> <span class="pre">[3.1416,</span> <span class="pre">25,</span> <span class="pre">154,</span> <span class="pre">&quot;fromage&quot;,</span> <span class="pre">&quot;dessert&quot;]</span></code>. Le nom de la
 variable est alors appelé son identifiant et permet de la référencer
-dans le programme.</p>
+dans le programme. Après l’affectation de l’exemple précédent, la
+variable <code class="docutils literal notranslate"><span class="pre">bazar</span></code> référence la liste
+<code class="docutils literal notranslate"><span class="pre">[3.1416,</span> <span class="pre">25,</span> <span class="pre">154,</span> <span class="pre">&quot;fromage&quot;,</span> <span class="pre">&quot;dessert&quot;]</span></code>.</p>
 </section>
 <section id="acces-aux-elements-dune-liste">
 <h2><span class="section-number">6.4. </span>Accès aux éléments d’une liste<a class="headerlink" href="#acces-aux-elements-dune-liste" title="Lien permanent vers ce titre"></a></h2>
@@ -906,7 +908,7 @@ d’une liste.</p>
 elle contient un accès au sixième élément de la liste : <code class="docutils literal notranslate"><span class="pre">bazar[5]</span></code>. Or
 cet élément n’existe pas puisque la liste n’en comporte que cinq.</p>
 <p>La valeur de la position fournie lors de l’accès à un élément peut être
-négative. Dans ce cas, l’accès aux élements s’effectue à partir de la
+négative. Dans ce cas, l’accès aux éléments s’effectue à partir de la
 fin de la liste. Le dernier élément figure alors à la position -1,
 l’avant-dernier élément à la position -2, etc.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bazar</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.1416</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="s2">&quot;fromage&quot;</span><span class="p">,</span> <span class="s2">&quot;dessert&quot;</span><span class="p">]</span>
@@ -928,10 +930,11 @@ syntaxe générale d’accès à une sous-liste est la suivante :</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">id_liste</span><span class="p">[</span><span class="n">pos_deb</span><span class="p">:</span><span class="n">pos_fin</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>où <code class="docutils literal notranslate"><span class="pre">pos_deb</span></code> est la position du premier élément de la sous-liste et
-<code class="docutils literal notranslate"><span class="pre">pos_fin</span></code> est la position du premier élément non compris dans la
-sous-liste. Les éléments composant la sous-liste sont donc ceux compris
-entre la position <code class="docutils literal notranslate"><span class="pre">pos_deb</span></code> et la position <code class="docutils literal notranslate"><span class="pre">pos_fin-1</span></code>.</p>
+<p>où <code class="docutils literal notranslate"><span class="pre">id_liste</span></code> est la variable référençant la liste, <code class="docutils literal notranslate"><span class="pre">pos_deb</span></code> est la
+position du premier élément de la sous-liste et <code class="docutils literal notranslate"><span class="pre">pos_fin</span></code> est la
+position du premier élément non compris dans la sous-liste. Les éléments
+composant la sous-liste sont donc ceux compris entre la position
+<code class="docutils literal notranslate"><span class="pre">pos_deb</span></code> et la position <code class="docutils literal notranslate"><span class="pre">pos_fin-1</span></code>.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bazar</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.1416</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="s2">&quot;fromage&quot;</span><span class="p">,</span> <span class="s2">&quot;dessert&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Premier exemple de slicing : </span><span class="si">{</span><span class="n">bazar</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deuxième exemple de slicing : </span><span class="si">{</span><span class="n">bazar</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1037,7 +1040,8 @@ pour extraire des sous-chaînes.</p>
 fonction <strong>len()</strong> :</p>
 <ul class="simple">
 <li><p>prend en paramètre une liste</p></li>
-<li><p>retourne en résultat un nombre entier égal à la taille de cette liste</p></li>
+<li><p>retourne en résultat un nombre entier égal à la taille de cette
+liste.</p></li>
 </ul>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bazar</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.1416</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="s2">&quot;fromage&quot;</span><span class="p">,</span> <span class="s2">&quot;dessert&quot;</span><span class="p">]</span>
 <span class="n">alphabet</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;j&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]</span>
@@ -1091,15 +1095,16 @@ dans une liste existante. Deux syntaxes sont possibles :</p>
 </div>
 <p>qui va supprimer de la liste <code class="docutils literal notranslate"><span class="pre">id_liste</span></code> la sous-liste comprise entre
 les positions <code class="docutils literal notranslate"><span class="pre">pos_deb</span></code> et <code class="docutils literal notranslate"><span class="pre">pos_fin-1</span></code>.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Liste bazar avant première suppression : </span><span class="si">{</span><span class="n">bazar</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bazar</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.1416</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="s2">&quot;fromage&quot;</span><span class="p">,</span> <span class="s2">&quot;dessert&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Liste bazar avant première suppression : </span><span class="si">{</span><span class="n">bazar</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">del</span> <span class="n">bazar</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Liste bazar après première suppression : </span><span class="si">{</span><span class="n">bazar</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">del</span> <span class="n">bazar</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Liste bazar après deuxième suppression : </span><span class="si">{</span><span class="n">bazar</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Liste</span> <span class="n">bazar</span> <span class="n">avant</span> <span class="n">première</span> <span class="n">suppression</span> <span class="p">:</span> <span class="p">[</span><span class="mf">3.1416</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s1">&#39;bonjour&#39;</span><span class="p">,</span> <span class="s1">&#39;fromage&#39;</span><span class="p">,</span> <span class="s1">&#39;dessert&#39;</span><span class="p">]</span>
-<span class="n">Liste</span> <span class="n">bazar</span> <span class="n">après</span> <span class="n">première</span> <span class="n">suppression</span> <span class="p">:</span> <span class="p">[</span><span class="mf">3.1416</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s1">&#39;fromage&#39;</span><span class="p">,</span> <span class="s1">&#39;dessert&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Liste</span> <span class="n">bazar</span> <span class="n">avant</span> <span class="n">première</span> <span class="n">suppression</span> <span class="p">:</span> <span class="p">[</span><span class="mf">3.1416</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="s1">&#39;fromage&#39;</span><span class="p">,</span> <span class="s1">&#39;dessert&#39;</span><span class="p">]</span>
+<span class="n">Liste</span> <span class="n">bazar</span> <span class="n">après</span> <span class="n">première</span> <span class="n">suppression</span> <span class="p">:</span> <span class="p">[</span><span class="mf">3.1416</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;fromage&#39;</span><span class="p">,</span> <span class="s1">&#39;dessert&#39;</span><span class="p">]</span>
 <span class="n">Liste</span> <span class="n">bazar</span> <span class="n">après</span> <span class="n">deuxième</span> <span class="n">suppression</span> <span class="p">:</span> <span class="p">[</span><span class="mf">3.1416</span><span class="p">,</span> <span class="s1">&#39;dessert&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1170,7 +1175,7 @@ objet est référencé par deux variables différentes.</p>
 </figcaption>
 </figure>
 <p>La fonction <strong>list()</strong> est une fonction prédéfinie de Python qui prend
-en paramètre un objet itérable (chaîne, intervalle produit avec
+en paramètre un objet itérable (chaîne, séquence produite avec
 <strong>range()</strong>, liste, etc), et qui crée une liste à partir de cet objet
 itérable. Elle peut être utilisée pour copier une liste, comme dans
 l’exemple ci-dessous :</p>
@@ -1216,11 +1221,11 @@ d’application d’une méthode à un objet est la suivante :</p>
 s’applique la méthode</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">methode</span></code> est le nom de la méthode appliquée</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">paramètres</span></code> est l’énumération des valeurs ou variables passées en
-paramètres de la méthode</p></li>
+paramètres de la méthode.</p></li>
 </ul>
 <section id="ajout-dun-element-en-fin-de-liste-la-methode-append">
 <h3><span class="section-number">6.7.1. </span>Ajout d’un élément en fin de liste : la méthode <strong>append()</strong><a class="headerlink" href="#ajout-dun-element-en-fin-de-liste-la-methode-append" title="Lien permanent vers ce titre"></a></h3>
-<p>La méthode <strong>append()</strong> prend en paramètre l’élément à ajouter à la
+<p>La méthode <strong>append()</strong> prend en paramètre un élément à ajouter à une
 liste. Elle ajoute cette élément à la fin de la liste et ne retourne
 aucune valeur. Elle peut donc être utilisée comme une instruction.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]</span>
@@ -1522,14 +1527,16 @@ méthode. L’exemple suivant décompose une chaîne en utilisant le tiret
 <p>On peut également donner en second paramètre un nombre correspondant à
 l’indice maximal de la liste à retourner (0 pour une liste avec un seul
 élément, 1 pour une liste de 2 éléments, etc).</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lm2</span> <span class="o">=</span> <span class="n">ph</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ph</span> <span class="o">=</span> <span class="s2">&quot;251-964-89523-74&quot;</span>
+<span class="n">lm2</span> <span class="o">=</span> <span class="n">ph</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lm2</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;251&#39;</span><span class="p">,</span> <span class="s1">&#39;964-89523-74&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lm3</span> <span class="o">=</span> <span class="n">ph</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ph</span> <span class="o">=</span> <span class="s2">&quot;251-964-89523-74&quot;</span>
+<span class="n">lm3</span> <span class="o">=</span> <span class="n">ph</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lm3</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1586,7 +1593,7 @@ manières d’effectuer un parcours complet d’une liste :</p>
 <ul class="simple">
 <li><p>le parcours <strong>par élément</strong></p></li>
 <li><p>le parcours <strong>par indice</strong></p></li>
-<li><p>le parcours <strong>par indice et élément</strong></p></li>
+<li><p>le parcours <strong>par indice et élément</strong>.</p></li>
 </ul>
 <section id="parcours-par-element">
 <h3><span class="section-number">6.9.1. </span>Parcours <strong>par élément</strong><a class="headerlink" href="#parcours-par-element" title="Lien permanent vers ce titre"></a></h3>
@@ -1601,7 +1608,7 @@ liste est la suivante :</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">var_elem</span></code> est une variable</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">id_liste</span></code> est l’identifiant de la liste à parcourir</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bloc_instructions</span></code> est un bloc d’instructions (attention à
-l’indentation !!)</p></li>
+l’indentation !!).</p></li>
 </ul>
 <p>Littéralement : « Pour chaque élément <code class="docutils literal notranslate"><span class="pre">var_elem</span></code> contenu dans la liste
 <code class="docutils literal notranslate"><span class="pre">id_liste</span></code> effectuer les instructions de <code class="docutils literal notranslate"><span class="pre">bloc_instructions</span></code> ». La
@@ -1624,6 +1631,8 @@ ceux des éléments de la liste (le typage est dynamique).</p>
 <span class="n">dessert</span>
 </pre></div>
 </div>
+<p><a class="reference external" href="https://pythontutor.com/render.html#code=bazar%20%3D%20%5B3.1416,%2025,%20154,%20'fromage',%20'dessert'%5D%0Afor%20elt%20in%20bazar%3A%0A%20%20%20%20print%28elt%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Exécution dans Python
+Tutor</a></p>
 <p>Voici un second exemple de programme qui parcourt une liste élément par
 élément, en affichant à l’écran chaque élément ainsi que son type.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bazar</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.1416</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="s1">&#39;fromage&#39;</span><span class="p">,</span> <span class="s1">&#39;dessert&#39;</span><span class="p">]</span>
@@ -1655,7 +1664,7 @@ parcours par indice d’une liste est la suivante :</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">id_liste</span></code> est l’identifiant de la liste à parcourir</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">range(len(id_liste))</span></code> permet de générer la séquence de tous les
 indices des éléments de la liste <code class="docutils literal notranslate"><span class="pre">id_liste</span></code> :
-<code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">1,...,</span> <span class="pre">len(id_liste)-1</span></code></p></li>
+<code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">1,...,</span> <span class="pre">len(id_liste)-1</span></code>.</p></li>
 </ul>
 <p>La variable <code class="docutils literal notranslate"><span class="pre">ind</span></code> va prendre successivement toutes les valeurs des
 indices de la liste, en commençant par <code class="docutils literal notranslate"><span class="pre">0</span></code> jusqu’à
@@ -1675,6 +1684,8 @@ en affichant chacun des éléments à l’écran.</p>
 <span class="n">dessert</span>
 </pre></div>
 </div>
+<p><a class="reference external" href="https://pythontutor.com/render.html#code=bazar%20%3D%20%5B3.1416,%2025,%20154,%20'fromage',%20'dessert'%5D%0Afor%20i%20in%20range%28len%28bazar%29%29%3A%0A%20%20%20%20print%28bazar%5Bi%5D%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Exécution dans Python
+Tutor</a></p>
 <p>Dans cet exemple, <code class="docutils literal notranslate"><span class="pre">len(bazar)</span></code> retourne le nombre <code class="docutils literal notranslate"><span class="pre">5</span></code>, la séquence
 de nombres générée par <code class="docutils literal notranslate"><span class="pre">range(len(bazar))</span></code> est donc :
 <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4</span></code>. Les valeurs successives de la variable <code class="docutils literal notranslate"><span class="pre">i</span></code> seront
@@ -1730,6 +1741,8 @@ liste, le programme affiche son indice suivi de sa valeur.</p>
 <span class="n">L</span><span class="s1">&#39;élément situé au rang 4 est Emile.</span>
 </pre></div>
 </div>
+<p><a class="reference external" href="https://pythontutor.com/render.html#code=classement%20%3D%20%5B'Arthur',%20'Barnab%C3%A9',%20'C%C3%B4me',%20'Damien',%20'Emile'%5D%0Afor%20ind,%20val%20in%20enumerate%28classement%29%3A%0A%20%20%20%20print%28f%22L'%C3%A9l%C3%A9ment%20situ%C3%A9%20au%20rang%20%7Bind%7D%20est%20%7Bval%7D.%22%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Exécution dans Python
+Tutor</a></p>
 </section>
 <section id="parcours-partiel">
 <h3><span class="section-number">6.9.4. </span>Parcours partiel<a class="headerlink" href="#parcours-partiel" title="Lien permanent vers ce titre"></a></h3>
@@ -1818,7 +1831,7 @@ la suivante :</p>
 éléments de la liste</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">elem</span></code> est une variable</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">seq</span></code> est une séquence de valeurs (liste, résultat d’une fonction
-range(), etc)</p></li>
+range(), etc).</p></li>
 </ul>
 <p>Le résultat est une liste contenant un élément dont la valeur est
 obtenue par évaluation de l’expression <code class="docutils literal notranslate"><span class="pre">exp</span></code>, pour chaque exécution de

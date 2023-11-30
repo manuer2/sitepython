@@ -57,7 +57,7 @@ il en existe quatre principaux :
 -  les listes
 -  les tuples
 -  les dictionnaires
--  les ensembles
+-  les ensembles.
 
 Les listes et les tuples sont abordés dans ce chapitre. Les
 dictionnaires feront l’objet d’un autre chapitre.
@@ -103,7 +103,9 @@ Une liste doit être mémorisée dans une variable (on parle alors de
 **variable structurée**). Par exemple :
 ``bazar = [3.1416, 25, 154, "fromage", "dessert"]``. Le nom de la
 variable est alors appelé son identifiant et permet de la référencer
-dans le programme.
+dans le programme. Après l’affectation de l’exemple précédent, la
+variable ``bazar`` référence la liste
+``[3.1416, 25, 154, "fromage", "dessert"]``.
 
 Accès aux éléments d’une liste
 ------------------------------
@@ -158,7 +160,7 @@ elle contient un accès au sixième élément de la liste : ``bazar[5]``. Or
 cet élément n’existe pas puisque la liste n’en comporte que cinq.
 
 La valeur de la position fournie lors de l’accès à un élément peut être
-négative. Dans ce cas, l’accès aux élements s’effectue à partir de la
+négative. Dans ce cas, l’accès aux éléments s’effectue à partir de la
 fin de la liste. Le dernier élément figure alors à la position -1,
 l’avant-dernier élément à la position -2, etc.
 
@@ -187,10 +189,11 @@ syntaxe générale d’accès à une sous-liste est la suivante :
 
     id_liste[pos_deb:pos_fin]
 
-où ``pos_deb`` est la position du premier élément de la sous-liste et
-``pos_fin`` est la position du premier élément non compris dans la
-sous-liste. Les éléments composant la sous-liste sont donc ceux compris
-entre la position ``pos_deb`` et la position ``pos_fin-1``.
+où ``id_liste`` est la variable référençant la liste, ``pos_deb`` est la
+position du premier élément de la sous-liste et ``pos_fin`` est la
+position du premier élément non compris dans la sous-liste. Les éléments
+composant la sous-liste sont donc ceux compris entre la position
+``pos_deb`` et la position ``pos_fin-1``.
 
 .. code:: ipython3
 
@@ -331,7 +334,8 @@ La taille d’une liste est le nombre d’élements qu’elle contient. La
 fonction **len()** :
 
 -  prend en paramètre une liste
--  retourne en résultat un nombre entier égal à la taille de cette liste
+-  retourne en résultat un nombre entier égal à la taille de cette
+   liste.
 
 .. code:: ipython3
 
@@ -403,6 +407,7 @@ les positions ``pos_deb`` et ``pos_fin-1``.
 
 .. code:: ipython3
 
+    bazar = [3.1416, 25, 154, "fromage", "dessert"]
     print(f"Liste bazar avant première suppression : {bazar}")
     del bazar[2]
     print(f"Liste bazar après première suppression : {bazar}")
@@ -412,8 +417,8 @@ les positions ``pos_deb`` et ``pos_fin-1``.
 
 .. parsed-literal::
 
-    Liste bazar avant première suppression : [3.1416, 28, 'bonjour', 'fromage', 'dessert']
-    Liste bazar après première suppression : [3.1416, 28, 'fromage', 'dessert']
+    Liste bazar avant première suppression : [3.1416, 25, 154, 'fromage', 'dessert']
+    Liste bazar après première suppression : [3.1416, 25, 'fromage', 'dessert']
     Liste bazar après deuxième suppression : [3.1416, 'dessert']
     
 
@@ -504,7 +509,7 @@ objet est référencé par deux variables différentes.
    Affectation de liste
 
 La fonction **list()** est une fonction prédéfinie de Python qui prend
-en paramètre un objet itérable (chaîne, intervalle produit avec
+en paramètre un objet itérable (chaîne, séquence produite avec
 **range()**, liste, etc), et qui crée une liste à partir de cet objet
 itérable. Elle peut être utilisée pour copier une liste, comme dans
 l’exemple ci-dessous :
@@ -556,12 +561,12 @@ où :
    s’applique la méthode
 -  ``methode`` est le nom de la méthode appliquée
 -  ``paramètres`` est l’énumération des valeurs ou variables passées en
-   paramètres de la méthode
+   paramètres de la méthode.
 
 Ajout d’un élément en fin de liste : la méthode **append()**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-La méthode **append()** prend en paramètre l’élément à ajouter à la
+La méthode **append()** prend en paramètre un élément à ajouter à une
 liste. Elle ajoute cette élément à la fin de la liste et ne retourne
 aucune valeur. Elle peut donc être utilisée comme une instruction.
 
@@ -952,6 +957,7 @@ l’indice maximal de la liste à retourner (0 pour une liste avec un seul
 
 .. code:: ipython3
 
+    ph = "251-964-89523-74"
     lm2 = ph.split('-', 1)
     print(lm2)
 
@@ -963,6 +969,7 @@ l’indice maximal de la liste à retourner (0 pour une liste avec un seul
 
 .. code:: ipython3
 
+    ph = "251-964-89523-74"
     lm3 = ph.split('-', 2)
     print(lm3)
 
@@ -1033,7 +1040,7 @@ manières d’effectuer un parcours complet d’une liste :
 
 -  le parcours **par élément**
 -  le parcours **par indice**
--  le parcours **par indice et élément**
+-  le parcours **par indice et élément**.
 
 Parcours **par élément**
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1051,7 +1058,7 @@ où :
 -  ``var_elem`` est une variable
 -  ``id_liste`` est l’identifiant de la liste à parcourir
 -  ``bloc_instructions`` est un bloc d’instructions (attention à
-   l’indentation !!)
+   l’indentation !!).
 
 Littéralement : « Pour chaque élément ``var_elem`` contenu dans la liste
 ``id_liste`` effectuer les instructions de ``bloc_instructions`` ». La
@@ -1079,6 +1086,9 @@ Voici un premier exemple de programme qui parcourt une liste par
     fromage
     dessert
     
+
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=bazar%20%3D%20%5B3.1416,%2025,%20154,%20'fromage',%20'dessert'%5D%0Afor%20elt%20in%20bazar%3A%0A%20%20%20%20print%28elt%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
 
 Voici un second exemple de programme qui parcourt une liste élément par
 élément, en affichant à l’écran chaque élément ainsi que son type.
@@ -1118,7 +1128,7 @@ où :
 -  ``id_liste`` est l’identifiant de la liste à parcourir
 -  ``range(len(id_liste))`` permet de générer la séquence de tous les
    indices des éléments de la liste ``id_liste`` :
-   ``0, 1,..., len(id_liste)-1``
+   ``0, 1,..., len(id_liste)-1``.
 
 La variable ``ind`` va prendre successivement toutes les valeurs des
 indices de la liste, en commençant par ``0`` jusqu’à
@@ -1143,6 +1153,9 @@ en affichant chacun des éléments à l’écran.
     fromage
     dessert
     
+
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=bazar%20%3D%20%5B3.1416,%2025,%20154,%20'fromage',%20'dessert'%5D%0Afor%20i%20in%20range%28len%28bazar%29%29%3A%0A%20%20%20%20print%28bazar%5Bi%5D%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
 
 Dans cet exemple, ``len(bazar)`` retourne le nombre ``5``, la séquence
 de nombres générée par ``range(len(bazar))`` est donc :
@@ -1211,6 +1224,9 @@ liste, le programme affiche son indice suivi de sa valeur.
     L'élément situé au rang 3 est Damien.
     L'élément situé au rang 4 est Emile.
     
+
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=classement%20%3D%20%5B'Arthur',%20'Barnab%C3%A9',%20'C%C3%B4me',%20'Damien',%20'Emile'%5D%0Afor%20ind,%20val%20in%20enumerate%28classement%29%3A%0A%20%20%20%20print%28f%22L'%C3%A9l%C3%A9ment%20situ%C3%A9%20au%20rang%20%7Bind%7D%20est%20%7Bval%7D.%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
 
 Parcours partiel
 ~~~~~~~~~~~~~~~~
@@ -1323,7 +1339,7 @@ où :
    éléments de la liste
 -  ``elem`` est une variable
 -  ``seq`` est une séquence de valeurs (liste, résultat d’une fonction
-   range(), etc)
+   range(), etc).
 
 Le résultat est une liste contenant un élément dont la valeur est
 obtenue par évaluation de l’expression ``exp``, pour chaque exécution de
