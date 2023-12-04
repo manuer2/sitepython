@@ -10,9 +10,9 @@ Définition
 Un dictionnaire est un objet structuré permettant d’associer des
 **valeurs** à des **clés**. On peut comparer un dictionnaire à une liste
 dont les indices des éléments peuvent être autre chose que des nombres
-entiers : chaînes, réels, etc. Les dictionnaires sont particulièrement
-adaptés à la représentation de données contenant des associations, comme
-par exemple :
+entiers : des chaînes, des réels, des tuples, etc. Les dictionnaires
+sont particulièrement adaptés à la représentation de données contenant
+des associations, comme par exemple :
 
 -  un carnet d’adresses (associations entre des noms et des adresses
    électroniques ou postales)
@@ -117,6 +117,9 @@ puis modifie l’un des éléments.
     {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes'}
     
 
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=dpt%20%3D%20%7B%7D%20%20%20%23%20Au%20d%C3%A9part,%20le%20dictionnaire%20est%20vide%0Adpt%20%3D%20%7B'01'%3A'Ain',%20'02'%3A'Aisne',%20'03'%3A'Allier'%7D%20%20%23%20On%20cr%C3%A9e%20les%203%20premiers%20%C3%A9l%C3%A9ments%20en%20une%20seule%20affectation%0A%23%20Puis%20on%20ajoute%20un%20par%20un%203%20autres%20%C3%A9l%C3%A9ments%0Adpt%5B'04'%5D%20%3D%20'Alpes%20de%20Haute%20Provence'%0Adpt%5B'05'%5D%20%3D%20'Hautes%20Alpes'%0Adpt%5B'06'%5D%20%3D%20'Alpes%20maritimes'%0Aprint%28dpt%29%0A%23%20On%20modifie%20la%20valeur%20associ%C3%A9e%20%C3%A0%20la%20cl%C3%A9%20'05'%20en%20ajoutant%20%C3%A0%20la%20valeur%20le%20nom%20du%20chef-lieu%20du%20d%C3%A9partement%20correspondant%0Adpt%5B'05'%5D%20%3D%20%28'Hautes%20Alpes',%20'Brian%C3%A7on'%29%0Aprint%28dpt%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
+
 Notons que cet exemple permet d’illuster le fait qu’au sein d’un même
 dictionnaire, le type des valeurs (mais également celui des clés !) peut
 varier.
@@ -137,6 +140,7 @@ dictionnaire créé précédemment.
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes'}
     print(f"Le numéro 04 correspond au département {dpt['04']}.")
     print(f"Le numéro 06 correspond au département {dpt['06']}.")
     print(f"Le numéro 01 correspond au département {dpt[1]}.")
@@ -155,10 +159,10 @@ dictionnaire créé précédemment.
 
     KeyError                                  Traceback (most recent call last)
 
-    Input In [3], in <cell line: 3>()
-          1 print(f"Le numéro 04 correspond au département {dpt['04']}.")
-          2 print(f"Le numéro 06 correspond au département {dpt['06']}.")
-    ----> 3 print(f"Le numéro 01 correspond au département {dpt[1]}.")
+    Input In [1], in <cell line: 4>()
+          2 print(f"Le numéro 04 correspond au département {dpt['04']}.")
+          3 print(f"Le numéro 06 correspond au département {dpt['06']}.")
+    ----> 4 print(f"Le numéro 01 correspond au département {dpt[1]}.")
     
 
     KeyError: 1
@@ -181,6 +185,7 @@ tuple selon les besoins, à l’aide des fonctions **list()** et
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes'}
     seq_cles = dpt.keys()
     seq_cles_liste = list(dpt.keys())
     seq_cles_tuple = tuple(dpt.keys())
@@ -205,6 +210,7 @@ séquence peut être convertie en liste ou en tuple selon les besoins.
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes'}
     seq_val = dpt.values()
     seq_val_liste = list(dpt.values())
     seq_val_tuple = tuple(dpt.values())
@@ -230,6 +236,7 @@ séquence peut être convertie en liste ou en tuple selon les besoins.
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes'}
     seq_elem = dpt.items()
     seq_elem_liste = list(dpt.items())
     seq_elem_tuple = tuple(dpt.items())
@@ -255,6 +262,7 @@ le résultat est indéfini.
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes'}
     print(f"Valeur associée à la clé '03' : {dpt.get('03')}")
     print(f"Valeur associée à la clé '12' : {dpt.get('12')}")
 
@@ -273,6 +281,7 @@ retourne la valeur passée en paramètre.
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes'}
     print(f"Dictionnaire avant setdefault() : {dpt}")
     val = dpt.setdefault('12', 'Aveyron')
     print(f"Valeur retournée par setdefault() : {val}")
@@ -298,6 +307,7 @@ instruction.
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes'}
     dpt.update({'15':'Aube', '16' : 'Var', '17' : 'Vendée'})
     print(dpt)
     dpt.update({'15':'Cantal', '16' : 'Charente', '17' : 'Charente-maritime'})
@@ -306,8 +316,8 @@ instruction.
 
 .. parsed-literal::
 
-    {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Aube', '16': 'Var', '17': 'Vendée'}
-    {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente', '17': 'Charente-maritime'}
+    {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '15': 'Aube', '16': 'Var', '17': 'Vendée'}
+    {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '15': 'Cantal', '16': 'Charente', '17': 'Charente-maritime'}
     
 
 Nombre d’éléments : la fonction **len()**
@@ -319,12 +329,13 @@ d’éléments) d’un dictionnaire.
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes', '15':'Cantal', '16' : 'Charente', '17' : 'Charente-maritime'}
     print(f"Le dictionnaire contient {len(dpt)} éléments.")
 
 
 .. parsed-literal::
 
-    Le dictionnaire contient 10 éléments.
+    Le dictionnaire contient 9 éléments.
     
 
 Suppression d’un élément : l’instruction **del** et la méthode **pop()**
@@ -343,6 +354,7 @@ une exception est levée et un message d’erreur s’affiche.
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes', '15':'Cantal', '16' : 'Charente', '17' : 'Charente-maritime'}
     print(f"Dictionnaire avant suppression : {dpt}.")
     del dpt['17']
     print(f"Dictionnaire après suppression : {dpt}.")
@@ -351,8 +363,8 @@ une exception est levée et un message d’erreur s’affiche.
 
 .. parsed-literal::
 
-    Dictionnaire avant suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente', '17': 'Charente-maritime'}.
-    Dictionnaire après suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}.
+    Dictionnaire avant suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '15': 'Cantal', '16': 'Charente', '17': 'Charente-maritime'}.
+    Dictionnaire après suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '15': 'Cantal', '16': 'Charente'}.
     
 
 ::
@@ -362,10 +374,10 @@ une exception est levée et un message d’erreur s’affiche.
 
     KeyError                                  Traceback (most recent call last)
 
-    Input In [11], in <cell line: 4>()
-          2 del dpt['17']
-          3 print(f"Dictionnaire après suppression : {dpt}.")
-    ----> 4 del dpt['32']
+    Input In [11], in <cell line: 5>()
+          3 del dpt['17']
+          4 print(f"Dictionnaire après suppression : {dpt}.")
+    ----> 5 del dpt['32']
     
 
     KeyError: '32'
@@ -380,6 +392,7 @@ s’affiche.
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes', '15':'Cantal', '16' : 'Charente', '17' : 'Charente-maritime'}
     print(f"Dictionnaire avant suppression : {dpt}.")
     val05 = dpt.pop('05')
     print(f"Dictionnaire après suppression : {dpt}.")
@@ -391,8 +404,8 @@ s’affiche.
 
 .. parsed-literal::
 
-    Dictionnaire avant suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}.
-    Dictionnaire après suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}.
+    Dictionnaire avant suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '15': 'Cantal', '16': 'Charente', '17': 'Charente-maritime'}.
+    Dictionnaire après suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '06': 'Alpes maritimes', '15': 'Cantal', '16': 'Charente', '17': 'Charente-maritime'}.
     Valeur de l'élément supprimé : ('Hautes Alpes', 'Briançon')
     
 
@@ -403,12 +416,12 @@ s’affiche.
 
     KeyError                                  Traceback (most recent call last)
 
-    Input In [24], in <cell line: 5>()
-          3 print(f"Dictionnaire après suppression : {dpt}.")
-          4 print(f"Valeur de l'élément supprimé : {val05}")
-    ----> 5 valinconnu = dpt.pop('25')
-          6 print(f"Dictionnaire après suppression : {dpt}.")
-          7 print(f"Valeur de l'élément supprimé : {valinconnu}")
+    Input In [12], in <cell line: 6>()
+          4 print(f"Dictionnaire après suppression : {dpt}.")
+          5 print(f"Valeur de l'élément supprimé : {val05}")
+    ----> 6 valinconnu = dpt.pop('25')
+          7 print(f"Dictionnaire après suppression : {dpt}.")
+          8 print(f"Valeur de l'élément supprimé : {valinconnu}")
     
 
     KeyError: '25'
@@ -430,6 +443,7 @@ dictionnaire. L’opérateur retourne ``True`` si la clé est présente et
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes', '15':'Cantal', '16' : 'Charente', '17' : 'Charente-maritime'}
     print(f"Le département n°16 est-il dans le dictionnaire ? Réponse : {'16' in dpt}")
     print(f"Le département n°85 est-il dans le dictionnaire ? Réponse : {'85' in dpt}")
 
@@ -448,6 +462,7 @@ Cette copie est retournée en résultat.
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes', '15':'Cantal', '16' : 'Charente', '17' : 'Charente-maritime'}
     print(f"Affichage du dictionnaire : {dpt}")
     copie_dpt = dpt.copy()
     print(f"Affichage de la copie du dictionnaire : {copie_dpt}")
@@ -455,9 +470,12 @@ Cette copie est retournée en résultat.
 
 .. parsed-literal::
 
-    Affichage du dictionnaire : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}
-    Affichage de la copie du dictionnaire : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}
+    Affichage du dictionnaire : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '15': 'Cantal', '16': 'Charente', '17': 'Charente-maritime'}
+    Affichage de la copie du dictionnaire : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '15': 'Cantal', '16': 'Charente', '17': 'Charente-maritime'}
     
+
+`Exécution dans Python
+Tutor <https://pythontutor.com/render.html#code=dpt%20%3D%20%7B'01'%3A'Ain',%20'02'%3A'Aisne',%20'03'%3A'Allier',%20'04'%3A'Alpes%20de%20Haute%20Provence',%20'05'%3A%28'Hautes%20Alpes',%20'Brian%C3%A7on'%29,%20'06'%20%3A%20'Alpes%20maritimes',%20'15'%3A'Cantal',%20'16'%20%3A%20'Charente',%20'17'%20%3A%20'Charente-maritime'%7D%0Aprint%28f%22Affichage%20du%20dictionnaire%20%3A%20%7Bdpt%7D%22%29%0Acopie_dpt%20%3D%20dpt.copy%28%29%0Aprint%28f%22Affichage%20de%20la%20copie%20du%20dictionnaire%20%3A%20%7Bcopie_dpt%7D%22%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false>`__
 
 Réinitialisation : la méthode **clear()**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -468,14 +486,15 @@ retourne aucune valeur et peut être utilisée comme une instruction.
 
 .. code:: ipython3
 
-    print(f"Affichage avant suppression : {copie_dpt}")
-    copie_dpt.clear()
-    print(f"Affichage après suppression : {copie_dpt}")
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes', '15':'Cantal', '16' : 'Charente', '17' : 'Charente-maritime'}
+    print(f"Affichage avant suppression : {dpt}")
+    dpt.clear()
+    print(f"Affichage après suppression : {dpt}")
 
 
 .. parsed-literal::
 
-    Affichage avant suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '12': 'Aveyron', '15': 'Cantal', '16': 'Charente'}
+    Affichage avant suppression : {'01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes de Haute Provence', '05': ('Hautes Alpes', 'Briançon'), '06': 'Alpes maritimes', '15': 'Cantal', '16': 'Charente', '17': 'Charente-maritime'}
     Affichage après suppression : {}
     
 
@@ -489,7 +508,7 @@ trois manières d’effectuer un parcours complet d’un dictionnaire :
 
 -  sur la séquence des clés
 -  sur la séquence des valeurs
--  sur la séquences des couples clé, valeur
+-  sur la séquences des couples clé, valeur.
 
 L’ordre dans lequel seront traités les éléments est imprévisible et peut
 être différent d’un parcours à l’autre.
@@ -522,6 +541,7 @@ valeur.
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes', '15':'Cantal', '16' : 'Charente', '17' : 'Charente-maritime'}
     print("Premier parcours")
     for num in dpt:
         print(f"Le département n°{num} est : {dpt[num]}")
@@ -539,9 +559,9 @@ valeur.
     Le département n°04 est : Alpes de Haute Provence
     Le département n°05 est : ('Hautes Alpes', 'Briançon')
     Le département n°06 est : Alpes maritimes
-    Le département n°12 est : Aveyron
     Le département n°15 est : Cantal
     Le département n°16 est : Charente
+    Le département n°17 est : Charente-maritime
     Second parcours
     Le département n°01 est : Ain
     Le département n°02 est : Aisne
@@ -549,9 +569,9 @@ valeur.
     Le département n°04 est : Alpes de Haute Provence
     Le département n°05 est : ('Hautes Alpes', 'Briançon')
     Le département n°06 est : Alpes maritimes
-    Le département n°12 est : Aveyron
     Le département n°15 est : Cantal
     Le département n°16 est : Charente
+    Le département n°17 est : Charente-maritime
     
 
 Notons que ce type de parcours permet d’effectuer des traitements
@@ -576,6 +596,7 @@ valeurs, en affichant chaque valeur.
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes', '15':'Cantal', '16' : 'Charente', '17' : 'Charente-maritime'}
     for nom_dpt in dpt.values():
         print(f"Le département est : {nom_dpt}")
 
@@ -588,9 +609,9 @@ valeurs, en affichant chaque valeur.
     Le département est : Alpes de Haute Provence
     Le département est : ('Hautes Alpes', 'Briançon')
     Le département est : Alpes maritimes
-    Le département est : Aveyron
     Le département est : Cantal
     Le département est : Charente
+    Le département est : Charente-maritime
     
 
 Notons que ce type de parcours permet d’effectuer des traitements
@@ -609,13 +630,14 @@ clé, valeur est la suivante :
         bloc_instructions
 
 Les variables ``cle`` et ``val`` vont prendre successivement pour
-valeurs toutes les valeurs des clés et des valeurs. Puis pour chaque
-couple ``cle``, ``val``, une exécution de ``bloc_instructions`` est
-réalisée. Le programme suivant effectue un parcours complet d’un
-dictionnaire sur la séquence des couples clé, valeur.
+valeurs tous les couples clé, valeur. Puis pour chaque couple ``cle``,
+``val``, une exécution de ``bloc_instructions`` est réalisée. Le
+programme suivant effectue un parcours complet d’un dictionnaire sur la
+séquence des couples clé, valeur.
 
 .. code:: ipython3
 
+    dpt = {'01':'Ain', '02':'Aisne', '03':'Allier', '04':'Alpes de Haute Provence', '05':('Hautes Alpes', 'Briançon'), '06' : 'Alpes maritimes', '15':'Cantal', '16' : 'Charente', '17' : 'Charente-maritime'}
     for num, nom in dpt.items():
         print(f"Le département n°{num} est : {nom}")
 
@@ -628,9 +650,9 @@ dictionnaire sur la séquence des couples clé, valeur.
     Le département n°04 est : Alpes de Haute Provence
     Le département n°05 est : ('Hautes Alpes', 'Briançon')
     Le département n°06 est : Alpes maritimes
-    Le département n°12 est : Aveyron
     Le département n°15 est : Cantal
     Le département n°16 est : Charente
+    Le département n°17 est : Charente-maritime
     
 
 Notons que ce type de parcours permet d’effectuer des traitements
@@ -656,7 +678,7 @@ où :
 -  ``seq`` est une séquence de valeurs (liste, résultat d’une fonction
    range(), etc)
 -  ``exp_cond`` est une expression conditionnelle que doivent vérifier
-   tous les éléments du dictionnaire
+   tous les éléments du dictionnaire.
 
 Le résultat est un dictionnaire contenant un élément ``cle:val``, pour
 chaque exécution de la boucle ``for``. En cas de compréhension avec
