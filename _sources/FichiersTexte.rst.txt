@@ -82,7 +82,7 @@ d’entrées, à ceci près que les 3 notes sont remplacées par la moyenne.
 Il existe principalement deux types de fichiers :
 
 -  les fichiers texte
--  les fichiers binaires
+-  les fichiers binaires.
 
 Les fichiers texte
 ~~~~~~~~~~~~~~~~~~
@@ -114,7 +114,7 @@ codées à l’aide d’un **langage binaire**, dont l’alphabet se compose de
 deux symboles uniquement : **0** et **1**. Chaque caractère d’un fichier
 texte est donc mémorisé à l’aide d’une **suite de bits**, c’est-à-dire
 une suite de chiffres dont la valeur est 0 ou 1. La suite de bits
-représentant un caractère dépend de l’**encodage** utilisé. En
+représentant un caractère dépend de l’\ **encodage** utilisé. En
 informatique, un encodage est un processus permettant de traduire un
 caractère en une suite plus ou moins longue de bits qui correspond à sa
 représentation binaire. Il existe de nombreux encodages, parmi lesquels
@@ -223,10 +223,10 @@ exemples de fichiers binaires :
 -  un son (format WAV, MP3, etc)
 -  une vidéo (format AVI, MOV, MP4, etc)
 -  un programme exécutable (fichier ayant l’extension .exe)
--  un document Word, Excel, Libre Office, etc
+-  un document Word, Excel, Libre Office, etc.
 
 La plupart du temps (à l’exception des programmes exécutables), les
-fichiers binaires sont créés à l’aide de logiciele dédiés (Paint, Gimp,
+fichiers binaires sont créés à l’aide de logiciels dédiés (Paint, Gimp,
 Word, Excel, etc). Seuls ces logiciels dédiés permettent d’en lire les
 contenus.
 
@@ -274,7 +274,7 @@ en tant que fichiers d’entrées ou de sorties, les programmes doivent
 -  de créer un nouveau fichier
 -  d’écrire des données dans un fichier
 -  de modifier des données se trouvant dans un fichier
--  de fermer un fichier
+-  de fermer un fichier.
 
 La plupart des langages proposent toutes ces fonctionnalités.
 
@@ -659,8 +659,9 @@ par une.
     
     Charles Baudelaire
 
-Dans la liste de chaînes, on peut remarquer que chaque chaîne se termine
-par le caractère spécial de retour à la ligne ``\n``.
+Dans la liste de chaînes retournée par **readlines()**, on peut
+remarquer que chaque chaîne se termine par le caractère spécial de
+retour à la ligne ``\n``.
 
 Le programme suivant lit les lignes du fichier ``data.txt`` jusqu’à ce
 qu’une limite de 100 caractères soit atteinte. Il affiche ensuite une
@@ -874,16 +875,16 @@ où :
 
 -  ``open()`` est un appel à la fonction du même nom permettant d’ouvrir
    un fichier
--  ``desc_fich`` est un descripteur fichier, dont la valeur est celle
+-  ``desc_fich`` est un descripteur de fichier, dont la valeur est celle
    retournée par l’appel à ``open()``
 -  ``bloc`` est un bloc d’instructions, contenant notamment des
-   opérations sur le fichier référencé par ``desc_fich``.
+   opérations sur le fichier de descripteur ``desc_fich``.
 
-L’intérêt de cette instruction **with** est qu’elle va **appliquer
-automatiquement la méthode close()** sur le descripteur ``desc_fich``,
-dès que l’exécution du bloc d’instructions sera terminée, et même si
-cette terminaison est dûe à une erreur. Utiliser **with**, c’est donc
-avoir l’assurance que le fichier sera fermé quoi qu’il arrive.
+L’intérêt de cette instruction **with** est qu’elle va fermer
+automatiquement le fichier de descripteur ``desc_fich``, dès que
+l’exécution du bloc d’instructions sera terminée, et même si cette
+terminaison est dûe à une erreur. Utiliser **with**, c’est donc avoir
+l’assurance que le fichier sera fermé quoi qu’il arrive.
 
 Le programme suivant lit le contenu intégral d’un fichier ``demo.txt``
 puis l’affiche, en utilisant l’instruction **with**.
@@ -928,8 +929,8 @@ fichier ``demo_copie.txt``. Deux instructions **with** sont utilisées :
         # Ouverture du fichier demo_copie.txt en écriture
         # Le descripteur nouveau est positionné au début du fichier
         with open('demo_copie.txt', 'wt', encoding='UTF-8') as nouveau:
-            contenu = fich.read()
-            nouveau.write(contenu)
+            contenu = fich.read()             # Lecture du contenu de demo.txt
+            nouveau.write(contenu)            # Ecriture du même contenu dans demo_copie.txt
 
 Notons au passage que l’imbrication des instructions **with** aurait pu
 se faire « dans l’autre sens ».
@@ -956,7 +957,7 @@ où :
 
 -  ``ligne`` est une variable de type chaîne
 -  ``desc_fich`` est le descripteur du fichier à parcourir
--  ``bloc`` est un bloc d’instructions
+-  ``bloc`` est un bloc d’instructions.
 
 La variable ``ligne`` va prendre pour valeurs successives, une par une,
 toutes les lignes du fichier (une ligne = une chaîne) **à partir de la
@@ -1255,7 +1256,7 @@ du fichier, résumées dans des variables telles que :
 -  etc
 
 Le programme ci-dessous utilise ces deux fonctions pour analyser un
-fichier nommé ``donnees.csv`` puis affiche le résultat de son analyse.
+fichier nommé ``donnees.csv`` puis afficher le résultat de son analyse.
 Notons que le fichier à analyser doit être préalablement ouvert en
 lecture.
 
@@ -1273,7 +1274,7 @@ lecture.
             print("Le fichier analysé ne possède pas de ligne d'intitulés.")
         print("Voici quelques propriétés du dialecte utilisé :")
         print(f"Caractère séparateur : {dialect.delimiter}")
-        print(f"Caractère entourant les données contenant le caractère séparateur : {dialect.quotechar}")
+        print(f"Caractère entourant les données pouvant contenir le caractère séparateur : {dialect.quotechar}")
 
 
 .. parsed-literal::
@@ -1281,7 +1282,7 @@ lecture.
     Le fichier analysé possède une ligne d'intitulés.
     Voici quelques propriétés du dialecte utilisé :
     Caractère séparateur : ;
-    Caractère entourant les données contenant le caractère séparateur : "
+    Caractère entourant les données pouvant contenir le caractère séparateur : "
     
 
 Les résultats du programme sont bien conformes aux caractéristiques du
@@ -1352,7 +1353,7 @@ où :
 
 -  ``ligne`` est une variable
 -  ``lect`` est lecteur
--  ``bloc`` est un bloc d’instructions
+-  ``bloc`` est un bloc d’instructions.
 
 La variable ``ligne`` va prendre successivement pour valeurs toutes les
 lignes du fichier, de la première à la dernière. Pour chaque ligne, une
@@ -1388,7 +1389,7 @@ valeurs de la ligne par un trait vertical.
         for ligne in lecteur:                              # Premier parcours ligne par ligne du fichier à l'aide du lecteur
             print(f"{ligne[0]} - {ligne[1]} - {ligne[2]} - {ligne[3]} - {ligne[4]} - {ligne[5]} - {ligne[6]}")
         f.seek(0)                                          # Re-positionnement de f au début du fichier (indispensable avant le second parcours)
-        print("Second parcours : ")
+        print("\nSecond parcours : ")
         for ligne in lecteur:
             print(f"{ligne[0]} | {ligne[1]} | {ligne[2]} | {ligne[3]} | {ligne[4]} | {ligne[5]} | {ligne[6]}")
 
@@ -1415,6 +1416,7 @@ valeurs de la ligne par un trait vertical.
     03 - Guyane - 103058 - 40088 - 3049 - 1768 - 35271
     04 - La Réunion - 676080 - 401492 - 20584 - 16644 - 364264
     06 - Mayotte - 92421 - 42044 - 1645 - 1997 - 38402
+    
     Second parcours : 
     Numéro | Nom | Nbinscrits | Nbvotants | Nbblancs | Nbnuls | Nbexp
     44 | Grand Est | 3864055 | 2847382 | 158769 | 54418 | 2634195
@@ -1477,8 +1479,8 @@ montre le programme ci-dessous.
 Écriture dans un fichier CSV
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Pour écrire les données textuelles contenues dans un fichier CSV, il
-faut tout d’abord créer un **écrivain** (un ``writer``) de ce fichier,
+Pour écrire des données textuelles dans un fichier CSV, il faut tout
+d’abord créer un **écrivain** (un ``writer``) de ce fichier,
 c’est-à-dire un objet capable d’écrire dans le fichier. L’écriture des
 données s’effectue ensuite à partir de cet écrivain.
 
@@ -1490,8 +1492,8 @@ La fonction **csv.writer()** prend en paramètres :
 -  le descripteur du fichier CSV dans lequel les données doivent être
    écrites, qui doit être ouvert en écriture
 -  des paramètres facultatifs précisant certains éléments du dialecte
-   (comme par exemple la valeur de ``delimiter`` ou celle de
-   ``lineseparator``
+   (comme par exemple la valeur du caractère séparateur (``delimiter``)
+   ou celle du caractère de fin de ligne (``lineseparator``)
 
 et retourne l’écrivain associé au fichier CSV.
 
@@ -1514,13 +1516,14 @@ une nouvelle ligne dans le fichier associé, à la position courante du
 descripteur. Elle prend comme unique paramètre un tuple ou une liste de
 chaînes dont les éléments sont les différentes valeurs de la ligne. Le
 tuple ou la liste peut être défini(e) à l’aide de la compréhension de
-liste (de tuple). Le programme suivant écrit deux lignes dans le fichier
-``resultats.csv``.
+liste (de tuple). Le programme suivant écrit deux lignes à la fin du
+fichier ``resultats.csv``.
 
 .. code:: ipython3
 
     import os, csv
-    
+    # Ouverture du fichier resultats.csv en écriture
+    # Le descripteur f est positionné à la fin du fichier
     with open('resultats.csv', 'wt', encoding='UTF-8') as f:
         ecrivain = csv.writer(f, delimiter=";", lineterminator = "\n")
         ecrivain.writerow(['Nom', 'Prénom', 'Age'])

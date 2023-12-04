@@ -819,7 +819,7 @@ d’entrées, à ceci près que les 3 notes sont remplacées par la moyenne.</p>
 <p>Il existe principalement deux types de fichiers :</p>
 <ul class="simple">
 <li><p>les fichiers texte</p></li>
-<li><p>les fichiers binaires</p></li>
+<li><p>les fichiers binaires.</p></li>
 </ul>
 </section>
 <section id="les-fichiers-texte">
@@ -973,10 +973,10 @@ exemples de fichiers binaires :</p>
 <li><p>un son (format WAV, MP3, etc)</p></li>
 <li><p>une vidéo (format AVI, MOV, MP4, etc)</p></li>
 <li><p>un programme exécutable (fichier ayant l’extension .exe)</p></li>
-<li><p>un document Word, Excel, Libre Office, etc</p></li>
+<li><p>un document Word, Excel, Libre Office, etc.</p></li>
 </ul>
 <p>La plupart du temps (à l’exception des programmes exécutables), les
-fichiers binaires sont créés à l’aide de logiciele dédiés (Paint, Gimp,
+fichiers binaires sont créés à l’aide de logiciels dédiés (Paint, Gimp,
 Word, Excel, etc). Seuls ces logiciels dédiés permettent d’en lire les
 contenus.</p>
 <p>Prenons l’exemple d’un fichier contenant une image au format PNG.
@@ -1023,7 +1023,7 @@ en tant que fichiers d’entrées ou de sorties, les programmes doivent
 <li><p>de créer un nouveau fichier</p></li>
 <li><p>d’écrire des données dans un fichier</p></li>
 <li><p>de modifier des données se trouvant dans un fichier</p></li>
-<li><p>de fermer un fichier</p></li>
+<li><p>de fermer un fichier.</p></li>
 </ul>
 <p>La plupart des langages proposent toutes ces fonctionnalités.</p>
 </section>
@@ -1347,8 +1347,9 @@ Exilé sur le sol au milieu des huées,
 Ses ailes de géant l’empêchent de marcher.
 
 Charles Baudelaire</pre>
-<p>Dans la liste de chaînes, on peut remarquer que chaque chaîne se termine
-par le caractère spécial de retour à la ligne <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
+<p>Dans la liste de chaînes retournée par <strong>readlines()</strong>, on peut
+remarquer que chaque chaîne se termine par le caractère spécial de
+retour à la ligne <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
 <p>Le programme suivant lit les lignes du fichier <code class="docutils literal notranslate"><span class="pre">data.txt</span></code> jusqu’à ce
 qu’une limite de 100 caractères soit atteinte. Il affiche ensuite une
 par une les lignes lues.</p>
@@ -1538,16 +1539,16 @@ suivante :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">open()</span></code> est un appel à la fonction du même nom permettant d’ouvrir
 un fichier</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">desc_fich</span></code> est un descripteur fichier, dont la valeur est celle
+<li><p><code class="docutils literal notranslate"><span class="pre">desc_fich</span></code> est un descripteur de fichier, dont la valeur est celle
 retournée par l’appel à <code class="docutils literal notranslate"><span class="pre">open()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bloc</span></code> est un bloc d’instructions, contenant notamment des
-opérations sur le fichier référencé par <code class="docutils literal notranslate"><span class="pre">desc_fich</span></code>.</p></li>
+opérations sur le fichier de descripteur <code class="docutils literal notranslate"><span class="pre">desc_fich</span></code>.</p></li>
 </ul>
-<p>L’intérêt de cette instruction <strong>with</strong> est qu’elle va <strong>appliquer
-automatiquement la méthode close()</strong> sur le descripteur <code class="docutils literal notranslate"><span class="pre">desc_fich</span></code>,
-dès que l’exécution du bloc d’instructions sera terminée, et même si
-cette terminaison est dûe à une erreur. Utiliser <strong>with</strong>, c’est donc
-avoir l’assurance que le fichier sera fermé quoi qu’il arrive.</p>
+<p>L’intérêt de cette instruction <strong>with</strong> est qu’elle va fermer
+automatiquement le fichier de descripteur <code class="docutils literal notranslate"><span class="pre">desc_fich</span></code>, dès que
+l’exécution du bloc d’instructions sera terminée, et même si cette
+terminaison est dûe à une erreur. Utiliser <strong>with</strong>, c’est donc avoir
+l’assurance que le fichier sera fermé quoi qu’il arrive.</p>
 <p>Le programme suivant lit le contenu intégral d’un fichier <code class="docutils literal notranslate"><span class="pre">demo.txt</span></code>
 puis l’affiche, en utilisant l’instruction <strong>with</strong>.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ouverture du fichier demo.txt en lecture</span>
@@ -1584,8 +1585,8 @@ fichier <code class="docutils literal notranslate"><span class="pre">demo_copie.
     <span class="c1"># Ouverture du fichier demo_copie.txt en écriture</span>
     <span class="c1"># Le descripteur nouveau est positionné au début du fichier</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;demo_copie.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;wt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">nouveau</span><span class="p">:</span>
-        <span class="n">contenu</span> <span class="o">=</span> <span class="n">fich</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-        <span class="n">nouveau</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">contenu</span><span class="p">)</span>
+        <span class="n">contenu</span> <span class="o">=</span> <span class="n">fich</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>             <span class="c1"># Lecture du contenu de demo.txt</span>
+        <span class="n">nouveau</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">contenu</span><span class="p">)</span>            <span class="c1"># Ecriture du même contenu dans demo_copie.txt</span>
 </pre></div>
 </div>
 <p>Notons au passage que l’imbrication des instructions <strong>with</strong> aurait pu
@@ -1609,7 +1610,7 @@ fichier texte. Sa syntaxe est la suivante :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ligne</span></code> est une variable de type chaîne</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">desc_fich</span></code> est le descripteur du fichier à parcourir</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bloc</span></code> est un bloc d’instructions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bloc</span></code> est un bloc d’instructions.</p></li>
 </ul>
 <p>La variable <code class="docutils literal notranslate"><span class="pre">ligne</span></code> va prendre pour valeurs successives, une par une,
 toutes les lignes du fichier (une ligne = une chaîne) <strong>à partir de la
@@ -1882,7 +1883,7 @@ susceptibles de contenir le caractère séparateur</p></li>
 <li><p>etc</p></li>
 </ul>
 <p>Le programme ci-dessous utilise ces deux fonctions pour analyser un
-fichier nommé <code class="docutils literal notranslate"><span class="pre">donnees.csv</span></code> puis affiche le résultat de son analyse.
+fichier nommé <code class="docutils literal notranslate"><span class="pre">donnees.csv</span></code> puis afficher le résultat de son analyse.
 Notons que le fichier à analyser doit être préalablement ouvert en
 lecture.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">csv</span>
@@ -1897,13 +1898,13 @@ lecture.</p>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le fichier analysé ne possède pas de ligne d&#39;intitulés.&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Voici quelques propriétés du dialecte utilisé :&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Caractère séparateur : </span><span class="si">{</span><span class="n">dialect</span><span class="o">.</span><span class="n">delimiter</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Caractère entourant les données contenant le caractère séparateur : </span><span class="si">{</span><span class="n">dialect</span><span class="o">.</span><span class="n">quotechar</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Caractère entourant les données pouvant contenir le caractère séparateur : </span><span class="si">{</span><span class="n">dialect</span><span class="o">.</span><span class="n">quotechar</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Le</span> <span class="n">fichier</span> <span class="n">analysé</span> <span class="n">possède</span> <span class="n">une</span> <span class="n">ligne</span> <span class="n">d</span><span class="s1">&#39;intitulés.</span>
 <span class="n">Voici</span> <span class="n">quelques</span> <span class="n">propriétés</span> <span class="n">du</span> <span class="n">dialecte</span> <span class="n">utilisé</span> <span class="p">:</span>
 <span class="n">Caractère</span> <span class="n">séparateur</span> <span class="p">:</span> <span class="p">;</span>
-<span class="n">Caractère</span> <span class="n">entourant</span> <span class="n">les</span> <span class="n">données</span> <span class="n">contenant</span> <span class="n">le</span> <span class="n">caractère</span> <span class="n">séparateur</span> <span class="p">:</span> <span class="s2">&quot;</span>
+<span class="n">Caractère</span> <span class="n">entourant</span> <span class="n">les</span> <span class="n">données</span> <span class="n">pouvant</span> <span class="n">contenir</span> <span class="n">le</span> <span class="n">caractère</span> <span class="n">séparateur</span> <span class="p">:</span> <span class="s2">&quot;</span>
 </pre></div>
 </div>
 <p>Les résultats du programme sont bien conformes aux caractéristiques du
@@ -1966,7 +1967,7 @@ d’une boucle <code class="docutils literal notranslate"><span class="pre">for<
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ligne</span></code> est une variable</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lect</span></code> est lecteur</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bloc</span></code> est un bloc d’instructions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bloc</span></code> est un bloc d’instructions.</p></li>
 </ul>
 <p>La variable <code class="docutils literal notranslate"><span class="pre">ligne</span></code> va prendre successivement pour valeurs toutes les
 lignes du fichier, de la première à la dernière. Pour chaque ligne, une
@@ -1997,7 +1998,7 @@ valeurs de la ligne par un trait vertical.</p>
     <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">lecteur</span><span class="p">:</span>                              <span class="c1"># Premier parcours ligne par ligne du fichier à l&#39;aide du lecteur</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>                                          <span class="c1"># Re-positionnement de f au début du fichier (indispensable avant le second parcours)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Second parcours : &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Second parcours : &quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">lecteur</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">ligne</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -2022,6 +2023,7 @@ valeurs de la ligne par un trait vertical.</p>
 <span class="mi">03</span> <span class="o">-</span> <span class="n">Guyane</span> <span class="o">-</span> <span class="mi">103058</span> <span class="o">-</span> <span class="mi">40088</span> <span class="o">-</span> <span class="mi">3049</span> <span class="o">-</span> <span class="mi">1768</span> <span class="o">-</span> <span class="mi">35271</span>
 <span class="mi">04</span> <span class="o">-</span> <span class="n">La</span> <span class="n">Réunion</span> <span class="o">-</span> <span class="mi">676080</span> <span class="o">-</span> <span class="mi">401492</span> <span class="o">-</span> <span class="mi">20584</span> <span class="o">-</span> <span class="mi">16644</span> <span class="o">-</span> <span class="mi">364264</span>
 <span class="mi">06</span> <span class="o">-</span> <span class="n">Mayotte</span> <span class="o">-</span> <span class="mi">92421</span> <span class="o">-</span> <span class="mi">42044</span> <span class="o">-</span> <span class="mi">1645</span> <span class="o">-</span> <span class="mi">1997</span> <span class="o">-</span> <span class="mi">38402</span>
+
 <span class="n">Second</span> <span class="n">parcours</span> <span class="p">:</span>
 <span class="n">Numéro</span> <span class="o">|</span> <span class="n">Nom</span> <span class="o">|</span> <span class="n">Nbinscrits</span> <span class="o">|</span> <span class="n">Nbvotants</span> <span class="o">|</span> <span class="n">Nbblancs</span> <span class="o">|</span> <span class="n">Nbnuls</span> <span class="o">|</span> <span class="n">Nbexp</span>
 <span class="mi">44</span> <span class="o">|</span> <span class="n">Grand</span> <span class="n">Est</span> <span class="o">|</span> <span class="mi">3864055</span> <span class="o">|</span> <span class="mi">2847382</span> <span class="o">|</span> <span class="mi">158769</span> <span class="o">|</span> <span class="mi">54418</span> <span class="o">|</span> <span class="mi">2634195</span>
@@ -2080,8 +2082,8 @@ montre le programme ci-dessous.</p>
 </section>
 <section id="ecriture-dans-un-fichier-csv">
 <h3><span class="section-number">8.3.4. </span>Écriture dans un fichier CSV<a class="headerlink" href="#ecriture-dans-un-fichier-csv" title="Lien permanent vers ce titre"></a></h3>
-<p>Pour écrire les données textuelles contenues dans un fichier CSV, il
-faut tout d’abord créer un <strong>écrivain</strong> (un <code class="docutils literal notranslate"><span class="pre">writer</span></code>) de ce fichier,
+<p>Pour écrire des données textuelles dans un fichier CSV, il faut tout
+d’abord créer un <strong>écrivain</strong> (un <code class="docutils literal notranslate"><span class="pre">writer</span></code>) de ce fichier,
 c’est-à-dire un objet capable d’écrire dans le fichier. L’écriture des
 données s’effectue ensuite à partir de cet écrivain.</p>
 <section id="creation-dun-ecrivain-la-fonction-csv-writer">
@@ -2091,8 +2093,8 @@ données s’effectue ensuite à partir de cet écrivain.</p>
 <li><p>le descripteur du fichier CSV dans lequel les données doivent être
 écrites, qui doit être ouvert en écriture</p></li>
 <li><p>des paramètres facultatifs précisant certains éléments du dialecte
-(comme par exemple la valeur de <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> ou celle de
-<code class="docutils literal notranslate"><span class="pre">lineseparator</span></code></p></li>
+(comme par exemple la valeur du caractère séparateur (<code class="docutils literal notranslate"><span class="pre">delimiter</span></code>)
+ou celle du caractère de fin de ligne (<code class="docutils literal notranslate"><span class="pre">lineseparator</span></code>)</p></li>
 </ul>
 <p>et retourne l’écrivain associé au fichier CSV.</p>
 <p>Le programme suivant ouvre le fichier <code class="docutils literal notranslate"><span class="pre">resultats.csv</span></code> en écriture,
@@ -2112,10 +2114,11 @@ une nouvelle ligne dans le fichier associé, à la position courante du
 descripteur. Elle prend comme unique paramètre un tuple ou une liste de
 chaînes dont les éléments sont les différentes valeurs de la ligne. Le
 tuple ou la liste peut être défini(e) à l’aide de la compréhension de
-liste (de tuple). Le programme suivant écrit deux lignes dans le fichier
-<code class="docutils literal notranslate"><span class="pre">resultats.csv</span></code>.</p>
+liste (de tuple). Le programme suivant écrit deux lignes à la fin du
+fichier <code class="docutils literal notranslate"><span class="pre">resultats.csv</span></code>.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">csv</span>
-
+<span class="c1"># Ouverture du fichier resultats.csv en écriture</span>
+<span class="c1"># Le descripteur f est positionné à la fin du fichier</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;resultats.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;wt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">ecrivain</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">lineterminator</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">ecrivain</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;Nom&#39;</span><span class="p">,</span> <span class="s1">&#39;Prénom&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">])</span>
