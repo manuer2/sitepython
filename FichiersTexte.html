@@ -1220,8 +1220,8 @@ partir de la position du descripteur jusqu’à la fin du fichier. Dans ce
 cas, après l’exécution de <strong>read()</strong>, le descripteur est positionné à la
 fin du fichier.</p>
 <p>Voici un exemple de lecture complète et d’affichage du contenu d’un
-fichier (pour info : le fichier <code class="docutils literal notranslate"><span class="pre">data.txt</span></code> contient un poème de
-Charles Baudelaire).</p>
+fichier nommé <code class="docutils literal notranslate"><span class="pre">data.txt</span></code> (<a class="reference external" href="data/data.txt">Cliquer ici pour visualiser le contenu du
+fichier data.txt</a>).</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ouverture du fichier</span>
 <span class="c1"># Le descripteur fichtxt est positionné sur le premier caractère du fichier</span>
 <span class="n">fichtxt</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
@@ -1550,7 +1550,8 @@ l’exécution du bloc d’instructions sera terminée, et même si cette
 terminaison est dûe à une erreur. Utiliser <strong>with</strong>, c’est donc avoir
 l’assurance que le fichier sera fermé quoi qu’il arrive.</p>
 <p>Le programme suivant lit le contenu intégral d’un fichier <code class="docutils literal notranslate"><span class="pre">demo.txt</span></code>
-puis l’affiche, en utilisant l’instruction <strong>with</strong>.</p>
+puis l’affiche, en utilisant l’instruction <strong>with</strong> (<a class="reference external" href="data/demo.txt">Cliquer ici pour
+visualiser le contenu du fichier demo.txt</a>).</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ouverture du fichier demo.txt en lecture</span>
 <span class="c1"># Le descripteur fich est positionné au début du fichier</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;demo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fich</span><span class="p">:</span>
@@ -1883,9 +1884,10 @@ susceptibles de contenir le caractère séparateur</p></li>
 <li><p>etc</p></li>
 </ul>
 <p>Le programme ci-dessous utilise ces deux fonctions pour analyser un
-fichier nommé <code class="docutils literal notranslate"><span class="pre">donnees.csv</span></code> puis afficher le résultat de son analyse.
-Notons que le fichier à analyser doit être préalablement ouvert en
-lecture.</p>
+fichier nommé <code class="docutils literal notranslate"><span class="pre">donnees.csv</span></code> puis afficher le résultat de son analyse
+(<a class="reference external" href="data/donnees.csv">Cliquer ici pour visualiser le contenu du fichier
+donnees.csv</a>). Notons que le fichier à analyser
+doit être préalablement ouvert en lecture.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">csv</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;donnees.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -2140,12 +2142,12 @@ du programme.</p>
 <p>Dans cette section, nous présentons un exemple de programme traitant des
 données mémorisées dans un fichier au format CSV. Le fichier de départ,
 nommé <code class="docutils literal notranslate"><span class="pre">notes.csv</span></code>, contient sur chaque ligne le nom, le prénom d’un(e)
-étudiant(e) ainsi que trois notes obtenues à des examens (cf. image
-ci-dessous).</p>
+étudiant(e) ainsi que trois notes obtenues à des examens (<a class="reference external" href="data/notes.csv">Cliquer ici
+pour visualiser le contenu du fichier notes.csv</a>).</p>
 <figure class="align-default" id="id17">
-<img alt="Contenu du fichier donnees.csv" src="_images/Contenu_Donnees_csv.PNG" />
+<img alt="Contenu du fichier notes.csv" src="_images/Contenu_Donnees_csv.PNG" />
 <figcaption>
-<p><span class="caption-text">Contenu du fichier donnees.csv</span><a class="headerlink" href="#id17" title="Lien permanent vers cette image"></a></p>
+<p><span class="caption-text">Contenu du fichier notes.csv</span><a class="headerlink" href="#id17" title="Lien permanent vers cette image"></a></p>
 </figcaption>
 </figure>
 <p>Le programme parcourt ligne par ligne le fichier <code class="docutils literal notranslate"><span class="pre">notes.csv</span></code> afin de

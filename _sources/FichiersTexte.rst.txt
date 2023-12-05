@@ -514,8 +514,8 @@ cas, après l’exécution de **read()**, le descripteur est positionné à la
 fin du fichier.
 
 Voici un exemple de lecture complète et d’affichage du contenu d’un
-fichier (pour info : le fichier ``data.txt`` contient un poème de
-Charles Baudelaire).
+fichier nommé ``data.txt`` (`Cliquer ici pour visualiser le contenu du
+fichier data.txt <data/data.txt>`__).
 
 .. code:: ipython3
 
@@ -887,7 +887,8 @@ terminaison est dûe à une erreur. Utiliser **with**, c’est donc avoir
 l’assurance que le fichier sera fermé quoi qu’il arrive.
 
 Le programme suivant lit le contenu intégral d’un fichier ``demo.txt``
-puis l’affiche, en utilisant l’instruction **with**.
+puis l’affiche, en utilisant l’instruction **with** (`Cliquer ici pour
+visualiser le contenu du fichier demo.txt <data/demo.txt>`__).
 
 .. code:: ipython3
 
@@ -1256,9 +1257,10 @@ du fichier, résumées dans des variables telles que :
 -  etc
 
 Le programme ci-dessous utilise ces deux fonctions pour analyser un
-fichier nommé ``donnees.csv`` puis afficher le résultat de son analyse.
-Notons que le fichier à analyser doit être préalablement ouvert en
-lecture.
+fichier nommé ``donnees.csv`` puis afficher le résultat de son analyse
+(`Cliquer ici pour visualiser le contenu du fichier
+donnees.csv <data/donnees.csv>`__). Notons que le fichier à analyser
+doit être préalablement ouvert en lecture.
 
 .. code:: ipython3
 
@@ -1543,13 +1545,13 @@ Exemple complet
 Dans cette section, nous présentons un exemple de programme traitant des
 données mémorisées dans un fichier au format CSV. Le fichier de départ,
 nommé ``notes.csv``, contient sur chaque ligne le nom, le prénom d’un(e)
-étudiant(e) ainsi que trois notes obtenues à des examens (cf. image
-ci-dessous).
+étudiant(e) ainsi que trois notes obtenues à des examens (`Cliquer ici
+pour visualiser le contenu du fichier notes.csv <data/notes.csv>`__).
 
 .. figure:: ImagesNotebook/Contenu_Donnees_csv.PNG
-   :alt: Contenu du fichier donnees.csv
+   :alt: Contenu du fichier notes.csv
 
-   Contenu du fichier donnees.csv
+   Contenu du fichier notes.csv
 
 Le programme parcourt ligne par ligne le fichier ``notes.csv`` afin de
 calculer la moyenne des trois notes de chaque étudiant(e). Il crée un
