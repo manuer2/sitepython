@@ -1259,7 +1259,7 @@ du fichier, résumées dans des variables telles que :
 Le programme ci-dessous utilise ces deux fonctions pour analyser un
 fichier nommé ``donnees.csv`` puis afficher le résultat de son analyse
 (`Cliquer ici pour visualiser le contenu du fichier
-donnees.csv <data/donnees.csv>`__). Notons que le fichier à analyser
+donnees.csv <data/donnees.csv.txt>`__). Notons que le fichier à analyser
 doit être préalablement ouvert en lecture.
 
 .. code:: ipython3
@@ -1546,7 +1546,8 @@ Dans cette section, nous présentons un exemple de programme traitant des
 données mémorisées dans un fichier au format CSV. Le fichier de départ,
 nommé ``notes.csv``, contient sur chaque ligne le nom, le prénom d’un(e)
 étudiant(e) ainsi que trois notes obtenues à des examens (`Cliquer ici
-pour visualiser le contenu du fichier notes.csv <data/notes.csv>`__).
+pour visualiser le contenu du fichier
+notes.csv <data/notes.csv.txt>`__).
 
 .. figure:: ImagesNotebook/Contenu_Donnees_csv.PNG
    :alt: Contenu du fichier notes.csv
