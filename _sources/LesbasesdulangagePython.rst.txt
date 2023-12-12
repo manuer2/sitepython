@@ -147,9 +147,9 @@ parallèles**. Voici un exemple d’affectations parallèles :
     coefA, coefB, coefC = 5, 1, 2.4
 
 .. figure:: ImagesNotebook/AffectationsParalleles.PNG
-   :alt: Exemple d’affectation multiple
+   :alt: Exemple d’affectations parallèles
 
-   Exemple d’affectation multiple
+   Exemple d’affectations parallèles
 
 Les différents types d’objets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
