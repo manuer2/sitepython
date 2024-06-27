@@ -25,9 +25,8 @@ zone de la mémoire dans laquelle est mémorisée un objet. Elle possède :
 
 On peut donc écrire un programme Python dans lequel on manipule :
 
--  une variable de nom ``jour``, de type
-   ``chaîne de caractères (string)``, ayant pour valeur l’objet chaîne
-   ``'lundi'`` ;
+-  une variable de nom ``jour``, de type ``chaîne de caractères (str)``,
+   ayant pour valeur l’objet chaîne ``'lundi'`` ;
 -  une variable de nom ``mois``, de type ``entier (int)``, ayant pour
    valeur le nombre (objet) entier ``15``.
 
