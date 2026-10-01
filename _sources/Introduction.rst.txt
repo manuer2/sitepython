@@ -20,8 +20,8 @@ Le cours est composé essentiellement de séances de Travaux Dirigés, à
 raison de deux heures par semaine. Quatre intervenants assureront les
 TDs :
 
--  Haïscam ABDALLAH
 -  Xavier ANDRÉ
+-  Aurélie LEMAITRE
 -  Emmanuelle MARTIENNE
 -  Fabienne MOREAU
 
@@ -368,10 +368,10 @@ pas toujours exacts.
 ::
 
 
-      Input In [8]
-        if (delta >= 0):
-                       ^
-    SyntaxError: invalid syntax
+      Input In [2]
+        delta = (coeff_b**2)-(4 * coeff_a * coeff_c
+                             ^
+    SyntaxError: '(' was never closed
     
 
 
@@ -408,7 +408,7 @@ pas toujours exacts.
 ::
 
 
-      Input In [1]
+      Input In [3]
         print(f"L'équation admet une racine réelle double égale à : {racine1.")
                                                                               ^
     SyntaxError: f-string: expecting '}'
