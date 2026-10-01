@@ -347,7 +347,7 @@ Le programme suivant est un exemple d’utilisation de la fonction
     import os
     courant = os.getcwd()
     print(f"Le dossier courant est : {courant}")
-    nouveau = courant + '\data'
+    nouveau = courant + '/data'
     os.chdir(nouveau)
     courant = os.getcwd()
     print(f"Le nouveau dossier courant est : {courant}")
